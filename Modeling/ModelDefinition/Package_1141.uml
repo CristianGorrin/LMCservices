@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ba730f4f-191c-4a88-a2c2-4902f28cdafb"
+  name="Presentation Layer" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="8a034380-5e22-431a-a5d3-000b28f73061">
+      <packageMoniker
+        Id="0291376d-d657-4a1d-b5a8-6371e101ecce"
+        LastKnownName="Interface"
+        LastKnownLocation="Package_1107.uml" />
+    </dependency>
+    <dependency
+      Id="44b3b11a-f149-4475-a18e-2c1a015289fd">
+      <packageMoniker
+        Id="65c0bbf1-eb7c-484c-8bcd-1aa8177e8ab4"
+        LastKnownName="Domain Logic  "
+        LastKnownLocation="Package_1139.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="164c88ad-18c2-472e-a3e4-663c2709a1c7"
+        LastKnownName="wpfGUI"
+        LastKnownLocation="Package_1108.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

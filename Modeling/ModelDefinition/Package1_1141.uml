@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="6bce1449-170b-472d-80fc-6d96f7c47d18"
+  name="Data Source" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="da4cbf57-7efa-4fc3-92f3-247ff943ef15">
+      <packageMoniker
+        Id="0291376d-d657-4a1d-b5a8-6371e101ecce"
+        LastKnownName="Interface"
+        LastKnownLocation="Package_1107.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8b44111f-ca14-43bd-939b-207963600b91"
+        LastKnownName="RDGs"
+        LastKnownLocation="Package1_1107.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

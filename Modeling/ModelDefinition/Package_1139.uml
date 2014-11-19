@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="65c0bbf1-eb7c-484c-8bcd-1aa8177e8ab4"
+  name="Domain Logic  " xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="643bbf24-76fa-4e43-8fe7-976ec3202040">
+      <packageMoniker
+        Id="0291376d-d657-4a1d-b5a8-6371e101ecce"
+        LastKnownName="Interface"
+        LastKnownLocation="Package_1107.uml" />
+    </dependency>
+    <dependency
+      Id="365935d5-5cf3-483b-a112-5d023ce5fbeb">
+      <packageMoniker
+        Id="6bce1449-170b-472d-80fc-6d96f7c47d18"
+        LastKnownName="Data Source"
+        LastKnownLocation="Package1_1141.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1b841d9f-04af-408c-a792-fdb03acc8f00"
+        LastKnownName="Company"
+        LastKnownLocation="Package_1042.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d514edcf-5300-4d7b-95cf-4158252aa2f5"
+        LastKnownName="Customers"
+        LastKnownLocation="Package_1058.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0a3b66b7-3a2c-4e74-810e-48e612bafcc2"
+        LastKnownName="Accounting"
+        LastKnownLocation="Package_1105.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e77eb48c-3c52-4858-8d76-73ee818854fb"
+        LastKnownName="Information"
+        LastKnownLocation="Package_1114.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0291376d-d657-4a1d-b5a8-6371e101ecce"
+        LastKnownName="Interface"
+        LastKnownLocation="Package_1107.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1a89e80f-c417-407e-9070-68d10f086f78"
+        LastKnownName="Orders"
+        LastKnownLocation="Package_1213.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c9016714-c60e-4e9f-903e-b0a97e723d55"
+        LastKnownName="Recovery"
+        LastKnownLocation="Package_1224.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="2776fbcc-ca6f-48c2-be48-9ebb8ce003f4"
+        LastKnownName="Controller"
+        LastKnownLocation="Package_1306.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
