@@ -282,12 +282,6 @@ as
 	FROM [dbo].[tblDepartment] where active = @active
 go
 
-create procedure [tblDepartment.DELETE]
-	@department int
-as
-	
-go
-
 create procedure [tblDepartment.UPDATE]
 	@department int,
 	@companyName nvarchar(100),
@@ -314,6 +308,19 @@ as
 	 WHERE department = @department
 go
 
+create procedure [tblDepartment.DELETE]
+	@Department int
+as
+	declare @result nvarchar(MAX)
+
+	select @result = coalesce('[tblDepartment] { department = ' + CAST(department as nvarchar(10)) + ', cvrNo = ' + CAST(cvrNo as nvarchar(10)) +
+	', phoneNo = ' + phoneNo + ', altPhoneNo = ' + altPhoneNo + ', _address = ' + _address + ', postNo = ' + CAST(postNo as nvarchar(10)) + 
+	', email = ' + email + ', active = ' + CAST(active as nvarchar(1)) + ', departmentHeadNo = ' + CAST(departmentHeadNo as nvarchar(10)) + ' }' ,'')
+	from [dbo].[tblDepartment] where  department = @Department
+
+	insert into [dbo].[tblDeleteItems](itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
+	delete from [dbo].[tblDepartment] where department = @Department
+go
 
 --tblBankAccounts
 create procedure [tblBankAccounts.ADD]
@@ -337,15 +344,15 @@ as
 go
 
 create procedure [tblBankAccounts.FIND]
-	@indexId int
+	@id int
 as
 	Select
-	indexId,
+	Id,
 	bank,
 	accountName,
 	regNo,
 	AccountNo
-	From [dbo].[tblBankAccounts] where indexId = @indexId
+	From [dbo].[tblBankAccounts] where Id = @id
 go
 
 create procedure [tblBankAccounts.GET]
@@ -361,16 +368,16 @@ as
 go
 
 create procedure [tblBankAccounts.DELETE]
-	@indexId int
+	@ID int
 as
 	declare @result nvarchar(MAX)
 
-	select @result = coalesce('[tblBankAccounts] { indexId = ' + CAST(indexId as nvarchar(10)) + ', bank = ' + bank + ', accountName = ' +
-	accountName + ', regNo = ' + CAST(regNo as navechar(10)) + ', accountNo = ' + CAST(accountNo as navechar(10)) + ' }','')
-	from [dbo].[tblBankAccounts] where indexId = @indexID
+	select @result = coalesce('[tblBankAccounts] { indexId = ' + CAST(Id as nvarchar(10)) + ', bank = ' + bank + ', accountName = ' +
+	accountName + ', regNo = ' + CAST(regNo as nvarchar(10)) + ', accountNo = ' + CAST(accountNo as nvarchar(10)) + ' }','')
+	from [dbo].[tblBankAccounts] where Id = @ID
 
 	insert into [dbo].[tblDeleteItems](itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
-	delete from [dbo].[tblBankAccounts] where indexId = @indexId
+	delete from [dbo].[tblBankAccounts] where Id = @ID
 go
 
 create procedure [tblBankAccounts.UPDATE]
@@ -386,7 +393,7 @@ as
 		accountName = @accountName,
 		regNo = @regNo,
 		accountNo = @accountNo
-	WHERE indexId = @indexId
+	WHERE Id = @indexId
 go
 
 
@@ -587,7 +594,7 @@ as
 	select @result = coalesce('[tblCompanyOrders] { invoiceNo = ' + CAST(invoiceNo as nvarchar(10)) + ', createdDate = ' + CAST(createdDate as nvarchar(20)) + 
 	', taskDate = ' + CAST(taskDate as nvarchar(20)) + ', descriptionTask = ' + descriptionTask + ', dateSendBill = ' + CAST(dateSendBill as nvarchar(20)) + 
 	', daysToPaid = ' + CAST(daysToPaid as nvarchar(10)) + ', hoursUse = ' + CAST(hoursUse as nvarchar(3)) + ', paidHour =  ' + CAST(paidHour as nvarchar(3)) +
-	', createBy = ' + CAST(createBy as nvarchar(10)) + ', paidToACC = ' + CAST(paidToACC as nvarchar(10)) + ', customers = ' + CAST(cusromers as nvarchar(10)) + 
+	', createBy = ' + CAST(createBy as nvarchar(10)) + ', paidToACC = ' + CAST(paidToACC as nvarchar(10)) + ', customer = ' + CAST(customer as nvarchar(10)) + 
 	', paid = ' + CAST(paid as nvarchar(1)),'')
 	from [dbo].[tblCompanyOrders] where invoiceNo = @invoiceNo
 
@@ -622,114 +629,6 @@ as
 	paid = @paid
 	where invoiceNo = @invoiceNo
 go
-
-
---tblDepartment
-create procedure [tblDepartment.ADD]
-	@companyName nvarchar(100),
-    @cvrNo int,
-    @phoneNo nvarchar(25),
-    @altPhoneNo nvarchar(25),
-    @_address nvarchar(100),
-    @postNo int,
-    @email nvarchar(50),
-    @active bit,
-    @departmentHeadNo int
-as
-	insert into [dbo].[tblDepartment](
-		companyName,
-		cvrNo,
-		phoneNo,
-		altPhoneNo,
-		_address,
-		postNo,
-		email,
-		active,
-		departmentHeadNo
-		) values (
-		@companyName,
-		@cvrNo,
-		@phoneNo,
-		@altPhoneNo,
-		@_address,
-		@postNo,
-		@email,
-		@active,
-		@departmentHeadNo
-		)
-go
-
-create procedure [tblDepartment.FIND]
-	@department int
-as
-	select 
-	department,	
-	companyName,
-	cvrNo,
-	phoneNo,
-	altPhoneNo,
-	_address,
-	postNo,
-	email,
-	active,
-	departmentHeadNo
-	where department = @department
-go
-
-create procedure [tblDepartment.GET]
-as
-	select
-	department,	
-	companyName,
-	cvrNo,
-	phoneNo,
-	altPhoneNo,
-	_address,
-	postNo,
-	email,
-	active,
-	departmentHeadNo
-go
-
-create procedure [tblDepartment.DELETE]
-	@Department int
-as
-	declare @result nvarchar(MAX)
-
-	select @result = coalesce('[tblDepartment] { department = ' + CAST(department as nvarchar(10)) + ', cvrNo = ' + CAST(cvrNo as nvarchar(10)) +
-	', phoneNo = ' + phoneNo + ', altPhoneNo = ' + altPhoneNo + ', _address = ' + _address + ', postNo = ' + CAST(postNo as nvarchar(10)) + 
-	', email = ' + email + ', active = ' + CAST(active as nvarchar(1)) + ', departmentHead = ' + CAST(departmentHead as nvarchar(10)) + ' }' ,'')
-	from [dbo].[tblDepartment] where  department = @Department
-
-	insert into [dbo].[tblDeleteItems](itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
-	delete from [dbo].[tblDepartment] where department = @Department
-go
-
-create procedure [tblDepartment.UPDATE]
-	@department int,
-	@companyName nvarchar(100),
-    @cvrNo int,
-    @phoneNo nvarchar(25),
-    @altPhoneNo nvarchar(25),
-    @_address nvarchar(100),
-    @postNo int,
-    @email nvarchar(50),
-    @active bit,
-    @departmentHeadNo int
-as
-	Update [dbo].[tblDepartment] set
-	companyName = @companyName,
-	cvrNo = @cvrNo,
-	phoneNo = @phoneNo,
-	altPhoneNo = @altPhoneNo,
-	_address = @_address,
-	postNo = @postNo,
-	email = @email,
-	active = @active,
-	departmentHeadNo = @departmentHeadNo
-	where department = @department
-go
-
 
 --tblPostNo
 create procedure [tblPostNo.ADD]
@@ -770,7 +669,7 @@ create procedure [tblPostNo.DELETE]
 as
 	declare @result nvarchar(MAX)
 
-	select @result = coalesce('[tblPostNo] { ID = ' + CAST(ID as nvarchar(10)) + ', psotNo = ' + CAST(psotNo as nvarchar(10)) +
+	select @result = coalesce('[tblPostNo] { ID = ' + CAST(ID as nvarchar(10)) + ', postNo = ' + CAST(postNo as nvarchar(10)) +
 	 ', city = ' + city + ' }' ,'') 
 	from [dbo].[tblPostNo] where ID = @ID
 
@@ -969,18 +868,18 @@ as
 go
 
 create procedure [tblPrivetOrders.DELETE] 
-	@privateCustomersNo int
+	@invoiceNo int
 as
 	declare @result nvarchar(MAX)
 
 	select @result = coalesce('[tblPrivetOrders] { invoiceNo = ' + CAST(invoiceNo as nvarchar(10)) + ', taskDate = ' + CAST(taskDate as nvarchar(20)) + 
 	', descriptionTask = ' + descriptionTask + ', daysToPaid = ' + CAST(daysToPaid as nvarchar(10)) + ', hoursUse = ' + CAST(hoursUse as nvarchar(3)) + 
-	', paidHour = ' + CAST(psidHour as nvarchar(3)) + ', createBy = ' + CAST(createBy as nvarchar(10)) + ', paidToACC = ' + CAST(paidToACC as nvarchar(10)) + 
-	', customer = ' + CAST(customer as nvarchar(10)) + ', paid = ' + CAST(paid as nvarchar(1)) + ' }','')
-	from [dbo].[tblPrivetOrders] where privateCustomersNo = @privateCustomersNo
+	', paidHour = ' + CAST(paidHour as nvarchar(3)) + ', createBy = ' + CAST(createBy as nvarchar(10)) + ', paidToACC = ' + CAST(paidToACC as nvarchar(10)) + 
+	', customers = ' + CAST(customers as nvarchar(10)) + ', paid = ' + CAST(paid as nvarchar(1)) + ' }','')
+	from [dbo].[tblPrivetOrders] where invoiceNo = @invoiceNo
 
 	insert into [dbo].[tblDeleteItems](itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
-	delete from [dbo].[tblPrivetOrders] where privateCustomersNo = @privateCustomersNo
+	delete from [dbo].[tblPrivetOrders] where invoiceNo = @invoiceNo
 go
 
 create procedure [tblPrivetOrders.UPDATE]
@@ -1014,6 +913,24 @@ go
 
 
 --tblWorkers
+create procedure [tblWorkers.GET]
+	@workNo int
+as
+	Select
+	workNo,
+	name,
+	surname,
+	workerStatus,
+	phoneNo,
+	altPhoneNo,
+	homeAddress,
+	postNo,
+	email,
+	active
+	from [dbo].[tblWorkers] where workNo = @workNo
+go
+
+
 create procedure [tblWorkers.ADD]
     @name nvarchar(50),
     @surname nvarchar(50),
@@ -1066,35 +983,19 @@ as
 	
 go
 
-create procedure [tblWorkers.GET]
-as
-	Select
-	workNo,
-	name,
-	surname,
-	workerStatus,
-	phoneNo,
-	altPhoneNo,
-	homeAddress,
-	postNo,
-	email,
-	active
-	from [dbo].[tblWorkers]
-go
-
 create procedure [tblWorkers.DELETE]
 	@workNo int
 as
 	declare @result nvarchar(Max)
 
 	select @result = coalesce('[tblWorkers] { workNo = ' + workNo + ', name = ' + name + ', surname = ' + surname + 
-		', workerStatus = ' + CAST(workerStatus as nvarchar(10)) + ', phoneNo = ' + poneNo + ' , altPhoneNo = ' + altPhoneNo + 
+		', workerStatus = ' + CAST(workerStatus as nvarchar(10)) + ', phoneNo = ' + phoneNo + ' , altPhoneNo = ' + altPhoneNo + 
 		', homeAddress = ' + homeAddress + ', postNo = ' + CAST(postNo as nvarchar(10)) + ', email = ' + email + 
 		', active = ' + CAST(active as nvarchar(1)),'')
 	from [dbo].[tblWorkers] where workNo = @workNo
-
-	insert into [dbo].[tblDeleteItems]	delete from [dbo].[tblWorkerStatus] where workNo = @workNo (itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
-
+	
+	insert into [dbo].[tblDeleteItems](itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
+	delete from [dbo].tblWorkers where workNo = @workNo 
 go
 
 create procedure [tblWorkers.UPDATE]
@@ -1143,22 +1044,6 @@ as
 	from [dbo].[tblWorkerStatus] where statusNo = @statusNo
 go
 
-create procedure [tblWorkers.GET]
-	@workNo int
-as
-	Select
-	workNo,
-	name,
-	surname,
-	workerStatus,
-	phoneNo,
-	altPhoneNo,
-	homeAddress,
-	postNo,
-	email,
-	active
-	from [dbo].[tblWorkers] where workNo = @workNo
-go
 
 
 create procedure [tblWorkerStatus.DELETE]
