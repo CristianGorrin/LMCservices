@@ -8,8 +8,6 @@ using API;
 
 namespace Company
 {
-   
-
     public class Departments : API.Lists<Department>
     {
         public Departments()
