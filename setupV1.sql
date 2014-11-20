@@ -38,7 +38,8 @@ create table tblBankAccounts
 	bank nvarchar(100) NOT NULL,
 	accountName nvarchar(50),
 	regNo int NOT NULL,
-	accountNo int NOT NULL UNIQUE
+	accountNo int NOT NULL,
+	balance decimal(8,4)
 );
 
 create table tblWorkerStatus
@@ -194,6 +195,9 @@ default 0 for daysToPaid;
 Alter table tblPrivetOrders Add constraint def_tblPrivetOrders_paid
 default 0 for paid;
 
+ALter table tblBankAccounts Add constraint def_tblBankAccounts_balance
+default 0 for balance;
+
 go
 
 -- Check Constraints OK
@@ -327,19 +331,22 @@ create procedure [tblBankAccounts.ADD]
 	@bank nvarchar(100),
 	@accountName nvarchar(50),
 	@regNo int,
-	@accountNo int
+	@accountNo int,
+	@balance decimal(8,4)
 as
 	Insert into [dbo].[tblBankAccounts]
 	(
 		bank,
 		accountName,
 		regNo,
-		accountNo
+		accountNo,
+		balance 
 	) Values(
 		@bank,
 		@accountName,
 		@regNo,
-		@accountNo
+		@accountNo,
+		@balance
 	)
 go
 
@@ -351,7 +358,8 @@ as
 	bank,
 	accountName,
 	regNo,
-	AccountNo
+	AccountNo,
+	balance
 	From [dbo].[tblBankAccounts] where Id = @id
 go
 
@@ -373,7 +381,8 @@ as
 	declare @result nvarchar(MAX)
 
 	select @result = coalesce('[tblBankAccounts] { indexId = ' + CAST(Id as nvarchar(10)) + ', bank = ' + bank + ', accountName = ' +
-	accountName + ', regNo = ' + CAST(regNo as nvarchar(10)) + ', accountNo = ' + CAST(accountNo as nvarchar(10)) + ' }','')
+	accountName + ', regNo = ' + CAST(regNo as nvarchar(10)) + ', accountNo = ' + CAST(accountNo as nvarchar(10)) +  
+	', balance = ' + CAST(balance as nvarchar(11)) + ' }','')
 	from [dbo].[tblBankAccounts] where Id = @ID
 
 	insert into [dbo].[tblDeleteItems](itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
@@ -385,14 +394,16 @@ create procedure [tblBankAccounts.UPDATE]
 	@bank nvarchar(100),
 	@accountName nvarchar(50),
 	@regNo int,
-	@accountNo int
+	@accountNo int,
+	@balance decimal(8,4)
 as
 	UPDATE [dbo].[tblBankAccounts]
 	SET 
 		bank = @bank,
 		accountName = @accountName,
 		regNo = @regNo,
-		accountNo = @accountNo
+		accountNo = @accountNo,
+		balance = @balance
 	WHERE Id = @indexId
 go
 

@@ -48,6 +48,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostNo", "PostNo\PostNo.csproj", "{7EAA6314-27CE-4DE8-9911-835576890F18}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing values", "Testing values", "{66D9F4FC-9494-4F59-945F-8179B279A5E1}"
+	ProjectSection(SolutionItems) = preProject
+		TestingValuesV1.sql = TestingValuesV1.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
