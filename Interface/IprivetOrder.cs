@@ -14,7 +14,7 @@ namespace Interface
         DateTime DateSendBill { get; }
         int DaysToPaid { get; }
         string DescriptionTask { get; }
-        DateTime HourUse { get; }
+        double HourUse { get; }
         int InvoiceNo { get; }
         bool Paid { get; }
         double PaidHour { get; }

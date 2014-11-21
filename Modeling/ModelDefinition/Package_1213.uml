@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="1a89e80f-c417-407e-9070-68d10f086f78"
   name="Orders" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1811,8 +1811,8 @@
             </appliedStereotypesInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="0abd4cc8-a039-4ccc-a4fe-a0dfa3b865b5"
-                LastKnownName="Worker"
+                Id="5f16571a-6353-4084-8f89-60b886c863be"
+                LastKnownName="Iworker"
                 LastKnownLocation="Package_1213.uml" />
             </type_NamedElement>
           </property>
@@ -1963,8 +1963,8 @@
             </appliedStereotypesInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="4125aa96-c939-4c67-b8bf-edbf77c1cb9e"
-                LastKnownName="PrivetCustomer"
+                Id="474e6ffc-9814-412a-a2d5-ef1056cafe2f"
+                LastKnownName="IprivetCustomer"
                 LastKnownLocation="Package_1213.uml" />
             </type_NamedElement>
           </property>
@@ -2302,6 +2302,16 @@
       <undefinedType
         Id="c954a035-a1b7-4532-b17a-e24bd5fedb11"
         name="list&lt;ComoanyOrder&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="5f16571a-6353-4084-8f89-60b886c863be"
+        name="Iworker" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="474e6ffc-9814-412a-a2d5-ef1056cafe2f"
+        name="IprivetCustomer" />
     </packageHasNamedElement>
   </packagedElements>
 </package>
