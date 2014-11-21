@@ -57,8 +57,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing values", "Testing v
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql query maker", "Sql query maker\Sql query maker.csproj", "{C576A4D6-AE96-4080-B134-A48BBEEC76AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders", "Orders\Orders.csproj", "{7DF0BA1D-AF98-4E3B-9E23-A4A6C199B0C8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,10 +103,6 @@ Global
 		{C576A4D6-AE96-4080-B134-A48BBEEC76AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C576A4D6-AE96-4080-B134-A48BBEEC76AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C576A4D6-AE96-4080-B134-A48BBEEC76AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DF0BA1D-AF98-4E3B-9E23-A4A6C199B0C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DF0BA1D-AF98-4E3B-9E23-A4A6C199B0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DF0BA1D-AF98-4E3B-9E23-A4A6C199B0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DF0BA1D-AF98-4E3B-9E23-A4A6C199B0C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +120,5 @@ Global
 		{7EAA6314-27CE-4DE8-9911-835576890F18} = {5DE65AEA-A2B0-49D4-91BD-2F8999C7B2B5}
 		{66D9F4FC-9494-4F59-945F-8179B279A5E1} = {8D0E1D4F-C4FF-4B43-915E-54633491530A}
 		{C576A4D6-AE96-4080-B134-A48BBEEC76AF} = {87E5A2D1-A8FC-4DB8-AEA1-69EB8E97150B}
-		{7DF0BA1D-AF98-4E3B-9E23-A4A6C199B0C8} = {5DE65AEA-A2B0-49D4-91BD-2F8999C7B2B5}
 	EndGlobalSection
 EndGlobal
