@@ -59,7 +59,7 @@ create table tblPrivateCustomers
 (
 	privateCustomersNo int IDENTITY(1,1) primary key NOT NULL,
 	name nvarchar(50) NOT NULL,
-	snaurname nvarchar(50) NOT NULL,
+	surname nvarchar(50) NOT NULL,
 	phoneNo nvarchar(25) NOT NULL,
 	altPhoneNo nvarchar(25),
 	homeAddress nvarchar(100) NOT NULL,
