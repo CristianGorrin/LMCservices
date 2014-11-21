@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDGs", "RDGs\RDGs.csproj", "{8EEC2A57-73C1-4492-A03E-D845B3E8E6D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_IItems", "_IItems", "{87E5A2D1-A8FC-4DB8-AEA1-69EB8E97150B}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database - SQL", "Database - SQL", "{8D0E1D4F-C4FF-4B43-915E-54633491530A}"
 	ProjectSection(SolutionItems) = preProject

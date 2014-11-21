@@ -90,7 +90,7 @@ create table tblCompanyOrders
 	descriptionTask nvarchar(200) NOT NULL,
 	dateSendBill date,
 	daysToPaid int,
-	hoursUse decimal(4,1),
+	hoursUse decimal(3,1),
 	paidHour decimal(4,1),
 	createBy int NOT NULL, --FK tblWorkers
 	paidToACC int NOT NULL, --FK tblBankAccounts
@@ -106,7 +106,7 @@ create table tblPrivetOrders
 	descriptionTask nvarchar(200) NOT NULL,
 	dateSendBill date,
 	daysToPaid int,
-	hoursUse decimal(4,1),
+	hoursUse decimal(3,1),
 	paidHour decimal(4,1),
 	createBy int NOT NULL, --FK tblWorkers
 	paidToACC int NOT NULL, --FK tblBankAccounts
