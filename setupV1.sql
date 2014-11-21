@@ -39,7 +39,7 @@ create table tblBankAccounts
 	accountName nvarchar(50),
 	regNo int NOT NULL,
 	accountNo int NOT NULL,
-	balance decimal(8,4)
+	balance decimal(12,4)
 );
 
 create table tblWorkerStatus
@@ -59,7 +59,7 @@ create table tblPrivateCustomers
 (
 	privateCustomersNo int IDENTITY(1,1) primary key NOT NULL,
 	name nvarchar(50) NOT NULL,
-	surname nvarchar(50) NOT NULL,
+	snaurname nvarchar(50) NOT NULL,
 	phoneNo nvarchar(25) NOT NULL,
 	altPhoneNo nvarchar(25),
 	homeAddress nvarchar(100) NOT NULL,
@@ -90,8 +90,8 @@ create table tblCompanyOrders
 	descriptionTask nvarchar(200) NOT NULL,
 	dateSendBill smalldatetime,
 	daysToPaid int,
-	hoursUse decimal(3,1),
-	paidHour decimal(3,1),
+	hoursUse decimal(4,1),
+	paidHour decimal(4,1),
 	createBy int NOT NULL, --FK tblWorkers
 	paidToACC int NOT NULL, --FK tblBankAccounts
 	customer int NOT NULL, --FK tblCompanyCustomers
@@ -106,8 +106,8 @@ create table tblPrivetOrders
 	descriptionTask nvarchar(200) NOT NULL,
 	dateSendBill smalldatetime,
 	daysToPaid int,
-	hoursUse decimal(3,1),
-	paidHour decimal(3,1),
+	hoursUse decimal(4,1),
+	paidHour decimal(4,1),
 	createBy int NOT NULL, --FK tblWorkers
 	paidToACC int NOT NULL, --FK tblBankAccounts
 	customers int NOT NULL, --FK tblPrivateCustomers
@@ -332,7 +332,7 @@ create procedure [tblBankAccounts.ADD]
 	@accountName nvarchar(50),
 	@regNo int,
 	@accountNo int,
-	@balance decimal(8,4)
+	@balance decimal(12,4)
 as
 	Insert into [dbo].[tblBankAccounts]
 	(
@@ -395,7 +395,7 @@ create procedure [tblBankAccounts.UPDATE]
 	@accountName nvarchar(50),
 	@regNo int,
 	@accountNo int,
-	@balance decimal(8,4)
+	@balance decimal(12,4)
 as
 	UPDATE [dbo].[tblBankAccounts]
 	SET 
@@ -525,8 +525,8 @@ create procedure [tblCompanyOrders.ADD]
     @descriptionTask nvarchar(200),
     @dateSendBill smalldatetime,
     @daysToPaid int,
-    @hoursUse decimal(3,1),
-    @paidHour decimal(3,1),
+    @hoursUse decimal(4,1),
+    @paidHour decimal(4,1),
     @createBy int,
     @paidToACC int,
     @customer int,
@@ -620,8 +620,8 @@ create procedure [tblCompanyOrders.UPDATE]
     @descriptionTask nvarchar(200),
     @dateSendBill smalldatetime,
     @daysToPaid int,
-    @hoursUse decimal(3,1),
-    @paidHour decimal(3,1),
+    @hoursUse decimal(4,1),
+    @paidHour decimal(4,1),
     @createBy int,
     @paidToACC int,
     @customer int,
@@ -809,8 +809,8 @@ create procedure [tblPrivetOrders.ADD]
     @descriptionTask nvarchar(200),
     @dateSendBill smalldatetime,
     @daysToPaid int,
-    @hoursUse decimal(3,1),
-    @paidHour decimal(3,1),
+    @hoursUse decimal(4,1),
+    @paidHour decimal(4,1),
     @createBy int,
     @paidToACC int,
     @customers int,
@@ -900,8 +900,8 @@ create procedure [tblPrivetOrders.UPDATE]
     @descriptionTask nvarchar(200),
     @dateSendBill smalldatetime,
     @daysToPaid int,
-    @hoursUse decimal(3,1),
-    @paidHour decimal(3,1),
+    @hoursUse decimal(4,1),
+    @paidHour decimal(4,1),
     @createBy int,
     @paidToACC int,
     @customers int,
