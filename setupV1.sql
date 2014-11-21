@@ -201,17 +201,17 @@ default 0 for balance;
 go
 
 -- Check Constraints OK
-Alter table tblDepartment Add constraint CH_tblDeparment_email
-Check (email like '_%@_%._%');
+--Alter table tblDepartment Add constraint CH_tblDeparment_email
+--Check (email like '_%@_%._%');
 
-Alter table tblWorkers Add constraint CH_tblWorkers_email
-Check (email like '_%@_%._%');
+--Alter table tblWorkers Add constraint CH_tblWorkers_email
+--Check (email like '_%@_%._%');
 
-Alter table tblPrivateCustomers Add constraint CH_tblPrivateCustomers_email
-Check (email like '_%@_%._%;');
+--Alter table tblPrivateCustomers Add constraint CH_tblPrivateCustomers_email
+--Check (email like '_%@_%._%;');
 
-Alter table tblCompanyCustomers Add constraint CH_tblCompanyCustomers_email
-Check (email like '_%@_%._%');
+--Alter table tblCompanyCustomers Add constraint CH_tblCompanyCustomers_email
+--Check (email like '_%@_%._%');
 
 go
 
