@@ -85,10 +85,10 @@ create table tblCompanyCustomers
 create table tblCompanyOrders
 (
 	invoiceNo int IDENTITY(1,1) primary key NOT NULL,
-	createdDate smalldatetime,
-	taskDate smalldatetime NOT NULL,
+	createdDate date,
+	taskDate date NOT NULL,
 	descriptionTask nvarchar(200) NOT NULL,
-	dateSendBill smalldatetime,
+	dateSendBill date,
 	daysToPaid int,
 	hoursUse decimal(4,1),
 	paidHour decimal(4,1),
@@ -101,10 +101,10 @@ create table tblCompanyOrders
 create table tblPrivetOrders
 (
 	invoiceNo int IDENTITY(1,1) primary key NOT NULL,
-	createdDate smalldatetime,
-	taskDate smalldatetime NOT NULL,
+	createdDate date,
+	taskDate date NOT NULL,
 	descriptionTask nvarchar(200) NOT NULL,
-	dateSendBill smalldatetime,
+	dateSendBill date,
 	daysToPaid int,
 	hoursUse decimal(4,1),
 	paidHour decimal(4,1),
@@ -118,7 +118,7 @@ create table tblDeleteItems
 (
 	ItemNo int IDENTITY(1,1) primary key NOT NULL,
 	itemInfo nvarchar(MAX), -- has the information to restore an item from a table in DB in string
-	deleteDate smalldatetime,
+	deleteDate date,
 	restored bit
 );
 
@@ -520,10 +520,10 @@ go
 
 --tblCompanyOders
 create procedure [tblCompanyOrders.ADD]
-	@createdDate smalldatetime,
-    @taskDate smalldatetime,
+	@createdDate date,
+    @taskDate date,
     @descriptionTask nvarchar(200),
-    @dateSendBill smalldatetime,
+    @dateSendBill date,
     @daysToPaid int,
     @hoursUse decimal(4,1),
     @paidHour decimal(4,1),
@@ -615,10 +615,10 @@ go
 
 create procedure [tblCompanyOrders.UPDATE]
 	@invoiceNo int,
-	@createdDate smalldatetime,
-    @taskDate smalldatetime,
+	@createdDate date,
+    @taskDate date,
     @descriptionTask nvarchar(200),
-    @dateSendBill smalldatetime,
+    @dateSendBill date,
     @daysToPaid int,
     @hoursUse decimal(4,1),
     @paidHour decimal(4,1),
@@ -804,10 +804,10 @@ go
 
 --tblPrivetOrders
 create procedure [tblPrivetOrders.ADD]
-    @createdDate smalldatetime,
-    @taskDate smalldatetime,
+    @createdDate date,
+    @taskDate date,
     @descriptionTask nvarchar(200),
-    @dateSendBill smalldatetime,
+    @dateSendBill date,
     @daysToPaid int,
     @hoursUse decimal(4,1),
     @paidHour decimal(4,1),
@@ -895,10 +895,10 @@ go
 
 create procedure [tblPrivetOrders.UPDATE]
 	@invoiceNo int,
-    @createdDate smalldatetime,
-    @taskDate smalldatetime,
+    @createdDate date,
+    @taskDate date,
     @descriptionTask nvarchar(200),
-    @dateSendBill smalldatetime,
+    @dateSendBill date,
     @daysToPaid int,
     @hoursUse decimal(4,1),
     @paidHour decimal(4,1),
