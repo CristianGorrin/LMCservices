@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="1a89e80f-c417-407e-9070-68d10f086f78"
   name="Orders" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -783,8 +783,8 @@
             </appliedStereotypesInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="0abd4cc8-a039-4ccc-a4fe-a0dfa3b865b5"
-                LastKnownName="Worker"
+                Id="325a1198-206d-4d58-994a-6ea5e0be3e30"
+                LastKnownName="Iworker"
                 LastKnownLocation="Package_1213.uml" />
             </type_NamedElement>
           </property>
@@ -935,8 +935,8 @@
             </appliedStereotypesInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="95f2358c-2f71-46b9-9dc5-0a7b7973b671"
-                LastKnownName="CompanyCustomer"
+                Id="6d093c8b-449e-47b5-9d88-2b79734edd9b"
+                LastKnownName="IcompanyCustomer"
                 LastKnownLocation="Package_1213.uml" />
             </type_NamedElement>
           </property>
@@ -2302,6 +2302,16 @@
       <undefinedType
         Id="c954a035-a1b7-4532-b17a-e24bd5fedb11"
         name="list&lt;ComoanyOrder&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="325a1198-206d-4d58-994a-6ea5e0be3e30"
+        name="Iworker" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6d093c8b-449e-47b5-9d88-2b79734edd9b"
+        name="IcompanyCustomer" />
     </packageHasNamedElement>
   </packagedElements>
 </package>
