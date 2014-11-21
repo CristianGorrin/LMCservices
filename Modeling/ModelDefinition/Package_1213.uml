@@ -102,6 +102,57 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="b532c359-463a-4fc1-9f45-27fc9ce0db17"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6071987a-040c-4f9f-8fc0-a8e582cabc34"
+              LastKnownName="CompanyOrders"
+              LastKnownLocation="Package_1213.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba5c3b5a-3b2a-4619-98ba-75f1dee0c652"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d894df99-5d5b-44bd-ab88-1f55de5c527f"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ead61a42-b694-4b8f-bae8-00da801be2c7"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="29f88a2b-9f3e-4ab5-b2e4-0c77cb54f326"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -1119,6 +1170,57 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="d899133e-f7b0-4ee0-a173-2ed288f80600"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c63d32ee-8576-48b7-977a-070bff025e09"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="dedd4060-0eae-446b-84f4-0bda864a5e13"
+              LastKnownName="PrivetOrders"
+              LastKnownLocation="Package_1213.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ff86932c-85b9-4856-89e0-39f2af4e77e0"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="42525027-3b0c-4439-b4f2-ca0494584c01"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="1c4f13af-9c50-4120-9256-a0d2e7b8e243"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="072772da-676b-436a-a00e-0ceb50eaafac"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2312,6 +2414,81 @@
       <undefinedType
         Id="474e6ffc-9814-412a-a2d5-ef1056cafe2f"
         name="IprivetCustomer" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dedd4060-0eae-446b-84f4-0bda864a5e13"
+        name="PrivetOrders"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="3de273b2-58b5-415b-b6fd-735fb2c3c4e1"
+            name="privetOrders"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="1d331021-2b48-4baf-bd00-7e472d7ff340"
+                LastKnownName="List&lt;privetOrders&gt;"
+                LastKnownLocation="Package_1213.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="1d331021-2b48-4baf-bd00-7e472d7ff340"
+        name="List&lt;privetOrders&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6071987a-040c-4f9f-8fc0-a8e582cabc34"
+        name="CompanyOrders"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="82931deb-f70e-415f-94f4-6e52d470a7ad"
+            name="companyOrders"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="68c7fd19-26c7-4e33-9991-b2ddb123cb30"
+                LastKnownName="List&lt;CompanyOrder&gt;"
+                LastKnownLocation="Package_1213.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2b385aa1-b4c9-4895-815c-3a80599a0e12"
+        name="List&lt;CompanyOrders" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="68c7fd19-26c7-4e33-9991-b2ddb123cb30"
+        name="List&lt;CompanyOrder&gt;" />
     </packageHasNamedElement>
   </packagedElements>
 </package>
