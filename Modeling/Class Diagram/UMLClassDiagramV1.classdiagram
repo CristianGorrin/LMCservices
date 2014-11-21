@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="06f58858-f42b-4333-bad7-1251bf185d7d" name="UMLClassDiagramV1" linkedPackageId="70931bdc-133f-4a68-adfd-6291e59490f9" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="06f58858-f42b-4333-bad7-1251bf185d7d" name="UMLClassDiagramV1" linkedPackageId="70931bdc-133f-4a68-adfd-6291e59490f9" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="baea3338-2586-4809-8dae-4beeac93c4bc" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="1b7af4e1-c107-4f87-a111-45cd36a73ecf" />
@@ -4611,7 +4611,7 @@
                         </appliedStereotypesInternal>
                         <elementDefinition Id="b3f53aac-1ef3-404d-af46-c6d1dcee0c31" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="88042443-2165-4457-abf8-02b465f7d223" LastKnownName="Worker" />
+                          <referencedTypeMoniker Id="247029fb-229a-4aff-81fe-c06e719241b0" LastKnownName="Iworker" />
                         </type_NamedElement>
                       </property>
                       <property Id="2c1cad41-ab69-48cf-a680-33ebc62423cf" name="paidToAcc" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -4721,7 +4721,7 @@
                         </appliedStereotypesInternal>
                         <elementDefinition Id="4e0adce7-b6ad-496e-b46f-9abd17c7def6" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="b313fac3-8eb2-4497-83ca-d2ac8e3b0749" LastKnownName="CompanyCustomer" />
+                          <referencedTypeMoniker Id="a6c18cb4-546d-4a83-be5f-590bb4d2b168" LastKnownName="IcompanyCustomer" />
                         </type_NamedElement>
                       </property>
                       <property Id="69d4f8b4-c81a-4258-92ac-1cf9b71f0627" name="paid" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -7720,7 +7720,7 @@
                 <property Id="44b2b5f6-0723-4bb5-b198-0c62fd089c35" name="houtsUse" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="536a5d93-c401-4686-917b-7624b960759a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="cce7b116-acde-4449-b86d-a3ec38b185ce" LastKnownName="DateTime" />
+                    <referencedTypeMoniker Id="2009944b-23a2-48b2-8b5b-c288e58b0921" LastKnownName="double" />
                   </type_NamedElement>
                 </property>
                 <property Id="27195ecf-d803-4615-a92b-66723de70041" name="invoiceNo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -7896,11 +7896,6 @@
     <packageHasNamedElement>
       <referencedType Id="88042443-2165-4457-abf8-02b465f7d223" name="Worker" isAbstract="false" isLeaf="false" cachedFullName="Worker">
         <elementDefinition Id="0abd4cc8-a039-4ccc-a4fe-a0dfa3b865b5" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="b313fac3-8eb2-4497-83ca-d2ac8e3b0749" name="CompanyCustomer" isAbstract="false" isLeaf="false" cachedFullName="CompanyCustomer">
-        <elementDefinition Id="95f2358c-2f71-46b9-9dc5-0a7b7973b671" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -8150,6 +8145,21 @@
         </packagedElements>
       </package>
     </logicalClassDesignerModelHasPackages>
+    <packageHasNamedElement>
+      <referencedType Id="247029fb-229a-4aff-81fe-c06e719241b0" name="Iworker" isAbstract="false" isLeaf="false" cachedFullName="Iworker">
+        <elementDefinition Id="325a1198-206d-4d58-994a-6ea5e0be3e30" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a6c18cb4-546d-4a83-be5f-590bb4d2b168" name="IcompanyCustomer" isAbstract="false" isLeaf="false" cachedFullName="IcompanyCustomer">
+        <elementDefinition Id="6d093c8b-449e-47b5-9d88-2b79734edd9b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2009944b-23a2-48b2-8b5b-c288e58b0921" name="double" isAbstract="false" isLeaf="false" cachedFullName="double">
+        <elementDefinition Id="b97aa3e4-a98e-417b-ab5f-de115ec4eea3" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="70931bdc-133f-4a68-adfd-6291e59490f9" name="Modeling">
     <elementDefinition Id="6cfda5e3-5816-4ae3-864d-0c688b5ee642" />
