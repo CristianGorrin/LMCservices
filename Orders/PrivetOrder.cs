@@ -62,17 +62,17 @@ namespace Orders
             this.invoiceNo = invoiceNo;
         }
 
-        Iworker CreateBy { get { return this.crateBy; } set { this.crateBy = value; } }
-        DateTime CreateDate { get { return this.createdDate; } set { this.createdDate = value; } }
-        IprivetCustomer Customer { get { return this.customer; } set { this.customer = value; } }
-        DateTime DateSendBill { get { return this.dateSendBill; } set { this.dateSendBill = value; } }
-        int DaysToPaid { get { return this.daysToPaid; } set { this.daysToPaid = value; } }
-        string DescriptionTask { get { return this.descriptionTask; } set { this.descriptionTask = value; } }
-        double HourUse { get { return this.hoursUse; } set { this.hoursUse = value; } }
-        int InvoiceNo { get { return this.invoiceNo; } } // is read only used for the db
-        bool Paid { get { return this.paid; } set { this.paid = value; } }
-        double PaidHour { get { return this.paidHour; } set { this.paidHour = value; } }
-        int PaidToAcc { get { return this.paidToAcc; } set { this.paidToAcc = value; } }
-        DateTime TaskDate { get { return this.taskDate; } set { this.taskDate = value; } }
+        public Iworker CreateBy { get { return this.crateBy; } set { this.crateBy = value; } }
+        public DateTime CreateDate { get { return this.createdDate; } set { this.createdDate = value; } }
+        public IprivetCustomer Customer { get { return this.customer; } set { this.customer = value; } }
+        public DateTime DateSendBill { get { return this.dateSendBill; } set { this.dateSendBill = value; } }
+        public int DaysToPaid { get { return this.daysToPaid; } set { this.daysToPaid = value; } }
+        public string DescriptionTask { get { return this.descriptionTask; } set { this.descriptionTask = value; } }
+        public double HourUse { get { return this.hoursUse; } set { this.hoursUse = value; } }
+        public int InvoiceNo { get { return this.invoiceNo; } } // is read only used for the db
+        public bool Paid { get { return this.paid; } set { this.paid = value; } }
+        public double PaidHour { get { return this.paidHour; } set { this.paidHour = value; } }
+        public int PaidToAcc { get { return this.paidToAcc; } set { this.paidToAcc = value; } }
+        public DateTime TaskDate { get { return this.taskDate; } set { this.taskDate = value; } }
     }
 }
