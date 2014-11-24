@@ -50,7 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Orders.cs" />
+    <Compile Include="TestOrders.cs" />
     <Compile Include="TestAPIcs.cs" />
     <Compile Include="TestCompany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,13 +74,13 @@
       <Project>{8cafe80e-47fc-4c95-a3a0-b7da35392203}</Project>
       <Name>Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orders\Orders.csproj">
+      <Project>{22e4da62-b1bb-4193-b12d-d8232209a0fe}</Project>
+      <Name>Orders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PostNo\PostNo.csproj">
       <Project>{7eaa6314-27ce-4de8-9911-835576890f18}</Project>
       <Name>PostNo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RDGs\RDGs.csproj">
-      <Project>{8eec2a57-73c1-4492-a03e-d845b3e8e6d8}</Project>
-      <Name>RDGs</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
