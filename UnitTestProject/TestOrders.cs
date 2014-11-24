@@ -13,13 +13,13 @@ namespace UnitTestProject
         public void PrivetOrder()
         {
             var dateTime = DateTime.Now;
-            var privetOrder = new Orders.PrivetOrder(new TestingOrder.Worker1(), dateTime, new TestingOrder.CustomerCustomerPrivet1(),
+            var privetOrder = new Orders.PrivetOrder(new TestingOrder.Worker1(), dateTime, new TestingOrder.CustomerPrivet1(),
                 dateTime, 5, "testDescriptionTask", 5.5D, 55, false, 200, 1594564564, dateTime);
 
             // Testing get
             Assert.AreEqual(new TestingOrder.Worker1().WorkNo, privetOrder.CreateBy.WorkNo);
             Assert.AreEqual(dateTime, privetOrder.CreateDate);
-            Assert.AreEqual(new TestingOrder.CustomerCustomerPrivet1().PrivateCustomersNo, privetOrder.Customer.PrivateCustomersNo);
+            Assert.AreEqual(new TestingOrder.CustomerPrivet1().PrivateCustomersNo, privetOrder.Customer.PrivateCustomersNo);
             Assert.AreEqual(dateTime, privetOrder.DateSendBill);
             Assert.AreEqual(5, privetOrder.DaysToPaid);
             Assert.AreEqual("testDescriptionTask", privetOrder.DescriptionTask);
@@ -34,7 +34,7 @@ namespace UnitTestProject
             dateTime = dateTime.AddDays(2);
             privetOrder.CreateBy = new TestingOrder.Worker2();
             privetOrder.CreateDate = dateTime;
-            privetOrder.Customer = new TestingOrder.CustomerCustomerPrivet2();
+            privetOrder.Customer = new TestingOrder.CustomerPrivet2();
             privetOrder.DateSendBill = dateTime;
             privetOrder.DaysToPaid = 25;
             privetOrder.DescriptionTask = "newTestDescriptionTask";
@@ -49,7 +49,7 @@ namespace UnitTestProject
             var createDate = (DateTime)new PrivateObject(privetOrder).GetField("createdDate");
             Assert.AreEqual(dateTime, createDate);
             var customer = (Interface.IprivetCustomer)new PrivateObject(privetOrder).GetField("customer");
-            Assert.AreEqual(new TestingOrder.CustomerCustomerPrivet2().PrivateCustomersNo, customer.PrivateCustomersNo);
+            Assert.AreEqual(new TestingOrder.CustomerPrivet2().PrivateCustomersNo, customer.PrivateCustomersNo);
             var dateSendBill = (DateTime)new PrivateObject(privetOrder).GetField("dateSendBill");
             Assert.AreEqual(dateTime, dateSendBill);
             var daysToPaid = (int)new PrivateObject(privetOrder).GetField("daysToPaid");
@@ -66,6 +66,66 @@ namespace UnitTestProject
             Assert.AreEqual(8512, paidToAcc);
             var taskDate = (DateTime)new PrivateObject(privetOrder).GetField("taskDate");
             Assert.AreEqual(dateTime, taskDate);
+        }
+
+        [TestMethod]
+        public void CompanyOrdersd()
+        {
+            var dateTime = DateTime.Now;
+            var companyOrdersd = new Orders.CompanyOrder(new TestingOrder.Worker1(), dateTime, 
+                new TestingOrder.CustomerCompany1(), dateTime, 5, "testDescriptonTask",
+                65D, 15, false, 320.5D, 1564, dateTime);
+
+            // testing get
+            Assert.AreEqual(new TestingOrder.Worker1().WorkNo, companyOrdersd.CreateBy.WorkNo);
+            Assert.AreEqual(dateTime, companyOrdersd.CreateDate);
+            Assert.AreEqual(new TestingOrder.CustomerCompany1().CompanyCustomersNo, companyOrdersd.Customer.CompanyCustomersNo);
+            Assert.AreEqual(dateTime, companyOrdersd.DateSendBill);
+            Assert.AreEqual(5, companyOrdersd.DaysToPaid);
+            Assert.AreEqual("testDescriptonTask", companyOrdersd.DescriptionTask);
+            Assert.AreEqual(65D, companyOrdersd.HoutsUse);
+            Assert.AreEqual(15, companyOrdersd.InvoiceNo);
+            Assert.AreEqual(false, companyOrdersd.Paid);
+            Assert.AreEqual(320.5D, companyOrdersd.PaidHour);
+            Assert.AreEqual(1564, companyOrdersd.PaidToAcc);
+            Assert.AreEqual(dateTime, companyOrdersd.TaskDate);
+
+            dateTime = dateTime.AddDays(5);
+
+            // testing set
+            companyOrdersd.CreateBy = new TestingOrder.Worker2();
+            companyOrdersd.CreateDate = dateTime;
+            companyOrdersd.Customer = new TestingOrder.CustomerCompany2();
+            companyOrdersd.DateSendBill = dateTime;
+            companyOrdersd.DaysToPaid = 43;
+            companyOrdersd.DescriptionTask = "newTestDescriptonTask";
+            companyOrdersd.HoutsUse = 16D;
+            companyOrdersd.Paid = true;
+            companyOrdersd.PaidHour = 465D;
+            companyOrdersd.PaidToAcc = 648641;
+            companyOrdersd.TaskDate = dateTime;
+
+            var crateBy = (Interface.Iworker)new PrivateObject(companyOrdersd).GetField("crateBy");
+            Assert.AreEqual(new TestingOrder.Worker2().WorkNo, crateBy.WorkNo);
+            var createdDate = (DateTime)new PrivateObject(companyOrdersd).GetField("createdDate");
+            Assert.AreEqual(dateTime, createdDate);
+            var customer = (Interface.IcompanyCustomer)new PrivateObject(companyOrdersd).GetField("customer");
+            Assert.AreEqual(new TestingOrder.CustomerCompany2().CompanyCustomersNo, customer.CompanyCustomersNo);
+            var dateSenndBill = (DateTime)new PrivateObject(companyOrdersd).GetField("dateSenndBill");
+            Assert.AreEqual(dateTime, dateSenndBill);
+            var daysToPaid = (int)new PrivateObject(companyOrdersd).GetField("daysToPaid");
+            Assert.AreEqual(43, daysToPaid);
+            var descriptionTask = (string)new PrivateObject(companyOrdersd).GetField("descriptionTask");
+            Assert.AreEqual("newTestDescriptonTask", descriptionTask);
+            var hoursUse = (double)new PrivateObject(companyOrdersd).GetField("hoursUse");
+            Assert.AreEqual(16D, hoursUse);
+            var paid = (bool)new PrivateObject(companyOrdersd).GetField("paid");
+            Assert.AreEqual(true, paid);
+            var paidHour = (double)new PrivateObject(companyOrdersd).GetField("paidHour");
+            Assert.AreEqual(465D, paidHour);
+            var paidToAcc = (int)new PrivateObject(companyOrdersd).GetField("paidToAcc");
+            Assert.AreEqual(648641, paidToAcc);
+            var taskDate = (DateTime)new PrivateObject(companyOrdersd).GetField("taskDate");
         }
 
         public class TestingOrder
@@ -111,7 +171,7 @@ namespace UnitTestProject
                 public int StautsNo { get { return 1; } }
             }
 
-            public class CustomerCustomerPrivet1 : Interface.IprivetCustomer
+            public class CustomerPrivet1 : Interface.IprivetCustomer
             {
                 public bool Active { get { return true; } }
                 public string AltPhoneNo { get { return "CustomerPrivetAltPhoneNo"; } }
@@ -124,7 +184,7 @@ namespace UnitTestProject
                 public string Surname { get { return "CustomerPrivetSurname"; } }
             }
 
-            public class CustomerCustomerPrivet2 : Interface.IprivetCustomer
+            public class CustomerPrivet2 : Interface.IprivetCustomer
             {
                 public bool Active { get { return false; } }
                 public string AltPhoneNo { get { return "CustomerPrivetAltPhoneNo2"; } }
@@ -135,6 +195,34 @@ namespace UnitTestProject
                 public IpostNo PostNo { get { return new TestingOrder.PostNo(); } set { throw new NotImplementedException(); } }
                 public int PrivateCustomersNo { get { return 1; } }
                 public string Surname { get { return "CustomerPrivetSurname2"; } }
+            }
+
+            public class CustomerCompany1 : Interface.IcompanyCustomer
+            {
+                public string Address { get { return "testAddress"; } }
+                public string AltPhoneNo { get { return "testAltPhoneNo"; } }
+                public bool Active { get { return true; } }
+                public int CompanyCustomersNo { get { return 16; } }
+                public string ContactPerson { get { return "testConractPerson"; } }
+                public int CvrNo { get { return 12564; } }
+                public string Email { get { return "testEmail"; } }
+                public string Name { get { return "testName"; } }
+                public string PhoneNo { get { return "testPhoneNo"; } }
+                public IpostNo PostNo { get { return new PostNo(); } set { throw new NotImplementedException(); } }
+            }
+
+            public class CustomerCompany2 : Interface.IcompanyCustomer
+            {
+                public string Address { get { return "testAddress2"; } }
+                public string AltPhoneNo { get { return "testAlrPhoneNo2"; } }
+                public bool Active { get { return false; } }
+                public int CompanyCustomersNo { get { return 164; } }
+                public string ContactPerson { get { return "testContactPerson"; } }
+                public int CvrNo { get { return 8451; } }
+                public string Email { get { return "testEmail2"; } }
+                public string Name { get { return "testName2"; } }
+                public string PhoneNo { get { return "testPhoneNo"; } }
+                public IpostNo PostNo { get { return new PostNo(); } set { throw new NotImplementedException(); } }
             }
         }
     }

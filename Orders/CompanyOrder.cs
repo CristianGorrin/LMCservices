@@ -38,6 +38,7 @@ namespace Orders
             this.paid = paid;
             this.paidHour = paidHour;
             this.paidToAcc = paidToAcc;
+            this.TaskDate = taskDate;
         }
 
         public CompanyOrder(CompanyOrder obj)
