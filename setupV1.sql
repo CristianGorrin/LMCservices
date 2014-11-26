@@ -364,7 +364,6 @@ as
 go
 
 create procedure [tblBankAccounts.GET]
-	@Id int
 as
 	Select 
 	id,
@@ -372,7 +371,7 @@ as
 	accountName,
 	regNo,
 	accountNo
-	From [dbo].[tblBankAccounts] where id = @Id
+	From [dbo].[tblBankAccounts]
 go
 
 create procedure [tblBankAccounts.DELETE]
@@ -461,7 +460,7 @@ as
 go
 
 create procedure [tblCompanyCustomers.GET]
-	@companyCustomersNo int
+	@active bit
 as
 	Select
 	companyCustomersNo,
@@ -474,7 +473,7 @@ as
 	postNo,
 	email,
 	active
-	From [dbo].[tblCompanyCustomers] where companyCustomersNo = @companyCustomersNo
+	From [dbo].[tblCompanyCustomers] where active = @active
 go
 
 create procedure [tblCompanyCustomers.DELETE]
@@ -579,7 +578,7 @@ as
 go
 
 create procedure [tblCompanyOrders.GET]
-	@invoiceNo int
+	@paid bit
 as
 	select
 	invoiceNo,
@@ -594,7 +593,7 @@ as
     paidToACC,
     customer,
     paid
-  FROM [dbo].[tblCompanyOrders] where invoiceNo = @invoiceNo
+	From [dbo].[tblCompanyOrders] where paid = @paid
 go
 
 create procedure [tblCompanyOrders.DELETE]
@@ -666,13 +665,12 @@ as
 go
 
 create procedure [tblPostNo.GET]
-	@ID int
 as
 	Select 
 	ID,
 	postNo,
 	city
-	from [dbo].[tblPostNo] where ID = @ID
+	from [dbo].[tblPostNo]
 go
 
 create procedure [tblPostNo.DELETE]
@@ -749,7 +747,7 @@ as
 go
 
 create procedure [tblPrivateCustomers.GET]
-	@privateCustomersNo int
+	@active bit
 as
 	select 
 	privateCustomersNo,
@@ -761,7 +759,7 @@ as
 	postNo,
 	email,
 	active
-	from [dbo].[tblPrivateCustomers] where privateCustomersNo = @privateCustomersNo
+	from [dbo].[tblPrivateCustomers] where active = @active
 go
 
 create procedure [tblPrivateCustomers.DELETE]
