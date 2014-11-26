@@ -27,8 +27,6 @@ namespace Sql_query_maker
                 {
                     text.Add(reader.ReadLine());
                 }
-
-                reader.Close();
             } 
 
             return text.ToArray();
