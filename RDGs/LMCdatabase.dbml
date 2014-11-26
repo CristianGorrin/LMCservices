@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LMCdatabase" Class="LMCdatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\ProjectsV12;Initial Catalog=LMCdatabase;Integrated Security=True;Connect Timeout=30" SettingsObjectName="RDGs.Properties.Settings" SettingsPropertyName="LMCdatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblBankAccounts" Member="tblBankAccounts">
+    <Type Name="tblBankAccount">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bank" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="accountName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="regNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="accountNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="balance" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Association Name="tblBankAccount_tblCompanyOrder" Member="tblCompanyOrders" ThisKey="Id" OtherKey="paidToACC" Type="tblCompanyOrder" />
+      <Association Name="tblBankAccount_tblPrivetOrder" Member="tblPrivetOrders" ThisKey="Id" OtherKey="paidToACC" Type="tblPrivetOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCompanyCustomers" Member="tblCompanyCustomers">
+    <Type Name="tblCompanyCustomer">
+      <Column Name="companyCustomersNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="companyContactPerson" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cvrNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="[_address]" Member="_address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblCompanyCustomer_tblCompanyOrder" Member="tblCompanyOrders" ThisKey="companyCustomersNo" OtherKey="customer" Type="tblCompanyOrder" />
+      <Association Name="tblPostNo_tblCompanyCustomer" Member="tblPostNo" ThisKey="postNo" OtherKey="ID" Type="tblPostNo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCompanyOrders" Member="tblCompanyOrders">
+    <Type Name="tblCompanyOrder">
+      <Column Name="invoiceNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="createdDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="taskDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="descriptionTask" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dateSendBill" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblBankAccount_tblCompanyOrder" Member="tblBankAccount" ThisKey="paidToACC" OtherKey="Id" Type="tblBankAccount" IsForeignKey="true" />
+      <Association Name="tblCompanyCustomer_tblCompanyOrder" Member="tblCompanyCustomer" ThisKey="customer" OtherKey="companyCustomersNo" Type="tblCompanyCustomer" IsForeignKey="true" />
+      <Association Name="tblWorker_tblCompanyOrder" Member="tblWorker" ThisKey="createBy" OtherKey="workNo" Type="tblWorker" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDeleteItems" Member="tblDeleteItems">
+    <Type Name="tblDeleteItem">
+      <Column Name="ItemNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="itemInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="deleteDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="restored" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDepartment" Member="tblDepartments">
+    <Type Name="tblDepartment">
+      <Column Name="department" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cvrNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="[_address]" Member="_address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="departmentHeadNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblPostNo_tblDepartment" Member="tblPostNo" ThisKey="postNo" OtherKey="ID" Type="tblPostNo" IsForeignKey="true" />
+      <Association Name="tblWorker_tblDepartment" Member="tblWorker" ThisKey="departmentHeadNo" OtherKey="workNo" Type="tblWorker" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPostNo" Member="tblPostNos">
+    <Type Name="tblPostNo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="tblPostNo_tblCompanyCustomer" Member="tblCompanyCustomers" ThisKey="ID" OtherKey="postNo" Type="tblCompanyCustomer" />
+      <Association Name="tblPostNo_tblDepartment" Member="tblDepartments" ThisKey="ID" OtherKey="postNo" Type="tblDepartment" />
+      <Association Name="tblPostNo_tblPrivateCustomer" Member="tblPrivateCustomers" ThisKey="ID" OtherKey="postNo" Type="tblPrivateCustomer" />
+      <Association Name="tblPostNo_tblWorker" Member="tblWorkers" ThisKey="ID" OtherKey="postNo" Type="tblWorker" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPrivateCustomers" Member="tblPrivateCustomers">
+    <Type Name="tblPrivateCustomer">
+      <Column Name="privateCustomersNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="homeAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblPrivateCustomer_tblPrivetOrder" Member="tblPrivetOrders" ThisKey="privateCustomersNo" OtherKey="customers" Type="tblPrivetOrder" />
+      <Association Name="tblPostNo_tblPrivateCustomer" Member="tblPostNo" ThisKey="postNo" OtherKey="ID" Type="tblPostNo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPrivetOrders" Member="tblPrivetOrders">
+    <Type Name="tblPrivetOrder">
+      <Column Name="invoiceNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="createdDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="taskDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="descriptionTask" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dateSendBill" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblPrivateCustomer_tblPrivetOrder" Member="tblPrivateCustomer" ThisKey="customers" OtherKey="privateCustomersNo" Type="tblPrivateCustomer" IsForeignKey="true" />
+      <Association Name="tblBankAccount_tblPrivetOrder" Member="tblBankAccount" ThisKey="paidToACC" OtherKey="Id" Type="tblBankAccount" IsForeignKey="true" />
+      <Association Name="tblWorker_tblPrivetOrder" Member="tblWorker" ThisKey="createBy" OtherKey="workNo" Type="tblWorker" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblWorkers" Member="tblWorkers">
+    <Type Name="tblWorker">
+      <Column Name="workNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="workerStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="homeAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblWorker_tblCompanyOrder" Member="tblCompanyOrders" ThisKey="workNo" OtherKey="createBy" Type="tblCompanyOrder" />
+      <Association Name="tblWorker_tblDepartment" Member="tblDepartments" ThisKey="workNo" OtherKey="departmentHeadNo" Type="tblDepartment" />
+      <Association Name="tblWorker_tblPrivetOrder" Member="tblPrivetOrders" ThisKey="workNo" OtherKey="createBy" Type="tblPrivetOrder" />
+      <Association Name="tblPostNo_tblWorker" Member="tblPostNo" ThisKey="postNo" OtherKey="ID" Type="tblPostNo" IsForeignKey="true" />
+      <Association Name="tblWorkerStatus_tblWorker" Member="tblWorkerStatus" ThisKey="workerStatus" OtherKey="statusNo" Type="tblWorkerStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblWorkerStatus" Member="tblWorkerStatus">
+    <Type Name="tblWorkerStatus">
+      <Column Name="statusNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="tblWorkerStatus_tblWorker" Member="tblWorkers" ThisKey="statusNo" OtherKey="workerStatus" Type="tblWorker" />
+    </Type>
+  </Table>
+</Database>
