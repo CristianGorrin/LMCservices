@@ -20,7 +20,7 @@ namespace RDGs
 
                 foreach (var item in dbContent)
                 {
-                    var PostNo = new PostNo();
+                    var PostNo = new InterfaceAdaptor.PostNo();
                     PostNo.Id = item.ID;
                     PostNo.City = item.city;
                     PostNo.PostNumber = item.postNo;
@@ -86,7 +86,7 @@ namespace RDGs
 
         public Interface.IpostNo Find(int id)
         {
-            var postNumber = new PostNo();
+            var postNumber = new InterfaceAdaptor.PostNo();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -100,13 +100,6 @@ namespace RDGs
             }
 
             return postNumber;
-        }
-
-        class PostNo : Interface.IpostNo
-        {
-            public string City { get; set; }
-            public int Id { get; set; }
-            public int PostNumber { get; set; }
         }
     }
 }
