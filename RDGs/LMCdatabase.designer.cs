@@ -171,6 +171,314 @@ namespace RDGs
 				return this.GetTable<tblWorkerStatus>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblBankAccounts.ADD]")]
+		public int tblBankAccounts_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string bank, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string accountName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> regNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> accountNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,4)")] System.Nullable<decimal> balance)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bank, accountName, regNo, accountNo, balance);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblBankAccounts.DELETE]")]
+		public int tblBankAccounts_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblBankAccounts.FIND]")]
+		public ISingleResult<tblBankAccounts_FINDResult> tblBankAccounts_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<tblBankAccounts_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblBankAccounts.GET]")]
+		public ISingleResult<tblBankAccounts_GETResult> tblBankAccounts_GET()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<tblBankAccounts_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblBankAccounts.UPDATE]")]
+		public int tblBankAccounts_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> indexId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string bank, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string accountName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> regNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> accountNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,4)")] System.Nullable<decimal> balance)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), indexId, bank, accountName, regNo, accountNo, balance);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyCustomers.ADD]")]
+		public int tblCompanyCustomers_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string companyName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string companyContactPerson, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cvrNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPhoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string _address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), companyName, companyContactPerson, cvrNo, phoneNo, altPhoneNo, _address, postNo, email, active);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyCustomers.DELETE]")]
+		public int tblCompanyCustomers_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> companyCustomersNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), companyCustomersNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyCustomers.FIND]")]
+		public ISingleResult<tblCompanyCustomers_FINDResult> tblCompanyCustomers_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> companyCustomersNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), companyCustomersNo);
+			return ((ISingleResult<tblCompanyCustomers_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyCustomers.GET]")]
+		public ISingleResult<tblCompanyCustomers_GETResult> tblCompanyCustomers_GET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), active);
+			return ((ISingleResult<tblCompanyCustomers_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyCustomers.UPDATE]")]
+		public int tblCompanyCustomers_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> companyCustomersNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string companyName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string companyContactPerson, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cvrNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPhoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string _address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), companyCustomersNo, companyName, companyContactPerson, cvrNo, phoneNo, altPhoneNo, _address, postNo, email, active);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyOrders.ADD]")]
+		public int tblCompanyOrders_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> taskDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string descriptionTask, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> dateSendBill, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> daysToPaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> hoursUse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> paidHour, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> paidToACC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> customer, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> paid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), createdDate, taskDate, descriptionTask, dateSendBill, daysToPaid, hoursUse, paidHour, createBy, paidToACC, customer, paid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyOrders.DELETE]")]
+		public int tblCompanyOrders_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyOrders.FIND]")]
+		public ISingleResult<tblCompanyOrders_FINDResult> tblCompanyOrders_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((ISingleResult<tblCompanyOrders_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyOrders.GET]")]
+		public ISingleResult<tblCompanyOrders_GETResult> tblCompanyOrders_GET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> paid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), paid);
+			return ((ISingleResult<tblCompanyOrders_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblCompanyOrders.UPDATE]")]
+		public int tblCompanyOrders_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> invoiceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> taskDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string descriptionTask, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> dateSendBill, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> daysToPaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> hoursUse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> paidHour, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> paidToACC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> customer, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> paid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo, createdDate, taskDate, descriptionTask, dateSendBill, daysToPaid, hoursUse, paidHour, createBy, paidToACC, customer, paid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblDepartment.ADD]")]
+		public int tblDepartment_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string companyName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cvrNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPhoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> departmentHeadNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), companyName, cvrNo, phoneNo, altPhoneNo, address, postNo, email, active, departmentHeadNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblDepartment.DELETE]")]
+		public int tblDepartment_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Department", DbType="Int")] System.Nullable<int> department)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), department);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblDepartment.FIND]")]
+		public ISingleResult<tblDepartment_FINDResult> tblDepartment_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> department)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), department);
+			return ((ISingleResult<tblDepartment_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblDepartment.GET]")]
+		public ISingleResult<tblDepartment_GETResult> tblDepartment_GET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), active);
+			return ((ISingleResult<tblDepartment_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblDepartment.UPDATE]")]
+		public int tblDepartment_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> department, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string companyName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cvrNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPhoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> departmentHeadNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), department, companyName, cvrNo, phoneNo, altPhoneNo, address, postNo, email, active, departmentHeadNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPostNo.ADD]")]
+		public int tblPostNo_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string city)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), postNo, city);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPostNo.DELETE]")]
+		public int tblPostNo_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPostNo.FIND]")]
+		public ISingleResult<tblPostNo_FINDResult> tblPostNo_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<tblPostNo_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPostNo.GET]")]
+		public ISingleResult<tblPostNo_GETResult> tblPostNo_GET()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<tblPostNo_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPostNo.UPDATE]")]
+		public int tblPostNo_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string city)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, postNo, city);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivateCustomers.ADD]")]
+		public int tblPrivateCustomers_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string surname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, surname, phoneNo, altPoneNo, homeAddress, postNo, email, active);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivateCustomers.DELETE]")]
+		public int tblPrivateCustomers_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> privetCustomersNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), privetCustomersNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivateCustomers.FIND]")]
+		public ISingleResult<tblPrivateCustomers_FINDResult> tblPrivateCustomers_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> privateCustomersNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), privateCustomersNo);
+			return ((ISingleResult<tblPrivateCustomers_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivateCustomers.GET]")]
+		public ISingleResult<tblPrivateCustomers_GETResult> tblPrivateCustomers_GET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), active);
+			return ((ISingleResult<tblPrivateCustomers_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivateCustomers.UPDATE]")]
+		public int tblPrivateCustomers_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> privateCustomersNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string surname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), privateCustomersNo, name, surname, phoneNo, altPoneNo, homeAddress, postNo, email, active);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivetOrders.ADD]")]
+		public int tblPrivetOrders_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> taskDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string descriptionTask, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> dateSendBill, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> daysToPaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> hoursUse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> paidHour, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> paidToACC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> customers, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> paid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), createdDate, taskDate, descriptionTask, dateSendBill, daysToPaid, hoursUse, paidHour, createBy, paidToACC, customers, paid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivetOrders.DELETE]")]
+		public int tblPrivetOrders_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivetOrders.FIND]")]
+		public ISingleResult<tblPrivetOrders_FINDResult> tblPrivetOrders_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((ISingleResult<tblPrivetOrders_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivetOrders.GET]")]
+		public ISingleResult<tblPrivetOrders_GETResult> tblPrivetOrders_GET()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<tblPrivetOrders_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblPrivetOrders.UPDATE]")]
+		public int tblPrivetOrders_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> invoiceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> taskDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string descriptionTask, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> dateSendBill, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> daysToPaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> hoursUse, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(4,1)")] System.Nullable<decimal> paidHour, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> paidToACC, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> customers, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> paid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo, createdDate, taskDate, descriptionTask, dateSendBill, daysToPaid, hoursUse, paidHour, createBy, paidToACC, customers, paid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkers.ADD]")]
+		public int tblWorkers_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string surname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> workerStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPhoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, surname, workerStatus, phoneNo, altPhoneNo, homeAddress, postNo, email, active);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkers.DELETE]")]
+		public int tblWorkers_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> workNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkers.FIND]")]
+		public ISingleResult<tblWorkers_FINDResult> tblWorkers_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> workNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workNo);
+			return ((ISingleResult<tblWorkers_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkers.GET]")]
+		public ISingleResult<tblWorkers_GETResult> tblWorkers_GET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> workNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workNo);
+			return ((ISingleResult<tblWorkers_GETResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkers.UPDATE]")]
+		public int tblWorkers_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> workNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string surname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> workerStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string phoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(25)")] string altPhoneNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> postNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> active)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workNo, name, surname, workerStatus, phoneNo, altPhoneNo, homeAddress, postNo, email, active);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkerStatus.ADD]")]
+		public int tblWorkerStatus_ADD([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkerStatus.DELETE]")]
+		public int tblWorkerStatus_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statusNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), statusNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkerStatus.FIND]")]
+		public ISingleResult<tblWorkerStatus_FINDResult> tblWorkerStatus_FIND([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statusNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), statusNo);
+			return ((ISingleResult<tblWorkerStatus_FINDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[tblWorkerStatus.UPDATE]")]
+		public int tblWorkerStatus_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statusNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), statusNo, status);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblBankAccounts")]
@@ -3250,6 +3558,2734 @@ namespace RDGs
 		{
 			this.SendPropertyChanging();
 			entity.tblWorkerStatus = null;
+		}
+	}
+	
+	public partial class tblBankAccounts_FINDResult
+	{
+		
+		private int _Id;
+		
+		private string _bank;
+		
+		private string _accountName;
+		
+		private int _regNo;
+		
+		private int _AccountNo;
+		
+		private System.Nullable<decimal> _balance;
+		
+		public tblBankAccounts_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bank", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string bank
+		{
+			get
+			{
+				return this._bank;
+			}
+			set
+			{
+				if ((this._bank != value))
+				{
+					this._bank = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accountName", DbType="NVarChar(50)")]
+		public string accountName
+		{
+			get
+			{
+				return this._accountName;
+			}
+			set
+			{
+				if ((this._accountName != value))
+				{
+					this._accountName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_regNo", DbType="Int NOT NULL")]
+		public int regNo
+		{
+			get
+			{
+				return this._regNo;
+			}
+			set
+			{
+				if ((this._regNo != value))
+				{
+					this._regNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="Int NOT NULL")]
+		public int AccountNo
+		{
+			get
+			{
+				return this._AccountNo;
+			}
+			set
+			{
+				if ((this._AccountNo != value))
+				{
+					this._AccountNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_balance", DbType="Decimal(12,4)")]
+		public System.Nullable<decimal> balance
+		{
+			get
+			{
+				return this._balance;
+			}
+			set
+			{
+				if ((this._balance != value))
+				{
+					this._balance = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblBankAccounts_GETResult
+	{
+		
+		private int _id;
+		
+		private string _bank;
+		
+		private string _accountName;
+		
+		private int _regNo;
+		
+		private int _accountNo;
+		
+		public tblBankAccounts_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bank", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string bank
+		{
+			get
+			{
+				return this._bank;
+			}
+			set
+			{
+				if ((this._bank != value))
+				{
+					this._bank = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accountName", DbType="NVarChar(50)")]
+		public string accountName
+		{
+			get
+			{
+				return this._accountName;
+			}
+			set
+			{
+				if ((this._accountName != value))
+				{
+					this._accountName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_regNo", DbType="Int NOT NULL")]
+		public int regNo
+		{
+			get
+			{
+				return this._regNo;
+			}
+			set
+			{
+				if ((this._regNo != value))
+				{
+					this._regNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accountNo", DbType="Int NOT NULL")]
+		public int accountNo
+		{
+			get
+			{
+				return this._accountNo;
+			}
+			set
+			{
+				if ((this._accountNo != value))
+				{
+					this._accountNo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblCompanyCustomers_FINDResult
+	{
+		
+		private int _companyCustomersNo;
+		
+		private string _companyName;
+		
+		private string _companyContactPerson;
+		
+		private int _cvrNo;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string @__address;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		public tblCompanyCustomers_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyCustomersNo", DbType="Int NOT NULL")]
+		public int companyCustomersNo
+		{
+			get
+			{
+				return this._companyCustomersNo;
+			}
+			set
+			{
+				if ((this._companyCustomersNo != value))
+				{
+					this._companyCustomersNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string companyName
+		{
+			get
+			{
+				return this._companyName;
+			}
+			set
+			{
+				if ((this._companyName != value))
+				{
+					this._companyName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyContactPerson", DbType="NVarChar(100)")]
+		public string companyContactPerson
+		{
+			get
+			{
+				return this._companyContactPerson;
+			}
+			set
+			{
+				if ((this._companyContactPerson != value))
+				{
+					this._companyContactPerson = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cvrNo", DbType="Int NOT NULL")]
+		public int cvrNo
+		{
+			get
+			{
+				return this._cvrNo;
+			}
+			set
+			{
+				if ((this._cvrNo != value))
+				{
+					this._cvrNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_address]", Storage="__address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string _address
+		{
+			get
+			{
+				return this.@__address;
+			}
+			set
+			{
+				if ((this.@__address != value))
+				{
+					this.@__address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblCompanyCustomers_GETResult
+	{
+		
+		private int _companyCustomersNo;
+		
+		private string _companyName;
+		
+		private string _companyContactPerson;
+		
+		private int _cvrNo;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string @__address;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		public tblCompanyCustomers_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyCustomersNo", DbType="Int NOT NULL")]
+		public int companyCustomersNo
+		{
+			get
+			{
+				return this._companyCustomersNo;
+			}
+			set
+			{
+				if ((this._companyCustomersNo != value))
+				{
+					this._companyCustomersNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string companyName
+		{
+			get
+			{
+				return this._companyName;
+			}
+			set
+			{
+				if ((this._companyName != value))
+				{
+					this._companyName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyContactPerson", DbType="NVarChar(100)")]
+		public string companyContactPerson
+		{
+			get
+			{
+				return this._companyContactPerson;
+			}
+			set
+			{
+				if ((this._companyContactPerson != value))
+				{
+					this._companyContactPerson = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cvrNo", DbType="Int NOT NULL")]
+		public int cvrNo
+		{
+			get
+			{
+				return this._cvrNo;
+			}
+			set
+			{
+				if ((this._cvrNo != value))
+				{
+					this._cvrNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_address]", Storage="__address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string _address
+		{
+			get
+			{
+				return this.@__address;
+			}
+			set
+			{
+				if ((this.@__address != value))
+				{
+					this.@__address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblCompanyOrders_FINDResult
+	{
+		
+		private int _invoiceNo;
+		
+		private System.Nullable<System.DateTime> _createdDate;
+		
+		private System.DateTime _taskDate;
+		
+		private string _descriptionTask;
+		
+		private System.Nullable<System.DateTime> _dateSendBill;
+		
+		private System.Nullable<int> _daysToPaid;
+		
+		private System.Nullable<decimal> _hoursUse;
+		
+		private System.Nullable<decimal> _paidHour;
+		
+		private int _createBy;
+		
+		private int _paidToACC;
+		
+		private int _customer;
+		
+		private System.Nullable<bool> _paid;
+		
+		public tblCompanyOrders_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_invoiceNo", DbType="Int NOT NULL")]
+		public int invoiceNo
+		{
+			get
+			{
+				return this._invoiceNo;
+			}
+			set
+			{
+				if ((this._invoiceNo != value))
+				{
+					this._invoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdDate", DbType="Date")]
+		public System.Nullable<System.DateTime> createdDate
+		{
+			get
+			{
+				return this._createdDate;
+			}
+			set
+			{
+				if ((this._createdDate != value))
+				{
+					this._createdDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taskDate", DbType="Date NOT NULL")]
+		public System.DateTime taskDate
+		{
+			get
+			{
+				return this._taskDate;
+			}
+			set
+			{
+				if ((this._taskDate != value))
+				{
+					this._taskDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descriptionTask", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string descriptionTask
+		{
+			get
+			{
+				return this._descriptionTask;
+			}
+			set
+			{
+				if ((this._descriptionTask != value))
+				{
+					this._descriptionTask = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateSendBill", DbType="Date")]
+		public System.Nullable<System.DateTime> dateSendBill
+		{
+			get
+			{
+				return this._dateSendBill;
+			}
+			set
+			{
+				if ((this._dateSendBill != value))
+				{
+					this._dateSendBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daysToPaid", DbType="Int")]
+		public System.Nullable<int> daysToPaid
+		{
+			get
+			{
+				return this._daysToPaid;
+			}
+			set
+			{
+				if ((this._daysToPaid != value))
+				{
+					this._daysToPaid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hoursUse", DbType="Decimal(3,1)")]
+		public System.Nullable<decimal> hoursUse
+		{
+			get
+			{
+				return this._hoursUse;
+			}
+			set
+			{
+				if ((this._hoursUse != value))
+				{
+					this._hoursUse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidHour", DbType="Decimal(4,1)")]
+		public System.Nullable<decimal> paidHour
+		{
+			get
+			{
+				return this._paidHour;
+			}
+			set
+			{
+				if ((this._paidHour != value))
+				{
+					this._paidHour = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createBy", DbType="Int NOT NULL")]
+		public int createBy
+		{
+			get
+			{
+				return this._createBy;
+			}
+			set
+			{
+				if ((this._createBy != value))
+				{
+					this._createBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidToACC", DbType="Int NOT NULL")]
+		public int paidToACC
+		{
+			get
+			{
+				return this._paidToACC;
+			}
+			set
+			{
+				if ((this._paidToACC != value))
+				{
+					this._paidToACC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer", DbType="Int NOT NULL")]
+		public int customer
+		{
+			get
+			{
+				return this._customer;
+			}
+			set
+			{
+				if ((this._customer != value))
+				{
+					this._customer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paid", DbType="Bit")]
+		public System.Nullable<bool> paid
+		{
+			get
+			{
+				return this._paid;
+			}
+			set
+			{
+				if ((this._paid != value))
+				{
+					this._paid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblCompanyOrders_GETResult
+	{
+		
+		private int _invoiceNo;
+		
+		private System.Nullable<System.DateTime> _createdDate;
+		
+		private System.DateTime _taskDate;
+		
+		private string _descriptionTask;
+		
+		private System.Nullable<System.DateTime> _dateSendBill;
+		
+		private System.Nullable<int> _daysToPaid;
+		
+		private System.Nullable<decimal> _hoursUse;
+		
+		private System.Nullable<decimal> _paidHour;
+		
+		private int _createBy;
+		
+		private int _paidToACC;
+		
+		private int _customer;
+		
+		private System.Nullable<bool> _paid;
+		
+		public tblCompanyOrders_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_invoiceNo", DbType="Int NOT NULL")]
+		public int invoiceNo
+		{
+			get
+			{
+				return this._invoiceNo;
+			}
+			set
+			{
+				if ((this._invoiceNo != value))
+				{
+					this._invoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdDate", DbType="Date")]
+		public System.Nullable<System.DateTime> createdDate
+		{
+			get
+			{
+				return this._createdDate;
+			}
+			set
+			{
+				if ((this._createdDate != value))
+				{
+					this._createdDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taskDate", DbType="Date NOT NULL")]
+		public System.DateTime taskDate
+		{
+			get
+			{
+				return this._taskDate;
+			}
+			set
+			{
+				if ((this._taskDate != value))
+				{
+					this._taskDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descriptionTask", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string descriptionTask
+		{
+			get
+			{
+				return this._descriptionTask;
+			}
+			set
+			{
+				if ((this._descriptionTask != value))
+				{
+					this._descriptionTask = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateSendBill", DbType="Date")]
+		public System.Nullable<System.DateTime> dateSendBill
+		{
+			get
+			{
+				return this._dateSendBill;
+			}
+			set
+			{
+				if ((this._dateSendBill != value))
+				{
+					this._dateSendBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daysToPaid", DbType="Int")]
+		public System.Nullable<int> daysToPaid
+		{
+			get
+			{
+				return this._daysToPaid;
+			}
+			set
+			{
+				if ((this._daysToPaid != value))
+				{
+					this._daysToPaid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hoursUse", DbType="Decimal(3,1)")]
+		public System.Nullable<decimal> hoursUse
+		{
+			get
+			{
+				return this._hoursUse;
+			}
+			set
+			{
+				if ((this._hoursUse != value))
+				{
+					this._hoursUse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidHour", DbType="Decimal(4,1)")]
+		public System.Nullable<decimal> paidHour
+		{
+			get
+			{
+				return this._paidHour;
+			}
+			set
+			{
+				if ((this._paidHour != value))
+				{
+					this._paidHour = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createBy", DbType="Int NOT NULL")]
+		public int createBy
+		{
+			get
+			{
+				return this._createBy;
+			}
+			set
+			{
+				if ((this._createBy != value))
+				{
+					this._createBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidToACC", DbType="Int NOT NULL")]
+		public int paidToACC
+		{
+			get
+			{
+				return this._paidToACC;
+			}
+			set
+			{
+				if ((this._paidToACC != value))
+				{
+					this._paidToACC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer", DbType="Int NOT NULL")]
+		public int customer
+		{
+			get
+			{
+				return this._customer;
+			}
+			set
+			{
+				if ((this._customer != value))
+				{
+					this._customer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paid", DbType="Bit")]
+		public System.Nullable<bool> paid
+		{
+			get
+			{
+				return this._paid;
+			}
+			set
+			{
+				if ((this._paid != value))
+				{
+					this._paid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblDepartment_FINDResult
+	{
+		
+		private int _department;
+		
+		private string _companyName;
+		
+		private int _cvrNo;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private int _postNo;
+		
+		private string @__address;
+		
+		private int _postNo1;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		private int _departmentHeadNo;
+		
+		public tblDepartment_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_department", DbType="Int NOT NULL")]
+		public int department
+		{
+			get
+			{
+				return this._department;
+			}
+			set
+			{
+				if ((this._department != value))
+				{
+					this._department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string companyName
+		{
+			get
+			{
+				return this._companyName;
+			}
+			set
+			{
+				if ((this._companyName != value))
+				{
+					this._companyName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cvrNo", DbType="Int NOT NULL")]
+		public int cvrNo
+		{
+			get
+			{
+				return this._cvrNo;
+			}
+			set
+			{
+				if ((this._cvrNo != value))
+				{
+					this._cvrNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_address]", Storage="__address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string _address
+		{
+			get
+			{
+				return this.@__address;
+			}
+			set
+			{
+				if ((this.@__address != value))
+				{
+					this.@__address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo1", DbType="Int NOT NULL")]
+		public int postNo1
+		{
+			get
+			{
+				return this._postNo1;
+			}
+			set
+			{
+				if ((this._postNo1 != value))
+				{
+					this._postNo1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departmentHeadNo", DbType="Int NOT NULL")]
+		public int departmentHeadNo
+		{
+			get
+			{
+				return this._departmentHeadNo;
+			}
+			set
+			{
+				if ((this._departmentHeadNo != value))
+				{
+					this._departmentHeadNo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblDepartment_GETResult
+	{
+		
+		private int _department;
+		
+		private string _companyName;
+		
+		private int _cvrNo;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string @__address;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		private int _departmentHeadNo;
+		
+		public tblDepartment_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_department", DbType="Int NOT NULL")]
+		public int department
+		{
+			get
+			{
+				return this._department;
+			}
+			set
+			{
+				if ((this._department != value))
+				{
+					this._department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string companyName
+		{
+			get
+			{
+				return this._companyName;
+			}
+			set
+			{
+				if ((this._companyName != value))
+				{
+					this._companyName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cvrNo", DbType="Int NOT NULL")]
+		public int cvrNo
+		{
+			get
+			{
+				return this._cvrNo;
+			}
+			set
+			{
+				if ((this._cvrNo != value))
+				{
+					this._cvrNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_address]", Storage="__address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string _address
+		{
+			get
+			{
+				return this.@__address;
+			}
+			set
+			{
+				if ((this.@__address != value))
+				{
+					this.@__address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departmentHeadNo", DbType="Int NOT NULL")]
+		public int departmentHeadNo
+		{
+			get
+			{
+				return this._departmentHeadNo;
+			}
+			set
+			{
+				if ((this._departmentHeadNo != value))
+				{
+					this._departmentHeadNo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblPostNo_FINDResult
+	{
+		
+		private int _ID;
+		
+		private int _postNo;
+		
+		private string _city;
+		
+		public tblPostNo_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this._city = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblPostNo_GETResult
+	{
+		
+		private int _ID;
+		
+		private int _postNo;
+		
+		private string _city;
+		
+		public tblPostNo_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this._city = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblPrivateCustomers_FINDResult
+	{
+		
+		private int _privateCustomersNo;
+		
+		private string _name;
+		
+		private string _surname;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string _homeAddress;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		public tblPrivateCustomers_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privateCustomersNo", DbType="Int NOT NULL")]
+		public int privateCustomersNo
+		{
+			get
+			{
+				return this._privateCustomersNo;
+			}
+			set
+			{
+				if ((this._privateCustomersNo != value))
+				{
+					this._privateCustomersNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string surname
+		{
+			get
+			{
+				return this._surname;
+			}
+			set
+			{
+				if ((this._surname != value))
+				{
+					this._surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_homeAddress", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string homeAddress
+		{
+			get
+			{
+				return this._homeAddress;
+			}
+			set
+			{
+				if ((this._homeAddress != value))
+				{
+					this._homeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblPrivateCustomers_GETResult
+	{
+		
+		private int _privateCustomersNo;
+		
+		private string _name;
+		
+		private string _surname;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string _homeAddress;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		public tblPrivateCustomers_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privateCustomersNo", DbType="Int NOT NULL")]
+		public int privateCustomersNo
+		{
+			get
+			{
+				return this._privateCustomersNo;
+			}
+			set
+			{
+				if ((this._privateCustomersNo != value))
+				{
+					this._privateCustomersNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string surname
+		{
+			get
+			{
+				return this._surname;
+			}
+			set
+			{
+				if ((this._surname != value))
+				{
+					this._surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_homeAddress", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string homeAddress
+		{
+			get
+			{
+				return this._homeAddress;
+			}
+			set
+			{
+				if ((this._homeAddress != value))
+				{
+					this._homeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblPrivetOrders_FINDResult
+	{
+		
+		private int _invoiceNo;
+		
+		private System.Nullable<System.DateTime> _createdDate;
+		
+		private System.DateTime _taskDate;
+		
+		private string _descriptionTask;
+		
+		private System.Nullable<System.DateTime> _dateSendBill;
+		
+		private System.Nullable<int> _daysToPaid;
+		
+		private System.Nullable<decimal> _hoursUse;
+		
+		private System.Nullable<decimal> _paidHour;
+		
+		private int _createBy;
+		
+		private int _paidToACC;
+		
+		private int _customers;
+		
+		public tblPrivetOrders_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_invoiceNo", DbType="Int NOT NULL")]
+		public int invoiceNo
+		{
+			get
+			{
+				return this._invoiceNo;
+			}
+			set
+			{
+				if ((this._invoiceNo != value))
+				{
+					this._invoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdDate", DbType="Date")]
+		public System.Nullable<System.DateTime> createdDate
+		{
+			get
+			{
+				return this._createdDate;
+			}
+			set
+			{
+				if ((this._createdDate != value))
+				{
+					this._createdDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taskDate", DbType="Date NOT NULL")]
+		public System.DateTime taskDate
+		{
+			get
+			{
+				return this._taskDate;
+			}
+			set
+			{
+				if ((this._taskDate != value))
+				{
+					this._taskDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descriptionTask", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string descriptionTask
+		{
+			get
+			{
+				return this._descriptionTask;
+			}
+			set
+			{
+				if ((this._descriptionTask != value))
+				{
+					this._descriptionTask = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateSendBill", DbType="Date")]
+		public System.Nullable<System.DateTime> dateSendBill
+		{
+			get
+			{
+				return this._dateSendBill;
+			}
+			set
+			{
+				if ((this._dateSendBill != value))
+				{
+					this._dateSendBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daysToPaid", DbType="Int")]
+		public System.Nullable<int> daysToPaid
+		{
+			get
+			{
+				return this._daysToPaid;
+			}
+			set
+			{
+				if ((this._daysToPaid != value))
+				{
+					this._daysToPaid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hoursUse", DbType="Decimal(3,1)")]
+		public System.Nullable<decimal> hoursUse
+		{
+			get
+			{
+				return this._hoursUse;
+			}
+			set
+			{
+				if ((this._hoursUse != value))
+				{
+					this._hoursUse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidHour", DbType="Decimal(4,1)")]
+		public System.Nullable<decimal> paidHour
+		{
+			get
+			{
+				return this._paidHour;
+			}
+			set
+			{
+				if ((this._paidHour != value))
+				{
+					this._paidHour = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createBy", DbType="Int NOT NULL")]
+		public int createBy
+		{
+			get
+			{
+				return this._createBy;
+			}
+			set
+			{
+				if ((this._createBy != value))
+				{
+					this._createBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidToACC", DbType="Int NOT NULL")]
+		public int paidToACC
+		{
+			get
+			{
+				return this._paidToACC;
+			}
+			set
+			{
+				if ((this._paidToACC != value))
+				{
+					this._paidToACC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customers", DbType="Int NOT NULL")]
+		public int customers
+		{
+			get
+			{
+				return this._customers;
+			}
+			set
+			{
+				if ((this._customers != value))
+				{
+					this._customers = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblPrivetOrders_GETResult
+	{
+		
+		private int _invoiceNo;
+		
+		private System.DateTime _taskDate;
+		
+		private string _descriptionTask;
+		
+		private System.Nullable<System.DateTime> _dateSendBill;
+		
+		private System.Nullable<int> _daysToPaid;
+		
+		private System.Nullable<decimal> _hoursUse;
+		
+		private System.Nullable<decimal> _paidHour;
+		
+		private int _createBy;
+		
+		private int _paidToACC;
+		
+		private int _customers;
+		
+		private System.Nullable<bool> _paid;
+		
+		public tblPrivetOrders_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_invoiceNo", DbType="Int NOT NULL")]
+		public int invoiceNo
+		{
+			get
+			{
+				return this._invoiceNo;
+			}
+			set
+			{
+				if ((this._invoiceNo != value))
+				{
+					this._invoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taskDate", DbType="Date NOT NULL")]
+		public System.DateTime taskDate
+		{
+			get
+			{
+				return this._taskDate;
+			}
+			set
+			{
+				if ((this._taskDate != value))
+				{
+					this._taskDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descriptionTask", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string descriptionTask
+		{
+			get
+			{
+				return this._descriptionTask;
+			}
+			set
+			{
+				if ((this._descriptionTask != value))
+				{
+					this._descriptionTask = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateSendBill", DbType="Date")]
+		public System.Nullable<System.DateTime> dateSendBill
+		{
+			get
+			{
+				return this._dateSendBill;
+			}
+			set
+			{
+				if ((this._dateSendBill != value))
+				{
+					this._dateSendBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daysToPaid", DbType="Int")]
+		public System.Nullable<int> daysToPaid
+		{
+			get
+			{
+				return this._daysToPaid;
+			}
+			set
+			{
+				if ((this._daysToPaid != value))
+				{
+					this._daysToPaid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hoursUse", DbType="Decimal(3,1)")]
+		public System.Nullable<decimal> hoursUse
+		{
+			get
+			{
+				return this._hoursUse;
+			}
+			set
+			{
+				if ((this._hoursUse != value))
+				{
+					this._hoursUse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidHour", DbType="Decimal(4,1)")]
+		public System.Nullable<decimal> paidHour
+		{
+			get
+			{
+				return this._paidHour;
+			}
+			set
+			{
+				if ((this._paidHour != value))
+				{
+					this._paidHour = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createBy", DbType="Int NOT NULL")]
+		public int createBy
+		{
+			get
+			{
+				return this._createBy;
+			}
+			set
+			{
+				if ((this._createBy != value))
+				{
+					this._createBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidToACC", DbType="Int NOT NULL")]
+		public int paidToACC
+		{
+			get
+			{
+				return this._paidToACC;
+			}
+			set
+			{
+				if ((this._paidToACC != value))
+				{
+					this._paidToACC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customers", DbType="Int NOT NULL")]
+		public int customers
+		{
+			get
+			{
+				return this._customers;
+			}
+			set
+			{
+				if ((this._customers != value))
+				{
+					this._customers = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paid", DbType="Bit")]
+		public System.Nullable<bool> paid
+		{
+			get
+			{
+				return this._paid;
+			}
+			set
+			{
+				if ((this._paid != value))
+				{
+					this._paid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblWorkers_FINDResult
+	{
+		
+		private int _workNo;
+		
+		private string _name;
+		
+		private string _surname;
+		
+		private int _workerStatus;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string _homeAddress;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		public tblWorkers_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workNo", DbType="Int NOT NULL")]
+		public int workNo
+		{
+			get
+			{
+				return this._workNo;
+			}
+			set
+			{
+				if ((this._workNo != value))
+				{
+					this._workNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string surname
+		{
+			get
+			{
+				return this._surname;
+			}
+			set
+			{
+				if ((this._surname != value))
+				{
+					this._surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workerStatus", DbType="Int NOT NULL")]
+		public int workerStatus
+		{
+			get
+			{
+				return this._workerStatus;
+			}
+			set
+			{
+				if ((this._workerStatus != value))
+				{
+					this._workerStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_homeAddress", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string homeAddress
+		{
+			get
+			{
+				return this._homeAddress;
+			}
+			set
+			{
+				if ((this._homeAddress != value))
+				{
+					this._homeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblWorkers_GETResult
+	{
+		
+		private int _workNo;
+		
+		private string _name;
+		
+		private string _surname;
+		
+		private int _workerStatus;
+		
+		private string _phoneNo;
+		
+		private string _altPhoneNo;
+		
+		private string _homeAddress;
+		
+		private int _postNo;
+		
+		private string _email;
+		
+		private System.Nullable<bool> _active;
+		
+		public tblWorkers_GETResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workNo", DbType="Int NOT NULL")]
+		public int workNo
+		{
+			get
+			{
+				return this._workNo;
+			}
+			set
+			{
+				if ((this._workNo != value))
+				{
+					this._workNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string surname
+		{
+			get
+			{
+				return this._surname;
+			}
+			set
+			{
+				if ((this._surname != value))
+				{
+					this._surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workerStatus", DbType="Int NOT NULL")]
+		public int workerStatus
+		{
+			get
+			{
+				return this._workerStatus;
+			}
+			set
+			{
+				if ((this._workerStatus != value))
+				{
+					this._workerStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string phoneNo
+		{
+			get
+			{
+				return this._phoneNo;
+			}
+			set
+			{
+				if ((this._phoneNo != value))
+				{
+					this._phoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_altPhoneNo", DbType="NVarChar(25)")]
+		public string altPhoneNo
+		{
+			get
+			{
+				return this._altPhoneNo;
+			}
+			set
+			{
+				if ((this._altPhoneNo != value))
+				{
+					this._altPhoneNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_homeAddress", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string homeAddress
+		{
+			get
+			{
+				return this._homeAddress;
+			}
+			set
+			{
+				if ((this._homeAddress != value))
+				{
+					this._homeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postNo", DbType="Int NOT NULL")]
+		public int postNo
+		{
+			get
+			{
+				return this._postNo;
+			}
+			set
+			{
+				if ((this._postNo != value))
+				{
+					this._postNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
+				}
+			}
+		}
+	}
+	
+	public partial class tblWorkerStatus_FINDResult
+	{
+		
+		private int _statusNo;
+		
+		private string _status;
+		
+		public tblWorkerStatus_FINDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_statusNo", DbType="Int NOT NULL")]
+		public int statusNo
+		{
+			get
+			{
+				return this._statusNo;
+			}
+			set
+			{
+				if ((this._statusNo != value))
+				{
+					this._statusNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="NVarChar(40) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
 		}
 	}
 }

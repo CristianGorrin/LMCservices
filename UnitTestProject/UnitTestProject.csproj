@@ -82,6 +82,10 @@
       <Project>{7eaa6314-27ce-4de8-9911-835576890f18}</Project>
       <Name>PostNo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RDGs\RDGs.csproj">
+      <Project>{d2af88fe-b1ea-4606-8503-79b869a0f652}</Project>
+      <Name>RDGs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

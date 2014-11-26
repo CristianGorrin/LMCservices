@@ -142,4 +142,459 @@
       <Association Name="tblWorkerStatus_tblWorker" Member="tblWorkers" ThisKey="statusNo" OtherKey="workerStatus" Type="tblWorker" />
     </Type>
   </Table>
+  <Function Name="dbo.[tblBankAccounts.ADD]" Method="tblBankAccounts_ADD">
+    <Parameter Name="bank" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="accountName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="regNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="accountNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="balance" Type="System.Decimal" DbType="Decimal(12,4)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblBankAccounts.DELETE]" Method="tblBankAccounts_DELETE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblBankAccounts.FIND]" Method="tblBankAccounts_FIND">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblBankAccounts_FINDResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bank" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="accountName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="regNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccountNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="balance" Type="System.Decimal" DbType="Decimal(12,4)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblBankAccounts.GET]" Method="tblBankAccounts_GET">
+    <ElementType Name="tblBankAccounts_GETResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bank" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="accountName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="regNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="accountNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblBankAccounts.UPDATE]" Method="tblBankAccounts_UPDATE">
+    <Parameter Name="indexId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bank" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="accountName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="regNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="accountNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="balance" Type="System.Decimal" DbType="Decimal(12,4)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblCompanyCustomers.ADD]" Method="tblCompanyCustomers_ADD">
+    <Parameter Name="companyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="companyContactPerson" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cvrNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="_address" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblCompanyCustomers.DELETE]" Method="tblCompanyCustomers_DELETE">
+    <Parameter Name="companyCustomersNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblCompanyCustomers.FIND]" Method="tblCompanyCustomers_FIND">
+    <Parameter Name="companyCustomersNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblCompanyCustomers_FINDResult">
+      <Column Name="companyCustomersNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="companyContactPerson" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cvrNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="[_address]" Member="_address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblCompanyCustomers.GET]" Method="tblCompanyCustomers_GET">
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="tblCompanyCustomers_GETResult">
+      <Column Name="companyCustomersNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="companyContactPerson" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cvrNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="[_address]" Member="_address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblCompanyCustomers.UPDATE]" Method="tblCompanyCustomers_UPDATE">
+    <Parameter Name="companyCustomersNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="companyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="companyContactPerson" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cvrNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="_address" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblCompanyOrders.ADD]" Method="tblCompanyOrders_ADD">
+    <Parameter Name="createdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="taskDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="descriptionTask" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="dateSendBill" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="daysToPaid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hoursUse" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="createBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paidToACC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="customer" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paid" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblCompanyOrders.DELETE]" Method="tblCompanyOrders_DELETE">
+    <Parameter Name="invoiceNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblCompanyOrders.FIND]" Method="tblCompanyOrders_FIND">
+    <Parameter Name="invoiceNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblCompanyOrders_FINDResult">
+      <Column Name="invoiceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="createdDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="taskDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="descriptionTask" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dateSendBill" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
+      <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblCompanyOrders.GET]" Method="tblCompanyOrders_GET">
+    <Parameter Name="paid" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="tblCompanyOrders_GETResult">
+      <Column Name="invoiceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="createdDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="taskDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="descriptionTask" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dateSendBill" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
+      <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblCompanyOrders.UPDATE]" Method="tblCompanyOrders_UPDATE">
+    <Parameter Name="invoiceNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="createdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="taskDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="descriptionTask" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="dateSendBill" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="daysToPaid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hoursUse" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="createBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paidToACC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="customer" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paid" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblDepartment.ADD]" Method="tblDepartment_ADD">
+    <Parameter Name="companyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cvrNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="departmentHeadNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblDepartment.DELETE]" Method="tblDepartment_DELETE">
+    <Parameter Name="Department" Parameter="department" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblDepartment.FIND]" Method="tblDepartment_FIND">
+    <Parameter Name="department" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblDepartment_FINDResult">
+      <Column Name="department" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cvrNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[_address]" Member="_address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="departmentHeadNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblDepartment.GET]" Method="tblDepartment_GET">
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="tblDepartment_GETResult">
+      <Column Name="department" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cvrNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="[_address]" Member="_address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="departmentHeadNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblDepartment.UPDATE]" Method="tblDepartment_UPDATE">
+    <Parameter Name="department" Type="System.Int32" DbType="Int" />
+    <Parameter Name="companyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cvrNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="departmentHeadNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPostNo.ADD]" Method="tblPostNo_ADD">
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="city" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPostNo.DELETE]" Method="tblPostNo_DELETE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPostNo.FIND]" Method="tblPostNo_FIND">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblPostNo_FINDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblPostNo.GET]" Method="tblPostNo_GET">
+    <ElementType Name="tblPostNo_GETResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblPostNo.UPDATE]" Method="tblPostNo_UPDATE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="city" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPrivateCustomers.ADD]" Method="tblPrivateCustomers_ADD">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="surname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="homeAddress" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPrivateCustomers.DELETE]" Method="tblPrivateCustomers_DELETE">
+    <Parameter Name="privetCustomersNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPrivateCustomers.FIND]" Method="tblPrivateCustomers_FIND">
+    <Parameter Name="privateCustomersNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblPrivateCustomers_FINDResult">
+      <Column Name="privateCustomersNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="homeAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblPrivateCustomers.GET]" Method="tblPrivateCustomers_GET">
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="tblPrivateCustomers_GETResult">
+      <Column Name="privateCustomersNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="homeAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblPrivateCustomers.UPDATE]" Method="tblPrivateCustomers_UPDATE">
+    <Parameter Name="privateCustomersNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="surname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="homeAddress" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPrivetOrders.ADD]" Method="tblPrivetOrders_ADD">
+    <Parameter Name="createdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="taskDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="descriptionTask" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="dateSendBill" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="daysToPaid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hoursUse" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="createBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paidToACC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="customers" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paid" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPrivetOrders.DELETE]" Method="tblPrivetOrders_DELETE">
+    <Parameter Name="invoiceNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblPrivetOrders.FIND]" Method="tblPrivetOrders_FIND">
+    <Parameter Name="invoiceNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblPrivetOrders_FINDResult">
+      <Column Name="invoiceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="createdDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="taskDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="descriptionTask" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dateSendBill" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
+      <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblPrivetOrders.GET]" Method="tblPrivetOrders_GET">
+    <ElementType Name="tblPrivetOrders_GETResult">
+      <Column Name="invoiceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="taskDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="descriptionTask" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dateSendBill" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
+      <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblPrivetOrders.UPDATE]" Method="tblPrivetOrders_UPDATE">
+    <Parameter Name="invoiceNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="createdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="taskDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="descriptionTask" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="dateSendBill" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="daysToPaid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hoursUse" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" />
+    <Parameter Name="createBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paidToACC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="customers" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paid" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblWorkers.ADD]" Method="tblWorkers_ADD">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="surname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="workerStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="homeAddress" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblWorkers.DELETE]" Method="tblWorkers_DELETE">
+    <Parameter Name="workNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblWorkers.FIND]" Method="tblWorkers_FIND">
+    <Parameter Name="workNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblWorkers_FINDResult">
+      <Column Name="workNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="workerStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="homeAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblWorkers.GET]" Method="tblWorkers_GET">
+    <Parameter Name="workNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblWorkers_GETResult">
+      <Column Name="workNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="workerStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="homeAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="postNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblWorkers.UPDATE]" Method="tblWorkers_UPDATE">
+    <Parameter Name="workNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="surname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="workerStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="altPhoneNo" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="homeAddress" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="postNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="active" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblWorkerStatus.ADD]" Method="tblWorkerStatus_ADD">
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblWorkerStatus.DELETE]" Method="tblWorkerStatus_DELETE">
+    <Parameter Name="statusNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[tblWorkerStatus.FIND]" Method="tblWorkerStatus_FIND">
+    <Parameter Name="statusNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="tblWorkerStatus_FINDResult">
+      <Column Name="statusNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[tblWorkerStatus.UPDATE]" Method="tblWorkerStatus_UPDATE">
+    <Parameter Name="statusNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
