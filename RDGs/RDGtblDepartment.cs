@@ -9,7 +9,7 @@ using System.Data.Linq;
 
 namespace RDGs
 {
-    public class RDGstblDepartment
+    public class RDGtblDepartment
     {
         public List<Interface.Idepartment> Get(bool? active)
         {
