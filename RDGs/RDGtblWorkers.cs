@@ -107,17 +107,79 @@ namespace RDGs
 
         public void Add(InterfaceAdaptor.Worker worker)
         {
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            {
+                var newWorker = new tblWorker()
+                {
+                    active = worker.Active,
+                    altPhoneNo = worker.AltPhoneNo,
+                    email = worker.Email,
+                    homeAddress = worker.Address,
+                    name = worker.Name,
+                    phoneNo = worker.PhoneNo,
+                    postNo = worker.PostNo.Id,
+                    surname = worker.Surname,
+                    workerStatus = worker.WorkerStatus.StautsNo,
+                };
 
+                dbContext.tblWorkers.InsertOnSubmit(newWorker);
+                dbContext.SubmitChanges();
+            }
         }
 
         public void Update(InterfaceAdaptor.Worker worker)
         {
-            
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            {
+                tblWorker updateWorker = dbContext.tblWorkers.SingleOrDefault(x => x.workNo == worker.WorkNo);
+
+                updateWorker.active = worker.Active;
+                updateWorker.altPhoneNo = worker.AltPhoneNo;
+                updateWorker.email = worker.Email;
+                updateWorker.homeAddress = worker.Address;
+                updateWorker.name = worker.Name;
+                updateWorker.phoneNo = worker.PhoneNo;
+                updateWorker.postNo = worker.PostNo.Id;
+                updateWorker.surname = worker.Surname;
+                updateWorker.workerStatus = worker.WorkerStatus.StautsNo;
+
+                dbContext.SubmitChanges();
+            }
         }
 
-        public void Delete(InterfaceAdaptor.Worker worker)
+        public void Delete(int WorkNumber)
         {
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            {
+                tblWorker workerItem = dbContext.tblWorkers.SingleOrDefault(x => x.workNo == WorkNumber);
 
+                var workerDelete = new StringBuilder();
+                workerDelete.Append("[tblWorkers] { ");
+                workerDelete.Append("workNo = " + workerItem.workNo.ToString() + ", ");
+                workerDelete.Append("name = " + workerItem.name + ", ");
+                workerDelete.Append("surname = " + workerItem.surname + ", ");
+                workerDelete.Append("workerStatus = " + workerItem.workerStatus.ToString() + ", ");
+                workerDelete.Append("phoneNo = " + workerItem.phoneNo + ", ");
+                workerDelete.Append("altPhoneNo = " + workerItem.altPhoneNo + ", ");
+                workerDelete.Append("homeAddress = " + workerItem.homeAddress + ", ");
+                workerDelete.Append("postNo = " + workerItem.postNo.ToString() + ", ");
+                workerDelete.Append("email = " + workerItem.email + ", ");
+                workerDelete.Append("active = ");
+                if (workerItem.active == true) { workerDelete.Append("1"); } else { workerDelete.Append("0"); }
+                workerDelete.Append(" }");
+
+                var newDeleteItem = new tblDeleteItem()
+                {
+                    deleteDate = DateTime.Now,
+                    itemInfo = workerDelete.ToString(),
+                    restored = false
+                };
+
+                dbContext.tblDeleteItems.InsertOnSubmit(newDeleteItem);
+                dbContext.tblWorkers.DeleteOnSubmit(workerItem);
+
+                dbContext.SubmitChanges();
+            }
         }
     }
 }
