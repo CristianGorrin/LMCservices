@@ -35,9 +35,9 @@ namespace RDGs
         {
             var workerStatus = new InterfaceAdaptor.WorkerStatus();
 
-            using (LMCdatabaseDataContext dbcontext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
-                var workerStatusFound = dbcontext.tblWorkerStatus.SingleOrDefault(
+                var workerStatusFound = dbContext.tblWorkerStatus.SingleOrDefault(
                     x => x.statusNo == stautsNumber);
 
                 workerStatus.Staus = workerStatusFound.status;
