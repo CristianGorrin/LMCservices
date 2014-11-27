@@ -132,7 +132,7 @@
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.24120448567708); (8.3749975 : 8.24120448567708); (8.3749975 : 7.85740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 8.24120448567708); (7.29166666666667 : 8.24120448567708 : JumpStart); (7.45833333333333 : 8.24120448567708 : JumpEnd); (8.3749975 : 8.24120448567708); (8.3749975 : 7.85740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPostNo/tblPostNo_tblWorker" />
       <nodes>
         <classShapeMoniker Id="042661e6-c280-4de9-aa43-745e36f04fd2" />
