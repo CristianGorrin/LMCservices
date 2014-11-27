@@ -54,7 +54,9 @@
     </Compile>
     <Compile Include="RDGtblDepartment.cs" />
     <Compile Include="RDGtblPostNo.cs" />
+    <Compile Include="RDGtblPrivateCustomers.cs" />
     <Compile Include="RDGtblWorkers.cs" />
+    <Compile Include="RDGtblWorkerStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
