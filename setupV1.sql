@@ -769,7 +769,7 @@ as
 
 	select @result = coalesce('[tblPrivateCustomers] { privateCustomersNo = ' + CAST(privateCustomersNo as nvarchar(10)) + ', name = ' + name +
 	', surname = ' + surname + ', phoneNo = ' + phoneNo + ', altPhoneNo = ' + altPhoneNo + ', homeAddress = ' + homeAddress + 
-	', postNo = ' + CAST(postNo as nvarchar(10)) + ', email = ' + email + ', active = ' + CAST(active as nvarchar(1)),'')
+	', postNo = ' + CAST(postNo as nvarchar(10)) + ', email = ' + email + ', active = ' + CAST(active as nvarchar(1)) + ' }','')
 	from [dbo].[tblPrivateCustomers] where privateCustomersNo = @privetCustomersNo
 
 	insert into [dbo].[tblDeleteItems] (itemInfo, deleteDate, restored) values (@result, GETDATE(), 0)
