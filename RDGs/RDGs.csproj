@@ -58,6 +58,7 @@
     <Compile Include="RDGtblPrivateCustomers.cs" />
     <Compile Include="RDGtblWorkers.cs" />
     <Compile Include="RDGtblWorkerStatus.cs" />
+    <Compile Include="RGDtblCompanyOrders.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
