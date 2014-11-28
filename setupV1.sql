@@ -481,7 +481,7 @@ create procedure [tblCompanyCustomers.DELETE]
 as
 	declare @result nvarchar(max)
 
-	select @result = coalesce('[tblCompanyCustomers] { companyCustomersNo = ' + CAST(companyCustomersNo as nvarchar(10)) + ', CompanyName = ' +
+	select @result = coalesce('[tblCompanyCustomers] { companyCustomersNo = ' + CAST(companyCustomersNo as nvarchar(10)) + ', companyName = ' +
 	companyName + ', companyContactPerson = ' + companyContactPerson + ', cvrNo = ' + CAST(cvrNo as nvarchar(10)) + ', phoneNo = ' + phoneNo +
 	', altPhoneNo = ' + altPhoneNo + ', _address = ' + _address + ', postNo = ' + CAST(postNo as nvarchar(10)) + ', email = ' + email + ', active = ' +
 	CAST(active as nvarchar(1)) + ' }','')
