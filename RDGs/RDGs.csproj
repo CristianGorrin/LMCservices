@@ -52,6 +52,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RDGtblCompanyCustomers.cs" />
     <Compile Include="RDGtblDepartment.cs" />
     <Compile Include="RDGtblPostNo.cs" />
     <Compile Include="RDGtblPrivateCustomers.cs" />
