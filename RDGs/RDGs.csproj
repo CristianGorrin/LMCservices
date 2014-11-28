@@ -56,6 +56,7 @@
     <Compile Include="RDGtblDepartment.cs" />
     <Compile Include="RDGtblPostNo.cs" />
     <Compile Include="RDGtblPrivateCustomers.cs" />
+    <Compile Include="RDGtblPrivetOrders.cs" />
     <Compile Include="RDGtblWorkers.cs" />
     <Compile Include="RDGtblWorkerStatus.cs" />
     <Compile Include="RGDtblCompanyOrders.cs" />
