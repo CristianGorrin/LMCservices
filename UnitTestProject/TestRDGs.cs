@@ -111,7 +111,137 @@ namespace UnitTestProject
         [TestClass]
         public class TestRDGtblBankAccounts
         {
+            [TestMethod]
+            public void Get()
+            {
+                var bankAccounts = new RDGtblBankAccounts();
 
+                var list = bankAccounts.Get();
+
+                if (list.Count != 100)
+                {
+                    throw new AssertFailedException("RDGtblBankAccounts doesn't return expect amount");
+                }
+            }
+
+            [TestMethod]
+            public void Find()
+            {
+                var bankAccounts = new RDGtblBankAccounts();
+
+                var bankAccFound = bankAccounts.Find(1);
+
+                Assert.AreEqual(1, bankAccFound.Id);
+                Assert.AreEqual("Luctus Incorporated", bankAccFound.Bank);
+                Assert.AreEqual("consequat nec, mollis vitae, posuere", bankAccFound.AccountName);
+                Assert.AreEqual(6515, bankAccFound.RegNo);
+                Assert.AreEqual("PL76022421705935562898910716", bankAccFound.AccountNo);
+                Assert.AreEqual(398.2200D, bankAccFound.Balance);
+
+                bankAccFound = bankAccounts.Find(25);
+                Assert.AreEqual(25, bankAccFound.Id);
+                Assert.AreEqual("Tristique PC", bankAccFound.Bank);
+                Assert.AreEqual("enim Mgravida sagittis", bankAccFound.AccountName);
+                Assert.AreEqual(2749, bankAccFound.RegNo);
+                Assert.AreEqual("RS50652018226709615068", bankAccFound.AccountNo);
+                Assert.AreEqual(528.7300D, bankAccFound.Balance);
+            }
+
+            [TestMethod]
+            public void Update()
+            {
+                var bankAccounts = new RDGtblBankAccounts();
+
+                bankAccounts.Update(new BankAcc()
+                {
+                    AccountName = "newAccName",
+                    Balance = 654.84D,
+                    Id = 1,
+                    AccountNo = "rdfvew16948516516156",
+                    Bank = "newBank",
+                    RegNo = 8564
+                });
+
+
+                var updateBankAcc = bankAccounts.Find(1);
+                Assert.AreEqual("newAccName", updateBankAcc.AccountName);
+                Assert.AreEqual(654.84D, updateBankAcc.Balance);
+                Assert.AreEqual(1, updateBankAcc.Id);
+                Assert.AreEqual("rdfvew16948516516156", updateBankAcc.AccountNo);
+                Assert.AreEqual("newBank", updateBankAcc.Bank);
+                Assert.AreEqual(8564, updateBankAcc.RegNo);
+
+                bankAccounts.Update(new BankAcc() 
+                {
+                    AccountName = "consequat nec, mollis vitae, posuere",
+                    AccountNo = "PL76022421705935562898910716",
+                    Balance = 398.2200D,
+                    Bank = "Luctus Incorporated",
+                    Id = 1,
+                    RegNo = 6515
+                });
+
+                updateBankAcc = bankAccounts.Find(1);
+                Assert.AreEqual("consequat nec, mollis vitae, posuere", updateBankAcc.AccountName);
+                Assert.AreEqual(398.2200D, updateBankAcc.Balance);
+                Assert.AreEqual(1, updateBankAcc.Id);
+                Assert.AreEqual("PL76022421705935562898910716", updateBankAcc.AccountNo);
+                Assert.AreEqual("Luctus Incorporated", updateBankAcc.Bank);
+                Assert.AreEqual(6515, updateBankAcc.RegNo);
+            }
+
+            [TestMethod]
+            public void Add()
+            {
+                var bankAccounts = new RDGtblBankAccounts();
+
+                bankAccounts.Add(new BankAcc() { AccountName = "newAccName", AccountNo = "newAccNo-486532",
+                    RegNo = 4856, Balance = 4184.4685D, Bank = "newBank" });
+
+                var bankAcc = bankAccounts.Find(bankAccounts.NextId - 1);
+                Assert.AreEqual("newAccName", bankAcc.AccountName);
+                Assert.AreEqual(4184.4685D, bankAcc.Balance);
+                Assert.AreEqual("newAccNo-486532", bankAcc.AccountNo);
+                Assert.AreEqual("newBank", bankAcc.Bank);
+                Assert.AreEqual(4856, bankAcc.RegNo);
+            }
+
+            [TestMethod]
+            public void Delete()
+            {
+                var bankAccounts = new RDGtblBankAccounts();
+
+                int id = bankAccounts.NextId - 1;
+
+                bankAccounts.Delete(id);
+
+                object found = null;
+                
+                try
+                {
+                    found = bankAccounts.Find(id);
+                }
+                catch (Exception)
+                {
+                }
+
+                if (found != null)
+                {
+                    throw new AssertFailedException("The bank acc hasn't been delete");                  
+                }
+            }
+
+            class BankAcc : Interface.IbankAccounts
+            {
+                public int Id { get; set; }
+                public string Bank { get; set; }
+                public string AccountName { get; set; }
+                public int RegNo { get; set; }
+                public string AccountNo { get; set; }
+                public double Balance { get; set; }
+            }
         }
+        
+        
     }
 }
