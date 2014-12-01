@@ -234,5 +234,21 @@ namespace RDGs
                 dbContext.SubmitChanges();
             }
         }
+
+        public int NextId
+        {
+            get
+            {
+                int id;
+
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                {
+                    id = dbContext.tblPrivetOrders.Max(x => x.invoiceNo);
+                    id++;
+                }
+
+                return id;
+            }
+        }
     }
 }

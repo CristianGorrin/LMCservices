@@ -101,5 +101,21 @@ namespace RDGs
 
             return postNumber;
         }
+
+        public int NextId
+        {
+            get
+            {
+                int id;
+
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                {
+                    id = dbContext.tblPostNos.Max(x => x.ID);
+                    id++;
+                }
+
+                return id;
+            }
+        }
     }
 }

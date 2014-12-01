@@ -117,5 +117,21 @@ namespace RDGs
                 dbContext.SubmitChanges();
             }
         }
+
+        public int NextId
+        {
+            get
+            {
+                int id;
+
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                {
+                    id = dbContext.tblBankAccounts.Max(x => x.Id);
+                    id++;
+                }
+
+                return id;
+            }
+        }
     }
 }

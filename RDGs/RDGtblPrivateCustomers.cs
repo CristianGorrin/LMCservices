@@ -158,5 +158,21 @@ namespace RDGs
                 dbContext.SubmitChanges();
             }
         }
+
+        public int NextId
+        {
+            get
+            {
+                int id;
+
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                {
+                    id = dbContext.tblPrivateCustomers.Max(x => x.privateCustomersNo);
+                    id++;
+                }
+
+                return id;
+            }
+        }
     }
 }
