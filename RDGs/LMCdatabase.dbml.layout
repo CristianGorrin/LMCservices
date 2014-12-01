@@ -69,7 +69,7 @@
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 14.0537019856771); (6.25 : 14.0537019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 14.0537019856771); (5.79166666666667 : 14.0537019856771 : JumpStart); (5.95833333333333 : 14.0537019856771 : JumpEnd); (6.25 : 14.0537019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyCustomer/tblCompanyCustomer_tblCompanyOrder" />
       <nodes>
         <classShapeMoniker Id="fc77870c-420d-4778-9185-21d03db576f9" />

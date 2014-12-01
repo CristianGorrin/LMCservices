@@ -6,7 +6,7 @@
       <Column Name="bank" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="accountName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="regNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="accountNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="accountNo" Type="System.String" DbType="nvarchar(30) NOT NULL" CanBeNull="false" />
       <Column Name="balance" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
       <Association Name="tblBankAccount_tblCompanyOrder" Member="tblCompanyOrders" ThisKey="Id" OtherKey="paidToACC" Type="tblCompanyOrder" />
       <Association Name="tblBankAccount_tblPrivetOrder" Member="tblPrivetOrders" ThisKey="Id" OtherKey="paidToACC" Type="tblPrivetOrder" />

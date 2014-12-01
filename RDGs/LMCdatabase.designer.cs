@@ -187,7 +187,7 @@ namespace RDGs
 		
 		private int _regNo;
 		
-		private int _accountNo;
+		private string _accountNo;
 		
 		private System.Nullable<decimal> _balance;
 		
@@ -207,7 +207,7 @@ namespace RDGs
     partial void OnaccountNameChanged();
     partial void OnregNoChanging(int value);
     partial void OnregNoChanged();
-    partial void OnaccountNoChanging(int value);
+    partial void OnaccountNoChanging(string value);
     partial void OnaccountNoChanged();
     partial void OnbalanceChanging(System.Nullable<decimal> value);
     partial void OnbalanceChanged();
@@ -300,8 +300,8 @@ namespace RDGs
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accountNo", DbType="Int NOT NULL")]
-		public int accountNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accountNo", DbType="nvarchar(30) NOT NULL", CanBeNull=false)]
+		public string accountNo
 		{
 			get
 			{
