@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCustomers.cs" />
     <Compile Include="TestPostNo.cs" />
+    <Compile Include="TestRDGs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\API\API.csproj">

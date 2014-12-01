@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IbankAccounts.cs" />
     <Compile Include="IcompanyCustomer.cs" />
     <Compile Include="IcompanyOrder.cs" />
     <Compile Include="Idepartment.cs" />

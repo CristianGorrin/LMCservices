@@ -38,7 +38,7 @@ create table tblBankAccounts
 	bank nvarchar(100) NOT NULL,
 	accountName nvarchar(50),
 	regNo int NOT NULL,
-	accountNo int NOT NULL,
+	accountNo nvarchar(30) NOT NULL,
 	balance decimal(12,4)
 );
 
