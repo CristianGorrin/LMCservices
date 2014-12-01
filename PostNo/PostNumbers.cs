@@ -8,7 +8,7 @@ using API;
 
 namespace PostNo
 {
-    class PostNumbers : API.Lists<PostNo>
+    public class PostNumbers : API.Lists<PostNo>
     {
         public PostNumbers()
             : base()
