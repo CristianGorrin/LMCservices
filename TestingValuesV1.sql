@@ -598,8 +598,6 @@ GO
 
 -- Info for tables from http://www.generatedata.com/
 
--- TODO tblBankAccounts
-
 --tblWorkerStatus
 INSERT INTO tblWorkerStatus([status]) VALUES('Burundi');
 INSERT INTO tblWorkerStatus([status]) VALUES('Tonga');
@@ -804,6 +802,7 @@ INSERT INTO tblPrivateCustomers([name],[surname],[phoneNo],[altPhoneNo],[homeAdd
 INSERT INTO tblPrivateCustomers([name],[surname],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Illana','Strickland','+4540708034','24 31 89 52','P.O. Box 870, 647 Malesuada Ave',98,'nisi.sem.semper@posuere.com',1);
 INSERT INTO tblPrivateCustomers([name],[surname],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Jemima','Gutierrez','+4525228903','15 29 21 43','P.O. Box 398, 8630 Ligula Rd.',99,'laoreet.posuere@odio.edu',0);
 INSERT INTO tblPrivateCustomers([name],[surname],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Whilemina','Massey','+4544641895','49 64 04 03','8433 Elit, Rd.',100,'Cras.interdum.Nunc@blanditNam.ca',1);
+go
 
 -- tblCompanyCustomers
 INSERT INTO tblCompanyCustomers([companyName],[companyContactPerson],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active]) VALUES('Sem Ut Cursus Industries','Leo Suername',62988505,'+4577602112','45 35 20 10','3469 Sollicitudin Avenue',1,'faucibus.ut@mollisdui.net',0);
@@ -906,108 +905,110 @@ INSERT INTO tblCompanyCustomers([companyName],[companyContactPerson],[cvrNo],[ph
 INSERT INTO tblCompanyCustomers([companyName],[companyContactPerson],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active]) VALUES('Et Commodo At Foundation','Jillian Suername',96824672,'+4556700059','79 59 21 57','P.O. Box 466, 1800 Ac Avenue',98,'aliquet.nec.imperdiet@idblanditat.net',1);
 INSERT INTO tblCompanyCustomers([companyName],[companyContactPerson],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active]) VALUES('Nulla Facilisis Suspendisse LLC','Aiko Suername',93126197,'+4583704413','55 31 50 80','3921 Porttitor Avenue',99,'odio.Nam.interdum@sem.org',0);
 INSERT INTO tblCompanyCustomers([companyName],[companyContactPerson],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active]) VALUES('Mus Company','Henry Suername',49438379,'+4515682978','68 28 20 76','P.O. Box 149, 6814 Est St.',100,'ridiculus.mus.Proin@utdolor.ca',0);
+go
 
--- TODO tblBankAccounts
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ullamcorper Nisl Ltd','Lopez',8939,30668615,83948365);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Diam Incorporated','Tyson',1314,67216780,262306);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dolor Inc.','Chase',2745,15424096,15508263);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nec Company','Mcmahon',5658,13171609,54466263);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Penatibus Consulting','Buchanan',9708,17499113,17912317);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elementum At Egestas Corporation','Booker',4862,98817791,61033126);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elit Nulla Foundation','Decker',7967,89322740,75793873);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nec Imperdiet PC','Whitley',9657,95140538,56337876);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ultrices Duis LLC','Rodriquez',7869,34757837,46643321);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nulla LLP','Randolph',6553,29700213,44757550);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Malesuada Integer Incorporated','Bowers',5824,60890428,28799598);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nunc Corp.','English',4414,19982417,66562241);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tincidunt Industries','Herring',7574,54609215,42078991);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Orci Corp.','Hurley',7858,25312282,90612375);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Massa Vestibulum Ltd','Dorsey',8078,47369833,4606863);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu Tellus Eu PC','Page',4693,36914646,61532347);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Blandit Corp.','Lang',5423,52847347,56466752);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dapibus Industries','Collier',6968,35301428,71597986);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nunc Mauris Elit Institute','Mckay',4450,71621348,61830929);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Suspendisse Non Institute','Talley',2654,36618232,53000950);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lacus LLC','Richmond',3594,35313349,52921260);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Congue A Aliquet Corp.','Rich',9030,55746871,4265790);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vulputate Ullamcorper LLP','Ratliff',2267,61963210,24870856);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Luctus LLP','West',1412,74713275,85380667);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Arcu Vestibulum Corporation','Sweet',4014,89211104,41016191);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vulputate Dui Nec Incorporated','Shepard',6689,68630447,63723583);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vestibulum Accumsan Foundation','Wall',7041,78087853,86317894);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Rhoncus Proin Industries','Clay',9855,72070930,16874848);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu Associates','Hays',1421,16704268,10119494);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Habitant Corporation','Forbes',5359,21531519,41577683);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Et Euismod PC','Luna',5725,17720717,12763816);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ligula Aliquam Erat Corp.','Hayes',9300,36967691,93434715);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tincidunt Nunc Corp.','Gilmore',2720,50069337,83813088);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Auctor Corporation','Sparks',6464,72761117,27294615);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ultrices Posuere Inc.','Allison',4212,25278918,47477941);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Fringilla Euismod Enim Institute','Paul',6606,96590536,63018508);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Imperdiet Erat Foundation','Langley',5999,92809680,93929239);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sem Pellentesque Consulting','Mcclure',4773,40572990,1265111);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('In Hendrerit Consectetuer LLC','Velasquez',4738,80662437,46063445);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Litora Torquent Industries','Flynn',9518,63347125,79280014);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sed Industries','Becker',3610,56060898,8230034);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nec Company','Clark',7574,60876365,66471717);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Egestas Corp.','Sanders',4928,65424030,50965273);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Leo Industries','Phillips',8056,50791742,24914737);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Cras Lorem Ltd','Rodriguez',6314,17746289,31250878);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Enim Nunc Ltd','Lawrence',8614,67718423,24889061);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tincidunt Pede Corporation','Mathis',6428,67584663,97728087);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('A Auctor PC','Rosario',1511,54977096,92670166);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Enim Corp.','Gonzales',5174,33338222,2759788);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Consequat Ltd','Chandler',7641,72659487,48709830);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dis Parturient Montes Consulting','Sandoval',9042,18195932,19856972);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Pretium Neque Morbi Ltd','Mcdonald',9409,96130910,20015233);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Nulla Corp.','Griffin',2074,53241939,34877674);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dictum Augue Limited','Bridges',7445,46852398,6465788);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sed Inc.','Lane',5190,44709393,93534628);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vitae Velit Ltd','Compton',4652,29878575,9017752);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Massa Quisque Porttitor Corp.','Arnold',8301,75340662,78364676);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sem Eget Foundation','Kirk',4518,19676953,19982811);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Ut Incorporated','Horn',7165,60711994,57281075);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lorem Fringilla Ornare Limited','Soto',3860,99634962,61938555);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elit LLC','Duran',2522,36810734,91866768);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nec Tempus Industries','Lowe',6617,41302144,16998531);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sed Ltd','Sims',5098,56523261,34857031);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nec Cursus A Institute','Brooks',6905,61750542,28552380);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Accumsan Laoreet Ipsum LLC','Berg',6723,59429320,13929564);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nec Diam Duis Industries','Ashley',2275,47834563,60772349);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Augue Limited','Briggs',5219,70303721,36452062);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Massa Mauris Incorporated','Avila',2363,58226300,98957811);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Gravida PC','Gonzales',9297,95612980,76415720);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ut Quam Vel LLC','Curry',9178,68090619,3581185);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Feugiat PC','Walsh',4156,65108052,76680025);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Duis Dignissim Tempor Corporation','Hanson',5716,67853414,3771607);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lorem Associates','Stephenson',3786,19398523,61155549);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Adipiscing Associates','Chavez',8502,81984859,23227112);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sed Foundation','Joyce',1772,34994145,34973962);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lacus Vestibulum Lorem Industries','Harding',8345,54840440,40928214);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aenean Egestas Consulting','Webster',5085,17907142,5033976);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sed Dolor Fusce Institute','Lee',5998,80741760,51965796);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ultrices Sit Amet Consulting','Callahan',5774,86015004,13194649);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sagittis Foundation','Wilkerson',8056,14116508,61507918);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nascetur Ridiculus Limited','Walter',7625,79936378,65096538);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Leo Morbi Neque Corporation','George',9816,99829561,66131572);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tortor Nibh Company','Kirk',9526,80051324,55331428);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Aliquam Institute','Butler',8180,67899741,88831237);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Morbi Industries','Roy',6250,29283565,1952721);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eleifend Ltd','Payne',9431,99738780,31566630);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Quisque Ltd','Durham',1723,56135240,78026567);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Praesent Interdum LLP','Landry',1686,78090744,10034369);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Blandit Inc.','Hamilton',1834,43957221,15356356);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vehicula Pellentesque Tincidunt Limited','Bauer',6796,97288782,71166481);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Donec Luctus Aliquet Corporation','Cervantes',5627,95378684,13373937);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vitae Mauris Foundation','Hess',6322,77741404,29279635);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Duis Associates','Hahn',9929,70240358,88235543);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Phasellus Libero Mauris Incorporated','Crane',1433,34543652,88208487);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elit PC','Gross',5455,79980934,25594903);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ac Facilisis Inc.','Fischer',4822,53147267,79729310);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lorem Sit Corporation','Ferrell',1216,88859078,21482309);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nisi Mauris Associates','Hoover',2570,31885507,2280908);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Ipsum Porta Institute','Cleveland',5692,78269938,97144928);
-INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nisi Aenean Corporation','Boyd',9353,11930077,81026119);
+-- tblBankAccounts
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Luctus Incorporated','consequat nec, mollis vitae, posuere',6515,'PL76022421705935562898910716','398.22');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aliquam Nisl Nulla Ltd','convallis, ante lectus',8959,'TR420282930335867773497998','588.68');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Duis Company','Nullam nisl',2566,'NO6273302393942','412.58');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Magna Corp.','elit.',3171,'SK7893074577263764890837','277.49');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vehicula Aliquet Libero Inc.','rhoncus. Proin nisl sem, consequat',5789,'LV75LTBM9112207339100','065.26');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu Foundation','dictum',1527,'AZ13264619006494833444821866','471.95');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Placerat Incorporated','massa. Vestibulum accumsan neque et nunc. Quisque',3119,'GT64274950330366001567701873','174.23');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Integer Aliquam Foundation','sit amet diam eu dolor egestas rhoncus. Proin',1196,'CZ3791522755677099241346','587.56');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Magnis Consulting','tristique ac, eleifend',1614,'NL90BUVA5092168253','287.95');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Faucibus Orci Consulting','Vestibulum ut eros non',8138,'GI61FMWR088552049321442','534.47');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Commodo Company','augue id a',1507,'CH1809467594183834811','543.48');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sagittis Consulting','semper pretium neque. Morbi quis urna.',2231,'SK3749292115455007412375','160.25');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aenean Massa Corporation','Curabitur sed tortor.',4676,'KZ454359727427107802','937.44');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lectus Nullam PC','consectetuer, cursus',7317,'MC1139757131956411484900675','820.97');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sem Pellentesque LLP','sociosqu ad litora torquent per conubia nostr per',9485,'BE45668615969839','703.75');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Id Libero Donec Inc.','Donec tempus,',6273,'VG5886060974723695741668','471.39');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dictum Associates','feugiat nec, diam. Duis mi',2536,'MU5439876704851082649061573612','865.47');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Natoque Industries','turpis vitae purus gravida sagittis. Duis',8861,'HR2976659070329896117','262.51');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mollis Incorporated','ligula. Nullam feugiat',8217,'IL094730465263322138024','223.87');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dolor Institute','porta elit, a feugiat',3355,'MU1952914492859076390517049542','136.83');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Leo Cras Consulting','mollis nec cursus as',1947,'IS194345763972891550536600','234.42');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Quisque Tincidunt Pede Company','turpis egestas. Fusce',6182,'GT68986168091491050214559762','814.64');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Amet PC','vel arcu eu',3215,'IE80QSTD23719593869765','500.17');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Institute','nec, diam. Duis mi enim, condimentum eget,',3001,'LI1573750019437646849','875.83');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tristique PC','enim Mgravida sagittis',2749,'RS50652018226709615068','528.73');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('In LLP','Suspendisse sed dolor. Fusce mi lorem, vehicula',5671,'GI08HSUG802530697867447','188.06');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dolor Sit Amet Company','elit erat vitae risus. Duis a mi fringilla mi',5968,'SK7655037250657838492289','511.17');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vel Associates','nunc. In at pede.',7781,'FI5735712478452105','903.32');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ultrices A Limited','risus Donec egestas. Aliquam nec enim Nunc ut erat',2346,'GT09667228871758858062216889','367.92');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elementum','Nulla interdum Curabitur dictum',9281,'MT33TQHH947631185107361435821','138.90');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Penatibus Et Magnis LLC','ligula Donec luctus aliquet Etiam ligu dictum eu,',6994,'SM1300294173778511982866139','070.30');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Erat Semper LLC','nisl',5489,'IE68ONTF94776688683060','568.65');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lectus Consulting','nec, euismod in, dolor. Fusce',8981,'AD1732663204130252341177','208.49');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Consectetuer Adipiscing Elit Institute','fermentum vel, mauris. Integer sem elit,',5527,'HR8135094413860804896','078.85');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('A Sollicitudin Limited','et netus',5458,'VG5747063448382213276689','264.68');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Consulting','et libero Proin Duis',7649,'BH22879991130657069861','844.53');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elit Pharetra LLP','malesuada',9465,'FO2419945693022251','038.54');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Purus Institute','fermentum risus, at fringilla purus',7664,'SE1053356617521747256313','929.81');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('In Cursus Et Incorporated','leo, in lobortis tellus justo sit amet Donec',3904,'RS66176849941974979509','965.11');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Venenatis A Magna Inc','amet nulla Donec non just Proin non massa non ante',6881,'PT34086060297708128686600','007.07');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Congue Inc.','turpis vitae',7503,'DE12635728468005126699','635.88');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Arcu Aliquam Ultrices Associates','Lorem ipsum dolor sit amet,',4451,'IE22KRKU80928759189195','473.68');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mus Aenean Eget Consulting','Curabitur Nulla tempor augue ac ipsum',5998,'MD0325981553691917631868','205.56');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tincidunt Donec Incorporated','neque ve fermentum metus Aenean',5125,'TN0854416356207036758040','247.70');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Metus PC','massa. Suspendisse eleifend. Cras',8099,'RS19632262499842451094','761.16');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Proin Vel Company','Donec felis orci, adipiscing non, luctus sit',5065,'FR9584419613839706342256211','876.57');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Donec Fringilla Corp.','dolor. Donec fringilla. Donec feugiat metus',8197,'SK6987596656488390327803','937.08');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Euismod Mauris Foundation','ullamcorper, nisl arcu iaculis enim, sit amet',7102,'LT540464723608958953','536.40');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Imperdiet Dictum Limited','Aenean egestas hendrerit neque.',2747,'MR0419002085315940831363095','858.74');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aliquam Industries','Nulla interdum. Curabitur dictum.',5524,'FI7092974994019654','927.22');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Augue Industries','vehicula Donec egestas Duis ac arcu',8128,'SK8152944332553110798021','057.80');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mi Duis Risus LLP','Phasellus fermentum convallis ligula.',9265,'CY20266556792938234843156549','315.96');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dis Inc.','est tempor bibendum.',7512,'PL24793973968106145436374294','826.97');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lacus Mauris Company','lorem fringilla ornarlorem',3745,'PS613709420506204537256845713','624.77');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dolor Fusce Associates','vulputate velit eu sem. Pellentesque ut ipsum',7597,'GT86610351596604558238814501','963.83');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Congue Turpis Ltd','cursus in, hendrerit consectetuer,',6602,'LV16IVVR4769996415275','265.80');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Id Ante Nunc Corp','habitant morbi malesuada',4722,'DK6992105975725940','64.36');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Diam Pellentesque PC','vitae, posuere at,',1577,'IE85CKIR47031858652616','218.21');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Lacus Cras Corp','Cum sociis natoque penatibus et magn',7789,'RS22535937175163692534','977.91');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Rutrum Corp.','quis diam luctus lobortis.',6608,'AT299573552870471204','163.74');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Ornare Sagittis Company','ac risus. Morbi metus. Vivamus euismod Nullam',4968,'PT77669442004393203838546','125.84');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sit Amet Consectetuer Associates','in faucibus orci luctus et ultrices cubilia',9533,'SK5545380760929803263511','275.06');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nunc Sed Pede Foundation','aptent taciti sociosqu a conubia nostra per',2889,'RO39IPZU9758321028730075','196.98');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Tortor Nunc Foundation','id nunc interdum Sed nec metus facilisis lorem',2459,'DE28010250932636867206','282.39');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Egestas Aliquam Ltd','Suspendisse ac metus vitae velit egestas lacinia',6704,'CH1123795112499586076','757.62');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aliquam Erat Corp','elementum at egestas a scelerisque sed sapien',7293,'PT57253080720963959742617','010.52');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Imperdiet Institute','blandit enim consequat Maecenas libero congue a,',3353,'LB83838863581295488895992542','807.60');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Imperdiet Ornare Foundation','ridiculus',2903,'SE0497264103948813420275','017.00');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Donec Ltd','fringilla Mauris eu turpis. Nulla Proin',6867,'LI5124703920422432250','825.70');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aliquam Corporation','feugiat tellus lorem eu',8592,'GL6603050008902607','620.12');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu Industries','sit consectetuer adipiscing Curabitur sed',9310,'GR2517487535929035699234267','251.40');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sit Amet Limited','lorem fringilla ornare orci lacus sit amet',5084,'CZ3558347412126568910280','249.03');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Luctus Associates','felis orci,',9531,'CZ0686684164062918256131','304.80');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Vel Corporation','ac mi eleifend egestas. Sed pharetra,',4366,'ME90068638017204100278','993.15');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Non Consulting','tellus. Aenean egestas hendrerit neque.',8037,'CZ9831528637648060542608','476.18');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sociis Natoque Penatibus Consulting','sed facilisis vi Phasellus dapibus quam quis',7554,'LV87DFLD9070659730041','683.04');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dolor Corporation','odio Etiam ligu placerat venenatis a',1200,'AT596823998167630896','140.79');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sapien Imperdiet Ornare Corp.','posuere cubilia Curae; Donec',9662,'CY41025978250256915448685767','425.64');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu Tellus Phasellus PC','ac tellus.',1435,'KZ910970538557980068','622.39');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Adipiscing Industries','Mauris',1957,'SM7811562236043327790088377','616.55');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dignissim Pharetra Foundation','ante bibendum ullamcorper. Duis cursus,',5838,'TN6101164038496007534493','633.77');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sapien Molestie Associates','eget Mauris non dui nec urna suscipit  Fusce',8248,'KZ787390368681611585','335.27');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vitae Company','ligula pretium et rutrum non, hendrerit id',8758,'LT818267612143537213','092.32');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vehicula Pellentesque Inc.','Mauris nulla. Integer urna. Vivamus molestie',2410,'IE49DUCI40431786143264','209.91');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Risus Company','cursus et, eros. Proin ultrices. Duis',6622,'GE31304647801981211999','191.31');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Congue In Consulting','commodo',5825,'GI76NJLH025383892428001','160.14');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Aptent Taciti PC','neque et nunc tortor at risus Nunc ac',4488,'PL86610323328391197270698379','297.56');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Pede Cras Vulputate PC','In mi pede, nonummy ut, molestie',1222,'TR718028688660358783880841','293.08');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Neque Foundation','Phasellus convallis ligula Donec luctus aliquet',3911,'MU8741861817871208564769791574','154.72');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu PC','Nunc sed orci lobortis augue scelerisque',5432,'LB38167214974723174405328105','557.18');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vestibulum Industries','dignissim lacus Aliquam rutrum lorem ac risus',3413,'KZ810060727905464883','484.94');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Vulputate Consulting','Integer tincidunt aliquam arc Aliquam ultric Nam',5710,'LB88242264626740738872864943','491.86');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Elementum Lorem LLP','erat vel pede blandit In scelerisque scelerisque',5918,'IL864149504067810142002','049.35');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Pretium Neque Morbi Corp.','diam eu dolor egestas rhoncus. Proin nisl sem,',2661,'IE27FESN54905486616764','276.61');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Mauris Corporation','convallis in, cursus',7356,'IS742101738521749102827529','236.38');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Nullam Nisl Ltd','venenatis lacus. Etiam bibendum fermentum metus.',9264,'LU904251248504132818','824.46');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Eu Placerat Ltd','in faucibus orci luctus et',4386,'PK5441190214980198606695','591.69');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Dui Semper Et LLP','non,',2787,'HR3710627168356795602','885.54');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Habitant Morbi Institute','Nulla tempor',8790,'CR2220419515477209955','215.41');
+INSERT INTO tblBankAccounts([bank],[accountName],[regNo],[accountNo],[balance]) VALUES('Sem Pellentesque Ut Foundation','bland Cum sociis natoque penatibus et magnis',7085,'KW9619344411203906759093712987','785.56');
+go
 
 -- tblWorkers
 INSERT INTO tblWorkers([name],[surname],[workerStatus],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Jack','Hahn',60,'+4514420838','47 27 92 43','P.O. Box 968, 2362 A Rd.',72,'id.enim.Curabitur@vel.ca',1);
@@ -1110,6 +1111,7 @@ INSERT INTO tblWorkers([name],[surname],[workerStatus],[phoneNo],[altPhoneNo],[h
 INSERT INTO tblWorkers([name],[surname],[workerStatus],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Taylor','Howe',49,'+4593301720','77 72 21 56','P.O. Box 282, 7621 Sem Street',19,'ligula@purusDuiselementum.net',0);
 INSERT INTO tblWorkers([name],[surname],[workerStatus],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Tatum','Gonzalez',57,'+4574964308','45 60 73 67','Ap #935-9626 Cras Avenue',77,'lacus.Mauris.non@turpis.com',0);
 INSERT INTO tblWorkers([name],[surname],[workerStatus],[phoneNo],[altPhoneNo],[homeAddress],[postNo],[email],[active]) VALUES('Kimberley','Duran',99,'+4569968753','99 28 19 60','P.O. Box 434, 9277 Sociis Rd.',95,'amet.risus.Donec@Namligula.com',0);
+go
 
 -- tblCompanyOrders
 INSERT INTO tblCompanyOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customer],[paid]) VALUES('2015-03-23','2014-08-15','auctor ullamcorper, nisl arcu','2014-01-26',11,2,169,49,1,1,1);
@@ -1212,6 +1214,7 @@ INSERT INTO tblCompanyOrders([createdDate],[taskDate],[descriptionTask],[dateSen
 INSERT INTO tblCompanyOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customer],[paid]) VALUES('2014-11-26','2015-05-21','dapibus','2014-08-24',20,1,205,6,98,98,1);
 INSERT INTO tblCompanyOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customer],[paid]) VALUES('2014-09-05','2015-02-19','consectetuer','2014-07-10',20,3,196,51,99,99,1);
 INSERT INTO tblCompanyOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customer],[paid]) VALUES('2014-01-26','2015-10-30','nisl. Nulla eu neque pellentesque massa lobortis ultrices.','2015-01-15',21,8,211,76,100,100,1);
+go
 
 -- TODO tblPrivetOrders
 INSERT INTO tblPrivetOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customers],[paid]) VALUES('2013-11-24','2013-12-17','orci quis lectus.','2014-06-10',2,10,419,48,78,24,1);
@@ -1314,6 +1317,7 @@ INSERT INTO tblPrivetOrders([createdDate],[taskDate],[descriptionTask],[dateSend
 INSERT INTO tblPrivetOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customers],[paid]) VALUES('2015-04-10','2014-11-19','erat.','2014-04-04',2,5,492,48,41,16,1);
 INSERT INTO tblPrivetOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customers],[paid]) VALUES('2014-11-18','2015-06-14','arcu.','2014-04-07',6,8,452,49,95,93,0);
 INSERT INTO tblPrivetOrders([createdDate],[taskDate],[descriptionTask],[dateSendBill],[daysToPaid],[hoursUse],[paidHour],[createBy],[paidToACC],[customers],[paid]) VALUES('2013-12-06','2013-12-01','purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla','2015-10-16',23,4,193,3,22,10,1);
+go
 
 -- tblDepartment
 INSERT INTO tblDepartment([companyName],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active],[departmentHeadNo]) VALUES('Egestas Blandit Consulting',356108649,'436-5207','+45-266-616-5489','P.O. Box 608, 3272 Donec Rd.',88,'Fusce.mi@pharetraQuisque.org',0,32);
@@ -1416,5 +1420,6 @@ INSERT INTO tblDepartment([companyName],[cvrNo],[phoneNo],[altPhoneNo],[_address
 INSERT INTO tblDepartment([companyName],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active],[departmentHeadNo]) VALUES('In Ornare Sagittis Corporation',63581040,'+45-113-593-8729','871-9283','P.O. Box 803, 7497 Maecenas Rd.',20,'arcu@convallis.edu',1,93);
 INSERT INTO tblDepartment([companyName],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active],[departmentHeadNo]) VALUES('Mollis Duis Corp.',252433201,'+45-913-651-5486','564-4698','4097 Luctus Rd.',66,'vestibulum.massa.rutrum@ligulaNullam.co.uk',0,13);
 INSERT INTO tblDepartment([companyName],[cvrNo],[phoneNo],[altPhoneNo],[_address],[postNo],[email],[active],[departmentHeadNo]) VALUES('Quam Institute',802408120,'+45-570-381-8561','109-9569','P.O. Box 102, 1734 Venenatis St.',42,'Quisque.ornare.tortor@ultrices.ca',1,39);
+go
 
 -- TODO tblDeleteItems
