@@ -241,7 +241,194 @@ namespace UnitTestProject
                 public double Balance { get; set; }
             }
         }
-        
-        
+
+        [TestClass]
+        public class TestRDGtblWorkers
+        {
+            [TestMethod]
+            public void Get()
+            {
+                var workers = new RDGtblWorkers();
+
+                var list = workers.Get(null);
+
+                if (list.Count != 100 )
+                {
+                    throw new AssertFailedException("dot's return expect amount");
+                }
+
+                list = workers.Get(true);
+                if (list.Count != 47)
+                {
+                    throw new AssertFailedException("dot's return expect amount");
+                }
+
+                list = workers.Get(false);
+                if (list.Count != 53)
+                {
+                    throw new AssertFailedException("dot's return expect amount");
+                }
+            }
+
+            [TestMethod]
+            public void Find()
+            {
+                var workers = new RDGtblWorkers();
+
+                var worker = workers.Find(1);
+                Assert.AreEqual(1, worker.WorkNo);
+                Assert.AreEqual("Jack", worker.Name);
+                Assert.AreEqual("Hahn", worker.Surname);
+                Assert.AreEqual(72, worker.WorkerStatus.StautsNo);
+                Assert.AreEqual("+4514420838", worker.PhoneNo);
+                Assert.AreEqual("47 27 92 43", worker.AltPhoneNo);
+                Assert.AreEqual("P.O. Box 968, 2362 A Rd.", worker.Address);
+                Assert.AreEqual(60, worker.PostNo.Id);
+                Assert.AreEqual("id.enim.Curabitur@vel.ca", worker.Email);
+                Assert.AreEqual(true, worker.Active);
+
+                worker = workers.Find(53);
+                Assert.AreEqual(53, worker.WorkNo);
+                Assert.AreEqual("Kasper", worker.Name);
+                Assert.AreEqual("Harrington", worker.Surname);
+                Assert.AreEqual(11, worker.WorkerStatus.StautsNo);
+                Assert.AreEqual("+4573740728", worker.PhoneNo);
+                Assert.AreEqual("97 54 14 96", worker.AltPhoneNo);
+                Assert.AreEqual("P.O. Box 970, 9621 In, St.", worker.Address);
+                Assert.AreEqual(84, worker.PostNo.Id);
+                Assert.AreEqual("lectus@In.com", worker.Email);
+                Assert.AreEqual(false, worker.Active);
+            }
+
+            [TestMethod]
+            public void Add()
+            {
+                var workers = new RDGtblWorkers();
+
+                int id = workers.NextId;
+
+                workers.Add(new Worker()
+                {
+                    Active = true,
+                    Address = "newAddress",
+                    AltPhoneNo = "newAllPhone123456",
+                    Email = "newEmail",
+                    Name = "newName",
+                    PhoneNo = "newPhone16516",
+                    PostNo = new InterfaceAdaptor.PostNo() { Id = 15 },
+                    Surname = "newSurname",
+                    WorkerStatus = new InterfaceAdaptor.WorkerStatus() { StautsNo = 10 },
+                });
+
+                var worker = workers.Find(id);
+                Assert.AreEqual(id, worker.WorkNo);
+                Assert.AreEqual("newName", worker.Name);
+                Assert.AreEqual("newSurname", worker.Surname);
+                Assert.AreEqual(10, worker.WorkerStatus.StautsNo);
+                Assert.AreEqual("newPhone16516", worker.PhoneNo);
+                Assert.AreEqual("newAllPhone123456", worker.AltPhoneNo);
+                Assert.AreEqual("newAddress", worker.Address);
+                Assert.AreEqual(15, worker.PostNo.Id);
+                Assert.AreEqual("newEmail", worker.Email);
+                Assert.AreEqual(true, worker.Active);
+            }
+
+            [TestMethod]
+            public void Update()
+            {
+                var workers = new RDGtblWorkers();
+
+                workers.Update(new Worker
+                {
+                    Active = false,
+                    Address = "newAddress",
+                    AltPhoneNo = "newAltPhone",
+                    Email = "newEmail",
+                    Name = "newName",
+                    PhoneNo = "newPhone",
+                    PostNo = new InterfaceAdaptor.PostNo() { Id = 6 },
+                    Surname = "newSurname",
+                    WorkerStatus = new InterfaceAdaptor.WorkerStatus() { StautsNo = 5 },
+                    WorkNo = 1
+                });
+
+                var worker = workers.Find(1);
+                Assert.AreEqual(1, worker.WorkNo);
+                Assert.AreEqual("newName", worker.Name);
+                Assert.AreEqual("newSurname", worker.Surname);
+                Assert.AreEqual(5, worker.WorkerStatus.StautsNo);
+                Assert.AreEqual("newPhone", worker.PhoneNo);
+                Assert.AreEqual("newAltPhone", worker.AltPhoneNo);
+                Assert.AreEqual("newAddress", worker.Address);
+                Assert.AreEqual(6, worker.PostNo.Id);
+                Assert.AreEqual("newEmail", worker.Email);
+                Assert.AreEqual(false, worker.Active);
+
+                workers.Update(new Worker
+                {
+                    Active = true,
+                    Address = "P.O. Box 968, 2362 A Rd.",
+                    AltPhoneNo = "47 27 92 43",
+                    Email = "id.enim.Curabitur@vel.ca",
+                    Name = "Jack",
+                    PhoneNo = "+4514420838",
+                    PostNo = new InterfaceAdaptor.PostNo() { Id = 60 },
+                    Surname = "Hahn",
+                    WorkerStatus = new InterfaceAdaptor.WorkerStatus() { StautsNo = 72 },
+                    WorkNo = 1
+                });
+
+                worker = workers.Find(1);
+                Assert.AreEqual(1, worker.WorkNo);
+                Assert.AreEqual("Jack", worker.Name);
+                Assert.AreEqual("Hahn", worker.Surname);
+                Assert.AreEqual(72, worker.WorkerStatus.StautsNo);
+                Assert.AreEqual("+4514420838", worker.PhoneNo);
+                Assert.AreEqual("47 27 92 43", worker.AltPhoneNo);
+                Assert.AreEqual("P.O. Box 968, 2362 A Rd.", worker.Address);
+                Assert.AreEqual(60, worker.PostNo.Id);
+                Assert.AreEqual("id.enim.Curabitur@vel.ca", worker.Email);
+                Assert.AreEqual(true, worker.Active); 
+            }
+
+            [TestMethod]
+            public void Delete()
+            {
+                var workers = new RDGtblWorkers();
+
+                int id = workers.NextId - 1;
+
+                workers.Delete(id);
+
+                object worker = null;
+
+                try
+                {
+                    worker = workers.Find(id);
+                }
+                catch (Exception)
+                {
+                }
+
+                if (worker != null)
+                {
+                    throw new AssertFailedException("Worker wasn't delete");
+                }
+            }
+
+            class Worker : Interface.Iworker
+            {
+                public bool Active { get; set; }
+                public string Address { get; set; }
+                public string AltPhoneNo { get; set; }
+                public string Email { get; set; }
+                public string Name { get; set; }
+                public string PhoneNo { get; set; }
+                public IpostNo PostNo { get; set; }
+                public string Surname { get; set; }
+                public IworkerStatus WorkerStatus { get; set; }
+                public int WorkNo { get; set; }
+            }
+        }
     }
 }
