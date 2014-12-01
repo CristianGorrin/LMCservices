@@ -8,9 +8,9 @@ namespace RDGs
 {
     public class RDGtblBankAccounts
     {
-        public List<InterfaceAdaptor.BankAccounts> Get()
+        public List<Interface.IbankAccounts> Get()
         {
-            var list = new List<InterfaceAdaptor.BankAccounts>();
+            var list = new List<Interface.IbankAccounts>();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -31,7 +31,7 @@ namespace RDGs
             return list;
         }
 
-        public InterfaceAdaptor.BankAccounts Find(int id)
+        public Interface.IbankAccounts Find(int id)
         {
             InterfaceAdaptor.BankAccounts bankAccounts = null;
 
@@ -54,7 +54,7 @@ namespace RDGs
             return bankAccounts;
         }
 
-        public void Add(InterfaceAdaptor.BankAccounts bankAccounts)
+        public void Add(Interface.IbankAccounts bankAccounts)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -72,7 +72,7 @@ namespace RDGs
             }
         }
 
-        public void Update(InterfaceAdaptor.BankAccounts bankAccounts)
+        public void Update(Interface.IbankAccounts bankAccounts)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {

@@ -8,9 +8,9 @@ namespace RDGs
 {
     public class RDGtblPrivetOrders
     {
-        public List<InterfaceAdaptor.PrivetOrder> Get(bool? paid)
+        public List<Interface.IprivetOrder> Get(bool? paid)
         {
-            var list = new List<InterfaceAdaptor.PrivetOrder>();
+            var list = new List<Interface.IprivetOrder>();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -88,9 +88,9 @@ namespace RDGs
             return list;
         }
 
-        public InterfaceAdaptor.PrivetOrder Find(int id)
+        public Interface.IprivetOrder Find(int id)
         {
-            InterfaceAdaptor.PrivetOrder privetOrder = null;
+            Interface.IprivetOrder privetOrder = null;
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -154,7 +154,7 @@ namespace RDGs
             return privetOrder;
         }
 
-        public void Add(InterfaceAdaptor.PrivetOrder privetOrder)
+        public void Add(Interface.IprivetOrder privetOrder)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -179,7 +179,7 @@ namespace RDGs
         }
 
 
-        public void Update(InterfaceAdaptor.PrivetOrder privetOrder)
+        public void Update(Interface.IprivetOrder privetOrder)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {

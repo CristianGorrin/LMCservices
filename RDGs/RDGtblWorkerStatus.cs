@@ -8,9 +8,9 @@ namespace RDGs
 {
     public class RDGtblWorkerStatus
     {
-        public List<InterfaceAdaptor.WorkerStatus> Get()
+        public List<Interface.IworkerStatus> Get()
         {
-            var list = new List<InterfaceAdaptor.WorkerStatus>();
+            var list = new List<Interface.IworkerStatus>();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -31,7 +31,7 @@ namespace RDGs
             return list;
         }
 
-        public InterfaceAdaptor.WorkerStatus Find(int stautsNumber)
+        public Interface.IworkerStatus Find(int stautsNumber)
         {
             var workerStatus = new InterfaceAdaptor.WorkerStatus();
 
@@ -47,7 +47,7 @@ namespace RDGs
             return workerStatus;
         }
 
-        public void Add(InterfaceAdaptor.WorkerStatus workerStatus)
+        public void Add(Interface.IworkerStatus workerStatus)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -62,7 +62,7 @@ namespace RDGs
             }
         }
 
-        public void Update(InterfaceAdaptor.WorkerStatus workerStatus)
+        public void Update(Interface.IworkerStatus workerStatus)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {

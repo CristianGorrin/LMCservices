@@ -8,9 +8,9 @@ namespace RDGs
 {
     public class RDGtblPrivateCustomers
     {
-        public List<InterfaceAdaptor.PrivetCustomer> Get(bool? active)
+        public List<Interface.IprivetCustomer> Get(bool? active)
         {
-            var list = new List<InterfaceAdaptor.PrivetCustomer>();
+            var list = new List<Interface.IprivetCustomer>();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -55,7 +55,7 @@ namespace RDGs
             return list;
         }
 
-        public InterfaceAdaptor.PrivetCustomer Find(int id)
+        public Interface.IprivetCustomer Find(int id)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -82,7 +82,7 @@ namespace RDGs
             }
         }
 
-        public void Add(InterfaceAdaptor.PrivetCustomer privetCustomer)
+        public void Add(Interface.IprivetCustomer privetCustomer)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -104,7 +104,7 @@ namespace RDGs
             }
         }
 
-        public void Update(InterfaceAdaptor.PrivetCustomer privetCustomer)
+        public void Update(Interface.IprivetCustomer privetCustomer)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {

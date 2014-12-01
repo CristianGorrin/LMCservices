@@ -8,9 +8,9 @@ namespace RDGs
 {
     public class RGDtblCompanyOrders
     {
-        public List<InterfaceAdaptor.CompanyOrder> Get(bool? paid)
+        public List<Interface.IcompanyOrder> Get(bool? paid)
         {
-            var list = new List<InterfaceAdaptor.CompanyOrder>();
+            var list = new List<Interface.IcompanyOrder>();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -89,9 +89,9 @@ namespace RDGs
             return list;
         }
 
-        public InterfaceAdaptor.CompanyOrder Find(int id)
+        public Interface.IcompanyOrder Find(int id)
         {
-            InterfaceAdaptor.CompanyOrder companyOrder = null;
+            Interface.IcompanyOrder companyOrder = null;
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -156,7 +156,7 @@ namespace RDGs
             return companyOrder;
         }
 
-        public void Add(InterfaceAdaptor.CompanyOrder companyOrder)
+        public void Add(Interface.IcompanyOrder companyOrder)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -180,7 +180,7 @@ namespace RDGs
             }
         }
 
-        public void Update(InterfaceAdaptor.CompanyOrder companyOrder)
+        public void Update(Interface.IcompanyOrder companyOrder)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {

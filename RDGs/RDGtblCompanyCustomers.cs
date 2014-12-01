@@ -8,9 +8,9 @@ namespace RDGs
 {
     public class RDGtblCompanyCustomers
     {
-        public List<InterfaceAdaptor.CompanyCustomer> Get(bool? active)
+        public List<Interface.IcompanyCustomer> Get(bool? active)
         {
-            var list = new List<InterfaceAdaptor.CompanyCustomer>();
+            var list = new List<Interface.IcompanyCustomer>();
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -54,9 +54,9 @@ namespace RDGs
             return list;
         }
 
-        public InterfaceAdaptor.CompanyCustomer Find(int id)
+        public Interface.IcompanyCustomer Find(int id)
         {
-            InterfaceAdaptor.CompanyCustomer companyCustomer = null;
+            Interface.IcompanyCustomer companyCustomer = null;
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -86,7 +86,7 @@ namespace RDGs
             return companyCustomer;
         }
 
-        public void Add(InterfaceAdaptor.CompanyCustomer companyCustomer)
+        public void Add(Interface.IcompanyCustomer companyCustomer)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -109,7 +109,7 @@ namespace RDGs
             }
         }
 
-        public void Update(InterfaceAdaptor.CompanyCustomer companyCustomer)
+        public void Update(Interface.IcompanyCustomer companyCustomer)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
