@@ -76,6 +76,10 @@
       <Project>{8cafe80e-47fc-4c95-a3a0-b7da35392203}</Project>
       <Name>Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LogicController\LogicController.csproj">
+      <Project>{7389188c-5e7b-4097-a664-86a657fbd7eb}</Project>
+      <Name>LogicController</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orders\Orders.csproj">
       <Project>{22e4da62-b1bb-4193-b12d-d8232209a0fe}</Project>
       <Name>Orders</Name>
