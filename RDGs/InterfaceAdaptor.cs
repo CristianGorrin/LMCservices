@@ -109,5 +109,15 @@ namespace RDGs
             public string Staus { get; set; }
             public int StautsNo { get; set; }
         }
+
+        public class BankAccounts : Interface.IbankAccounts
+        {
+            public int Id { get; set; }
+            public string Bank { get; set; }
+            public string AccountName { get; set; }
+            public int RegNo { get; set; }
+            public string AccountNo { get; set; }
+            public double Balance { get; set; }
+        }
     }
 }
