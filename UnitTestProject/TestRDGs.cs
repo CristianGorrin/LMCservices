@@ -279,11 +279,11 @@ namespace UnitTestProject
                 Assert.AreEqual(1, worker.WorkNo);
                 Assert.AreEqual("Jack", worker.Name);
                 Assert.AreEqual("Hahn", worker.Surname);
-                Assert.AreEqual(72, worker.WorkerStatus.StautsNo);
+                Assert.AreEqual(60, worker.WorkerStatus.StautsNo);
                 Assert.AreEqual("+4514420838", worker.PhoneNo);
                 Assert.AreEqual("47 27 92 43", worker.AltPhoneNo);
                 Assert.AreEqual("P.O. Box 968, 2362 A Rd.", worker.Address);
-                Assert.AreEqual(60, worker.PostNo.Id);
+                Assert.AreEqual(72, worker.PostNo.Id);
                 Assert.AreEqual("id.enim.Curabitur@vel.ca", worker.Email);
                 Assert.AreEqual(true, worker.Active);
 
