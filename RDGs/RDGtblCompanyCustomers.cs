@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SqlClient = System.Data.SqlClient;
+
 namespace RDGs
 {
     public class RDGtblCompanyCustomers
@@ -170,15 +172,22 @@ namespace RDGs
         {
             get
             {
-                int id;
-
+                string connString = string.Empty;
                 using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
                 {
-                    id = dbContext.tblCompanyCustomers.Max(x => x.companyCustomersNo);
-                    id++;
+                    connString = dbContext.Connection.ConnectionString;
                 }
 
-                return id;
+                var conn = new SqlClient.SqlConnection(connString);
+                var cmd = new SqlClient.SqlCommand(@"SELECT IDENT_CURRENT ('[tblCompanyCustomers]')", conn);
+
+                conn.Open();
+
+                decimal result = (decimal)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return Convert.ToInt32(result) + 1;
             }
         }
     }

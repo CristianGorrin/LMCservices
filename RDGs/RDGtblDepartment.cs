@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Interface;
 using System.Data.Linq;
 
+using SqlClient = System.Data.SqlClient;
+
 namespace RDGs
 {
     public class RDGtblDepartment
@@ -224,15 +226,22 @@ namespace RDGs
         {
             get
             {
-                int id;
-
+                string connString = string.Empty;
                 using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
                 {
-                    id = dbContext.tblCompanyCustomers.Max(x => x.companyCustomersNo);
-                    id++;
+                    connString = dbContext.Connection.ConnectionString;
                 }
 
-                return id;
+                var conn = new SqlClient.SqlConnection(connString);
+                var cmd = new SqlClient.SqlCommand(@"SELECT IDENT_CURRENT ('[tblDepartment]')", conn);
+
+                conn.Open();
+
+                decimal result = (decimal)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return Convert.ToInt32(result) + 1;
             }
         }
     }
