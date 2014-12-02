@@ -195,14 +195,8 @@ namespace UnitTestProject
             {
                 var bankAccounts = new RDGtblBankAccounts();
 
-                bankAccounts.Add(new BankAcc()
-                {
-                    AccountName = "newAccName",
-                    AccountNo = "newAccNo-486532",
-                    RegNo = 4856,
-                    Balance = 4184.4685D,
-                    Bank = "newBank"
-                });
+                bankAccounts.Add(new BankAcc() { AccountName = "newAccName", AccountNo = "newAccNo-486532",
+                    RegNo = 4856, Balance = 4184.4685D, Bank = "newBank" });
 
                 var bankAcc = bankAccounts.Find(bankAccounts.NextId - 1);
                 Assert.AreEqual("newAccName", bankAcc.AccountName);
@@ -222,7 +216,7 @@ namespace UnitTestProject
                 bankAccounts.Delete(id);
 
                 object found = null;
-
+                
                 try
                 {
                     found = bankAccounts.Find(id);
@@ -233,7 +227,7 @@ namespace UnitTestProject
 
                 if (found != null)
                 {
-                    throw new AssertFailedException("The bank acc hasn't been delete");
+                    throw new AssertFailedException("The bank acc hasn't been delete");                  
                 }
             }
 
@@ -258,7 +252,7 @@ namespace UnitTestProject
 
                 var list = workers.Get(null);
 
-                if (list.Count != 100)
+                if (list.Count != 100 )
                 {
                     throw new AssertFailedException("dot's return expect amount");
                 }
@@ -394,7 +388,7 @@ namespace UnitTestProject
                 Assert.AreEqual("P.O. Box 968, 2362 A Rd.", worker.Address);
                 Assert.AreEqual(60, worker.PostNo.Id);
                 Assert.AreEqual("id.enim.Curabitur@vel.ca", worker.Email);
-                Assert.AreEqual(true, worker.Active);
+                Assert.AreEqual(true, worker.Active); 
             }
 
             [TestMethod]
