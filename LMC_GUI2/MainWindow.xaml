@@ -1,0 +1,438 @@
+﻿<Controls:MetroWindow x:Class="LMC_GUI2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        Title="LMC Service"
+        Height="600"
+        Width="960"
+        MinHeight="600"
+        MinWidth="960"
+        
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        
+        SaveWindowPosition="True"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen">
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Indstillinger" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Ordrer"><!--Section start-->
+                <TabControl>
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="Private" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Kunde nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Fornavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Efternavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Addresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Postnr. / by" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr.2" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_p_orders_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_orders_name" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_orders_surname" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_orders_address" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_orders_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_orders_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_orders_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_orders_email" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_p_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="Firmaer" FontSize="18" />
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            
+            <TabItem Header="Kontrakter"><!--Section start-->
+            </TabItem>
+            
+            <TabItem Header="Regninger"><!--Section start-->
+            </TabItem>
+            
+            <TabItem Header="Kunder"><!--Section start-->
+                <TabControl>
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="Private" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Kunde nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Fornavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Efternavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Addresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Postnr. / by" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr.2" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_p_customers_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_customers_name" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_customers_surname" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_customers_address" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_customers_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_customers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_customers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_customers_email" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_p_customers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_customers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_customers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_customers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="Firmaer" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Kunde nr." HorizontalAlignment="Right"/>
+                                    <Label Content="CVR nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Firmanavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Addresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Postnr. / by" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Kontaktperson" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr.2" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_c_customers_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_customers_cvr" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_customers_name" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_customers_address" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_customers_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_customers_contactperson" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_customers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_customers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_customers_email" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_c_customers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_customers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_customers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_customers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            
+            <TabItem Header="Ansatte"><!--Section start-->
+                <TabControl>
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="ID nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Fornavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Efternavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Addresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Postnr. / by" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr.2" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_workers_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_workers_name" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_workers_surname" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_workers_address" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_workers_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_workers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_workers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_workers_email" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_workers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_workers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_workers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_workers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            
+            <TabItem Header="Afdelinger"><!--Section start-->
+                <TabControl>
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Firmanavn" HorizontalAlignment="Right"/>
+                                    <Label Content="CVR nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Afdelingsleder" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Adresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Postnr. / by" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Tlf.nr.2" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_departments_name"/>
+                                    <TextBox x:Name="txt_departments_cvr" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <ComboBox x:Name="txt_departments_head" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_departments_address" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_departments_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_departments_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_departments_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_departments_email" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_departments_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_departments_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_departments_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_departments_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            
+            <TabItem Header="Bogføring"><!--Section start-->
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</Controls:MetroWindow>
