@@ -169,7 +169,8 @@ namespace RDGs
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
-                tblDepartment updateDepartment = dbContext.tblDepartments.SingleOrDefault(x => x.department == department.Deparment);
+                tblDepartment updateDepartment = dbContext.tblDepartments.SingleOrDefault(
+                    x => x.department == department.Deparment);
 
                 updateDepartment._address = department.Address;
                 updateDepartment.active = department.Active;
@@ -186,12 +187,12 @@ namespace RDGs
             }
         }
 
-        public void Delete(Interface.Idepartment department)
+        public void Delete(int department)
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
                 tblDepartment item = dbContext.tblDepartments.SingleOrDefault(
-                    x => x.department == department.Deparment);
+                    x => x.department == department);
 
                 var itemString = new StringBuilder();
                 itemString.Append("[tblDepartment] { ");
