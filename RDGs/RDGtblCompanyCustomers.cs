@@ -58,7 +58,7 @@ namespace RDGs
 
         public Interface.IcompanyCustomer Find(int id)
         {
-            Interface.IcompanyCustomer companyCustomer = null;
+            Interface.IcompanyCustomer companyCustomer;
 
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
             {
@@ -70,17 +70,17 @@ namespace RDGs
                     Active = (bool)companyCustomerFound.active,
                     Address = companyCustomerFound._address,
                     AltPhoneNo = companyCustomerFound.altPhoneNo,
-                    CompanyCustomersNo = companyCustomer.CompanyCustomersNo,
-                    ContactPerson = companyCustomer.ContactPerson,
+                    CompanyCustomersNo = companyCustomerFound.companyCustomersNo,
+                    ContactPerson = companyCustomerFound.companyContactPerson,
                     CvrNo = companyCustomerFound.cvrNo,
-                    Email = companyCustomer.Email,
-                    Name = companyCustomer.Name,
-                    PhoneNo = companyCustomer.PhoneNo,
+                    Email = companyCustomerFound.email,
+                    Name = companyCustomerFound.companyName,
+                    PhoneNo = companyCustomerFound.phoneNo,
                     PostNo = new InterfaceAdaptor.PostNo()
                     {
-                        City = companyCustomer.PostNo.City,
-                        Id = companyCustomer.PostNo.Id,
-                        PostNumber = companyCustomer.PostNo.PostNumber
+                        City = companyCustomerFound.tblPostNo.city,
+                        Id = companyCustomerFound.tblPostNo.ID,
+                        PostNumber = companyCustomerFound.tblPostNo.postNo
                     },
                 };
             }
@@ -127,7 +127,7 @@ namespace RDGs
                 companyCustomerUpdateing.cvrNo = companyCustomer.CvrNo;
                 companyCustomerUpdateing.email = companyCustomer.Email;
                 companyCustomerUpdateing.phoneNo = companyCustomer.PhoneNo;
-                companyCustomerUpdateing.postNo = companyCustomerUpdateing.postNo;
+                companyCustomerUpdateing.postNo = companyCustomer.PostNo.Id;
 
                 dbContext.SubmitChanges();
             }
