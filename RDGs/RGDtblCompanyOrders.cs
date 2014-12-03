@@ -147,10 +147,10 @@ namespace RDGs
                     DateSendBill = (DateTime)companyOrderFound.dateSendBill,
                     DaysToPaid = (int)companyOrderFound.daysToPaid,
                     DescriptionTask = companyOrderFound.descriptionTask,
-                    HoutsUse = (int)companyOrderFound.hoursUse,
+                    HoutsUse = (double)companyOrderFound.hoursUse,
                     InvoiceNo = companyOrderFound.invoiceNo,
                     Paid = (bool)companyOrderFound.paid,
-                    PaidHour = (int)companyOrderFound.paidHour,
+                    PaidHour = (double)companyOrderFound.paidHour,
                     PaidToAcc = (int)companyOrderFound.paidToACC,
                     TaskDate = (DateTime)companyOrderFound.taskDate
                 };
