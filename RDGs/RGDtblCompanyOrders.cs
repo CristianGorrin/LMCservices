@@ -83,7 +83,7 @@ namespace RDGs
                         InvoiceNo = item.invoiceNo,
                         Paid = (bool)item.paid,
                         PaidHour = (int)item.paidHour,
-                        PaidToAcc = (int)item.paidHour,
+                        PaidToAcc = (int)item.paidToACC,
                         TaskDate = (DateTime)item.taskDate
                     });
                 }
