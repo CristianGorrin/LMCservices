@@ -151,7 +151,7 @@ namespace RDGs
                     InvoiceNo = companyOrderFound.invoiceNo,
                     Paid = (bool)companyOrderFound.paid,
                     PaidHour = (int)companyOrderFound.paidHour,
-                    PaidToAcc = (int)companyOrderFound.paidHour,
+                    PaidToAcc = (int)companyOrderFound.paidToACC,
                     TaskDate = (DateTime)companyOrderFound.taskDate
                 };
             }
