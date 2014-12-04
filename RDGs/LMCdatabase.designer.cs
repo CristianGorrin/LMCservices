@@ -2460,7 +2460,7 @@ namespace RDGs
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidHour", DbType="Decimal(3,1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paidHour", DbType="Decimal(4,1)")]
 		public System.Nullable<decimal> paidHour
 		{
 			get

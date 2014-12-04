@@ -106,7 +106,7 @@
       <Column Name="dateSendBill" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
       <Column Name="daysToPaid" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="hoursUse" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
-      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(3,1)" CanBeNull="true" />
+      <Column Name="paidHour" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
       <Column Name="createBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="customers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
