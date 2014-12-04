@@ -12,11 +12,19 @@ namespace RDGs
 {
     public class RDGtblPostNo
     {
+        private string connectionString;
+
+        public RDGtblPostNo(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
+
         public List<Interface.IpostNo> Get()
         {
             List<Interface.IpostNo> list = new List<Interface.IpostNo>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var dbContent = dbContext.tblPostNos;
 
@@ -36,7 +44,7 @@ namespace RDGs
 
         public void Add(Interface.IpostNo postNumber)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblPostNo newPostNumber = new tblPostNo
                 {
@@ -51,7 +59,7 @@ namespace RDGs
 
         public void Update(Interface.IpostNo postNumber)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblPostNo postNo = dbContext.tblPostNos.SingleOrDefault(x => x.ID == postNumber.Id);
                 postNo.city = postNumber.City;
@@ -63,7 +71,7 @@ namespace RDGs
 
         public void Delete(Interface.IpostNo postNumber)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblPostNo postNo = dbContext.tblPostNos.SingleOrDefault(x => x.ID == postNumber.Id);
                 dbContext.tblPostNos.DeleteOnSubmit(postNo);
@@ -90,7 +98,7 @@ namespace RDGs
         {
             var postNumber = new InterfaceAdaptor.PostNo();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var postNumbersTbl = dbContext.tblPostNos;
 
@@ -109,7 +117,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

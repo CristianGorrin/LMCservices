@@ -13,11 +13,18 @@ namespace RDGs
 {
     public class RDGtblDepartment
     {
+        private string connectionString;
+
+        public RDGtblDepartment(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.Idepartment> Get(bool? active)
         {
             var list = new List<Interface.Idepartment>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 IQueryable<tblDepartment> dbContentDepartments;
 
@@ -85,7 +92,7 @@ namespace RDGs
         {
             var department = new InterfaceAdaptor.Department();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var item = dbContext.tblDepartments.SingleOrDefault(x => x.department == deparmentNo);
 
@@ -144,7 +151,7 @@ namespace RDGs
 
         public void Add(Interface.Idepartment department)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblDepartment newDepartment = new tblDepartment
                 {
@@ -167,7 +174,7 @@ namespace RDGs
 
         public void Update(Interface.Idepartment department)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblDepartment updateDepartment = dbContext.tblDepartments.SingleOrDefault(
                     x => x.department == department.Deparment);
@@ -189,7 +196,7 @@ namespace RDGs
 
         public void Delete(int department)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblDepartment item = dbContext.tblDepartments.SingleOrDefault(
                     x => x.department == department);
@@ -228,7 +235,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

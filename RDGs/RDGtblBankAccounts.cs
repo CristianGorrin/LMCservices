@@ -10,11 +10,18 @@ namespace RDGs
 {
     public class RDGtblBankAccounts
     {
+        private string connectionString;
+
+        public RDGtblBankAccounts(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.IbankAccounts> Get()
         {
             var list = new List<Interface.IbankAccounts>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 foreach (var item in dbContext.tblBankAccounts)
                 {
@@ -37,7 +44,7 @@ namespace RDGs
         {
             InterfaceAdaptor.BankAccounts bankAccounts = null;
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var bankAccFound = dbContext.tblBankAccounts.SingleOrDefault(
                     x => x.Id == id);
@@ -58,7 +65,7 @@ namespace RDGs
 
         public void Add(Interface.IbankAccounts bankAccounts)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var newBankAcc = new tblBankAccount()
                 {
@@ -76,7 +83,7 @@ namespace RDGs
 
         public void Update(Interface.IbankAccounts bankAccounts)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var bankAccUpdateing = dbContext.tblBankAccounts.SingleOrDefault(
                     x => x.Id == bankAccounts.Id);
@@ -93,7 +100,7 @@ namespace RDGs
 
         public void Delete(int id)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var bankAccountsDeleteing = dbContext.tblBankAccounts.SingleOrDefault(
                     x => x.Id == id);
@@ -125,7 +132,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

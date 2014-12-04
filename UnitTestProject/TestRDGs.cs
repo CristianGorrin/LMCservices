@@ -15,13 +15,18 @@ namespace UnitTestProject
     [TestClass]
     public class TestRDGs
     {
+        // this is the connection string for the database used in this test
+        public const string connectionString = @"Data Source=(localdb)\ProjectsV12;Initial Catalog=LMCdatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False";
+
         [TestClass]
         public class TestRDGtblPostNo
         {
+            
+
             [TestMethod]
             public void Get()
             {
-                var tblPostNo = new RDGs.RDGtblPostNo();
+                var tblPostNo = new RDGs.RDGtblPostNo(TestRDGs.connectionString);
                 var list = tblPostNo.Get();
 
                 Assert.AreEqual(591, list.Count);
@@ -30,7 +35,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var tblPostNo = new RDGs.RDGtblPostNo();
+                var tblPostNo = new RDGs.RDGtblPostNo(TestRDGs.connectionString);
                 var postNo = tblPostNo.Find(17);
 
                 Assert.AreEqual(2650, postNo.PostNumber);
@@ -44,7 +49,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var tblPostNo = new RDGs.RDGtblPostNo();
+                var tblPostNo = new RDGs.RDGtblPostNo(TestRDGs.connectionString);
 
                 tblPostNo.Update(new PostNum() { City = "newCity", Id = 1, PostNumber = 9999 });
 
@@ -64,7 +69,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var tblPostNo = new RDGs.RDGtblPostNo();
+                var tblPostNo = new RDGs.RDGtblPostNo(TestRDGs.connectionString);
 
                 var newPostNo = new PostNum() { City = "addNewCity", PostNumber = 50 };
                 tblPostNo.Add(newPostNo);
@@ -78,7 +83,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var tblPostNo = new RDGs.RDGtblPostNo();
+                var tblPostNo = new RDGs.RDGtblPostNo(TestRDGs.connectionString);
 
                 int id = tblPostNo.NextId - 1;
 
@@ -114,7 +119,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var bankAccounts = new RDGtblBankAccounts();
+                var bankAccounts = new RDGtblBankAccounts(TestRDGs.connectionString);
 
                 var list = bankAccounts.Get();
 
@@ -127,7 +132,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var bankAccounts = new RDGtblBankAccounts();
+                var bankAccounts = new RDGtblBankAccounts(TestRDGs.connectionString);
 
                 var bankAccFound = bankAccounts.Find(1);
 
@@ -150,7 +155,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var bankAccounts = new RDGtblBankAccounts();
+                var bankAccounts = new RDGtblBankAccounts(TestRDGs.connectionString);
 
                 bankAccounts.Update(new BankAcc()
                 {
@@ -193,7 +198,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var bankAccounts = new RDGtblBankAccounts();
+                var bankAccounts = new RDGtblBankAccounts(TestRDGs.connectionString);
 
                 bankAccounts.Add(new BankAcc()
                 {
@@ -215,7 +220,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var bankAccounts = new RDGtblBankAccounts();
+                var bankAccounts = new RDGtblBankAccounts(TestRDGs.connectionString);
 
                 int id = bankAccounts.NextId - 1;
 
@@ -254,7 +259,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var workers = new RDGtblWorkers();
+                var workers = new RDGtblWorkers(TestRDGs.connectionString);
 
                 var list = workers.Get(null);
 
@@ -279,7 +284,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var workers = new RDGtblWorkers();
+                var workers = new RDGtblWorkers(TestRDGs.connectionString);
 
                 var worker = workers.Find(1);
                 Assert.AreEqual(1, worker.WorkNo);
@@ -309,7 +314,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var workers = new RDGtblWorkers();
+                var workers = new RDGtblWorkers(TestRDGs.connectionString);
 
                 int id = workers.NextId;
 
@@ -342,7 +347,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var workers = new RDGtblWorkers();
+                var workers = new RDGtblWorkers(TestRDGs.connectionString);
 
                 workers.Update(new Worker
                 {
@@ -400,7 +405,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var workers = new RDGtblWorkers();
+                var workers = new RDGtblWorkers(TestRDGs.connectionString);
 
                 int id = workers.NextId - 1;
 
@@ -443,7 +448,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var tblCompanyCustomers = new RDGtblCompanyCustomers();
+                var tblCompanyCustomers = new RDGtblCompanyCustomers(TestRDGs.connectionString);
 
                 var list = tblCompanyCustomers.Get(null);
                 Assert.AreEqual(100, list.Count);
@@ -458,7 +463,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var tblCompanyCustomers = new RDGtblCompanyCustomers();
+                var tblCompanyCustomers = new RDGtblCompanyCustomers(TestRDGs.connectionString);
 
                 var companyCustomers = tblCompanyCustomers.Find(1);
 
@@ -477,7 +482,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var tblCompanyCustomers = new RDGtblCompanyCustomers();
+                var tblCompanyCustomers = new RDGtblCompanyCustomers(TestRDGs.connectionString);
 
                 tblCompanyCustomers.Update(new CompanyCustomer());
 
@@ -525,7 +530,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var tblCompanyCustomers = new RDGtblCompanyCustomers();
+                var tblCompanyCustomers = new RDGtblCompanyCustomers(TestRDGs.connectionString);
 
                 tblCompanyCustomers.Add(new CompanyCustomer());
 
@@ -546,7 +551,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var tblCompanyCustomers = new RDGtblCompanyCustomers();
+                var tblCompanyCustomers = new RDGtblCompanyCustomers(TestRDGs.connectionString);
 
                 tblCompanyCustomers.Delete(tblCompanyCustomers.NextId - 1);
 
@@ -584,7 +589,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var tblCompanyCustomers = new RGDtblCompanyOrders();
+                var tblCompanyCustomers = new RGDtblCompanyOrders(TestRDGs.connectionString);
 
                 var list = tblCompanyCustomers.Get(null);
 
@@ -600,7 +605,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var tblCompanyCustomers = new RGDtblCompanyOrders();
+                var tblCompanyCustomers = new RGDtblCompanyOrders(TestRDGs.connectionString);
 
                 var Order = tblCompanyCustomers.Find(1);
 
@@ -621,7 +626,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var tblCompanyCustomers = new RGDtblCompanyOrders();
+                var tblCompanyCustomers = new RGDtblCompanyOrders(TestRDGs.connectionString);
 
                 tblCompanyCustomers.Update(new CompanyOrder());
 
@@ -674,7 +679,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var tblCompanyCustomers = new RGDtblCompanyOrders();
+                var tblCompanyCustomers = new RGDtblCompanyOrders(TestRDGs.connectionString);
 
                 tblCompanyCustomers.Add(new CompanyOrder());
 
@@ -697,7 +702,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var tblCompanyCustomers = new RGDtblCompanyOrders();
+                var tblCompanyCustomers = new RGDtblCompanyOrders(TestRDGs.connectionString);
 
                 tblCompanyCustomers.Delete(tblCompanyCustomers.NextId - 1);
 
@@ -732,7 +737,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var tblDepartment = new RDGtblDepartment();
+                var tblDepartment = new RDGtblDepartment(TestRDGs.connectionString);
 
                 var list = tblDepartment.Get(null);
                 Assert.AreEqual(100, list.Count);
@@ -748,7 +753,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var tblDepartment = new RDGtblDepartment();
+                var tblDepartment = new RDGtblDepartment(TestRDGs.connectionString);
 
                 var department = tblDepartment.Find(1);
 
@@ -767,7 +772,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var tblDepartment = new RDGtblDepartment();
+                var tblDepartment = new RDGtblDepartment(TestRDGs.connectionString);
 
                 tblDepartment.Add(new Department());
 
@@ -788,7 +793,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var tblDepartment = new RDGtblDepartment();
+                var tblDepartment = new RDGtblDepartment(TestRDGs.connectionString);
 
                 tblDepartment.Delete(tblDepartment.NextId - 1);
 
@@ -808,7 +813,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var tblDepartment = new RDGtblDepartment();
+                var tblDepartment = new RDGtblDepartment(TestRDGs.connectionString);
 
                 tblDepartment.Update(new Department());
 
@@ -874,7 +879,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var tblPrivateCustomers = new RDGtblPrivateCustomers();
+                var tblPrivateCustomers = new RDGtblPrivateCustomers(TestRDGs.connectionString);
 
                 var list = tblPrivateCustomers.Get(null);
                 Assert.AreEqual(100, list.Count);
@@ -889,7 +894,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var tblPrivateCustomers = new RDGtblPrivateCustomers();
+                var tblPrivateCustomers = new RDGtblPrivateCustomers(TestRDGs.connectionString);
 
                 var privateCustomers = tblPrivateCustomers.Find(1);
 
@@ -907,7 +912,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var tblPrivateCustomers = new RDGtblPrivateCustomers();
+                var tblPrivateCustomers = new RDGtblPrivateCustomers(TestRDGs.connectionString);
 
                 tblPrivateCustomers.Add(new PrivateCustomers());
 
@@ -927,7 +932,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var tblPrivateCustomers = new RDGtblPrivateCustomers();
+                var tblPrivateCustomers = new RDGtblPrivateCustomers(TestRDGs.connectionString);
 
                 tblPrivateCustomers.Delete(tblPrivateCustomers.NextId - 1);
 
@@ -947,7 +952,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var tblPrivateCustomers = new RDGtblPrivateCustomers();
+                var tblPrivateCustomers = new RDGtblPrivateCustomers(TestRDGs.connectionString);
 
                 tblPrivateCustomers.Update(new PrivateCustomers());
 
@@ -1009,7 +1014,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var tblPrivetOrders = new RDGtblPrivetOrders();
+                var tblPrivetOrders = new RDGtblPrivetOrders(TestRDGs.connectionString);
 
                 var list = tblPrivetOrders.Get(null);
                 Assert.AreEqual(100, list.Count);
@@ -1024,7 +1029,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var tblPrivetOrders = new RDGtblPrivetOrders();
+                var tblPrivetOrders = new RDGtblPrivetOrders(TestRDGs.connectionString);
 
                 var privetOrder = tblPrivetOrders.Find(1);
 
@@ -1045,7 +1050,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var tblPrivetOrders = new RDGtblPrivetOrders();
+                var tblPrivetOrders = new RDGtblPrivetOrders(TestRDGs.connectionString);
 
                 tblPrivetOrders.Add(new PrivetOrder());
 
@@ -1068,7 +1073,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var tblPrivetOrders = new RDGtblPrivetOrders();
+                var tblPrivetOrders = new RDGtblPrivetOrders(TestRDGs.connectionString);
 
                 tblPrivetOrders.Delete(tblPrivetOrders.NextId - 1);
                 object obj = null;
@@ -1086,7 +1091,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var tblPrivetOrders = new RDGtblPrivetOrders();
+                var tblPrivetOrders = new RDGtblPrivetOrders(TestRDGs.connectionString);
 
                 tblPrivetOrders.Update(new PrivetOrder());
 
@@ -1162,7 +1167,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Get()
             {
-                var workerStatus = new RDGtblWorkerStatus();
+                var workerStatus = new RDGtblWorkerStatus(TestRDGs.connectionString);
 
                 var list = workerStatus.Get();
                 Assert.AreEqual(100, list.Count);
@@ -1171,7 +1176,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Find()
             {
-                var workerStatus = new RDGtblWorkerStatus();
+                var workerStatus = new RDGtblWorkerStatus(TestRDGs.connectionString);
 
                 var status = workerStatus.Find(1);
                 Assert.AreEqual("Burundi", status.Staus);
@@ -1181,7 +1186,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Add()
             {
-                var workerStatus = new RDGtblWorkerStatus();
+                var workerStatus = new RDGtblWorkerStatus(TestRDGs.connectionString);
 
                 workerStatus.Add(new WorkerStatus());
 
@@ -1193,7 +1198,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Delete()
             {
-                var workerStatus = new RDGtblWorkerStatus();
+                var workerStatus = new RDGtblWorkerStatus(TestRDGs.connectionString);
 
                 workerStatus.Delete(workerStatus.NextId - 1);
 
@@ -1211,7 +1216,7 @@ namespace UnitTestProject
             [TestMethod]
             public void Update()
             {
-                var workerStatus = new RDGtblWorkerStatus();
+                var workerStatus = new RDGtblWorkerStatus(TestRDGs.connectionString);
 
                 workerStatus.Update(new WorkerStatus());
 

@@ -11,11 +11,18 @@ namespace RDGs
 {
     public class RGDtblCompanyOrders
     {
+        private string connectionString;
+
+        public RGDtblCompanyOrders(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.IcompanyOrder> Get(bool? paid)
         {
             var list = new List<Interface.IcompanyOrder>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 IQueryable<tblCompanyOrder> companyOrders;
 
@@ -96,7 +103,7 @@ namespace RDGs
         {
             Interface.IcompanyOrder companyOrder = null;
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var companyOrderFound = dbContext.tblCompanyOrders.SingleOrDefault(
                     x => x.invoiceNo == id);
@@ -161,7 +168,7 @@ namespace RDGs
 
         public void Add(Interface.IcompanyOrder companyOrder)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var newCompanyOrder = new tblCompanyOrder()
                 {
@@ -185,7 +192,7 @@ namespace RDGs
 
         public void Update(Interface.IcompanyOrder companyOrder)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var companyOrderUpdateing = dbContext.tblCompanyOrders.SingleOrDefault(
                     x => x.invoiceNo == companyOrder.InvoiceNo);
@@ -208,7 +215,7 @@ namespace RDGs
 
         public void Delete(int id)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var companyOrderDeleteing = dbContext.tblCompanyOrders.SingleOrDefault(
                     x => x.invoiceNo == id);
@@ -248,7 +255,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

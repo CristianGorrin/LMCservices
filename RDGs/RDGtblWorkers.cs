@@ -10,11 +10,18 @@ namespace RDGs
 {
     public class RDGtblWorkers
     {
+        private string connectionString;
+
+        public RDGtblWorkers(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.Iworker> Get(bool? active)
         {
             var list = new List<Interface.Iworker>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 IQueryable<tblWorker> workers;
 
@@ -70,7 +77,7 @@ namespace RDGs
 
         public Interface.Iworker Find(int workerNumber)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var item = dbContext.tblWorkers.Single(x => x.workNo == workerNumber);
 
@@ -109,7 +116,7 @@ namespace RDGs
 
         public void Add(Interface.Iworker worker)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var newWorker = new tblWorker()
                 {
@@ -131,7 +138,7 @@ namespace RDGs
 
         public void Update(Interface.Iworker worker)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblWorker updateWorker = dbContext.tblWorkers.SingleOrDefault(x => x.workNo == worker.WorkNo);
 
@@ -151,7 +158,7 @@ namespace RDGs
 
         public void Delete(int WorkNumber)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 tblWorker workerItem = dbContext.tblWorkers.SingleOrDefault(x => x.workNo == WorkNumber);
 
@@ -189,7 +196,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

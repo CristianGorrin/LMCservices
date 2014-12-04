@@ -10,11 +10,18 @@ namespace RDGs
 {
     public class RDGtblPrivetOrders
     {
+        private string connectionString;
+
+        public RDGtblPrivetOrders(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.IprivetOrder> Get(bool? paid)
         {
             var list = new List<Interface.IprivetOrder>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 IQueryable<tblPrivetOrder> privetOrders;
 
@@ -94,7 +101,7 @@ namespace RDGs
         {
             Interface.IprivetOrder privetOrder = null;
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var privetOrderFound = dbContext.tblPrivetOrders.SingleOrDefault(
                     x => x.invoiceNo == id);
@@ -158,7 +165,7 @@ namespace RDGs
 
         public void Add(Interface.IprivetOrder privetOrder)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var newPrivetOrderFound = new tblPrivetOrder()
                 {
@@ -183,7 +190,7 @@ namespace RDGs
 
         public void Update(Interface.IprivetOrder privetOrder)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var privetOrderUpteing = dbContext.tblPrivetOrders.SingleOrDefault(
                     x => x.invoiceNo == privetOrder.InvoiceNo);
@@ -206,7 +213,7 @@ namespace RDGs
 
         public void Delete(int id)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var deleingItem = dbContext.tblPrivetOrders.SingleOrDefault(
                     x => x.invoiceNo == id);
@@ -243,7 +250,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

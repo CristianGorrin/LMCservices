@@ -10,11 +10,18 @@ namespace RDGs
 {
     public class RDGtblWorkerStatus
     {
+        private string connectionString;
+
+        public RDGtblWorkerStatus(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.IworkerStatus> Get()
         {
             var list = new List<Interface.IworkerStatus>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var tblWorkerStatus = dbContext.tblWorkerStatus;
 
@@ -37,7 +44,7 @@ namespace RDGs
         {
             var workerStatus = new InterfaceAdaptor.WorkerStatus();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var workerStatusFound = dbContext.tblWorkerStatus.SingleOrDefault(
                     x => x.statusNo == stautsNumber);
@@ -51,7 +58,7 @@ namespace RDGs
 
         public void Add(Interface.IworkerStatus workerStatus)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var newWorkerStatus = new tblWorkerStatus()
                 {
@@ -66,7 +73,7 @@ namespace RDGs
 
         public void Update(Interface.IworkerStatus workerStatus)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var workerStatusUpdateing = dbContext.tblWorkerStatus.SingleOrDefault(
                     x => x.statusNo == workerStatus.StautsNo);
@@ -79,7 +86,7 @@ namespace RDGs
 
         public void Delete(int id)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var workerStatusDeleteing = dbContext.tblWorkerStatus.SingleOrDefault(
                     x => x.statusNo == id);
@@ -108,7 +115,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }

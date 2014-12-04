@@ -10,11 +10,18 @@ namespace RDGs
 {
     public class RDGtblCompanyCustomers
     {
+        private string connectionString;
+
+        public RDGtblCompanyCustomers(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public List<Interface.IcompanyCustomer> Get(bool? active)
         {
             var list = new List<Interface.IcompanyCustomer>();
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 IQueryable<tblCompanyCustomer> companyCustomers;
 
@@ -60,7 +67,7 @@ namespace RDGs
         {
             Interface.IcompanyCustomer companyCustomer;
 
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var companyCustomerFound = dbContext.tblCompanyCustomers.SingleOrDefault(
                     x => x.companyCustomersNo == id);
@@ -90,7 +97,7 @@ namespace RDGs
 
         public void Add(Interface.IcompanyCustomer companyCustomer)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var newCompanyCustomer = new tblCompanyCustomer()
                 {
@@ -113,7 +120,7 @@ namespace RDGs
 
         public void Update(Interface.IcompanyCustomer companyCustomer)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var companyCustomerUpdateing = dbContext.tblCompanyCustomers.SingleOrDefault(
                     x => x.companyCustomersNo == companyCustomer.CompanyCustomersNo);
@@ -135,7 +142,7 @@ namespace RDGs
 
         public void Delete(int id)
         {
-            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
                 var deletingItem = dbContext.tblCompanyCustomers.SingleOrDefault(
                     x => x.companyCustomersNo == id);
@@ -173,7 +180,7 @@ namespace RDGs
             get
             {
                 string connString = string.Empty;
-                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext())
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
                 {
                     connString = dbContext.Connection.ConnectionString;
                 }
