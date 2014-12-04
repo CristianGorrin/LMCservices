@@ -193,6 +193,7 @@ namespace RDGs
                 privetOrderUpteing.customers = privetOrder.Customer.PrivateCustomersNo;
                 privetOrderUpteing.dateSendBill = privetOrder.DateSendBill;
                 privetOrderUpteing.daysToPaid = privetOrder.DaysToPaid;
+                privetOrderUpteing.paidToACC = privetOrder.PaidToAcc;
                 privetOrderUpteing.descriptionTask = privetOrder.DescriptionTask;
                 privetOrderUpteing.hoursUse = Convert.ToDecimal(privetOrder.HourUse);
                 privetOrderUpteing.paid = privetOrder.Paid;
