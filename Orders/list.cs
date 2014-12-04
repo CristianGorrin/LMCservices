@@ -8,7 +8,7 @@ using API;
 
 namespace Orders
 {
-    public class CompanyOrders : API.Lists<CompanyOrder>
+    public class CompanyOrders : API.Lists<Interface.IcompanyOrder>
     {
         public CompanyOrders()
             :base()
@@ -16,7 +16,7 @@ namespace Orders
         }
     }
 
-    public class PrivetOrders : API.Lists<PrivetOrder>
+    public class PrivetOrders : API.Lists<Interface.IprivetOrder>
     {
         public PrivetOrders()
             :base()

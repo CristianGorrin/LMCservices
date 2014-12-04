@@ -8,7 +8,7 @@ using API;
 
 namespace Company
 {
-    public class Departments : API.Lists<Department>
+    public class Departments : API.Lists<Interface.Idepartment>
     {
         public Departments()
             : base()
@@ -16,7 +16,7 @@ namespace Company
         }
     }
 
-    public class Workers : API.Lists<Worker>
+    public class Workers : API.Lists<Interface.Iworker>
     {
         public Workers()
             : base()

@@ -8,7 +8,7 @@ using API;
 
 namespace Customers
 {
-    public class CompanyCustomers : API.Lists<CompanyCustomer>
+    public class CompanyCustomers : API.Lists<Interface.IcompanyCustomer>
     {
         public CompanyCustomers() 
             : base()
@@ -16,7 +16,7 @@ namespace Customers
         }
     }
 
-    public class PrivateCustomers : API.Lists<PrivateCustomer>
+    public class PrivateCustomers : API.Lists<Interface.IprivetCustomer>
     {
         public PrivateCustomers()
             : base() 
