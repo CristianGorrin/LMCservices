@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Data;
+
 namespace API
 {
     public abstract class Lists<T>
@@ -88,6 +90,11 @@ namespace API
         public virtual T GetAt(int index)
         {
             return this.list[index];
+        }
+
+        public virtual DataTable AsDataTable()
+        {
+            throw new NotImplementedException();
         }
 
         public int Count { get { return this.list.Count; } }

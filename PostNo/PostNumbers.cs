@@ -14,5 +14,24 @@ namespace PostNo
             : base()
         {
         }
+
+        public override System.Data.DataTable AsDataTable()
+        {
+            var dataTable = new System.Data.DataTable();
+
+            dataTable.Columns.Add("City", typeof(string));
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("Post Number", typeof(int));
+
+            foreach (var item in this.list)
+            {
+                dataTable.Rows.Add(
+                    item.City,
+                    item.Id,
+                    item.PostNumber);
+            }
+
+            return dataTable;
+        }
     }
 }
