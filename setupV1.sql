@@ -122,6 +122,58 @@ create table tblDeleteItems
 	restored bit
 );
 
+Create Table tblInvoicePrivet
+(
+	Id int IDENTITY(1,1) primary key NOT NULL,
+	Active Bit NOT NULL,
+	OrderNr1 int NULL, --FK tblPrivetOrders
+	OrderNr2 int NULL, --FK tblPrivetOrders
+	OrderNr3 int NULL, --FK tblPrivetOrders
+	OrderNr4 int NULL, --FK tblPrivetOrders
+	OrderNr5 int NULL, --FK tblPrivetOrders
+	OrderNr6 int NULL, --FK tblPrivetOrders
+	OrderNr7 int NULL, --FK tblPrivetOrders
+	OrderNr8 int NULL, --FK tblPrivetOrders
+	OrderNr9 int NULL, --FK tblPrivetOrders
+	OrderNr10 int NULL, --FK tblPrivetOrders
+	OrderNr11 int NULL, --FK tblPrivetOrders
+	OrderNr12 int NULL, --FK tblPrivetOrders
+	OrderNr13 int NULL, --FK tblPrivetOrders
+	OrderNr14 int NULL, --FK tblPrivetOrders
+	OrderNr15 int NULL, --FK tblPrivetOrders
+	OrderNr16 int NULL, --FK tblPrivetOrders
+	OrderNr17 int NULL, --FK tblPrivetOrders
+	OrderNr18 int NULL, --FK tblPrivetOrders
+	OrderNr19 int NULL, --FK tblPrivetOrders
+	OrderNr20 int NULL, --FK tblPrivetOrders
+);
+
+Create Table tblInvoiceCompany
+(
+	Id int IDENTITY(1,1) primary key NOT NULL,
+	Active Bit NOT NULL,
+	OrderNr1 int NULL, --FK tblCompanyOrders
+	OrderNr2 int NULL, --FK tblCompanyOrders
+	OrderNr3 int NULL, --FK tblCompanyOrders
+	OrderNr4 int NULL, --FK tblCompanyOrders
+	OrderNr5 int NULL, --FK tblCompanyOrders
+	OrderNr6 int NULL, --FK tblCompanyOrders
+	OrderNr7 int NULL, --FK tblCompanyOrders
+	OrderNr8 int NULL, --FK tblCompanyOrders
+	OrderNr9 int NULL, --FK tblCompanyOrders
+	OrderNr10 int NULL, --FK tblCompanyOrders
+	OrderNr11 int NULL, --FK tblCompanyOrders
+	OrderNr12 int NULL, --FK tblCompanyOrders
+	OrderNr13 int NULL, --FK tblCompanyOrders
+	OrderNr14 int NULL, --FK tblCompanyOrders
+	OrderNr15 int NULL, --FK tblCompanyOrders
+	OrderNr16 int NULL, --FK tblCompanyOrders
+	OrderNr17 int NULL, --FK tblCompanyOrders
+	OrderNr18 int NULL, --FK tblCompanyOrders
+	OrderNr19 int NULL, --FK tblCompanyOrders
+	OrderNr20 int NULL, --FK tblCompanyOrders
+);
+
 go
 -- FK Constraints OK
 Alter Table tblDepartment Add Constraint FK_tblDepartment_tblPostNo_postNo
@@ -159,6 +211,126 @@ foreign Key (paidToACC) references tblBankAccounts (Id);
 
 Alter Table tblPrivetOrders Add Constraint FK_tblOrivetOrders_tblPrivateCustomers_customers
 foreign Key (customers) references tblPrivateCustomers (privateCustomersNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr01_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr1) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr02_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr2) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr03_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr3) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr04_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr4) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr05_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr5) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr06_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr6) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr07_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr7) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr08_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr8) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr09_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr9) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr10_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr10) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr11_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr11) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr12_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr12) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr13_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr13) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr14_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr14) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr15_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr15) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr16_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr16) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr17_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr17) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr18_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr18) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr19_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr19) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoicePrivet Add Constraint FK_tblInvoicePrivet_OrderNr20_tblPrivetOrders_invoiceNo
+foreign Key (OrderNr20) references tblPrivetOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr01_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr1) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr02_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr2) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr03_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr3) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr04_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr4) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr05_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr5) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr06_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr6) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr07_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr7) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr08_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr8) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr09_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr9) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr10_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr10) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr11_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr11) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr12_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr12) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr13_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr13) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr14_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr14) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr15_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr15) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr16_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr16) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr17_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr17) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr18_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr18) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr19_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr19) references tblCompanyOrders (invoiceNo);
+
+Alter Table tblInvoiceCompany Add Constraint FK_tblInvoiceCompany_OrderNr20_tblCompanyOrders_invoiceNo
+foreign Key (OrderNr20) references tblCompanyOrders (invoiceNo);
 
 go
 -- Default Constraints OK
