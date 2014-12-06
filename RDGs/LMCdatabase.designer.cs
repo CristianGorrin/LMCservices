@@ -60,6 +60,12 @@ namespace RDGs
     partial void InserttblWorkerStatus(tblWorkerStatus instance);
     partial void UpdatetblWorkerStatus(tblWorkerStatus instance);
     partial void DeletetblWorkerStatus(tblWorkerStatus instance);
+    partial void InserttblInvoiceCompany(tblInvoiceCompany instance);
+    partial void UpdatetblInvoiceCompany(tblInvoiceCompany instance);
+    partial void DeletetblInvoiceCompany(tblInvoiceCompany instance);
+    partial void InserttblInvoicePrivet(tblInvoicePrivet instance);
+    partial void UpdatetblInvoicePrivet(tblInvoicePrivet instance);
+    partial void DeletetblInvoicePrivet(tblInvoicePrivet instance);
     #endregion
 		
 		public LMCdatabaseDataContext() : 
@@ -169,6 +175,22 @@ namespace RDGs
 			get
 			{
 				return this.GetTable<tblWorkerStatus>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblInvoiceCompany> tblInvoiceCompanies
+		{
+			get
+			{
+				return this.GetTable<tblInvoiceCompany>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblInvoicePrivet> tblInvoicePrivets
+		{
+			get
+			{
+				return this.GetTable<tblInvoicePrivet>();
 			}
 		}
 	}
@@ -788,6 +810,46 @@ namespace RDGs
 		
 		private System.Nullable<bool> _paid;
 		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies1;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies2;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies3;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies4;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies5;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies6;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies7;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies8;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies9;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies10;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies11;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies12;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies13;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies14;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies15;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies16;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies17;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies18;
+		
+		private EntitySet<tblInvoiceCompany> _tblInvoiceCompanies19;
+		
 		private EntityRef<tblBankAccount> _tblBankAccount;
 		
 		private EntityRef<tblCompanyCustomer> _tblCompanyCustomer;
@@ -826,6 +888,26 @@ namespace RDGs
 		
 		public tblCompanyOrder()
 		{
+			this._tblInvoiceCompanies = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies));
+			this._tblInvoiceCompanies1 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies1), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies1));
+			this._tblInvoiceCompanies2 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies2), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies2));
+			this._tblInvoiceCompanies3 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies3), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies3));
+			this._tblInvoiceCompanies4 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies4), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies4));
+			this._tblInvoiceCompanies5 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies5), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies5));
+			this._tblInvoiceCompanies6 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies6), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies6));
+			this._tblInvoiceCompanies7 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies7), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies7));
+			this._tblInvoiceCompanies8 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies8), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies8));
+			this._tblInvoiceCompanies9 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies9), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies9));
+			this._tblInvoiceCompanies10 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies10), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies10));
+			this._tblInvoiceCompanies11 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies11), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies11));
+			this._tblInvoiceCompanies12 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies12), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies12));
+			this._tblInvoiceCompanies13 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies13), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies13));
+			this._tblInvoiceCompanies14 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies14), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies14));
+			this._tblInvoiceCompanies15 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies15), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies15));
+			this._tblInvoiceCompanies16 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies16), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies16));
+			this._tblInvoiceCompanies17 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies17), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies17));
+			this._tblInvoiceCompanies18 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies18), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies18));
+			this._tblInvoiceCompanies19 = new EntitySet<tblInvoiceCompany>(new Action<tblInvoiceCompany>(this.attach_tblInvoiceCompanies19), new Action<tblInvoiceCompany>(this.detach_tblInvoiceCompanies19));
 			this._tblBankAccount = default(EntityRef<tblBankAccount>);
 			this._tblCompanyCustomer = default(EntityRef<tblCompanyCustomer>);
 			this._tblWorker = default(EntityRef<tblWorker>);
@@ -1084,6 +1166,266 @@ namespace RDGs
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany", Storage="_tblInvoiceCompanies", ThisKey="invoiceNo", OtherKey="OrderNr1")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies
+		{
+			get
+			{
+				return this._tblInvoiceCompanies;
+			}
+			set
+			{
+				this._tblInvoiceCompanies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany1", Storage="_tblInvoiceCompanies1", ThisKey="invoiceNo", OtherKey="OrderNr2")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies1
+		{
+			get
+			{
+				return this._tblInvoiceCompanies1;
+			}
+			set
+			{
+				this._tblInvoiceCompanies1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany2", Storage="_tblInvoiceCompanies2", ThisKey="invoiceNo", OtherKey="OrderNr3")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies2
+		{
+			get
+			{
+				return this._tblInvoiceCompanies2;
+			}
+			set
+			{
+				this._tblInvoiceCompanies2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany3", Storage="_tblInvoiceCompanies3", ThisKey="invoiceNo", OtherKey="OrderNr4")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies3
+		{
+			get
+			{
+				return this._tblInvoiceCompanies3;
+			}
+			set
+			{
+				this._tblInvoiceCompanies3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany4", Storage="_tblInvoiceCompanies4", ThisKey="invoiceNo", OtherKey="OrderNr5")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies4
+		{
+			get
+			{
+				return this._tblInvoiceCompanies4;
+			}
+			set
+			{
+				this._tblInvoiceCompanies4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany5", Storage="_tblInvoiceCompanies5", ThisKey="invoiceNo", OtherKey="OrderNr6")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies5
+		{
+			get
+			{
+				return this._tblInvoiceCompanies5;
+			}
+			set
+			{
+				this._tblInvoiceCompanies5.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany6", Storage="_tblInvoiceCompanies6", ThisKey="invoiceNo", OtherKey="OrderNr7")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies6
+		{
+			get
+			{
+				return this._tblInvoiceCompanies6;
+			}
+			set
+			{
+				this._tblInvoiceCompanies6.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany7", Storage="_tblInvoiceCompanies7", ThisKey="invoiceNo", OtherKey="OrderNr8")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies7
+		{
+			get
+			{
+				return this._tblInvoiceCompanies7;
+			}
+			set
+			{
+				this._tblInvoiceCompanies7.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany8", Storage="_tblInvoiceCompanies8", ThisKey="invoiceNo", OtherKey="OrderNr9")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies8
+		{
+			get
+			{
+				return this._tblInvoiceCompanies8;
+			}
+			set
+			{
+				this._tblInvoiceCompanies8.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany9", Storage="_tblInvoiceCompanies9", ThisKey="invoiceNo", OtherKey="OrderNr10")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies9
+		{
+			get
+			{
+				return this._tblInvoiceCompanies9;
+			}
+			set
+			{
+				this._tblInvoiceCompanies9.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany10", Storage="_tblInvoiceCompanies10", ThisKey="invoiceNo", OtherKey="OrderNr11")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies10
+		{
+			get
+			{
+				return this._tblInvoiceCompanies10;
+			}
+			set
+			{
+				this._tblInvoiceCompanies10.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany11", Storage="_tblInvoiceCompanies11", ThisKey="invoiceNo", OtherKey="OrderNr12")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies11
+		{
+			get
+			{
+				return this._tblInvoiceCompanies11;
+			}
+			set
+			{
+				this._tblInvoiceCompanies11.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany12", Storage="_tblInvoiceCompanies12", ThisKey="invoiceNo", OtherKey="OrderNr13")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies12
+		{
+			get
+			{
+				return this._tblInvoiceCompanies12;
+			}
+			set
+			{
+				this._tblInvoiceCompanies12.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany13", Storage="_tblInvoiceCompanies13", ThisKey="invoiceNo", OtherKey="OrderNr14")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies13
+		{
+			get
+			{
+				return this._tblInvoiceCompanies13;
+			}
+			set
+			{
+				this._tblInvoiceCompanies13.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany14", Storage="_tblInvoiceCompanies14", ThisKey="invoiceNo", OtherKey="OrderNr15")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies14
+		{
+			get
+			{
+				return this._tblInvoiceCompanies14;
+			}
+			set
+			{
+				this._tblInvoiceCompanies14.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany15", Storage="_tblInvoiceCompanies15", ThisKey="invoiceNo", OtherKey="OrderNr16")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies15
+		{
+			get
+			{
+				return this._tblInvoiceCompanies15;
+			}
+			set
+			{
+				this._tblInvoiceCompanies15.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany16", Storage="_tblInvoiceCompanies16", ThisKey="invoiceNo", OtherKey="OrderNr17")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies16
+		{
+			get
+			{
+				return this._tblInvoiceCompanies16;
+			}
+			set
+			{
+				this._tblInvoiceCompanies16.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany17", Storage="_tblInvoiceCompanies17", ThisKey="invoiceNo", OtherKey="OrderNr18")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies17
+		{
+			get
+			{
+				return this._tblInvoiceCompanies17;
+			}
+			set
+			{
+				this._tblInvoiceCompanies17.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany18", Storage="_tblInvoiceCompanies18", ThisKey="invoiceNo", OtherKey="OrderNr19")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies18
+		{
+			get
+			{
+				return this._tblInvoiceCompanies18;
+			}
+			set
+			{
+				this._tblInvoiceCompanies18.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany19", Storage="_tblInvoiceCompanies19", ThisKey="invoiceNo", OtherKey="OrderNr20")]
+		public EntitySet<tblInvoiceCompany> tblInvoiceCompanies19
+		{
+			get
+			{
+				return this._tblInvoiceCompanies19;
+			}
+			set
+			{
+				this._tblInvoiceCompanies19.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblBankAccount_tblCompanyOrder", Storage="_tblBankAccount", ThisKey="paidToACC", OtherKey="Id", IsForeignKey=true)]
 		public tblBankAccount tblBankAccount
 		{
@@ -1204,6 +1546,246 @@ namespace RDGs
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tblInvoiceCompanies(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder = this;
+		}
+		
+		private void detach_tblInvoiceCompanies(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder = null;
+		}
+		
+		private void attach_tblInvoiceCompanies1(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder1 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies1(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder1 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies2(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder2 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies2(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder2 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies3(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder3 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies3(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder3 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies4(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder4 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies4(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder4 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies5(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder5 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies5(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder5 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies6(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder6 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies6(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder6 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies7(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder7 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies7(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder7 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies8(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder8 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies8(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder8 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies9(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder9 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies9(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder9 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies10(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder10 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies10(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder10 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies11(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder11 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies11(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder11 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies12(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder12 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies12(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder12 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies13(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder13 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies13(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder13 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies14(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder14 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies14(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder14 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies15(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder15 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies15(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder15 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies16(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder16 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies16(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder16 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies17(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder17 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies17(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder17 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies18(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder18 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies18(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder18 = null;
+		}
+		
+		private void attach_tblInvoiceCompanies19(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder19 = this;
+		}
+		
+		private void detach_tblInvoiceCompanies19(tblInvoiceCompany entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCompanyOrder19 = null;
 		}
 	}
 	
@@ -2276,6 +2858,46 @@ namespace RDGs
 		
 		private System.Nullable<bool> _paid;
 		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets1;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets2;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets3;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets4;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets5;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets6;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets7;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets8;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets9;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets10;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets11;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets12;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets13;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets14;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets15;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets16;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets17;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets18;
+		
+		private EntitySet<tblInvoicePrivet> _tblInvoicePrivets19;
+		
 		private EntityRef<tblPrivateCustomer> _tblPrivateCustomer;
 		
 		private EntityRef<tblBankAccount> _tblBankAccount;
@@ -2314,6 +2936,26 @@ namespace RDGs
 		
 		public tblPrivetOrder()
 		{
+			this._tblInvoicePrivets = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets));
+			this._tblInvoicePrivets1 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets1), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets1));
+			this._tblInvoicePrivets2 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets2), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets2));
+			this._tblInvoicePrivets3 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets3), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets3));
+			this._tblInvoicePrivets4 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets4), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets4));
+			this._tblInvoicePrivets5 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets5), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets5));
+			this._tblInvoicePrivets6 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets6), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets6));
+			this._tblInvoicePrivets7 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets7), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets7));
+			this._tblInvoicePrivets8 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets8), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets8));
+			this._tblInvoicePrivets9 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets9), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets9));
+			this._tblInvoicePrivets10 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets10), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets10));
+			this._tblInvoicePrivets11 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets11), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets11));
+			this._tblInvoicePrivets12 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets12), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets12));
+			this._tblInvoicePrivets13 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets13), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets13));
+			this._tblInvoicePrivets14 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets14), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets14));
+			this._tblInvoicePrivets15 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets15), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets15));
+			this._tblInvoicePrivets16 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets16), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets16));
+			this._tblInvoicePrivets17 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets17), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets17));
+			this._tblInvoicePrivets18 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets18), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets18));
+			this._tblInvoicePrivets19 = new EntitySet<tblInvoicePrivet>(new Action<tblInvoicePrivet>(this.attach_tblInvoicePrivets19), new Action<tblInvoicePrivet>(this.detach_tblInvoicePrivets19));
 			this._tblPrivateCustomer = default(EntityRef<tblPrivateCustomer>);
 			this._tblBankAccount = default(EntityRef<tblBankAccount>);
 			this._tblWorker = default(EntityRef<tblWorker>);
@@ -2572,6 +3214,266 @@ namespace RDGs
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet", Storage="_tblInvoicePrivets", ThisKey="invoiceNo", OtherKey="OrderNr1")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets
+		{
+			get
+			{
+				return this._tblInvoicePrivets;
+			}
+			set
+			{
+				this._tblInvoicePrivets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet1", Storage="_tblInvoicePrivets1", ThisKey="invoiceNo", OtherKey="OrderNr2")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets1
+		{
+			get
+			{
+				return this._tblInvoicePrivets1;
+			}
+			set
+			{
+				this._tblInvoicePrivets1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet2", Storage="_tblInvoicePrivets2", ThisKey="invoiceNo", OtherKey="OrderNr3")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets2
+		{
+			get
+			{
+				return this._tblInvoicePrivets2;
+			}
+			set
+			{
+				this._tblInvoicePrivets2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet3", Storage="_tblInvoicePrivets3", ThisKey="invoiceNo", OtherKey="OrderNr4")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets3
+		{
+			get
+			{
+				return this._tblInvoicePrivets3;
+			}
+			set
+			{
+				this._tblInvoicePrivets3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet4", Storage="_tblInvoicePrivets4", ThisKey="invoiceNo", OtherKey="OrderNr5")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets4
+		{
+			get
+			{
+				return this._tblInvoicePrivets4;
+			}
+			set
+			{
+				this._tblInvoicePrivets4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet5", Storage="_tblInvoicePrivets5", ThisKey="invoiceNo", OtherKey="OrderNr6")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets5
+		{
+			get
+			{
+				return this._tblInvoicePrivets5;
+			}
+			set
+			{
+				this._tblInvoicePrivets5.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet6", Storage="_tblInvoicePrivets6", ThisKey="invoiceNo", OtherKey="OrderNr7")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets6
+		{
+			get
+			{
+				return this._tblInvoicePrivets6;
+			}
+			set
+			{
+				this._tblInvoicePrivets6.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet7", Storage="_tblInvoicePrivets7", ThisKey="invoiceNo", OtherKey="OrderNr8")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets7
+		{
+			get
+			{
+				return this._tblInvoicePrivets7;
+			}
+			set
+			{
+				this._tblInvoicePrivets7.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet8", Storage="_tblInvoicePrivets8", ThisKey="invoiceNo", OtherKey="OrderNr9")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets8
+		{
+			get
+			{
+				return this._tblInvoicePrivets8;
+			}
+			set
+			{
+				this._tblInvoicePrivets8.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet9", Storage="_tblInvoicePrivets9", ThisKey="invoiceNo", OtherKey="OrderNr10")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets9
+		{
+			get
+			{
+				return this._tblInvoicePrivets9;
+			}
+			set
+			{
+				this._tblInvoicePrivets9.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet10", Storage="_tblInvoicePrivets10", ThisKey="invoiceNo", OtherKey="OrderNr11")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets10
+		{
+			get
+			{
+				return this._tblInvoicePrivets10;
+			}
+			set
+			{
+				this._tblInvoicePrivets10.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet11", Storage="_tblInvoicePrivets11", ThisKey="invoiceNo", OtherKey="OrderNr12")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets11
+		{
+			get
+			{
+				return this._tblInvoicePrivets11;
+			}
+			set
+			{
+				this._tblInvoicePrivets11.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet12", Storage="_tblInvoicePrivets12", ThisKey="invoiceNo", OtherKey="OrderNr13")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets12
+		{
+			get
+			{
+				return this._tblInvoicePrivets12;
+			}
+			set
+			{
+				this._tblInvoicePrivets12.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet13", Storage="_tblInvoicePrivets13", ThisKey="invoiceNo", OtherKey="OrderNr14")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets13
+		{
+			get
+			{
+				return this._tblInvoicePrivets13;
+			}
+			set
+			{
+				this._tblInvoicePrivets13.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet14", Storage="_tblInvoicePrivets14", ThisKey="invoiceNo", OtherKey="OrderNr15")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets14
+		{
+			get
+			{
+				return this._tblInvoicePrivets14;
+			}
+			set
+			{
+				this._tblInvoicePrivets14.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet15", Storage="_tblInvoicePrivets15", ThisKey="invoiceNo", OtherKey="OrderNr16")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets15
+		{
+			get
+			{
+				return this._tblInvoicePrivets15;
+			}
+			set
+			{
+				this._tblInvoicePrivets15.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet16", Storage="_tblInvoicePrivets16", ThisKey="invoiceNo", OtherKey="OrderNr17")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets16
+		{
+			get
+			{
+				return this._tblInvoicePrivets16;
+			}
+			set
+			{
+				this._tblInvoicePrivets16.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet17", Storage="_tblInvoicePrivets17", ThisKey="invoiceNo", OtherKey="OrderNr18")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets17
+		{
+			get
+			{
+				return this._tblInvoicePrivets17;
+			}
+			set
+			{
+				this._tblInvoicePrivets17.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet18", Storage="_tblInvoicePrivets18", ThisKey="invoiceNo", OtherKey="OrderNr19")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets18
+		{
+			get
+			{
+				return this._tblInvoicePrivets18;
+			}
+			set
+			{
+				this._tblInvoicePrivets18.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet19", Storage="_tblInvoicePrivets19", ThisKey="invoiceNo", OtherKey="OrderNr20")]
+		public EntitySet<tblInvoicePrivet> tblInvoicePrivets19
+		{
+			get
+			{
+				return this._tblInvoicePrivets19;
+			}
+			set
+			{
+				this._tblInvoicePrivets19.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivateCustomer_tblPrivetOrder", Storage="_tblPrivateCustomer", ThisKey="customers", OtherKey="privateCustomersNo", IsForeignKey=true)]
 		public tblPrivateCustomer tblPrivateCustomer
 		{
@@ -2692,6 +3594,246 @@ namespace RDGs
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tblInvoicePrivets(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder = this;
+		}
+		
+		private void detach_tblInvoicePrivets(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder = null;
+		}
+		
+		private void attach_tblInvoicePrivets1(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder1 = this;
+		}
+		
+		private void detach_tblInvoicePrivets1(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder1 = null;
+		}
+		
+		private void attach_tblInvoicePrivets2(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder2 = this;
+		}
+		
+		private void detach_tblInvoicePrivets2(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder2 = null;
+		}
+		
+		private void attach_tblInvoicePrivets3(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder3 = this;
+		}
+		
+		private void detach_tblInvoicePrivets3(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder3 = null;
+		}
+		
+		private void attach_tblInvoicePrivets4(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder4 = this;
+		}
+		
+		private void detach_tblInvoicePrivets4(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder4 = null;
+		}
+		
+		private void attach_tblInvoicePrivets5(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder5 = this;
+		}
+		
+		private void detach_tblInvoicePrivets5(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder5 = null;
+		}
+		
+		private void attach_tblInvoicePrivets6(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder6 = this;
+		}
+		
+		private void detach_tblInvoicePrivets6(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder6 = null;
+		}
+		
+		private void attach_tblInvoicePrivets7(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder7 = this;
+		}
+		
+		private void detach_tblInvoicePrivets7(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder7 = null;
+		}
+		
+		private void attach_tblInvoicePrivets8(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder8 = this;
+		}
+		
+		private void detach_tblInvoicePrivets8(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder8 = null;
+		}
+		
+		private void attach_tblInvoicePrivets9(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder9 = this;
+		}
+		
+		private void detach_tblInvoicePrivets9(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder9 = null;
+		}
+		
+		private void attach_tblInvoicePrivets10(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder10 = this;
+		}
+		
+		private void detach_tblInvoicePrivets10(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder10 = null;
+		}
+		
+		private void attach_tblInvoicePrivets11(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder11 = this;
+		}
+		
+		private void detach_tblInvoicePrivets11(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder11 = null;
+		}
+		
+		private void attach_tblInvoicePrivets12(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder12 = this;
+		}
+		
+		private void detach_tblInvoicePrivets12(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder12 = null;
+		}
+		
+		private void attach_tblInvoicePrivets13(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder13 = this;
+		}
+		
+		private void detach_tblInvoicePrivets13(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder13 = null;
+		}
+		
+		private void attach_tblInvoicePrivets14(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder14 = this;
+		}
+		
+		private void detach_tblInvoicePrivets14(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder14 = null;
+		}
+		
+		private void attach_tblInvoicePrivets15(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder15 = this;
+		}
+		
+		private void detach_tblInvoicePrivets15(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder15 = null;
+		}
+		
+		private void attach_tblInvoicePrivets16(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder16 = this;
+		}
+		
+		private void detach_tblInvoicePrivets16(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder16 = null;
+		}
+		
+		private void attach_tblInvoicePrivets17(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder17 = this;
+		}
+		
+		private void detach_tblInvoicePrivets17(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder17 = null;
+		}
+		
+		private void attach_tblInvoicePrivets18(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder18 = this;
+		}
+		
+		private void detach_tblInvoicePrivets18(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder18 = null;
+		}
+		
+		private void attach_tblInvoicePrivets19(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder19 = this;
+		}
+		
+		private void detach_tblInvoicePrivets19(tblInvoicePrivet entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblPrivetOrder19 = null;
 		}
 	}
 	
@@ -3250,6 +4392,2778 @@ namespace RDGs
 		{
 			this.SendPropertyChanging();
 			entity.tblWorkerStatus = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblInvoiceCompany")]
+	public partial class tblInvoiceCompany : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private bool _Active;
+		
+		private System.Nullable<int> _OrderNr1;
+		
+		private System.Nullable<int> _OrderNr2;
+		
+		private System.Nullable<int> _OrderNr3;
+		
+		private System.Nullable<int> _OrderNr4;
+		
+		private System.Nullable<int> _OrderNr5;
+		
+		private System.Nullable<int> _OrderNr6;
+		
+		private System.Nullable<int> _OrderNr7;
+		
+		private System.Nullable<int> _OrderNr8;
+		
+		private System.Nullable<int> _OrderNr9;
+		
+		private System.Nullable<int> _OrderNr10;
+		
+		private System.Nullable<int> _OrderNr11;
+		
+		private System.Nullable<int> _OrderNr12;
+		
+		private System.Nullable<int> _OrderNr13;
+		
+		private System.Nullable<int> _OrderNr14;
+		
+		private System.Nullable<int> _OrderNr15;
+		
+		private System.Nullable<int> _OrderNr16;
+		
+		private System.Nullable<int> _OrderNr17;
+		
+		private System.Nullable<int> _OrderNr18;
+		
+		private System.Nullable<int> _OrderNr19;
+		
+		private System.Nullable<int> _OrderNr20;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder1;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder2;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder3;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder4;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder5;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder6;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder7;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder8;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder9;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder10;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder11;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder12;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder13;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder14;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder15;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder16;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder17;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder18;
+		
+		private EntityRef<tblCompanyOrder> _tblCompanyOrder19;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
+    partial void OnOrderNr1Changing(System.Nullable<int> value);
+    partial void OnOrderNr1Changed();
+    partial void OnOrderNr2Changing(System.Nullable<int> value);
+    partial void OnOrderNr2Changed();
+    partial void OnOrderNr3Changing(System.Nullable<int> value);
+    partial void OnOrderNr3Changed();
+    partial void OnOrderNr4Changing(System.Nullable<int> value);
+    partial void OnOrderNr4Changed();
+    partial void OnOrderNr5Changing(System.Nullable<int> value);
+    partial void OnOrderNr5Changed();
+    partial void OnOrderNr6Changing(System.Nullable<int> value);
+    partial void OnOrderNr6Changed();
+    partial void OnOrderNr7Changing(System.Nullable<int> value);
+    partial void OnOrderNr7Changed();
+    partial void OnOrderNr8Changing(System.Nullable<int> value);
+    partial void OnOrderNr8Changed();
+    partial void OnOrderNr9Changing(System.Nullable<int> value);
+    partial void OnOrderNr9Changed();
+    partial void OnOrderNr10Changing(System.Nullable<int> value);
+    partial void OnOrderNr10Changed();
+    partial void OnOrderNr11Changing(System.Nullable<int> value);
+    partial void OnOrderNr11Changed();
+    partial void OnOrderNr12Changing(System.Nullable<int> value);
+    partial void OnOrderNr12Changed();
+    partial void OnOrderNr13Changing(System.Nullable<int> value);
+    partial void OnOrderNr13Changed();
+    partial void OnOrderNr14Changing(System.Nullable<int> value);
+    partial void OnOrderNr14Changed();
+    partial void OnOrderNr15Changing(System.Nullable<int> value);
+    partial void OnOrderNr15Changed();
+    partial void OnOrderNr16Changing(System.Nullable<int> value);
+    partial void OnOrderNr16Changed();
+    partial void OnOrderNr17Changing(System.Nullable<int> value);
+    partial void OnOrderNr17Changed();
+    partial void OnOrderNr18Changing(System.Nullable<int> value);
+    partial void OnOrderNr18Changed();
+    partial void OnOrderNr19Changing(System.Nullable<int> value);
+    partial void OnOrderNr19Changed();
+    partial void OnOrderNr20Changing(System.Nullable<int> value);
+    partial void OnOrderNr20Changed();
+    #endregion
+		
+		public tblInvoiceCompany()
+		{
+			this._tblCompanyOrder = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder1 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder2 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder3 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder4 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder5 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder6 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder7 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder8 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder9 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder10 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder11 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder12 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder13 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder14 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder15 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder16 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder17 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder18 = default(EntityRef<tblCompanyOrder>);
+			this._tblCompanyOrder19 = default(EntityRef<tblCompanyOrder>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr1", DbType="Int")]
+		public System.Nullable<int> OrderNr1
+		{
+			get
+			{
+				return this._OrderNr1;
+			}
+			set
+			{
+				if ((this._OrderNr1 != value))
+				{
+					if (this._tblCompanyOrder.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr1Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr1 = value;
+					this.SendPropertyChanged("OrderNr1");
+					this.OnOrderNr1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr2", DbType="Int")]
+		public System.Nullable<int> OrderNr2
+		{
+			get
+			{
+				return this._OrderNr2;
+			}
+			set
+			{
+				if ((this._OrderNr2 != value))
+				{
+					if (this._tblCompanyOrder1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr2Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr2 = value;
+					this.SendPropertyChanged("OrderNr2");
+					this.OnOrderNr2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr3", DbType="Int")]
+		public System.Nullable<int> OrderNr3
+		{
+			get
+			{
+				return this._OrderNr3;
+			}
+			set
+			{
+				if ((this._OrderNr3 != value))
+				{
+					if (this._tblCompanyOrder2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr3Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr3 = value;
+					this.SendPropertyChanged("OrderNr3");
+					this.OnOrderNr3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr4", DbType="Int")]
+		public System.Nullable<int> OrderNr4
+		{
+			get
+			{
+				return this._OrderNr4;
+			}
+			set
+			{
+				if ((this._OrderNr4 != value))
+				{
+					if (this._tblCompanyOrder3.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr4Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr4 = value;
+					this.SendPropertyChanged("OrderNr4");
+					this.OnOrderNr4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr5", DbType="Int")]
+		public System.Nullable<int> OrderNr5
+		{
+			get
+			{
+				return this._OrderNr5;
+			}
+			set
+			{
+				if ((this._OrderNr5 != value))
+				{
+					if (this._tblCompanyOrder4.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr5Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr5 = value;
+					this.SendPropertyChanged("OrderNr5");
+					this.OnOrderNr5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr6", DbType="Int")]
+		public System.Nullable<int> OrderNr6
+		{
+			get
+			{
+				return this._OrderNr6;
+			}
+			set
+			{
+				if ((this._OrderNr6 != value))
+				{
+					if (this._tblCompanyOrder5.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr6Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr6 = value;
+					this.SendPropertyChanged("OrderNr6");
+					this.OnOrderNr6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr7", DbType="Int")]
+		public System.Nullable<int> OrderNr7
+		{
+			get
+			{
+				return this._OrderNr7;
+			}
+			set
+			{
+				if ((this._OrderNr7 != value))
+				{
+					if (this._tblCompanyOrder6.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr7Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr7 = value;
+					this.SendPropertyChanged("OrderNr7");
+					this.OnOrderNr7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr8", DbType="Int")]
+		public System.Nullable<int> OrderNr8
+		{
+			get
+			{
+				return this._OrderNr8;
+			}
+			set
+			{
+				if ((this._OrderNr8 != value))
+				{
+					if (this._tblCompanyOrder7.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr8Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr8 = value;
+					this.SendPropertyChanged("OrderNr8");
+					this.OnOrderNr8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr9", DbType="Int")]
+		public System.Nullable<int> OrderNr9
+		{
+			get
+			{
+				return this._OrderNr9;
+			}
+			set
+			{
+				if ((this._OrderNr9 != value))
+				{
+					if (this._tblCompanyOrder8.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr9Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr9 = value;
+					this.SendPropertyChanged("OrderNr9");
+					this.OnOrderNr9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr10", DbType="Int")]
+		public System.Nullable<int> OrderNr10
+		{
+			get
+			{
+				return this._OrderNr10;
+			}
+			set
+			{
+				if ((this._OrderNr10 != value))
+				{
+					if (this._tblCompanyOrder9.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr10Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr10 = value;
+					this.SendPropertyChanged("OrderNr10");
+					this.OnOrderNr10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr11", DbType="Int")]
+		public System.Nullable<int> OrderNr11
+		{
+			get
+			{
+				return this._OrderNr11;
+			}
+			set
+			{
+				if ((this._OrderNr11 != value))
+				{
+					if (this._tblCompanyOrder10.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr11Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr11 = value;
+					this.SendPropertyChanged("OrderNr11");
+					this.OnOrderNr11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr12", DbType="Int")]
+		public System.Nullable<int> OrderNr12
+		{
+			get
+			{
+				return this._OrderNr12;
+			}
+			set
+			{
+				if ((this._OrderNr12 != value))
+				{
+					if (this._tblCompanyOrder11.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr12Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr12 = value;
+					this.SendPropertyChanged("OrderNr12");
+					this.OnOrderNr12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr13", DbType="Int")]
+		public System.Nullable<int> OrderNr13
+		{
+			get
+			{
+				return this._OrderNr13;
+			}
+			set
+			{
+				if ((this._OrderNr13 != value))
+				{
+					if (this._tblCompanyOrder12.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr13Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr13 = value;
+					this.SendPropertyChanged("OrderNr13");
+					this.OnOrderNr13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr14", DbType="Int")]
+		public System.Nullable<int> OrderNr14
+		{
+			get
+			{
+				return this._OrderNr14;
+			}
+			set
+			{
+				if ((this._OrderNr14 != value))
+				{
+					if (this._tblCompanyOrder13.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr14Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr14 = value;
+					this.SendPropertyChanged("OrderNr14");
+					this.OnOrderNr14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr15", DbType="Int")]
+		public System.Nullable<int> OrderNr15
+		{
+			get
+			{
+				return this._OrderNr15;
+			}
+			set
+			{
+				if ((this._OrderNr15 != value))
+				{
+					if (this._tblCompanyOrder14.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr15Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr15 = value;
+					this.SendPropertyChanged("OrderNr15");
+					this.OnOrderNr15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr16", DbType="Int")]
+		public System.Nullable<int> OrderNr16
+		{
+			get
+			{
+				return this._OrderNr16;
+			}
+			set
+			{
+				if ((this._OrderNr16 != value))
+				{
+					if (this._tblCompanyOrder15.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr16Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr16 = value;
+					this.SendPropertyChanged("OrderNr16");
+					this.OnOrderNr16Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr17", DbType="Int")]
+		public System.Nullable<int> OrderNr17
+		{
+			get
+			{
+				return this._OrderNr17;
+			}
+			set
+			{
+				if ((this._OrderNr17 != value))
+				{
+					if (this._tblCompanyOrder16.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr17Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr17 = value;
+					this.SendPropertyChanged("OrderNr17");
+					this.OnOrderNr17Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr18", DbType="Int")]
+		public System.Nullable<int> OrderNr18
+		{
+			get
+			{
+				return this._OrderNr18;
+			}
+			set
+			{
+				if ((this._OrderNr18 != value))
+				{
+					if (this._tblCompanyOrder17.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr18Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr18 = value;
+					this.SendPropertyChanged("OrderNr18");
+					this.OnOrderNr18Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr19", DbType="Int")]
+		public System.Nullable<int> OrderNr19
+		{
+			get
+			{
+				return this._OrderNr19;
+			}
+			set
+			{
+				if ((this._OrderNr19 != value))
+				{
+					if (this._tblCompanyOrder18.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr19Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr19 = value;
+					this.SendPropertyChanged("OrderNr19");
+					this.OnOrderNr19Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr20", DbType="Int")]
+		public System.Nullable<int> OrderNr20
+		{
+			get
+			{
+				return this._OrderNr20;
+			}
+			set
+			{
+				if ((this._OrderNr20 != value))
+				{
+					if (this._tblCompanyOrder19.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr20Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr20 = value;
+					this.SendPropertyChanged("OrderNr20");
+					this.OnOrderNr20Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany", Storage="_tblCompanyOrder", ThisKey="OrderNr1", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder
+		{
+			get
+			{
+				return this._tblCompanyOrder.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder.Entity = null;
+						previousValue.tblInvoiceCompanies.Remove(this);
+					}
+					this._tblCompanyOrder.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies.Add(this);
+						this._OrderNr1 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr1 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany1", Storage="_tblCompanyOrder1", ThisKey="OrderNr2", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder1
+		{
+			get
+			{
+				return this._tblCompanyOrder1.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder1.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder1.Entity = null;
+						previousValue.tblInvoiceCompanies1.Remove(this);
+					}
+					this._tblCompanyOrder1.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies1.Add(this);
+						this._OrderNr2 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr2 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany2", Storage="_tblCompanyOrder2", ThisKey="OrderNr3", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder2
+		{
+			get
+			{
+				return this._tblCompanyOrder2.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder2.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder2.Entity = null;
+						previousValue.tblInvoiceCompanies2.Remove(this);
+					}
+					this._tblCompanyOrder2.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies2.Add(this);
+						this._OrderNr3 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr3 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder2");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany3", Storage="_tblCompanyOrder3", ThisKey="OrderNr4", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder3
+		{
+			get
+			{
+				return this._tblCompanyOrder3.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder3.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder3.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder3.Entity = null;
+						previousValue.tblInvoiceCompanies3.Remove(this);
+					}
+					this._tblCompanyOrder3.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies3.Add(this);
+						this._OrderNr4 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr4 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder3");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany4", Storage="_tblCompanyOrder4", ThisKey="OrderNr5", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder4
+		{
+			get
+			{
+				return this._tblCompanyOrder4.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder4.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder4.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder4.Entity = null;
+						previousValue.tblInvoiceCompanies4.Remove(this);
+					}
+					this._tblCompanyOrder4.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies4.Add(this);
+						this._OrderNr5 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr5 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder4");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany5", Storage="_tblCompanyOrder5", ThisKey="OrderNr6", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder5
+		{
+			get
+			{
+				return this._tblCompanyOrder5.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder5.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder5.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder5.Entity = null;
+						previousValue.tblInvoiceCompanies5.Remove(this);
+					}
+					this._tblCompanyOrder5.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies5.Add(this);
+						this._OrderNr6 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr6 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder5");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany6", Storage="_tblCompanyOrder6", ThisKey="OrderNr7", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder6
+		{
+			get
+			{
+				return this._tblCompanyOrder6.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder6.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder6.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder6.Entity = null;
+						previousValue.tblInvoiceCompanies6.Remove(this);
+					}
+					this._tblCompanyOrder6.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies6.Add(this);
+						this._OrderNr7 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr7 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder6");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany7", Storage="_tblCompanyOrder7", ThisKey="OrderNr8", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder7
+		{
+			get
+			{
+				return this._tblCompanyOrder7.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder7.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder7.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder7.Entity = null;
+						previousValue.tblInvoiceCompanies7.Remove(this);
+					}
+					this._tblCompanyOrder7.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies7.Add(this);
+						this._OrderNr8 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr8 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder7");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany8", Storage="_tblCompanyOrder8", ThisKey="OrderNr9", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder8
+		{
+			get
+			{
+				return this._tblCompanyOrder8.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder8.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder8.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder8.Entity = null;
+						previousValue.tblInvoiceCompanies8.Remove(this);
+					}
+					this._tblCompanyOrder8.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies8.Add(this);
+						this._OrderNr9 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr9 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder8");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany9", Storage="_tblCompanyOrder9", ThisKey="OrderNr10", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder9
+		{
+			get
+			{
+				return this._tblCompanyOrder9.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder9.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder9.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder9.Entity = null;
+						previousValue.tblInvoiceCompanies9.Remove(this);
+					}
+					this._tblCompanyOrder9.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies9.Add(this);
+						this._OrderNr10 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr10 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder9");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany10", Storage="_tblCompanyOrder10", ThisKey="OrderNr11", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder10
+		{
+			get
+			{
+				return this._tblCompanyOrder10.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder10.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder10.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder10.Entity = null;
+						previousValue.tblInvoiceCompanies10.Remove(this);
+					}
+					this._tblCompanyOrder10.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies10.Add(this);
+						this._OrderNr11 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr11 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder10");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany11", Storage="_tblCompanyOrder11", ThisKey="OrderNr12", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder11
+		{
+			get
+			{
+				return this._tblCompanyOrder11.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder11.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder11.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder11.Entity = null;
+						previousValue.tblInvoiceCompanies11.Remove(this);
+					}
+					this._tblCompanyOrder11.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies11.Add(this);
+						this._OrderNr12 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr12 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder11");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany12", Storage="_tblCompanyOrder12", ThisKey="OrderNr13", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder12
+		{
+			get
+			{
+				return this._tblCompanyOrder12.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder12.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder12.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder12.Entity = null;
+						previousValue.tblInvoiceCompanies12.Remove(this);
+					}
+					this._tblCompanyOrder12.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies12.Add(this);
+						this._OrderNr13 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr13 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder12");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany13", Storage="_tblCompanyOrder13", ThisKey="OrderNr14", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder13
+		{
+			get
+			{
+				return this._tblCompanyOrder13.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder13.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder13.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder13.Entity = null;
+						previousValue.tblInvoiceCompanies13.Remove(this);
+					}
+					this._tblCompanyOrder13.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies13.Add(this);
+						this._OrderNr14 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr14 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder13");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany14", Storage="_tblCompanyOrder14", ThisKey="OrderNr15", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder14
+		{
+			get
+			{
+				return this._tblCompanyOrder14.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder14.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder14.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder14.Entity = null;
+						previousValue.tblInvoiceCompanies14.Remove(this);
+					}
+					this._tblCompanyOrder14.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies14.Add(this);
+						this._OrderNr15 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr15 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder14");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany15", Storage="_tblCompanyOrder15", ThisKey="OrderNr16", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder15
+		{
+			get
+			{
+				return this._tblCompanyOrder15.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder15.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder15.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder15.Entity = null;
+						previousValue.tblInvoiceCompanies15.Remove(this);
+					}
+					this._tblCompanyOrder15.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies15.Add(this);
+						this._OrderNr16 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr16 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder15");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany16", Storage="_tblCompanyOrder16", ThisKey="OrderNr17", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder16
+		{
+			get
+			{
+				return this._tblCompanyOrder16.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder16.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder16.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder16.Entity = null;
+						previousValue.tblInvoiceCompanies16.Remove(this);
+					}
+					this._tblCompanyOrder16.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies16.Add(this);
+						this._OrderNr17 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr17 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder16");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany17", Storage="_tblCompanyOrder17", ThisKey="OrderNr18", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder17
+		{
+			get
+			{
+				return this._tblCompanyOrder17.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder17.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder17.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder17.Entity = null;
+						previousValue.tblInvoiceCompanies17.Remove(this);
+					}
+					this._tblCompanyOrder17.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies17.Add(this);
+						this._OrderNr18 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr18 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder17");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany18", Storage="_tblCompanyOrder18", ThisKey="OrderNr19", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder18
+		{
+			get
+			{
+				return this._tblCompanyOrder18.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder18.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder18.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder18.Entity = null;
+						previousValue.tblInvoiceCompanies18.Remove(this);
+					}
+					this._tblCompanyOrder18.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies18.Add(this);
+						this._OrderNr19 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr19 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder18");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCompanyOrder_tblInvoiceCompany19", Storage="_tblCompanyOrder19", ThisKey="OrderNr20", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblCompanyOrder tblCompanyOrder19
+		{
+			get
+			{
+				return this._tblCompanyOrder19.Entity;
+			}
+			set
+			{
+				tblCompanyOrder previousValue = this._tblCompanyOrder19.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCompanyOrder19.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCompanyOrder19.Entity = null;
+						previousValue.tblInvoiceCompanies19.Remove(this);
+					}
+					this._tblCompanyOrder19.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoiceCompanies19.Add(this);
+						this._OrderNr20 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr20 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblCompanyOrder19");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblInvoicePrivet")]
+	public partial class tblInvoicePrivet : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private bool _Active;
+		
+		private System.Nullable<int> _OrderNr1;
+		
+		private System.Nullable<int> _OrderNr2;
+		
+		private System.Nullable<int> _OrderNr3;
+		
+		private System.Nullable<int> _OrderNr4;
+		
+		private System.Nullable<int> _OrderNr5;
+		
+		private System.Nullable<int> _OrderNr6;
+		
+		private System.Nullable<int> _OrderNr7;
+		
+		private System.Nullable<int> _OrderNr8;
+		
+		private System.Nullable<int> _OrderNr9;
+		
+		private System.Nullable<int> _OrderNr10;
+		
+		private System.Nullable<int> _OrderNr11;
+		
+		private System.Nullable<int> _OrderNr12;
+		
+		private System.Nullable<int> _OrderNr13;
+		
+		private System.Nullable<int> _OrderNr14;
+		
+		private System.Nullable<int> _OrderNr15;
+		
+		private System.Nullable<int> _OrderNr16;
+		
+		private System.Nullable<int> _OrderNr17;
+		
+		private System.Nullable<int> _OrderNr18;
+		
+		private System.Nullable<int> _OrderNr19;
+		
+		private System.Nullable<int> _OrderNr20;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder1;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder2;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder3;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder4;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder5;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder6;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder7;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder8;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder9;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder10;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder11;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder12;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder13;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder14;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder15;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder16;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder17;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder18;
+		
+		private EntityRef<tblPrivetOrder> _tblPrivetOrder19;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
+    partial void OnOrderNr1Changing(System.Nullable<int> value);
+    partial void OnOrderNr1Changed();
+    partial void OnOrderNr2Changing(System.Nullable<int> value);
+    partial void OnOrderNr2Changed();
+    partial void OnOrderNr3Changing(System.Nullable<int> value);
+    partial void OnOrderNr3Changed();
+    partial void OnOrderNr4Changing(System.Nullable<int> value);
+    partial void OnOrderNr4Changed();
+    partial void OnOrderNr5Changing(System.Nullable<int> value);
+    partial void OnOrderNr5Changed();
+    partial void OnOrderNr6Changing(System.Nullable<int> value);
+    partial void OnOrderNr6Changed();
+    partial void OnOrderNr7Changing(System.Nullable<int> value);
+    partial void OnOrderNr7Changed();
+    partial void OnOrderNr8Changing(System.Nullable<int> value);
+    partial void OnOrderNr8Changed();
+    partial void OnOrderNr9Changing(System.Nullable<int> value);
+    partial void OnOrderNr9Changed();
+    partial void OnOrderNr10Changing(System.Nullable<int> value);
+    partial void OnOrderNr10Changed();
+    partial void OnOrderNr11Changing(System.Nullable<int> value);
+    partial void OnOrderNr11Changed();
+    partial void OnOrderNr12Changing(System.Nullable<int> value);
+    partial void OnOrderNr12Changed();
+    partial void OnOrderNr13Changing(System.Nullable<int> value);
+    partial void OnOrderNr13Changed();
+    partial void OnOrderNr14Changing(System.Nullable<int> value);
+    partial void OnOrderNr14Changed();
+    partial void OnOrderNr15Changing(System.Nullable<int> value);
+    partial void OnOrderNr15Changed();
+    partial void OnOrderNr16Changing(System.Nullable<int> value);
+    partial void OnOrderNr16Changed();
+    partial void OnOrderNr17Changing(System.Nullable<int> value);
+    partial void OnOrderNr17Changed();
+    partial void OnOrderNr18Changing(System.Nullable<int> value);
+    partial void OnOrderNr18Changed();
+    partial void OnOrderNr19Changing(System.Nullable<int> value);
+    partial void OnOrderNr19Changed();
+    partial void OnOrderNr20Changing(System.Nullable<int> value);
+    partial void OnOrderNr20Changed();
+    #endregion
+		
+		public tblInvoicePrivet()
+		{
+			this._tblPrivetOrder = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder1 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder2 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder3 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder4 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder5 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder6 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder7 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder8 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder9 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder10 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder11 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder12 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder13 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder14 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder15 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder16 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder17 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder18 = default(EntityRef<tblPrivetOrder>);
+			this._tblPrivetOrder19 = default(EntityRef<tblPrivetOrder>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr1", DbType="Int")]
+		public System.Nullable<int> OrderNr1
+		{
+			get
+			{
+				return this._OrderNr1;
+			}
+			set
+			{
+				if ((this._OrderNr1 != value))
+				{
+					if (this._tblPrivetOrder.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr1Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr1 = value;
+					this.SendPropertyChanged("OrderNr1");
+					this.OnOrderNr1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr2", DbType="Int")]
+		public System.Nullable<int> OrderNr2
+		{
+			get
+			{
+				return this._OrderNr2;
+			}
+			set
+			{
+				if ((this._OrderNr2 != value))
+				{
+					if (this._tblPrivetOrder1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr2Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr2 = value;
+					this.SendPropertyChanged("OrderNr2");
+					this.OnOrderNr2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr3", DbType="Int")]
+		public System.Nullable<int> OrderNr3
+		{
+			get
+			{
+				return this._OrderNr3;
+			}
+			set
+			{
+				if ((this._OrderNr3 != value))
+				{
+					if (this._tblPrivetOrder2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr3Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr3 = value;
+					this.SendPropertyChanged("OrderNr3");
+					this.OnOrderNr3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr4", DbType="Int")]
+		public System.Nullable<int> OrderNr4
+		{
+			get
+			{
+				return this._OrderNr4;
+			}
+			set
+			{
+				if ((this._OrderNr4 != value))
+				{
+					if (this._tblPrivetOrder3.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr4Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr4 = value;
+					this.SendPropertyChanged("OrderNr4");
+					this.OnOrderNr4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr5", DbType="Int")]
+		public System.Nullable<int> OrderNr5
+		{
+			get
+			{
+				return this._OrderNr5;
+			}
+			set
+			{
+				if ((this._OrderNr5 != value))
+				{
+					if (this._tblPrivetOrder4.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr5Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr5 = value;
+					this.SendPropertyChanged("OrderNr5");
+					this.OnOrderNr5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr6", DbType="Int")]
+		public System.Nullable<int> OrderNr6
+		{
+			get
+			{
+				return this._OrderNr6;
+			}
+			set
+			{
+				if ((this._OrderNr6 != value))
+				{
+					if (this._tblPrivetOrder5.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr6Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr6 = value;
+					this.SendPropertyChanged("OrderNr6");
+					this.OnOrderNr6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr7", DbType="Int")]
+		public System.Nullable<int> OrderNr7
+		{
+			get
+			{
+				return this._OrderNr7;
+			}
+			set
+			{
+				if ((this._OrderNr7 != value))
+				{
+					if (this._tblPrivetOrder6.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr7Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr7 = value;
+					this.SendPropertyChanged("OrderNr7");
+					this.OnOrderNr7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr8", DbType="Int")]
+		public System.Nullable<int> OrderNr8
+		{
+			get
+			{
+				return this._OrderNr8;
+			}
+			set
+			{
+				if ((this._OrderNr8 != value))
+				{
+					if (this._tblPrivetOrder7.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr8Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr8 = value;
+					this.SendPropertyChanged("OrderNr8");
+					this.OnOrderNr8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr9", DbType="Int")]
+		public System.Nullable<int> OrderNr9
+		{
+			get
+			{
+				return this._OrderNr9;
+			}
+			set
+			{
+				if ((this._OrderNr9 != value))
+				{
+					if (this._tblPrivetOrder8.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr9Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr9 = value;
+					this.SendPropertyChanged("OrderNr9");
+					this.OnOrderNr9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr10", DbType="Int")]
+		public System.Nullable<int> OrderNr10
+		{
+			get
+			{
+				return this._OrderNr10;
+			}
+			set
+			{
+				if ((this._OrderNr10 != value))
+				{
+					if (this._tblPrivetOrder9.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr10Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr10 = value;
+					this.SendPropertyChanged("OrderNr10");
+					this.OnOrderNr10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr11", DbType="Int")]
+		public System.Nullable<int> OrderNr11
+		{
+			get
+			{
+				return this._OrderNr11;
+			}
+			set
+			{
+				if ((this._OrderNr11 != value))
+				{
+					if (this._tblPrivetOrder10.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr11Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr11 = value;
+					this.SendPropertyChanged("OrderNr11");
+					this.OnOrderNr11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr12", DbType="Int")]
+		public System.Nullable<int> OrderNr12
+		{
+			get
+			{
+				return this._OrderNr12;
+			}
+			set
+			{
+				if ((this._OrderNr12 != value))
+				{
+					if (this._tblPrivetOrder11.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr12Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr12 = value;
+					this.SendPropertyChanged("OrderNr12");
+					this.OnOrderNr12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr13", DbType="Int")]
+		public System.Nullable<int> OrderNr13
+		{
+			get
+			{
+				return this._OrderNr13;
+			}
+			set
+			{
+				if ((this._OrderNr13 != value))
+				{
+					if (this._tblPrivetOrder12.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr13Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr13 = value;
+					this.SendPropertyChanged("OrderNr13");
+					this.OnOrderNr13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr14", DbType="Int")]
+		public System.Nullable<int> OrderNr14
+		{
+			get
+			{
+				return this._OrderNr14;
+			}
+			set
+			{
+				if ((this._OrderNr14 != value))
+				{
+					if (this._tblPrivetOrder13.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr14Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr14 = value;
+					this.SendPropertyChanged("OrderNr14");
+					this.OnOrderNr14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr15", DbType="Int")]
+		public System.Nullable<int> OrderNr15
+		{
+			get
+			{
+				return this._OrderNr15;
+			}
+			set
+			{
+				if ((this._OrderNr15 != value))
+				{
+					if (this._tblPrivetOrder14.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr15Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr15 = value;
+					this.SendPropertyChanged("OrderNr15");
+					this.OnOrderNr15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr16", DbType="Int")]
+		public System.Nullable<int> OrderNr16
+		{
+			get
+			{
+				return this._OrderNr16;
+			}
+			set
+			{
+				if ((this._OrderNr16 != value))
+				{
+					if (this._tblPrivetOrder15.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr16Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr16 = value;
+					this.SendPropertyChanged("OrderNr16");
+					this.OnOrderNr16Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr17", DbType="Int")]
+		public System.Nullable<int> OrderNr17
+		{
+			get
+			{
+				return this._OrderNr17;
+			}
+			set
+			{
+				if ((this._OrderNr17 != value))
+				{
+					if (this._tblPrivetOrder16.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr17Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr17 = value;
+					this.SendPropertyChanged("OrderNr17");
+					this.OnOrderNr17Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr18", DbType="Int")]
+		public System.Nullable<int> OrderNr18
+		{
+			get
+			{
+				return this._OrderNr18;
+			}
+			set
+			{
+				if ((this._OrderNr18 != value))
+				{
+					if (this._tblPrivetOrder17.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr18Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr18 = value;
+					this.SendPropertyChanged("OrderNr18");
+					this.OnOrderNr18Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr19", DbType="Int")]
+		public System.Nullable<int> OrderNr19
+		{
+			get
+			{
+				return this._OrderNr19;
+			}
+			set
+			{
+				if ((this._OrderNr19 != value))
+				{
+					if (this._tblPrivetOrder18.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr19Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr19 = value;
+					this.SendPropertyChanged("OrderNr19");
+					this.OnOrderNr19Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNr20", DbType="Int")]
+		public System.Nullable<int> OrderNr20
+		{
+			get
+			{
+				return this._OrderNr20;
+			}
+			set
+			{
+				if ((this._OrderNr20 != value))
+				{
+					if (this._tblPrivetOrder19.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderNr20Changing(value);
+					this.SendPropertyChanging();
+					this._OrderNr20 = value;
+					this.SendPropertyChanged("OrderNr20");
+					this.OnOrderNr20Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet", Storage="_tblPrivetOrder", ThisKey="OrderNr1", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder
+		{
+			get
+			{
+				return this._tblPrivetOrder.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder.Entity = null;
+						previousValue.tblInvoicePrivets.Remove(this);
+					}
+					this._tblPrivetOrder.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets.Add(this);
+						this._OrderNr1 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr1 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet1", Storage="_tblPrivetOrder1", ThisKey="OrderNr2", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder1
+		{
+			get
+			{
+				return this._tblPrivetOrder1.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder1.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder1.Entity = null;
+						previousValue.tblInvoicePrivets1.Remove(this);
+					}
+					this._tblPrivetOrder1.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets1.Add(this);
+						this._OrderNr2 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr2 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet2", Storage="_tblPrivetOrder2", ThisKey="OrderNr3", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder2
+		{
+			get
+			{
+				return this._tblPrivetOrder2.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder2.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder2.Entity = null;
+						previousValue.tblInvoicePrivets2.Remove(this);
+					}
+					this._tblPrivetOrder2.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets2.Add(this);
+						this._OrderNr3 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr3 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder2");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet3", Storage="_tblPrivetOrder3", ThisKey="OrderNr4", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder3
+		{
+			get
+			{
+				return this._tblPrivetOrder3.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder3.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder3.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder3.Entity = null;
+						previousValue.tblInvoicePrivets3.Remove(this);
+					}
+					this._tblPrivetOrder3.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets3.Add(this);
+						this._OrderNr4 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr4 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder3");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet4", Storage="_tblPrivetOrder4", ThisKey="OrderNr5", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder4
+		{
+			get
+			{
+				return this._tblPrivetOrder4.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder4.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder4.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder4.Entity = null;
+						previousValue.tblInvoicePrivets4.Remove(this);
+					}
+					this._tblPrivetOrder4.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets4.Add(this);
+						this._OrderNr5 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr5 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder4");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet5", Storage="_tblPrivetOrder5", ThisKey="OrderNr6", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder5
+		{
+			get
+			{
+				return this._tblPrivetOrder5.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder5.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder5.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder5.Entity = null;
+						previousValue.tblInvoicePrivets5.Remove(this);
+					}
+					this._tblPrivetOrder5.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets5.Add(this);
+						this._OrderNr6 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr6 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder5");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet6", Storage="_tblPrivetOrder6", ThisKey="OrderNr7", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder6
+		{
+			get
+			{
+				return this._tblPrivetOrder6.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder6.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder6.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder6.Entity = null;
+						previousValue.tblInvoicePrivets6.Remove(this);
+					}
+					this._tblPrivetOrder6.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets6.Add(this);
+						this._OrderNr7 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr7 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder6");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet7", Storage="_tblPrivetOrder7", ThisKey="OrderNr8", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder7
+		{
+			get
+			{
+				return this._tblPrivetOrder7.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder7.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder7.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder7.Entity = null;
+						previousValue.tblInvoicePrivets7.Remove(this);
+					}
+					this._tblPrivetOrder7.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets7.Add(this);
+						this._OrderNr8 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr8 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder7");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet8", Storage="_tblPrivetOrder8", ThisKey="OrderNr9", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder8
+		{
+			get
+			{
+				return this._tblPrivetOrder8.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder8.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder8.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder8.Entity = null;
+						previousValue.tblInvoicePrivets8.Remove(this);
+					}
+					this._tblPrivetOrder8.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets8.Add(this);
+						this._OrderNr9 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr9 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder8");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet9", Storage="_tblPrivetOrder9", ThisKey="OrderNr10", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder9
+		{
+			get
+			{
+				return this._tblPrivetOrder9.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder9.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder9.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder9.Entity = null;
+						previousValue.tblInvoicePrivets9.Remove(this);
+					}
+					this._tblPrivetOrder9.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets9.Add(this);
+						this._OrderNr10 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr10 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder9");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet10", Storage="_tblPrivetOrder10", ThisKey="OrderNr11", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder10
+		{
+			get
+			{
+				return this._tblPrivetOrder10.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder10.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder10.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder10.Entity = null;
+						previousValue.tblInvoicePrivets10.Remove(this);
+					}
+					this._tblPrivetOrder10.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets10.Add(this);
+						this._OrderNr11 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr11 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder10");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet11", Storage="_tblPrivetOrder11", ThisKey="OrderNr12", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder11
+		{
+			get
+			{
+				return this._tblPrivetOrder11.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder11.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder11.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder11.Entity = null;
+						previousValue.tblInvoicePrivets11.Remove(this);
+					}
+					this._tblPrivetOrder11.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets11.Add(this);
+						this._OrderNr12 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr12 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder11");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet12", Storage="_tblPrivetOrder12", ThisKey="OrderNr13", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder12
+		{
+			get
+			{
+				return this._tblPrivetOrder12.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder12.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder12.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder12.Entity = null;
+						previousValue.tblInvoicePrivets12.Remove(this);
+					}
+					this._tblPrivetOrder12.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets12.Add(this);
+						this._OrderNr13 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr13 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder12");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet13", Storage="_tblPrivetOrder13", ThisKey="OrderNr14", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder13
+		{
+			get
+			{
+				return this._tblPrivetOrder13.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder13.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder13.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder13.Entity = null;
+						previousValue.tblInvoicePrivets13.Remove(this);
+					}
+					this._tblPrivetOrder13.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets13.Add(this);
+						this._OrderNr14 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr14 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder13");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet14", Storage="_tblPrivetOrder14", ThisKey="OrderNr15", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder14
+		{
+			get
+			{
+				return this._tblPrivetOrder14.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder14.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder14.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder14.Entity = null;
+						previousValue.tblInvoicePrivets14.Remove(this);
+					}
+					this._tblPrivetOrder14.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets14.Add(this);
+						this._OrderNr15 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr15 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder14");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet15", Storage="_tblPrivetOrder15", ThisKey="OrderNr16", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder15
+		{
+			get
+			{
+				return this._tblPrivetOrder15.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder15.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder15.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder15.Entity = null;
+						previousValue.tblInvoicePrivets15.Remove(this);
+					}
+					this._tblPrivetOrder15.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets15.Add(this);
+						this._OrderNr16 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr16 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder15");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet16", Storage="_tblPrivetOrder16", ThisKey="OrderNr17", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder16
+		{
+			get
+			{
+				return this._tblPrivetOrder16.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder16.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder16.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder16.Entity = null;
+						previousValue.tblInvoicePrivets16.Remove(this);
+					}
+					this._tblPrivetOrder16.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets16.Add(this);
+						this._OrderNr17 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr17 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder16");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet17", Storage="_tblPrivetOrder17", ThisKey="OrderNr18", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder17
+		{
+			get
+			{
+				return this._tblPrivetOrder17.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder17.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder17.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder17.Entity = null;
+						previousValue.tblInvoicePrivets17.Remove(this);
+					}
+					this._tblPrivetOrder17.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets17.Add(this);
+						this._OrderNr18 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr18 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder17");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet18", Storage="_tblPrivetOrder18", ThisKey="OrderNr19", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder18
+		{
+			get
+			{
+				return this._tblPrivetOrder18.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder18.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder18.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder18.Entity = null;
+						previousValue.tblInvoicePrivets18.Remove(this);
+					}
+					this._tblPrivetOrder18.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets18.Add(this);
+						this._OrderNr19 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr19 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder18");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblPrivetOrder_tblInvoicePrivet19", Storage="_tblPrivetOrder19", ThisKey="OrderNr20", OtherKey="invoiceNo", IsForeignKey=true)]
+		public tblPrivetOrder tblPrivetOrder19
+		{
+			get
+			{
+				return this._tblPrivetOrder19.Entity;
+			}
+			set
+			{
+				tblPrivetOrder previousValue = this._tblPrivetOrder19.Entity;
+				if (((previousValue != value) 
+							|| (this._tblPrivetOrder19.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblPrivetOrder19.Entity = null;
+						previousValue.tblInvoicePrivets19.Remove(this);
+					}
+					this._tblPrivetOrder19.Entity = value;
+					if ((value != null))
+					{
+						value.tblInvoicePrivets19.Add(this);
+						this._OrderNr20 = value.invoiceNo;
+					}
+					else
+					{
+						this._OrderNr20 = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblPrivetOrder19");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

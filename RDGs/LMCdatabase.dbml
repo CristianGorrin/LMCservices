@@ -42,6 +42,26 @@
       <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="customer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany" Member="tblInvoiceCompanies" ThisKey="invoiceNo" OtherKey="OrderNr1" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany1" Member="tblInvoiceCompanies1" ThisKey="invoiceNo" OtherKey="OrderNr2" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany2" Member="tblInvoiceCompanies2" ThisKey="invoiceNo" OtherKey="OrderNr3" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany3" Member="tblInvoiceCompanies3" ThisKey="invoiceNo" OtherKey="OrderNr4" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany4" Member="tblInvoiceCompanies4" ThisKey="invoiceNo" OtherKey="OrderNr5" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany5" Member="tblInvoiceCompanies5" ThisKey="invoiceNo" OtherKey="OrderNr6" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany6" Member="tblInvoiceCompanies6" ThisKey="invoiceNo" OtherKey="OrderNr7" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany7" Member="tblInvoiceCompanies7" ThisKey="invoiceNo" OtherKey="OrderNr8" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany8" Member="tblInvoiceCompanies8" ThisKey="invoiceNo" OtherKey="OrderNr9" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany9" Member="tblInvoiceCompanies9" ThisKey="invoiceNo" OtherKey="OrderNr10" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany10" Member="tblInvoiceCompanies10" ThisKey="invoiceNo" OtherKey="OrderNr11" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany11" Member="tblInvoiceCompanies11" ThisKey="invoiceNo" OtherKey="OrderNr12" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany12" Member="tblInvoiceCompanies12" ThisKey="invoiceNo" OtherKey="OrderNr13" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany13" Member="tblInvoiceCompanies13" ThisKey="invoiceNo" OtherKey="OrderNr14" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany14" Member="tblInvoiceCompanies14" ThisKey="invoiceNo" OtherKey="OrderNr15" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany15" Member="tblInvoiceCompanies15" ThisKey="invoiceNo" OtherKey="OrderNr16" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany16" Member="tblInvoiceCompanies16" ThisKey="invoiceNo" OtherKey="OrderNr17" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany17" Member="tblInvoiceCompanies17" ThisKey="invoiceNo" OtherKey="OrderNr18" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany18" Member="tblInvoiceCompanies18" ThisKey="invoiceNo" OtherKey="OrderNr19" Type="tblInvoiceCompany" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany19" Member="tblInvoiceCompanies19" ThisKey="invoiceNo" OtherKey="OrderNr20" Type="tblInvoiceCompany" />
       <Association Name="tblBankAccount_tblCompanyOrder" Member="tblBankAccount" ThisKey="paidToACC" OtherKey="Id" Type="tblBankAccount" IsForeignKey="true" />
       <Association Name="tblCompanyCustomer_tblCompanyOrder" Member="tblCompanyCustomer" ThisKey="customer" OtherKey="companyCustomersNo" Type="tblCompanyCustomer" IsForeignKey="true" />
       <Association Name="tblWorker_tblCompanyOrder" Member="tblWorker" ThisKey="createBy" OtherKey="workNo" Type="tblWorker" IsForeignKey="true" />
@@ -111,6 +131,26 @@
       <Column Name="paidToACC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="customers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet" Member="tblInvoicePrivets" ThisKey="invoiceNo" OtherKey="OrderNr1" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet1" Member="tblInvoicePrivets1" ThisKey="invoiceNo" OtherKey="OrderNr2" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet2" Member="tblInvoicePrivets2" ThisKey="invoiceNo" OtherKey="OrderNr3" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet3" Member="tblInvoicePrivets3" ThisKey="invoiceNo" OtherKey="OrderNr4" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet4" Member="tblInvoicePrivets4" ThisKey="invoiceNo" OtherKey="OrderNr5" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet5" Member="tblInvoicePrivets5" ThisKey="invoiceNo" OtherKey="OrderNr6" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet6" Member="tblInvoicePrivets6" ThisKey="invoiceNo" OtherKey="OrderNr7" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet7" Member="tblInvoicePrivets7" ThisKey="invoiceNo" OtherKey="OrderNr8" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet8" Member="tblInvoicePrivets8" ThisKey="invoiceNo" OtherKey="OrderNr9" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet9" Member="tblInvoicePrivets9" ThisKey="invoiceNo" OtherKey="OrderNr10" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet10" Member="tblInvoicePrivets10" ThisKey="invoiceNo" OtherKey="OrderNr11" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet11" Member="tblInvoicePrivets11" ThisKey="invoiceNo" OtherKey="OrderNr12" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet12" Member="tblInvoicePrivets12" ThisKey="invoiceNo" OtherKey="OrderNr13" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet13" Member="tblInvoicePrivets13" ThisKey="invoiceNo" OtherKey="OrderNr14" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet14" Member="tblInvoicePrivets14" ThisKey="invoiceNo" OtherKey="OrderNr15" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet15" Member="tblInvoicePrivets15" ThisKey="invoiceNo" OtherKey="OrderNr16" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet16" Member="tblInvoicePrivets16" ThisKey="invoiceNo" OtherKey="OrderNr17" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet17" Member="tblInvoicePrivets17" ThisKey="invoiceNo" OtherKey="OrderNr18" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet18" Member="tblInvoicePrivets18" ThisKey="invoiceNo" OtherKey="OrderNr19" Type="tblInvoicePrivet" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet19" Member="tblInvoicePrivets19" ThisKey="invoiceNo" OtherKey="OrderNr20" Type="tblInvoicePrivet" />
       <Association Name="tblPrivateCustomer_tblPrivetOrder" Member="tblPrivateCustomer" ThisKey="customers" OtherKey="privateCustomersNo" Type="tblPrivateCustomer" IsForeignKey="true" />
       <Association Name="tblBankAccount_tblPrivetOrder" Member="tblBankAccount" ThisKey="paidToACC" OtherKey="Id" Type="tblBankAccount" IsForeignKey="true" />
       <Association Name="tblWorker_tblPrivetOrder" Member="tblWorker" ThisKey="createBy" OtherKey="workNo" Type="tblWorker" IsForeignKey="true" />
@@ -140,6 +180,98 @@
       <Column Name="statusNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="status" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
       <Association Name="tblWorkerStatus_tblWorker" Member="tblWorkers" ThisKey="statusNo" OtherKey="workerStatus" Type="tblWorker" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblInvoiceCompany" Member="tblInvoiceCompanies">
+    <Type Name="tblInvoiceCompany">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNr1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr11" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr12" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr13" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr14" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr15" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr16" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr17" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr18" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr19" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr20" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany" Member="tblCompanyOrder" ThisKey="OrderNr1" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany1" Member="tblCompanyOrder1" ThisKey="OrderNr2" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany2" Member="tblCompanyOrder2" ThisKey="OrderNr3" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany3" Member="tblCompanyOrder3" ThisKey="OrderNr4" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany4" Member="tblCompanyOrder4" ThisKey="OrderNr5" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany5" Member="tblCompanyOrder5" ThisKey="OrderNr6" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany6" Member="tblCompanyOrder6" ThisKey="OrderNr7" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany7" Member="tblCompanyOrder7" ThisKey="OrderNr8" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany8" Member="tblCompanyOrder8" ThisKey="OrderNr9" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany9" Member="tblCompanyOrder9" ThisKey="OrderNr10" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany10" Member="tblCompanyOrder10" ThisKey="OrderNr11" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany11" Member="tblCompanyOrder11" ThisKey="OrderNr12" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany12" Member="tblCompanyOrder12" ThisKey="OrderNr13" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany13" Member="tblCompanyOrder13" ThisKey="OrderNr14" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany14" Member="tblCompanyOrder14" ThisKey="OrderNr15" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany15" Member="tblCompanyOrder15" ThisKey="OrderNr16" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany16" Member="tblCompanyOrder16" ThisKey="OrderNr17" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany17" Member="tblCompanyOrder17" ThisKey="OrderNr18" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany18" Member="tblCompanyOrder18" ThisKey="OrderNr19" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+      <Association Name="tblCompanyOrder_tblInvoiceCompany19" Member="tblCompanyOrder19" ThisKey="OrderNr20" OtherKey="invoiceNo" Type="tblCompanyOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblInvoicePrivet" Member="tblInvoicePrivets">
+    <Type Name="tblInvoicePrivet">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNr1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr11" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr12" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr13" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr14" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr15" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr16" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr17" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr18" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr19" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNr20" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet" Member="tblPrivetOrder" ThisKey="OrderNr1" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet1" Member="tblPrivetOrder1" ThisKey="OrderNr2" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet2" Member="tblPrivetOrder2" ThisKey="OrderNr3" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet3" Member="tblPrivetOrder3" ThisKey="OrderNr4" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet4" Member="tblPrivetOrder4" ThisKey="OrderNr5" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet5" Member="tblPrivetOrder5" ThisKey="OrderNr6" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet6" Member="tblPrivetOrder6" ThisKey="OrderNr7" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet7" Member="tblPrivetOrder7" ThisKey="OrderNr8" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet8" Member="tblPrivetOrder8" ThisKey="OrderNr9" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet9" Member="tblPrivetOrder9" ThisKey="OrderNr10" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet10" Member="tblPrivetOrder10" ThisKey="OrderNr11" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet11" Member="tblPrivetOrder11" ThisKey="OrderNr12" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet12" Member="tblPrivetOrder12" ThisKey="OrderNr13" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet13" Member="tblPrivetOrder13" ThisKey="OrderNr14" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet14" Member="tblPrivetOrder14" ThisKey="OrderNr15" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet15" Member="tblPrivetOrder15" ThisKey="OrderNr16" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet16" Member="tblPrivetOrder16" ThisKey="OrderNr17" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet17" Member="tblPrivetOrder17" ThisKey="OrderNr18" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet18" Member="tblPrivetOrder18" ThisKey="OrderNr19" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
+      <Association Name="tblPrivetOrder_tblInvoicePrivet19" Member="tblPrivetOrder19" ThisKey="OrderNr20" OtherKey="invoiceNo" Type="tblPrivetOrder" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
