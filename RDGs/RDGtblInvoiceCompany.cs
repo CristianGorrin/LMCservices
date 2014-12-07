@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SqlClient = System.Data.SqlClient;
+
 namespace RDGs
 {
     public class RDGtblInvoiceCompany
@@ -45,6 +47,7 @@ namespace RDGs
                     tempInvoice.Active = item.Active;
                     tempInvoice.Id = item.Id;
 
+                    tempInvoice.Order = new int?[20];
                     tempInvoice.Order[0] = item.OrderNr1;
                     tempInvoice.Order[1] = item.OrderNr2;
                     tempInvoice.Order[3] = item.OrderNr3;
@@ -64,6 +67,8 @@ namespace RDGs
                     tempInvoice.Order[17] = item.OrderNr17;
                     tempInvoice.Order[18] = item.OrderNr18;
                     tempInvoice.Order[19] = item.OrderNr19;
+
+                    list.Add(tempInvoice);
                 }
 	        }
 
@@ -82,26 +87,28 @@ namespace RDGs
 
                 invoice.Active = foundInvoice.Active;
                 invoice.Id = foundInvoice.Id;
-
+                
+                invoice.Order = new int?[20];
                 invoice.Order[0] = foundInvoice.OrderNr1;
                 invoice.Order[1] = foundInvoice.OrderNr2;
-                invoice.Order[3] = foundInvoice.OrderNr3;
-                invoice.Order[4] = foundInvoice.OrderNr4;
-                invoice.Order[5] = foundInvoice.OrderNr5;
-                invoice.Order[6] = foundInvoice.OrderNr6;
-                invoice.Order[7] = foundInvoice.OrderNr7;
-                invoice.Order[8] = foundInvoice.OrderNr8;
-                invoice.Order[9] = foundInvoice.OrderNr9;
-                invoice.Order[10] = foundInvoice.OrderNr10;
-                invoice.Order[11] = foundInvoice.OrderNr11;
-                invoice.Order[12] = foundInvoice.OrderNr12;
-                invoice.Order[13] = foundInvoice.OrderNr13;
-                invoice.Order[14] = foundInvoice.OrderNr14;
-                invoice.Order[15] = foundInvoice.OrderNr15;
-                invoice.Order[16] = foundInvoice.OrderNr16;
-                invoice.Order[17] = foundInvoice.OrderNr17;
-                invoice.Order[18] = foundInvoice.OrderNr18;
-                invoice.Order[19] = foundInvoice.OrderNr19;
+                invoice.Order[2] = foundInvoice.OrderNr3;
+                invoice.Order[3] = foundInvoice.OrderNr4;
+                invoice.Order[4] = foundInvoice.OrderNr5;
+                invoice.Order[5] = foundInvoice.OrderNr6;
+                invoice.Order[6] = foundInvoice.OrderNr7;
+                invoice.Order[7] = foundInvoice.OrderNr8;
+                invoice.Order[8] = foundInvoice.OrderNr9;
+                invoice.Order[9] = foundInvoice.OrderNr10;
+                invoice.Order[10] = foundInvoice.OrderNr11;
+                invoice.Order[11] = foundInvoice.OrderNr12;
+                invoice.Order[12] = foundInvoice.OrderNr13;
+                invoice.Order[13] = foundInvoice.OrderNr14;
+                invoice.Order[14] = foundInvoice.OrderNr15;
+                invoice.Order[15] = foundInvoice.OrderNr16;
+                invoice.Order[16] = foundInvoice.OrderNr17;
+                invoice.Order[17] = foundInvoice.OrderNr18;
+                invoice.Order[18] = foundInvoice.OrderNr19;
+                invoice.Order[19] = foundInvoice.OrderNr20;
             }
 
             return invoice;
@@ -219,6 +226,29 @@ namespace RDGs
                 dbContext.tblInvoiceCompanies.DeleteOnSubmit(deleteing);
 
                 dbContext.SubmitChanges();
+            }
+        }
+
+        public int NextId
+        {
+            get
+            {
+                string connString = string.Empty;
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+                {
+                    connString = dbContext.Connection.ConnectionString;
+                }
+
+                var conn = new SqlClient.SqlConnection(connString);
+                var cmd = new SqlClient.SqlCommand(@"SELECT IDENT_CURRENT ('[tblInvoiceCompany]')", conn);
+
+                conn.Open();
+
+                decimal result = (decimal)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return Convert.ToInt32(result) + 1;
             }
         }
     }

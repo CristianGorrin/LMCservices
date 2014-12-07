@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SqlClient = System.Data.SqlClient;
+
 namespace RDGs
 {
     public class RDGtblInvoicePrivet
@@ -224,6 +226,29 @@ namespace RDGs
                 dbContext.tblInvoicePrivets.DeleteOnSubmit(deleteing);
 
                 dbContext.SubmitChanges();
+            }
+        }
+
+        public int NextId
+        {
+            get
+            {
+                string connString = string.Empty;
+                using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+                {
+                    connString = dbContext.Connection.ConnectionString;
+                }
+
+                var conn = new SqlClient.SqlConnection(connString);
+                var cmd = new SqlClient.SqlCommand(@"SELECT IDENT_CURRENT ('[tblInvoicePrivet]')", conn);
+
+                conn.Open();
+
+                decimal result = (decimal)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return Convert.ToInt32(result) + 1;
             }
         }
     }

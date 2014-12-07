@@ -1241,5 +1241,372 @@ namespace UnitTestProject
                 public int StautsNo { get { return 1; } }
             }
         }
+
+        [TestClass]
+        public class TestRDGtblInvoicePrivet
+        {
+            [TestMethod]
+            public void Get()
+            {
+                var invoicePrivet = new RDGs.RDGtblInvoicePrivet(TestRDGs.connectionString);
+
+                var list = invoicePrivet.Get(null);
+                Assert.AreEqual(20, list.Count);
+
+                list = invoicePrivet.Get(true);
+                Assert.AreEqual(8, list.Count);
+                
+                list = invoicePrivet.Get(false);
+                Assert.AreEqual(12, list.Count);
+            }
+
+            [TestMethod]
+            public void Find()
+            {
+                var invoicePrivet = new RDGs.RDGtblInvoicePrivet(TestRDGs.connectionString);
+
+                var found = invoicePrivet.Find(1);
+
+                Assert.AreEqual(1, found.Id);
+                Assert.AreEqual(false, found.Active);
+                Assert.AreEqual(95, found.Order[0]);
+                Assert.AreEqual(40, found.Order[1]);
+                Assert.AreEqual(28, found.Order[2]);
+                Assert.AreEqual(39, found.Order[3]);
+                Assert.AreEqual(78, found.Order[4]);
+                Assert.AreEqual(41, found.Order[5]);
+                Assert.AreEqual(36, found.Order[6]);
+                Assert.AreEqual(9, found.Order[7]);
+                Assert.AreEqual(26, found.Order[8]);
+                Assert.AreEqual(36, found.Order[9]);
+                Assert.AreEqual(77, found.Order[10]);
+                Assert.AreEqual(93, found.Order[11]);
+                Assert.AreEqual(45, found.Order[12]);
+                Assert.AreEqual(35, found.Order[13]);
+                Assert.AreEqual(40, found.Order[14]);
+                Assert.AreEqual(88, found.Order[15]);
+                Assert.AreEqual(76, found.Order[16]);
+                Assert.AreEqual(28, found.Order[17]);
+                Assert.AreEqual(6, found.Order[18]);
+                Assert.AreEqual(48, found.Order[19]);
+            }
+                
+            [TestMethod]
+            public void Update()
+            {
+                var invoicePrivet = new RDGs.RDGtblInvoicePrivet(TestRDGs.connectionString);
+
+                invoicePrivet.Update(new InvoicePrivet()
+                {
+                    Active = true,
+                    Id = 1,
+                    Order = new int?[20] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, null, null, 5, null, 7, 8, 9, 33, null }
+                });
+
+                var found = invoicePrivet.Find(1);
+
+                Assert.AreEqual(1, found.Id);
+                Assert.AreEqual(true, found.Active);
+                Assert.AreEqual(10, found.Order[0]);
+                Assert.AreEqual(11, found.Order[1]);
+                Assert.AreEqual(12, found.Order[2]);
+                Assert.AreEqual(13, found.Order[3]);
+                Assert.AreEqual(14, found.Order[4]);
+                Assert.AreEqual(15, found.Order[5]);
+                Assert.AreEqual(16, found.Order[6]);
+                Assert.AreEqual(17, found.Order[7]);
+                Assert.AreEqual(18, found.Order[8]);
+                Assert.AreEqual(19, found.Order[9]);
+                Assert.AreEqual(20, found.Order[10]);
+                Assert.AreEqual(null, found.Order[11]);
+                Assert.AreEqual(null, found.Order[12]);
+                Assert.AreEqual(5, found.Order[13]);
+                Assert.AreEqual(null, found.Order[14]);
+                Assert.AreEqual(7, found.Order[15]);
+                Assert.AreEqual(8, found.Order[16]);
+                Assert.AreEqual(9, found.Order[17]);
+                Assert.AreEqual(33, found.Order[18]);
+                Assert.AreEqual(null, found.Order[19]);
+
+                invoicePrivet.Update(new InvoicePrivet()
+                {
+                    Active = false,
+                    Id = 1,
+                    Order = new int?[20] { 95, 40, 28, 39, 78, 41, 36, 9, 26, 36, 77, 93, 45, 35, 40, 88, 76, 28, 6, 48 }
+                });
+
+                found = invoicePrivet.Find(1);
+
+                Assert.AreEqual(1, found.Id);
+                Assert.AreEqual(false, found.Active);
+                Assert.AreEqual(95, found.Order[0]);
+                Assert.AreEqual(40, found.Order[1]);
+                Assert.AreEqual(28, found.Order[2]);
+                Assert.AreEqual(39, found.Order[3]);
+                Assert.AreEqual(78, found.Order[4]);
+                Assert.AreEqual(41, found.Order[5]);
+                Assert.AreEqual(36, found.Order[6]);
+                Assert.AreEqual(9, found.Order[7]);
+                Assert.AreEqual(26, found.Order[8]);
+                Assert.AreEqual(36, found.Order[9]);
+                Assert.AreEqual(77, found.Order[10]);
+                Assert.AreEqual(93, found.Order[11]);
+                Assert.AreEqual(45, found.Order[12]);
+                Assert.AreEqual(35, found.Order[13]);
+                Assert.AreEqual(40, found.Order[14]);
+                Assert.AreEqual(88, found.Order[15]);
+                Assert.AreEqual(76, found.Order[16]);
+                Assert.AreEqual(28, found.Order[17]);
+                Assert.AreEqual(6, found.Order[18]);
+                Assert.AreEqual(48, found.Order[19]);
+            }
+ 
+            [TestMethod]
+            public void Add()
+            {
+                var invoicePrivet = new RDGs.RDGtblInvoicePrivet(TestRDGs.connectionString);
+
+                invoicePrivet.Add(new InvoicePrivet()
+                {
+                    Active = false,
+                    Id = 1,
+                    Order = new int?[20] { 95, 40, 28, 39, 78, 41, 36, 9, 26, 36, 77, 93, 45, 35, 40, 88, 76, 28, 6, 48 }
+                });
+
+                var found = invoicePrivet.Find(invoicePrivet.NextId - 1);
+
+                Assert.AreEqual(invoicePrivet.NextId - 1, found.Id);
+                Assert.AreEqual(false, found.Active);
+                Assert.AreEqual(95, found.Order[0]);
+                Assert.AreEqual(40, found.Order[1]);
+                Assert.AreEqual(28, found.Order[2]);
+                Assert.AreEqual(39, found.Order[3]);
+                Assert.AreEqual(78, found.Order[4]);
+                Assert.AreEqual(41, found.Order[5]);
+                Assert.AreEqual(36, found.Order[6]);
+                Assert.AreEqual(9, found.Order[7]);
+                Assert.AreEqual(26, found.Order[8]);
+                Assert.AreEqual(36, found.Order[9]);
+                Assert.AreEqual(77, found.Order[10]);
+                Assert.AreEqual(93, found.Order[11]);
+                Assert.AreEqual(45, found.Order[12]);
+                Assert.AreEqual(35, found.Order[13]);
+                Assert.AreEqual(40, found.Order[14]);
+                Assert.AreEqual(88, found.Order[15]);
+                Assert.AreEqual(76, found.Order[16]);
+                Assert.AreEqual(28, found.Order[17]);
+                Assert.AreEqual(6, found.Order[18]);
+                Assert.AreEqual(48, found.Order[19]);
+            }
+
+            [TestMethod]
+            public void Delete()
+            {
+                var invoicePrivet = new RDGs.RDGtblInvoicePrivet(TestRDGs.connectionString);
+
+                invoicePrivet.Delete(invoicePrivet.NextId - 1);
+
+                object obj = null;
+
+                try
+                {
+                    obj = invoicePrivet.Find(invoicePrivet.NextId - 1);
+                }
+                catch (Exception) { }
+
+                Assert.IsNull(obj);
+            }
+
+            
+            private class InvoicePrivet : Interface.IinvoicePrivet
+            {
+                public int Id { get; set; }
+                public bool Active { get; set; }
+                public int?[] Order { get; set; }
+            }
+        }
+
+        [TestClass]
+        public class TestRDGtblInvoiceCompany
+        {
+            [TestMethod]
+            public void Get()
+            {
+                var invoiceCompany = new RDGs.RDGtblInvoiceCompany(TestRDGs.connectionString);
+
+                var list = invoiceCompany.Get(null);
+                Assert.AreEqual(20, list.Count);
+
+                list = invoiceCompany.Get(true);
+                Assert.AreEqual(12, list.Count);
+
+                list = invoiceCompany.Get(false);
+                Assert.AreEqual(8, list.Count);
+            }
+
+            [TestMethod]
+            public void Find()
+            {
+                var invoiceCompany = new RDGs.RDGtblInvoiceCompany(TestRDGs.connectionString);
+
+                var found = invoiceCompany.Find(1);
+
+                Assert.AreEqual(1, found.Id);
+                Assert.AreEqual(true, found.Active);
+                Assert.AreEqual(30, found.Order[0]);
+                Assert.AreEqual(15, found.Order[1]);
+                Assert.AreEqual(15, found.Order[2]);
+                Assert.AreEqual(45, found.Order[3]);
+                Assert.AreEqual(86, found.Order[4]);
+                Assert.AreEqual(54, found.Order[5]);
+                Assert.AreEqual(74, found.Order[6]);
+                Assert.AreEqual(83, found.Order[7]);
+                Assert.AreEqual(57, found.Order[8]);
+                Assert.AreEqual(59, found.Order[9]);
+                Assert.AreEqual(36, found.Order[10]);
+                Assert.AreEqual(69, found.Order[11]);
+                Assert.AreEqual(63, found.Order[12]);
+                Assert.AreEqual(77, found.Order[13]);
+                Assert.AreEqual(1, found.Order[14]);
+                Assert.AreEqual(10, found.Order[15]);
+                Assert.AreEqual(39, found.Order[16]);
+                Assert.AreEqual(54, found.Order[17]);
+                Assert.AreEqual(38, found.Order[18]);
+                Assert.AreEqual(78, found.Order[19]);
+            }
+
+            [TestMethod]
+            public void Update()
+            {
+                var invoiceCompany = new RDGs.RDGtblInvoiceCompany(TestRDGs.connectionString);
+
+                invoiceCompany.Update(new InvoiceCompany()
+                {
+                    Active = true,
+                    Id = 1,
+                    Order = new int?[20] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, null, null, 5, null, 7, 8, 9, 33, null }
+                });
+
+                var found = invoiceCompany.Find(1);
+
+                Assert.AreEqual(1, found.Id);
+                Assert.AreEqual(true, found.Active);
+                Assert.AreEqual(10, found.Order[0]);
+                Assert.AreEqual(11, found.Order[1]);
+                Assert.AreEqual(12, found.Order[2]);
+                Assert.AreEqual(13, found.Order[3]);
+                Assert.AreEqual(14, found.Order[4]);
+                Assert.AreEqual(15, found.Order[5]);
+                Assert.AreEqual(16, found.Order[6]);
+                Assert.AreEqual(17, found.Order[7]);
+                Assert.AreEqual(18, found.Order[8]);
+                Assert.AreEqual(19, found.Order[9]);
+                Assert.AreEqual(20, found.Order[10]);
+                Assert.AreEqual(null, found.Order[11]);
+                Assert.AreEqual(null, found.Order[12]);
+                Assert.AreEqual(5, found.Order[13]);
+                Assert.AreEqual(null, found.Order[14]);
+                Assert.AreEqual(7, found.Order[15]);
+                Assert.AreEqual(8, found.Order[16]);
+                Assert.AreEqual(9, found.Order[17]);
+                Assert.AreEqual(33, found.Order[18]);
+                Assert.AreEqual(null, found.Order[19]);
+
+                invoiceCompany.Update(new InvoiceCompany()
+                {
+                    Active = true,
+                    Id = 1,
+                    Order = new int?[20] { 30,	15,	15,	45,	86,	54,	74,	83,	57,	59,	36,	69,	63,	77,	1,	10,	39,	54,	38,	78 }
+                });
+
+                found = invoiceCompany.Find(1);
+
+                Assert.AreEqual(1, found.Id);
+                Assert.AreEqual(true, found.Active);
+                Assert.AreEqual(30, found.Order[0]);
+                Assert.AreEqual(15, found.Order[1]);
+                Assert.AreEqual(15, found.Order[2]);
+                Assert.AreEqual(45, found.Order[3]);
+                Assert.AreEqual(86, found.Order[4]);
+                Assert.AreEqual(54, found.Order[5]);
+                Assert.AreEqual(74, found.Order[6]);
+                Assert.AreEqual(83, found.Order[7]);
+                Assert.AreEqual(57, found.Order[8]);
+                Assert.AreEqual(59, found.Order[9]);
+                Assert.AreEqual(36, found.Order[10]);
+                Assert.AreEqual(69, found.Order[11]);
+                Assert.AreEqual(63, found.Order[12]);
+                Assert.AreEqual(77, found.Order[13]);
+                Assert.AreEqual(1, found.Order[14]);
+                Assert.AreEqual(10, found.Order[15]);
+                Assert.AreEqual(39, found.Order[16]);
+                Assert.AreEqual(54, found.Order[17]);
+                Assert.AreEqual(38, found.Order[18]);
+                Assert.AreEqual(78, found.Order[19]);
+            }
+
+            [TestMethod]
+            public void Add()
+            {
+                var invoiceCompany = new RDGs.RDGtblInvoiceCompany(TestRDGs.connectionString);
+
+                invoiceCompany.Add(new InvoiceCompany()
+                {
+                    Active = true,
+                    Id = 1,
+                    Order = new int?[20] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, null, null, 5, null, 7, 8, 9, 33, null }
+                });
+
+                var found = invoiceCompany.Find(invoiceCompany.NextId - 1);
+
+                Assert.AreEqual(invoiceCompany.NextId - 1, found.Id);
+                Assert.AreEqual(true, found.Active);
+                Assert.AreEqual(10, found.Order[0]);
+                Assert.AreEqual(11, found.Order[1]);
+                Assert.AreEqual(12, found.Order[2]);
+                Assert.AreEqual(13, found.Order[3]);
+                Assert.AreEqual(14, found.Order[4]);
+                Assert.AreEqual(15, found.Order[5]);
+                Assert.AreEqual(16, found.Order[6]);
+                Assert.AreEqual(17, found.Order[7]);
+                Assert.AreEqual(18, found.Order[8]);
+                Assert.AreEqual(19, found.Order[9]);
+                Assert.AreEqual(20, found.Order[10]);
+                Assert.AreEqual(null, found.Order[11]);
+                Assert.AreEqual(null, found.Order[12]);
+                Assert.AreEqual(5, found.Order[13]);
+                Assert.AreEqual(null, found.Order[14]);
+                Assert.AreEqual(7, found.Order[15]);
+                Assert.AreEqual(8, found.Order[16]);
+                Assert.AreEqual(9, found.Order[17]);
+                Assert.AreEqual(33, found.Order[18]);
+                Assert.AreEqual(null, found.Order[19]);
+            }
+
+            [TestMethod]
+            public void Delete()
+            {
+                var invoiceCompany = new RDGs.RDGtblInvoiceCompany(TestRDGs.connectionString);
+
+                invoiceCompany.Delete(invoiceCompany.NextId - 1);
+
+                object obj = null;
+
+                try
+                {
+                    obj = invoiceCompany.Find(invoiceCompany.NextId - 1);
+                }
+                catch (Exception) { }
+
+                Assert.IsNull(obj);
+            }
+
+            class InvoiceCompany : Interface.IinvoiceCompany
+            {
+                public int Id { get; set; }
+                public bool Active { get; set; }
+                public int?[] Order { get; set; }
+            }
+        }
     }
 }
