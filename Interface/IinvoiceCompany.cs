@@ -10,6 +10,6 @@ namespace Interface
     {
         int Id { get; }
         bool Active { get; }
-        Interface.IcompanyOrder[] Order { get; }
+        int?[] Order { get; }
     }
 }

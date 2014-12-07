@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    public interface IinvoicePrivetPrivet
+    public interface IinvoicePrivet
     {
         int Id { get; }
         bool Active { get; }
-        Interface.IprivetOrder[] Order { get; }
+        int?[] Order { get; }
     }
 }
