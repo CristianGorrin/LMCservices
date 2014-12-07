@@ -43,6 +43,8 @@
     <Compile Include="IcompanyCustomer.cs" />
     <Compile Include="IcompanyOrder.cs" />
     <Compile Include="Idepartment.cs" />
+    <Compile Include="IinvoiceCompany.cs" />
+    <Compile Include="IinvoicePrivet.cs" />
     <Compile Include="IpostNo.cs" />
     <Compile Include="IprivetCustomer.cs" />
     <Compile Include="IprivetOrder.cs" />
