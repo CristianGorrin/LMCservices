@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    public interface IinvoicePrivet
+    public interface IinvoicePrivetPrivet
     {
         int Id { get; }
         bool Active { get; }
