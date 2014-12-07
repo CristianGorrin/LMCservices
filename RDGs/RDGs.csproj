@@ -55,6 +55,8 @@
     <Compile Include="RDGtblBankAccounts.cs" />
     <Compile Include="RDGtblCompanyCustomers.cs" />
     <Compile Include="RDGtblDepartment.cs" />
+    <Compile Include="RDGtblInvoiceCompany.cs" />
+    <Compile Include="RDGtblInvoicePrivet.cs" />
     <Compile Include="RDGtblPostNo.cs" />
     <Compile Include="RDGtblPrivateCustomers.cs" />
     <Compile Include="RDGtblPrivetOrders.cs" />

@@ -119,5 +119,19 @@ namespace RDGs
             public string AccountNo { get; set; }
             public double Balance { get; set; }
         }
+
+        public class InvoiceCompany : Interface.IinvoiceCompany
+        {
+            public int Id { get; set; }
+            public bool Active { get; set; }
+            public int?[] Order { get; set; }
+        }
+
+        public class InvoicePrivet : Interface.IinvoicePrivet
+        {
+            public int Id { get; set; }
+            public bool Active { get; set; }
+            public int?[] Order { get; set; }
+        }
     }
 }
