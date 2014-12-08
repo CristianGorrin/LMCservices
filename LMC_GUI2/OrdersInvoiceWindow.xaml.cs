@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace LMC_GUI2
 {
     /// <summary>
     /// Interaction logic for OrdersInvoiceWindow.xaml
     /// </summary>
-    public partial class OrdersInvoiceWindow : Window
+    public partial class OrdersInvoiceWindow : MetroWindow
     {
         public OrdersInvoiceWindow()
         {
