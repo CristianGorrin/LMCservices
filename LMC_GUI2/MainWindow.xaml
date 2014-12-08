@@ -18,13 +18,14 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Content="Indstillinger" />
+            <Button x:Name="btn_login" Content="Log på: {server}" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <TabControl>
-            <TabItem Header="Ordrer"><!--Section start-->
-                <TabControl>
+        <TabControl x:Name="tbc_main">
+            <TabItem x:Name="tbi_main_orders" Header="Ordrer">
+                <!--Section start-->
+                <TabControl x:Name="tbc_orders">
                     <TabControl.Resources>
                         <Style TargetType="{x:Type TabItem}">
                             <Setter Property="Template">
@@ -51,9 +52,9 @@
                             </Setter>
                         </Style>
                     </TabControl.Resources>
-                    <TabItem>
+                    <TabItem x:Name="tbi_orders_upcoming">
                         <TabItem.Header>
-                            <TextBlock Text="Private" FontSize="18" />
+                            <TextBlock Text="Aktuelle" FontSize="18" />
                         </TabItem.Header>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -64,7 +65,7 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid x:Name="dgv_u_orders" Grid.Column="0" Margin="2,0,0,2"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -77,24 +78,82 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Kunde nr." HorizontalAlignment="Right"/>
-                                    <Label Content="Fornavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Efternavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Addresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Postnr. / by" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Tlf.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Tlf.nr.2" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Kunde" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Oprettet af" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Timer brugt" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Timeløn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Start dato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Faktureringsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Betalingsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Beskrivelse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_u_orders_id" HorizontalAlignment="Left" Width="80"/>
+                                    <ComboBox x:Name="cmb_u_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
+                                    <ComboBox x:Name="cmb_u_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_u_orders_houruse" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_u_orders_paidhour" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <DatePicker x:Name="dat_u_orders_startdate" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_u_orders_invoicedate" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_u_orders_paydate" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_u_orders_description" Margin="0,5,0,0" MinLines="5"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_u_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_u_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_u_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_u_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tbi_orders_private">
+                        <TabItem.Header>
+                            <TextBlock Text="Private" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="dgv_p_orders" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Kunde" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Oprettet af" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Timer brugt" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Timeløn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Start dato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Faktureringsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Betalingsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Beskrivelse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
                                     <TextBox x:Name="txt_p_orders_id" HorizontalAlignment="Left" Width="80"/>
-                                    <TextBox x:Name="txt_p_orders_name" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_orders_surname" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_orders_address" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_orders_postno" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_orders_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
-                                    <TextBox x:Name="txt_p_orders_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
-                                    <TextBox x:Name="txt_p_orders_email" Margin="0,5,0,0"/>
+                                    <ComboBox x:Name="cmb_p_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
+                                    <ComboBox x:Name="cmb_p_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_orders_houruse" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_orders_paidhour" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <DatePicker x:Name="dat_p_orders_startdate" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_p_orders_invoicedate" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_p_orders_paydate" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_p_orders_description" Margin="0,5,0,0" MinLines="5"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
                                     <Button x:Name="btn_p_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
@@ -105,22 +164,68 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem>
+                    <TabItem x:Name="tbi_orders_corporate">
                         <TabItem.Header>
                             <TextBlock Text="Firmaer" FontSize="18" />
                         </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="dgv_c_orders" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Kunde" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Oprettet af" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Timer brugt" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Timeløn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Start dato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Faktureringsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Betalingsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Beskrivelse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_c_orders_id" HorizontalAlignment="Left" Width="80"/>
+                                    <ComboBox x:Name="cmb_c_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
+                                    <ComboBox x:Name="cmb_c_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_orders_houruse" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_orders_paidhour" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <DatePicker x:Name="dat_c_orders_startdate" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_c_orders_invoicedate" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_c_orders_paydate" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_orders_description" Margin="0,5,0,0" MinLines="5"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_c_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
                     </TabItem>
                 </TabControl>
             </TabItem>
-            
-            <TabItem Header="Kontrakter"><!--Section start-->
-            </TabItem>
-            
-            <TabItem Header="Regninger"><!--Section start-->
-            </TabItem>
-            
-            <TabItem Header="Kunder"><!--Section start-->
-                <TabControl>
+
+            <TabItem x:Name="tbi_main_contracts" Header="Kontrakter">
+                <!--Section start-->
+                <TabControl x:Name="tbc_contracts">
                     <TabControl.Resources>
                         <Style TargetType="{x:Type TabItem}">
                             <Setter Property="Template">
@@ -147,7 +252,49 @@
                             </Setter>
                         </Style>
                     </TabControl.Resources>
-                    <TabItem>
+                    <TabItem x:Name="tbi_contracts_private">
+                        <TabItem.Header>
+                            <TextBlock Text="Private" FontSize="18" />
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem x:Name="tbi_contracts_corporate">
+                        <TabItem.Header>
+                            <TextBlock Text="Firmaer" FontSize="18" />
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+
+            <TabItem x:Name="tbi_main_invoices" Header="Regninger">
+                <!--Section start-->
+                <TabControl x:Name="tbc_invoices">
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem x:Name="tbi_invoices_private">
                         <TabItem.Header>
                             <TextBlock Text="Private" FontSize="18" />
                         </TabItem.Header>
@@ -160,7 +307,228 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid x:Name="dgv_p_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                                    <TextBox x:Name="txt_p_invoices_id" HorizontalAlignment="Left" Width="80"/>
+                                    <DataGrid x:Name="dgv_p_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
+                                    <WrapPanel Width="300">
+                                        <Button x:Name="btn_p_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_p_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_p_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_p_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_p_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_p_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tbi_invoices_corporate">
+                        <TabItem.Header>
+                            <TextBlock Text="Firmaer" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="dgv_c_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                                    <TextBox x:Name="txt_c_invoices_id" HorizontalAlignment="Left" Width="80"/>
+                                    <DataGrid x:Name="dgv_c_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
+                                    <WrapPanel Width="300">
+                                        <Button x:Name="btn_c_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_c_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_c_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_c_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_c_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_c_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tbi_invoices_notsent">
+                        <TabItem.Header>
+                            <TextBlock Text="Ikke afsendt" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="dgv_ns_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                                    <TextBox x:Name="txt_ns_invoices_id" HorizontalAlignment="Left" Width="80"/>
+                                    <DataGrid x:Name="dgv_ns_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
+                                    <WrapPanel Width="300">
+                                        <Button x:Name="btn_ns_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_ns_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_ns_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_ns_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_ns_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_ns_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tbi_invoices_notpaid">
+                        <TabItem.Header>
+                            <TextBlock Text="Ikke betalt" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="dgv_np_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                                    <TextBox x:Name="txt_np_invoices_id" HorizontalAlignment="Left" Width="80"/>
+                                    <DataGrid x:Name="dgv_np_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
+                                    <WrapPanel Width="300">
+                                        <Button x:Name="btn_np_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_np_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_np_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_np_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_np_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_np_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tbi_invoices_invoices">
+                        <TabItem.Header>
+                            <TextBlock Text="Fakturaer" FontSize="18" />
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+
+            <TabItem x:Name="tbi_main_customers" Header="Kunder">
+                <!--Section start-->
+                <TabControl x:Name="tbc_customers">
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem x:Name="tbi_customers_private">
+                        <TabItem.Header>
+                            <TextBlock Text="Private" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid x:Name="dgv_p_customers" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -201,7 +569,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem>
+                    <TabItem x:Name="tbi_customers_corporate">
                         <TabItem.Header>
                             <TextBlock Text="Firmaer" FontSize="18" />
                         </TabItem.Header>
@@ -214,7 +582,7 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid x:Name="dgv_c_customers" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -259,9 +627,10 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            
-            <TabItem Header="Ansatte"><!--Section start-->
-                <TabControl>
+
+            <TabItem x:Name="tbi_main_workers" Header="Ansatte">
+                <!--Section start-->
+                <TabControl x:Name="tbc_workers">
                     <TabControl.Resources>
                         <Style TargetType="{x:Type TabItem}">
                             <Setter Property="Template">
@@ -288,7 +657,7 @@
                             </Setter>
                         </Style>
                     </TabControl.Resources>
-                    <TabItem>
+                    <TabItem x:Name="tbi_workers_all">
                         <TabItem.Header>
                             <TextBlock Text="" FontSize="18" />
                         </TabItem.Header>
@@ -301,7 +670,7 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid x:Name="dgv_workers" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -344,9 +713,10 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            
-            <TabItem Header="Afdelinger"><!--Section start-->
-                <TabControl>
+
+            <TabItem x:Name="tbi_main_departments" Header="Afdelinger">
+                <!--Section start-->
+                <TabControl x:Name="tbc_departments">
                     <TabControl.Resources>
                         <Style TargetType="{x:Type TabItem}">
                             <Setter Property="Template">
@@ -373,7 +743,7 @@
                             </Setter>
                         </Style>
                     </TabControl.Resources>
-                    <TabItem>
+                    <TabItem x:Name="tbi_departments_all">
                         <TabItem.Header>
                             <TextBlock Text="" FontSize="18" />
                         </TabItem.Header>
@@ -386,7 +756,7 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid x:Name="dgv_departments" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -399,7 +769,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Firmanavn" HorizontalAlignment="Right"/>
+                                    <Label Content="ID nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Navn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="CVR nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Afdelingsleder" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Adresse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
@@ -409,7 +780,8 @@
                                     <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_departments_name"/>
+                                    <TextBox x:Name="txt_departments_number" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_departments_name" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_departments_cvr" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <ComboBox x:Name="txt_departments_head" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_departments_address" Margin="0,5,0,0"/>
@@ -429,10 +801,12 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            
-            <TabItem Header="Bogføring"><!--Section start-->
+
+            <TabItem x:Name="tbi_main_bookkeeping" Header="Bogføring">
+                <!--Section start-->
+                <Label Content="Kommer snart" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" Foreground="#FFF0EDED"/>
             </TabItem>
         </TabControl>
-        
+
     </Grid>
 </Controls:MetroWindow>
