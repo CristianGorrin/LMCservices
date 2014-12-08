@@ -1,0 +1,47 @@
+﻿<Controls:MetroWindow x:Class="LMC_GUI2.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        Title="LMC Service - Log ind"
+        Height="200"
+        Width="400"
+        
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Label Content="Server navn" Margin="0,5,0,0" HorizontalAlignment="Right" />
+            <Label Content="Server type" Margin="0,5,0,0" HorizontalAlignment="Right" />
+        </StackPanel>
+        <StackPanel x:Name="stp_login_infolabels" Grid.Row="1">
+            <Label Content="Brugernavn" Margin="0,5,0,0" HorizontalAlignment="Right" />
+            <Label Content="Password" Margin="0,5,0,0" HorizontalAlignment="Right" />
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="txt_login_servername" Margin="0,5,5,0" />
+            <ComboBox x:Name="cmb_login_servertype" Margin="0,5,5,0" />
+        </StackPanel>
+        <StackPanel x:Name="stp_login_infoinput" Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="txt_login_username" Margin="0,5,5,0" />
+            <TextBox x:Name="txt_login_password" Margin="0,5,5,0" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button x:Name="btn_login_login" Content="Log ind" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <Button x:Name="btn_login_cancel" Content="Fortryd" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <Button x:Name="btn_login_exit" Content="Luk program" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>
