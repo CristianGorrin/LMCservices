@@ -1,0 +1,28 @@
+﻿<Controls:MetroWindow x:Class="LMC_GUI2.OrdersInvoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        Title="LMC Service - Tilføj ordrer"
+        Height="300"
+        Width="500"
+        
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="dgv_ordersinvoice_all" Grid.Column="0"/>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="btn_invoiceorders_moveleft" Content="&lt;-" />
+            <Button x:Name="btn_invoiceorders_moveright" Content="-&gt;" />
+        </StackPanel>
+        <DataGrid x:Name="dgv_ordersinvoice_chosen" Grid.Column="2"/>
+    </Grid>
+</Controls:MetroWindow>
