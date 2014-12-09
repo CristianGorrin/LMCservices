@@ -27,5 +27,7 @@ namespace LogicController
             this.privetOrders = new Orders.PrivetOrders();
             this.postNumbers = new PostNo.PostNumbers();
         }
+
+        public Session Session { get { return this.session; } }
     }
 }

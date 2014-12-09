@@ -14,15 +14,15 @@
         
         SaveWindowPosition="True"
         ResizeMode="CanResizeWithGrip"
-        WindowStartupLocation="CenterScreen">
-
+        WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+       
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button x:Name="btn_login" Content="Log på: {server}" />
+            <Button x:Name="btn_login" Content="Log på: {server}" Click="btn_login_Click" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <TabControl x:Name="tbc_main">
+        <TabControl x:Name="tbc_main" SelectionChanged="tbc_main_SelectionChanged">
             <TabItem x:Name="tbi_main_orders" Header="Ordrer">
                 <!--Section start-->
                 <TabControl x:Name="tbc_orders">

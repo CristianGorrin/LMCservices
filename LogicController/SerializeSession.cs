@@ -10,9 +10,9 @@ using System.IO;
 
 namespace LogicController
 {
-    partial class Session
+    public partial class Session
     {
-        class Serialer
+        public class Serialer
         {
             public void Save(SerializeSession obj)
             {
@@ -34,7 +34,7 @@ namespace LogicController
         }
 
         [Serializable]
-        class SerializeSession
+        public class SerializeSession
         {
             public Settings Settings { get; set; }
             public DatabaseConnection DatabaseConnection { get; set; }

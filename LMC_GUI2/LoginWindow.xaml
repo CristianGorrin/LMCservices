@@ -10,7 +10,7 @@
         BorderBrush="{DynamicResource AccentColorBrush}"
         BorderThickness="1"
         
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -18,30 +18,32 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="59" />
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="35"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
+        <StackPanel Grid.ColumnSpan="3">
             <Label Content="Server navn" Margin="0,5,0,0" HorizontalAlignment="Right" />
             <Label Content="Server type" Margin="0,5,0,0" HorizontalAlignment="Right" />
         </StackPanel>
-        <StackPanel x:Name="stp_login_infolabels" Grid.Row="1">
+        <StackPanel x:Name="stp_login_infolabels" Grid.Row="1" Grid.ColumnSpan="3">
             <Label Content="Brugernavn" Margin="0,5,0,0" HorizontalAlignment="Right" />
             <Label Content="Password" Margin="0,5,0,0" HorizontalAlignment="Right" />
         </StackPanel>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="3">
             <TextBox x:Name="txt_login_servername" Margin="0,5,5,0" />
-            <ComboBox x:Name="cmb_login_servertype" Margin="0,5,5,0" />
+            <ComboBox x:Name="cmb_login_servertype" Margin="0,5,5,0" SelectionChanged="cmb_login_servertype_SelectionChanged" />
         </StackPanel>
-        <StackPanel x:Name="stp_login_infoinput" Grid.Row="1" Grid.Column="1">
+        <StackPanel x:Name="stp_login_infoinput" Grid.Row="1" Grid.Column="3">
             <TextBox x:Name="txt_login_username" Margin="0,5,5,0" />
             <TextBox x:Name="txt_login_password" Margin="0,5,5,0" />
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button x:Name="btn_login_login" Content="Log ind" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
-            <Button x:Name="btn_login_cancel" Content="Fortryd" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
-            <Button x:Name="btn_login_exit" Content="Luk program" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button x:Name="btn_login_login" Content="Log ind" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btn_login_login_Click" />
+            <Button x:Name="btn_login_cancel" Content="Fortryd" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btn_login_cancel_Click" />
+            <Button x:Name="btn_login_exit" Content="Luk program" Margin="5,5,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btn_login_exit_Click" />
         </StackPanel>
     </Grid>
 </Controls:MetroWindow>
