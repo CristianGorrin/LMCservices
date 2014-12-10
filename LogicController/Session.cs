@@ -97,6 +97,9 @@ namespace LogicController
             this.connectTimeout = connectTimeout;
             this.pass = pass;
             this.userName = userName;
+
+            if (this.initialCatalog == null || this.initialCatalog == string.Empty)
+                this.initialCatalog = "LMCdatabase";
         }
 
         public DatabaseConnection(string dataSource, string initialCatalog, bool integratedSecurity, string userName, string pass)
@@ -107,6 +110,9 @@ namespace LogicController
             this.connectTimeout = 30;
             this.userName = userName;
             this.pass = pass;
+
+            if (this.initialCatalog == null || this.initialCatalog == string.Empty)
+                this.initialCatalog = "LMCdatabase";
         }
 
         public string DataSource { get { return this.dataSource; } set { this.dataSource = value; } }

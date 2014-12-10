@@ -81,7 +81,7 @@ namespace RDGs
                             PrivateCustomersNo = item.tblPrivateCustomer.privateCustomersNo,
                             Surname = item.tblPrivateCustomer.surname
                         },
-                        DateSendBill = (DateTime)item.dateSendBill,
+                        DateSendBill = item.dateSendBill,
                         DaysToPaid = (int)item.daysToPaid,
                         DescriptionTask = item.descriptionTask,
                         HourUse = Convert.ToDouble(item.hoursUse),
@@ -148,7 +148,7 @@ namespace RDGs
                         PrivateCustomersNo = privetOrderFound.tblPrivateCustomer.privateCustomersNo,
                         Surname = privetOrderFound.tblPrivateCustomer.surname
                     },
-                    DateSendBill = (DateTime)privetOrderFound.dateSendBill,
+                    DateSendBill = privetOrderFound.dateSendBill,
                     DaysToPaid = (int)privetOrderFound.daysToPaid,
                     DescriptionTask = privetOrderFound.descriptionTask,
                     HourUse = Convert.ToDouble(privetOrderFound.hoursUse),
@@ -181,6 +181,15 @@ namespace RDGs
                     paidToACC = privetOrder.PaidToAcc,
                     taskDate = privetOrder.TaskDate,
                 };
+                
+                if (newPrivetOrderFound.dateSendBill != null)
+                {
+                    if (newPrivetOrderFound.dateSendBill.Value.Year == 1)
+                    {
+                        newPrivetOrderFound.dateSendBill = null;
+                    }
+                }
+                
 
                 dbContext.tblPrivetOrders.InsertOnSubmit(newPrivetOrderFound);
                 dbContext.SubmitChanges();
@@ -196,16 +205,55 @@ namespace RDGs
                     x => x.invoiceNo == privetOrder.InvoiceNo);
 
                 privetOrderUpteing.createBy = privetOrder.CreateBy.WorkNo;
-                privetOrderUpteing.createdDate = privetOrder.CreateDate;
-                privetOrderUpteing.customers = privetOrder.Customer.PrivateCustomersNo;
-                privetOrderUpteing.dateSendBill = privetOrder.DateSendBill;
-                privetOrderUpteing.daysToPaid = privetOrder.DaysToPaid;
-                privetOrderUpteing.paidToACC = privetOrder.PaidToAcc;
-                privetOrderUpteing.descriptionTask = privetOrder.DescriptionTask;
-                privetOrderUpteing.hoursUse = Convert.ToDecimal(privetOrder.HourUse);
-                privetOrderUpteing.paid = privetOrder.Paid;
-                privetOrderUpteing.paidHour = Convert.ToDecimal(privetOrder.PaidHour);
-                privetOrderUpteing.taskDate = privetOrder.TaskDate;
+
+                if (privetOrder.CreateDate != null)
+                {
+                    privetOrderUpteing.createdDate = privetOrder.CreateDate;
+                }
+
+                if (privetOrder.Customer.PrivateCustomersNo != null)
+                {
+                    privetOrderUpteing.customers = privetOrder.Customer.PrivateCustomersNo;
+                }
+
+                if (privetOrder.DateSendBill != null)
+                {
+                    privetOrderUpteing.dateSendBill = privetOrder.DateSendBill;
+                }
+
+                if (privetOrder.DaysToPaid != null)
+                {
+                    privetOrderUpteing.daysToPaid = privetOrder.DaysToPaid;
+                }
+
+                if (privetOrder.PaidToAcc != null)
+                {
+                    privetOrderUpteing.paidToACC = privetOrder.PaidToAcc;
+                }
+
+                if (privetOrder.DescriptionTask != null)
+                {
+                    privetOrderUpteing.descriptionTask = privetOrder.DescriptionTask;
+                }
+
+                if (privetOrder.HourUse != null)
+                {
+                    privetOrderUpteing.hoursUse = Convert.ToDecimal(privetOrder.HourUse);
+                }
+
+                if (privetOrder.Paid != null)
+                {
+                    privetOrderUpteing.paid = privetOrder.Paid;
+                }
+
+                if (privetOrder.PaidHour != null)
+                {
+                    privetOrderUpteing.paidHour = Convert.ToDecimal(privetOrder.PaidHour);
+                }
+                if (privetOrder.TaskDate != null)
+                {
+                    privetOrderUpteing.taskDate = privetOrder.TaskDate;
+                }
 
                 dbContext.SubmitChanges();
             }

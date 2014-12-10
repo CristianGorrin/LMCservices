@@ -11,7 +11,7 @@ namespace Interface
         Iworker CreateBy { get; set; }
         DateTime CreateDate { get; }
         IprivetCustomer Customer { get; set; }
-        DateTime DateSendBill { get; }
+        DateTime? DateSendBill { get; }
         int DaysToPaid { get; }
         string DescriptionTask { get; }
         double HourUse { get; }

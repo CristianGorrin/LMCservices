@@ -1036,7 +1036,7 @@ namespace UnitTestProject
                 Assert.AreEqual(48, privetOrder.CreateBy.WorkNo);
                 Assert.AreEqual("24-11-2013", privetOrder.CreateDate.ToShortDateString());
                 Assert.AreEqual(24, privetOrder.Customer.PrivateCustomersNo);
-                Assert.AreEqual("10-06-2014", privetOrder.DateSendBill.ToShortDateString());
+                Assert.AreEqual("10-06-2014", privetOrder.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(2, privetOrder.DaysToPaid);
                 Assert.AreEqual("orci quis lectus.", privetOrder.DescriptionTask);
                 Assert.AreEqual(10.0D, privetOrder.HourUse);
@@ -1059,7 +1059,7 @@ namespace UnitTestProject
                 Assert.AreEqual(10, privetOrder.CreateBy.WorkNo);
                 Assert.AreEqual("20-05-2013", privetOrder.CreateDate.ToShortDateString());
                 Assert.AreEqual(2, privetOrder.Customer.PrivateCustomersNo);
-                Assert.AreEqual("20-06-2013", privetOrder.DateSendBill.ToShortDateString());
+                Assert.AreEqual("20-06-2013", privetOrder.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(5, privetOrder.DaysToPaid);
                 Assert.AreEqual("newDescriptionTask", privetOrder.DescriptionTask);
                 Assert.AreEqual(5.8D, privetOrder.HourUse);
@@ -1100,7 +1100,7 @@ namespace UnitTestProject
                 Assert.AreEqual(10, privetOrder.CreateBy.WorkNo);
                 Assert.AreEqual("20-05-2013", privetOrder.CreateDate.ToShortDateString());
                 Assert.AreEqual(2, privetOrder.Customer.PrivateCustomersNo);
-                Assert.AreEqual("20-06-2013", privetOrder.DateSendBill.ToShortDateString());
+                Assert.AreEqual("20-06-2013", privetOrder.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(5, privetOrder.DaysToPaid);
                 Assert.AreEqual("newDescriptionTask", privetOrder.DescriptionTask);
                 Assert.AreEqual(5.8D, privetOrder.HourUse);
@@ -1133,7 +1133,7 @@ namespace UnitTestProject
                 Assert.AreEqual(48, privetOrder.CreateBy.WorkNo);
                 Assert.AreEqual("24-11-2013", privetOrder.CreateDate.ToShortDateString());
                 Assert.AreEqual(24, privetOrder.Customer.PrivateCustomersNo);
-                Assert.AreEqual("10-06-2014", privetOrder.DateSendBill.ToShortDateString());
+                Assert.AreEqual("10-06-2014", privetOrder.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(2, privetOrder.DaysToPaid);
                 Assert.AreEqual("orci quis lectus.", privetOrder.DescriptionTask);
                 Assert.AreEqual(10.0D, privetOrder.HourUse);
@@ -1149,7 +1149,7 @@ namespace UnitTestProject
                 public Iworker CreateBy { get { return new InterfaceAdaptor.Worker() { WorkNo = 10 }; } set { throw new NotImplementedException(); } }
                 public DateTime CreateDate { get { return new DateTime(2013, 5, 20); } }
                 public IprivetCustomer Customer { get { return new InterfaceAdaptor.PrivetCustomer() { PrivateCustomersNo = 2 }; } set { throw new NotImplementedException(); } }
-                public DateTime DateSendBill { get { return new DateTime(2013, 6, 20); } }
+                public DateTime? DateSendBill { get { return new DateTime(2013, 6, 20); } }
                 public int DaysToPaid { get { return 5; } }
                 public string DescriptionTask { get { return "newDescriptionTask"; } }
                 public double HourUse { get { return 5.8D; } }

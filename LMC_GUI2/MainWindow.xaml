@@ -15,7 +15,7 @@
         SaveWindowPosition="True"
         ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
-       
+
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button x:Name="btn_login" Content="Log på: {server}" Click="btn_login_Click" />
@@ -65,7 +65,8 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_u_orders" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_u_orders" Grid.Column="0" 
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -78,32 +79,23 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Order nr." HorizontalAlignment="Right"/>
                                     <Label Content="Kunde" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Oprettet af" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Timer brugt" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Timeløn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Start dato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Faktureringsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Betalingsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Beskrivelse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
                                     <TextBox x:Name="txt_u_orders_id" HorizontalAlignment="Left" Width="80"/>
                                     <ComboBox x:Name="cmb_u_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
                                     <ComboBox x:Name="cmb_u_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_u_orders_houruse" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
-                                    <TextBox x:Name="txt_u_orders_paidhour" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <DatePicker x:Name="dat_u_orders_startdate" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_u_orders_invoicedate" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_u_orders_paydate" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_u_orders_description" Margin="0,5,0,0" MinLines="5"/>
+                                    <TextBox x:Name="txt_u_orders_description" Margin="0,5,0,0" MinLines="5" TextWrapping="Wrap"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
                                     <Button x:Name="btn_u_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                     <Button x:Name="btn_u_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                     <Button x:Name="btn_u_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_u_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -121,7 +113,9 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_p_orders" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid x:Name="dgv_p_orders" Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single" 
+                                      SelectedCellsChanged="dgv_p_orders_SelectedCellsChanged" 
+                                      GridLinesVisibility="Horizontal"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -134,32 +128,28 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Order nr." HorizontalAlignment="Right"/>
                                     <Label Content="Kunde" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Oprettet af" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Timer brugt" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Timeløn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Start dato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Faktureringsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Betalingsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Beskrivelse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_p_orders_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_orders_id" HorizontalAlignment="Left" Width="80" GotKeyboardFocus="txt_p_orders_id_GotKeyboardFocus" KeyDown="txt_p_orders_id_KeyDown"/>
                                     <ComboBox x:Name="cmb_p_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
                                     <ComboBox x:Name="cmb_p_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_p_orders_houruse" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_p_orders_paidhour" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <DatePicker x:Name="dat_p_orders_startdate" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_p_orders_invoicedate" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_p_orders_paydate" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_orders_description" Margin="0,5,0,0" MinLines="5"/>
+                                    <TextBox x:Name="txt_p_orders_description" Margin="0,5,0,0" MinLines="5" TextWrapping="Wrap"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button x:Name="btn_p_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_p_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_p_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_p_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_orders_clear_Click"/>
+                                    <Button x:Name="btn_p_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_orders_search_Click"/>
+                                    <Button x:Name="btn_p_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_orders_remove_Click"/>
+                                    <Button x:Name="btn_p_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_orders_add_Click"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -177,7 +167,9 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_c_orders" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_orders" 
+                                      Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True"
+                                      SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -209,7 +201,7 @@
                                     <DatePicker x:Name="dat_c_orders_startdate" Margin="0,5,0,0"/>
                                     <DatePicker x:Name="dat_c_orders_invoicedate" Margin="0,5,0,0"/>
                                     <DatePicker x:Name="dat_c_orders_paydate" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_c_orders_description" Margin="0,5,0,0" MinLines="5"/>
+                                    <TextBox x:Name="txt_c_orders_description" Margin="0,5,0,0" MinLines="5" TextWrapping="Wrap"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
                                     <Button x:Name="btn_c_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
@@ -307,7 +299,8 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_p_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_invoices" Grid.Column="0" 
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -325,7 +318,9 @@
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
                                     <TextBox x:Name="txt_p_invoices_id" HorizontalAlignment="Left" Width="80"/>
-                                    <DataGrid x:Name="dgv_p_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                    <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_invoices_orders" 
+                                              Height="300" Margin="0,5,0,0" IsReadOnly="True"
+                                              SelectionMode="Single"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
                                     <WrapPanel Width="300">
@@ -353,7 +348,8 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_c_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_invoices" Grid.Column="0" 
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -371,7 +367,8 @@
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
                                     <TextBox x:Name="txt_c_invoices_id" HorizontalAlignment="Left" Width="80"/>
-                                    <DataGrid x:Name="dgv_c_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                    <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_invoices_orders"
+                                              Height="300" Margin="0,5,0,0" IsReadOnly="True" SelectionMode="Single"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
                                     <WrapPanel Width="300">
@@ -399,7 +396,8 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_ns_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_ns_invoices" Grid.Column="0" 
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -417,7 +415,8 @@
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
                                     <TextBox x:Name="txt_ns_invoices_id" HorizontalAlignment="Left" Width="80"/>
-                                    <DataGrid x:Name="dgv_ns_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                    <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_ns_invoices_orders" 
+                                              Height="300" Margin="0,5,0,0" IsReadOnly="True" SelectionMode="Single"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
                                     <WrapPanel Width="300">
@@ -445,7 +444,8 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_np_invoices" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal"  x:Name="dgv_np_invoices" Grid.Column="0" 
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -463,7 +463,8 @@
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
                                     <TextBox x:Name="txt_np_invoices_id" HorizontalAlignment="Left" Width="80"/>
-                                    <DataGrid x:Name="dgv_np_invoices_orders" Height="300" Margin="0,5,0,0"/>
+                                    <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_np_invoices_orders" 
+                                              Height="300" Margin="0,5,0,0" IsReadOnly="True" SelectionMode="Single"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
                                     <WrapPanel Width="300">
@@ -528,7 +529,9 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_p_customers" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_customers" 
+                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True"
+                                      SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -582,7 +585,9 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_c_customers" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_customers" 
+                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" 
+                                      IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -670,7 +675,9 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_workers" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_workers" 
+                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" 
+                                      IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -756,7 +763,9 @@
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgv_departments" Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2"/>
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_departments" 
+                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" 
+                                      IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />

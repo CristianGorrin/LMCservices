@@ -100,5 +100,19 @@ namespace Orders
 
             return dataTable;
         }
+
+        public bool RemoveAtId(int id)
+        {
+            for (int i = 0; i < this.list.Count; i++)
+            {
+                if (this.list[i].InvoiceNo == id)
+                {
+                    this.list.RemoveAt(i);
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

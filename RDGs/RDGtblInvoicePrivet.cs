@@ -229,6 +229,40 @@ namespace RDGs
             }
         }
 
+        public int[] OrdersInUse(int orderId)
+        {
+            int[] inUse = null;
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+            {
+                IQueryable<tblInvoicePrivet> dbList;
+
+                dbList = from tblInvoicePrivet in dbContext.tblInvoicePrivets
+                         where 
+                         tblInvoicePrivet.OrderNr1 == orderId || tblInvoicePrivet.OrderNr2 == orderId ||
+                         tblInvoicePrivet.OrderNr3 == orderId || tblInvoicePrivet.OrderNr4 == orderId ||
+                         tblInvoicePrivet.OrderNr5 == orderId || tblInvoicePrivet.OrderNr6 == orderId ||
+                         tblInvoicePrivet.OrderNr7 == orderId || tblInvoicePrivet.OrderNr8 == orderId ||
+                         tblInvoicePrivet.OrderNr9 == orderId || tblInvoicePrivet.OrderNr10 == orderId ||
+                         tblInvoicePrivet.OrderNr11 == orderId || tblInvoicePrivet.OrderNr12 == orderId ||
+                         tblInvoicePrivet.OrderNr13 == orderId || tblInvoicePrivet.OrderNr14 == orderId ||
+                         tblInvoicePrivet.OrderNr15 == orderId || tblInvoicePrivet.OrderNr16 == orderId ||
+                         tblInvoicePrivet.OrderNr17 == orderId || tblInvoicePrivet.OrderNr18 == orderId ||
+                         tblInvoicePrivet.OrderNr19 == orderId || tblInvoicePrivet.OrderNr20 == orderId
+                         select tblInvoicePrivet;
+
+                var list = new List<int>();
+
+                foreach (var item in dbList)
+                {
+                    list.Add(item.Id);
+                }
+
+                inUse = list.ToArray<int>();
+            }
+
+            return inUse;
+        }
+
         public int NextId
         {
             get

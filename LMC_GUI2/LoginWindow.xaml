@@ -10,7 +10,7 @@
         BorderBrush="{DynamicResource AccentColorBrush}"
         BorderThickness="1"
         
-        WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+        WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

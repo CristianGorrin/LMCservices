@@ -79,7 +79,7 @@ namespace RDGs
             public Iworker CreateBy { get; set; }
             public DateTime CreateDate { get; set; }
             public IprivetCustomer Customer { get; set; }
-            public DateTime DateSendBill { get; set; }
+            public DateTime? DateSendBill { get; set; }
             public int DaysToPaid { get; set; }
             public string DescriptionTask { get; set; }
             public double HourUse { get; set; }
