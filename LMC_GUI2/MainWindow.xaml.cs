@@ -544,7 +544,7 @@ namespace LMC_GUI2
         }
         #endregion
 
-        #region Order Company
+        #region Order company
         private void dgv_c_orders_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             if (!(sender is DataGrid))
@@ -851,6 +851,98 @@ namespace LMC_GUI2
             this.dat_c_orders_startdate.Text = string.Empty;
 
             this.dgv_c_orders.SelectedIndex = -1;
+        }
+        #endregion
+
+        #region Order upcoming
+        private void dgv_u_orders_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            DataGrid senderItem = null;
+            DataRowView selectedItem = null;
+            DataRow row = null;
+
+            try
+            {
+                senderItem = (DataGrid)sender;
+                selectedItem = (DataRowView)senderItem.SelectedItem;
+                row = (DataRow)selectedItem.Row;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            this.txt_u_orders_id.Text = "#" + row.ItemArray[0].ToString() + " - " + row.ItemArray[2].ToString();
+            this.txt_u_orders_customer.Text = row.ItemArray[1].ToString();
+            this.txt_u_orders_worker.Text = row.ItemArray[3].ToString();
+            this.dat_u_orders_startdate.SelectedDate = (DateTime)row.ItemArray[4];
+            this.txt_u_orders_description.Text = row.ItemArray[5].ToString();
+        }
+
+        private void btn_u_orders_clear_Click(object sender, RoutedEventArgs e)
+        {
+            OrderClearUpcoming();
+        }
+
+        private void txt_u_orders_id_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            OrderClearUpcoming();
+        }
+
+        private void txt_u_orders_id_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                FindOrderUpcoming();
+            }
+        }
+
+        private void btn_u_orders_search_Click(object sender, RoutedEventArgs e)
+        {
+            FindOrderUpcoming();
+        }
+
+        private void FindOrderUpcoming()
+        {
+            string temp = string.Empty;
+
+            foreach (char item in this.txt_u_orders_id.Text)
+            {
+                int dispose;
+
+                if (int.TryParse(item.ToString(), out dispose))
+                {
+                    temp += item;
+                }
+                else if (item == '-')
+                {
+                    break;
+                }
+            }
+
+            var items = (ItemCollection)this.dgv_u_orders.Items;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var view = (DataRowView)items[i];
+                if (view.Row.ItemArray[0].ToString() == temp)
+                {
+                    this.dgv_u_orders.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        private void OrderClearUpcoming()
+        {
+            this.txt_u_orders_id.Text = string.Empty;
+            this.txt_u_orders_customer.Text = string.Empty;
+            this.txt_u_orders_worker.Text = string.Empty;
+            this.dat_u_orders_startdate.Text = string.Empty;
+            this.txt_u_orders_description.Text = string.Empty;
         }
         #endregion
         #endregion

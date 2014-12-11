@@ -368,10 +368,63 @@ namespace LogicController
             dataTable.Columns.Add("Start Dato", typeof(DateTime));
             dataTable.Columns.Add("Beskrivelse", typeof(string));
 
+            foreach (DataRow item in privet.Rows)
+            {
+                if (DateIsAfterToday((DateTime)item.ItemArray[7]))
+                {
+                    dataTable.Rows.Add(new object[6] {
+                    item.ItemArray[5],
+                    item.ItemArray[2],
+                    "Private kunden",
+                    item.ItemArray[0],
+                    item.ItemArray[7],
+                    item.ItemArray[3],
+                    });
+                }
+            }
 
-            return null;
+            foreach (DataRow item in company.Rows)
+            {
+                if (DateIsAfterToday((DateTime)item.ItemArray[7]))
+                {
+                    dataTable.Rows.Add(new object[6] {
+                    item.ItemArray[5],
+                    item.ItemArray[2],
+                    "Firma kunden",
+                    item.ItemArray[0],
+                    item.ItemArray[7],
+                    item.ItemArray[3],
+                    });
+                }
+            }
+
+            return dataTable;
         }
 
+        // Testing ignore house and less
+        public static bool DateIsAfterToday(DateTime date)
+        {
+            if (date.Year > DateTime.Now.Year)
+            {
+                return true;
+            }
+            else if (date.Year == DateTime.Now.Year)
+            {
+                if (date.Month > DateTime.Now.Month)
+                {
+                    return true;
+                }
+                else if (date.Month == DateTime.Now.Month)
+                {
+                    if (date.Day >= DateTime.Now.Day)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
         #endregion
 
         #region Clean Up
