@@ -251,5 +251,36 @@ namespace RDGs
                 return Convert.ToInt32(result) + 1;
             }
         }
+
+        public int[] OrdersInUse(int id)
+        {
+            List<int> list = new List<int>();
+
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+            {
+                IQueryable<tblInvoiceCompany> dbList;
+
+                dbList = from tblInvoiceCompany in dbContext.tblInvoiceCompanies
+                         where
+                         tblInvoiceCompany.OrderNr1 == id || tblInvoiceCompany.OrderNr2 == id ||
+                         tblInvoiceCompany.OrderNr3 == id || tblInvoiceCompany.OrderNr4 == id ||
+                         tblInvoiceCompany.OrderNr5 == id || tblInvoiceCompany.OrderNr6 == id ||
+                         tblInvoiceCompany.OrderNr7 == id || tblInvoiceCompany.OrderNr8 == id ||
+                         tblInvoiceCompany.OrderNr9 == id || tblInvoiceCompany.OrderNr10 == id ||
+                         tblInvoiceCompany.OrderNr11 == id || tblInvoiceCompany.OrderNr12 == id ||
+                         tblInvoiceCompany.OrderNr13 == id || tblInvoiceCompany.OrderNr14 == id ||
+                         tblInvoiceCompany.OrderNr15 == id || tblInvoiceCompany.OrderNr16 == id ||
+                         tblInvoiceCompany.OrderNr17 == id || tblInvoiceCompany.OrderNr18 == id ||
+                         tblInvoiceCompany.OrderNr19 == id || tblInvoiceCompany.OrderNr20 == id
+                         select tblInvoiceCompany;
+
+                foreach (var item in dbList)
+                {
+                    list.Add(item.Id);
+                }
+            }
+
+            return list.ToArray<int>();
+        }
     }
 }

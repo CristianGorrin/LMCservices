@@ -85,8 +85,19 @@ namespace LMC_GUI2
             if (!(e.OriginalSource is TabControl))
                 return;
 
-            var tabCon = (TabControl)sender;
-            var tab = (TabControl)tabCon.SelectedContent;
+            TabControl tabCon;
+            TabControl tab;
+            
+            try
+            {
+                tabCon = (TabControl)sender;
+                tab = (TabControl)tabCon.SelectedContent;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
 
             if (tab == null || tabCon == null)
                 return;
@@ -108,6 +119,11 @@ namespace LMC_GUI2
                             {
                                 CleanUp();
 
+                                this.dgv_u_orders.ItemsSource = this.controller.GetOrdersCompanyAndPrivet().AsDataView();
+                                this.tabIndex = 0;
+                                this.subTabIndex = 1;
+
+                                // TODO cmb
 
                             }
                             break;
@@ -125,11 +141,26 @@ namespace LMC_GUI2
                                 this.subTabIndex = 1;
                                 
                                 this.cmb_p_orders_worker.ItemsSource = this.controller.ListOfWorkers();
-                                this.cmb_p_orders_customer.ItemsSource = this.controller.ListIfCustomers();
+                                this.cmb_p_orders_customer.ItemsSource = this.controller.ListOfPrivateCustomers();
                                 
                             }
                             break;
                         case 2:
+                            if (this.tabIndex == 0 && this.subTabIndex == 2)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.dgv_c_orders.ItemsSource = this.controller.GetOrdersCompany().AsDataView();
+                                this.tabIndex = 0;
+                                this.subTabIndex = 2;
+
+                                this.cmb_c_orders_worker.ItemsSource = this.controller.ListOfWorkers();
+                                this.cmb_c_orders_customer.ItemsSource = this.controller.ListOfCompanyCustomers();
+                            }
                             break;
 		                default:
                             throw new ArgumentOutOfRangeException("Sub tab index");
@@ -205,7 +236,7 @@ namespace LMC_GUI2
         }
         #endregion
 
-        #region Order
+        #region Order privet
         private void dgv_p_orders_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             if (!(sender is DataGrid))
@@ -465,7 +496,7 @@ namespace LMC_GUI2
             {
                 try 
 	            {
-                    Find(Convert.ToInt32(this.txt_p_orders_id.Text));
+                    FindIdOrdersPrivet(Convert.ToInt32(this.txt_p_orders_id.Text));
 	            }
 	            catch (Exception)
 	            {
@@ -477,14 +508,14 @@ namespace LMC_GUI2
         {
             try
             {
-                Find(Convert.ToInt32(this.txt_p_orders_id.Text));
+                FindIdOrdersPrivet(Convert.ToInt32(this.txt_p_orders_id.Text));
             }
             catch (Exception)
             {
             }
         }
 
-        private void Find(int id)
+        private void FindIdOrdersPrivet(int id)
         {
             var items = (ItemCollection)this.dgv_p_orders.Items;
                 
@@ -512,6 +543,316 @@ namespace LMC_GUI2
             this.dgv_p_orders.SelectedIndex = -1;
         }
         #endregion
+
+        #region Order Company
+        private void dgv_c_orders_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            DataGrid senderItem = null;
+            DataRowView selectedItem = null;
+            DataRow row = null;
+
+            try
+            {
+                senderItem = (DataGrid)sender;
+                selectedItem = (DataRowView)senderItem.SelectedItem;
+                row = (DataRow)selectedItem.Row;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            this.txt_c_orders_id.Text = row.ItemArray[5].ToString();
+            this.cmb_c_orders_customer.Text = row.ItemArray[2].ToString();
+            this.cmb_c_orders_worker.Text = row.ItemArray[0].ToString();
+            this.txt_c_orders_houruse.Text = row.ItemArray[4].ToString();
+            this.txt_c_orders_paidhour.Text = row.ItemArray[6].ToString();
+            this.txt_c_orders_description.Text = row.ItemArray[3].ToString();
+            this.dat_c_orders_startdate.SelectedDate = (DateTime)row.ItemArray[7];
+        }
+
+        private void txt_c_orders_id_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            CompanyClearOrder();
+        }
+
+        private void btn_c_orders_remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.txt_c_orders_id.Text == string.Empty)
+                return;
+
+            int id;
+
+            try
+            {
+                id = Convert.ToInt32(this.txt_c_orders_id.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Order nr. er ikke gyldig");
+                return;
+            }
+
+            var deleteOk = MessageBox.Show("Er du skikker at du vil seltte ordern nr.: " + id.ToString(), "Fjern order", MessageBoxButton.YesNo);
+            if (deleteOk != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            int[] inUse;
+            bool ok = this.controller.CompanyOrdersRemove(id, out inUse);
+
+            if (inUse != null)
+            {
+                string message = string.Empty;
+
+                message += "Kan ikke selte orderen da den er i bruge i regnin(ger): ";
+
+                message += inUse[0].ToString();
+                for (int i = 1; i < inUse.Length - 1; i++)
+                {
+                    message += ", " + inUse[i].ToString();
+                }
+
+                if (inUse.Length > 1)
+                {
+                    message += ", " + inUse[inUse.Length - 1].ToString() + ".";
+                }
+                else
+                {
+                    message += ".";
+                }
+
+                MessageBox.Show(message);
+                return;
+            }
+
+            if (!ok)
+            {
+                MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                return;
+            }
+
+            this.dgv_c_orders.ItemsSource = this.controller.GetOrdersCompany().DefaultView;
+        }
+
+        private void btn_c_orders_clear_Click(object sender, RoutedEventArgs e)
+        {
+            CompanyClearOrder();
+        }
+
+        private void btn_c_orders_add_Click(object sender, RoutedEventArgs e)
+        {
+            bool ok = true;
+            string messege = string.Empty;
+
+            int createById = -1;
+            int customerId = -1;
+            double hourUse = -1;
+            double paidHour = -1;
+
+            try
+            {
+                string temp = string.Empty;
+
+                foreach (char item in this.cmb_c_orders_customer.Text)
+                {
+                    int tempInt;
+
+                    if (int.TryParse(item.ToString(), out tempInt))
+                    {
+                        temp += item;
+                    }
+                    else if (item == '-')
+                    {
+                        break;
+                    }
+                }
+
+                customerId = Convert.ToInt32(temp);
+            }
+            catch (Exception)
+            {
+                ok = false;
+                messege += "Kunde" + Environment.NewLine;
+            }
+
+            try
+            {
+                string temp = string.Empty;
+
+                foreach (char item in this.cmb_c_orders_worker.Text)
+                {
+                    int tempInt;
+
+                    if (int.TryParse(item.ToString(), out tempInt))
+                    {
+                        temp += item;
+                    }
+                    else if (item == '-')
+                    {
+                        break;
+                    }
+                }
+
+                createById = Convert.ToInt32(temp);
+            }
+            catch (Exception)
+            {
+                ok = false;
+                messege += "Oprettet af" + Environment.NewLine;
+            }
+
+            try
+            {
+                hourUse = Convert.ToDouble(this.txt_c_orders_houruse.Text);
+            }
+            catch (Exception)
+            {
+                if (this.txt_c_orders_houruse.Text == string.Empty)
+                {
+                    hourUse = 0D;
+                }
+                else
+                {
+                    ok = false;
+                    messege += "Timer brugt" + Environment.NewLine;
+                }
+            }
+
+            if (hourUse > 24)
+            {
+                ok = false;
+                messege += "Timer brugt, der er ikke mere ind 24 timer om dagen" + Environment.NewLine;
+            }
+
+            try
+            {
+                paidHour = Convert.ToDouble(this.txt_c_orders_paidhour.Text);
+            }
+            catch (Exception)
+            {
+                if (this.txt_c_orders_paidhour.Text == string.Empty)
+                {
+                    paidHour = 0D;
+                }
+                else
+                {
+                    ok = false;
+                    messege += "Time Løn" + Environment.NewLine;
+                }
+            }
+
+            if (this.txt_c_orders_description.Text == string.Empty)
+            {
+                ok = false;
+                messege += "Opgave beskrivelse" + Environment.NewLine;
+            }
+
+            if (this.dat_c_orders_startdate.SelectedDate == null)
+            {
+                ok = false;
+                messege += "velg et start dato" + Environment.NewLine;
+            }
+
+            if (!ok)
+            {
+                MessageBox.Show("Kan ikke tilføje/updater den nye order:" + Environment.NewLine + messege);
+                return;
+            }
+
+            bool selectNew = false;
+
+            if (this.txt_c_orders_id.Text == string.Empty)
+            {
+                // Add new order
+                this.controller.CompanyOrdersAdd(createById, customerId, this.txt_c_orders_description.Text,
+                    hourUse, paidHour, 1, (DateTime)this.dat_c_orders_startdate.SelectedDate);
+
+                selectNew = true;
+            }
+            else
+            {
+                // Update order
+                int id = -1;
+                if (!int.TryParse(this.txt_c_orders_id.Text, out id))
+                {
+                    MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    return;
+                }
+
+                this.controller.CompanyOrdersUpdate(id, createById, customerId, this.txt_c_orders_description.Text,
+                    hourUse, paidHour, 1, (DateTime)this.dat_c_orders_startdate.SelectedDate);
+            }
+
+            int selectNow = this.dgv_c_orders.SelectedIndex;
+
+            this.dgv_c_orders.ItemsSource = this.controller.GetOrdersCompany().DefaultView;
+
+            if (selectNew)
+                this.dgv_c_orders.SelectedIndex = this.dgv_c_orders.Items.Count - 1;
+            else
+                this.dgv_c_orders.SelectedIndex = selectNow;
+        }
+
+        private void btn_c_orders_search_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FindIdOrdersCompany(Convert.ToInt32(this.txt_c_orders_id.Text));
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void txt_c_orders_id_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    FindIdOrdersCompany(Convert.ToInt32(this.txt_c_orders_id.Text));
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+        }
+
+        private void FindIdOrdersCompany(int id)
+        {
+            var items = (ItemCollection)this.dgv_c_orders.Items;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var view = (DataRowView)items[i];
+                if (view.Row.ItemArray[5].ToString() == id.ToString())
+                {
+                    this.dgv_c_orders.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        private void CompanyClearOrder()
+        {
+            this.txt_c_orders_id.Text = string.Empty;
+            this.cmb_c_orders_customer.Text = string.Empty;
+            this.cmb_c_orders_worker.Text = string.Empty;
+            this.txt_c_orders_houruse.Text = string.Empty;
+            this.txt_c_orders_paidhour.Text = string.Empty;
+            this.txt_c_orders_description.Text = string.Empty;
+            this.dat_c_orders_startdate.Text = string.Empty;
+
+            this.dgv_c_orders.SelectedIndex = -1;
+        }
+        #endregion
         #endregion
 
         private void CleanUp()
@@ -524,16 +865,20 @@ namespace LMC_GUI2
                         case 0:
                             this.controller.CleanUpPrivetOrders();
                             this.controller.CleanUpCompanyOrders();
+
+                            this.dgv_u_orders.ItemsSource = null;
                             break;
                         case 1:
                             this.controller.CleanUpPrivetOrders();
-                            this.cmb_p_orders_customer.ItemsSource = null;
 
                             this.cmb_p_orders_worker.ItemsSource = null;
-                            this.cmb_p_orders_worker.ItemsSource = null;
+                            this.cmb_p_orders_customer.ItemsSource = null;
                             break;
                         case 2:
                             this.controller.CleanUpCompanyOrders();
+                            
+                            this.cmb_c_orders_worker.ItemsSource = null;
+                            this.cmb_c_orders_customer.ItemsSource = null;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException("CleanUp sup tab Orders");
@@ -543,8 +888,5 @@ namespace LMC_GUI2
                     throw new ArgumentOutOfRangeException("CleanUp");
             }
         }
-
-
-
     }
 }

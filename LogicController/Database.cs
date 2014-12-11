@@ -55,6 +55,20 @@ namespace LogicController
                 this.companyCustomers.Add(item);
             }
         }
+
+        public List<string> ListOfCompanyCustomers()
+        {
+            var list = new List<string>();
+
+            var rdg = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
+
+            foreach (var item in rdg.Get(true))
+            {
+                list.Add("#" + item.CompanyCustomersNo.ToString() + " - " + item.Name);
+            }
+
+            return list;
+        }
         #endregion
 
         #region privateCustomers
@@ -69,7 +83,7 @@ namespace LogicController
             }
         }
 
-        public List<string> ListIfCustomers()
+        public List<string> ListOfPrivateCustomers()
         {
             var list = new List<string>();
 
@@ -94,6 +108,95 @@ namespace LogicController
             {
                 this.companyOrders.Add(item);
             }
+        }
+
+        public bool CompanyOrdersRemove(int id, out int[] inUseId)
+        {
+            var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+            inUseId = null;
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch (Exception)
+            {
+                var invoicePrivet = new RDGs.RDGtblInvoiceCompany(this.session.ConnectionString);
+                inUseId = invoicePrivet.OrdersInUse(id);
+                return false;
+            }
+
+            this.companyOrders.RemoveAtId(id);
+            return true;
+        }
+
+        public bool CompanyOrdersAdd(int createById, int customerId, string descriptionTask, double hourUse, 
+            double paidHour, int toAcc, DateTime taskDate)
+        {
+            var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+
+            var newOrder = new InterfaceAdaptor.CompanyOrder()
+            {
+                CreateBy = new InterfaceAdaptor.Worker() {  WorkNo = createById },
+                CreateDate = DateTime.Now,
+                Customer = new InterfaceAdaptor.CompanyCustomer() {  CompanyCustomersNo = customerId },
+                DescriptionTask = descriptionTask,
+                HoutsUse = hourUse,
+                Paid = false,
+                PaidHour = paidHour,
+                PaidToAcc = toAcc,
+                TaskDate = taskDate
+            };
+
+            try
+            {
+                rdg.Add(newOrder);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            this.companyOrders.Add(rdg.Find(rdg.NextId - 1));
+
+            return true;
+        }
+
+        public bool CompanyOrdersUpdate(int orderId, int createById, int customerId, string descriptionTask, double hourUse,
+            double paidHour, int toAcc, DateTime taskDate)
+        {
+            var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+
+            var newOrder = new InterfaceAdaptor.CompanyOrder()
+            {
+                CreateBy = new InterfaceAdaptor.Worker() { WorkNo = createById },
+                Customer = new InterfaceAdaptor.CompanyCustomer() { CompanyCustomersNo = customerId },
+                DescriptionTask = descriptionTask,
+                HoutsUse = hourUse,
+                InvoiceNo = orderId,
+                PaidHour = paidHour,
+                PaidToAcc = toAcc,
+                TaskDate = taskDate,
+            };
+            try
+            {
+                rdg.Update(newOrder);
+            }
+            catch (Exception)
+            {
+                return false;   
+            }
+
+            for (int i = 0; i < this.privetOrders.Count; i++)
+            {
+                if (this.privetOrders.GetAt(i).InvoiceNo == orderId)
+                {
+                    this.companyOrders.Update(rdg.Find(newOrder.InvoiceNo), i);
+                    break;
+                }
+            }
+
+            return true;
         }
         #endregion
         
@@ -129,16 +232,16 @@ namespace LogicController
             return true;
         }
 
-        public bool PrivetOrdersAdd(int CreateById, int CustomerId, string descriptionTask, double hourUse, 
+        public bool PrivetOrdersAdd(int createById, int customerId, string descriptionTask, double hourUse, 
             double paidHour, int toAcc, DateTime taskDate)
         {
             var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
 
             var newOrder = new InterfaceAdaptor.PrivetOrder() 
             {
-                CreateBy = new InterfaceAdaptor.Worker() { WorkNo = CreateById },
+                CreateBy = new InterfaceAdaptor.Worker() { WorkNo = createById },
                 CreateDate = DateTime.Now,
-                Customer = new InterfaceAdaptor.PrivetCustomer() { PrivateCustomersNo = CustomerId },
+                Customer = new InterfaceAdaptor.PrivetCustomer() { PrivateCustomersNo = customerId },
                 DescriptionTask = descriptionTask,
                 HourUse = hourUse,
                 Paid = false,
@@ -161,7 +264,7 @@ namespace LogicController
             return true;
         }
 
-        public bool PrivetOrdersUpdate(int orderId, int CreateById, int CustomerId, string descriptionTask, double hourUse,
+        public bool PrivetOrdersUpdate(int orderId, int createById, int customerId, string descriptionTask, double hourUse,
             double paidHour, int toAcc, DateTime taskDate)
         {
             var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
@@ -169,9 +272,9 @@ namespace LogicController
             var newOrder = new InterfaceAdaptor.PrivetOrder() 
             {
                 InvoiceNo = orderId,
-                CreateBy = new InterfaceAdaptor.Worker() { WorkNo = CreateById },
+                CreateBy = new InterfaceAdaptor.Worker() { WorkNo = createById },
                 CreateDate = DateTime.Now,
-                Customer = new InterfaceAdaptor.PrivetCustomer() { PrivateCustomersNo = CustomerId },
+                Customer = new InterfaceAdaptor.PrivetCustomer() { PrivateCustomersNo = customerId },
                 DescriptionTask = descriptionTask,
                 HourUse = hourUse,
                 Paid = false,
@@ -211,13 +314,13 @@ namespace LogicController
         {
             FildPrivetOrders(false);
             var dataTable = this.privetOrders.AsDataTable();
-
+            
             dataTable.Columns[0].ColumnName = "Oprettet af";
-            dataTable.Columns[1].ColumnName = @"Oprettet Dato";
+            dataTable.Columns[1].ColumnName = "Oprettet Dato";
             dataTable.Columns[2].ColumnName = "Kunde";
             dataTable.Columns[5].ColumnName = "Beskrivelse";
             dataTable.Columns[6].ColumnName = "Timer brugt";
-            dataTable.Columns[7].ColumnName = @"Order nr";
+            dataTable.Columns[7].ColumnName = "Order nr";
             dataTable.Columns[9].ColumnName = "Timeløn";
             dataTable.Columns[11].ColumnName = "Start dato";
 
@@ -233,8 +336,42 @@ namespace LogicController
         {
             FildCompanyOrders(false);
             var dataTable = this.companyOrders.AsDataTable();
-            throw new NotImplementedException();
+
+            dataTable.Columns[0].ColumnName = "Oprettet af";
+            dataTable.Columns[1].ColumnName = "Oprettet Dato";
+            dataTable.Columns[2].ColumnName = "Kunde";
+            dataTable.Columns[5].ColumnName = "Beskrivelse";
+            dataTable.Columns[6].ColumnName = "Timer brugt";
+            dataTable.Columns[7].ColumnName = "Order nr";
+            dataTable.Columns[9].ColumnName = "Timeløn";
+            dataTable.Columns[11].ColumnName = "Start dato";
+
+            // Remove 3:Date Bill Send 8:Paid 10:Paid to Acc
+            dataTable.Columns.Remove("Paid to Acc");
+            dataTable.Columns.Remove("Paid");
+            dataTable.Columns.Remove("Date Bill Send");
+            dataTable.Columns.Remove("Days to Pay");
+            return dataTable;
         }
+
+        public DataTable GetOrdersCompanyAndPrivet()
+        {
+            var privet = GetOrdersPrivet();
+            var company = GetOrdersCompany();
+
+            var dataTable = new DataTable();
+
+            dataTable.Columns.Add("Order Nr", typeof(int));
+            dataTable.Columns.Add("Kunde", typeof(string));
+            dataTable.Columns.Add("Kunde type", typeof(string));
+            dataTable.Columns.Add("Oprettet af", typeof(string));
+            dataTable.Columns.Add("Start Dato", typeof(DateTime));
+            dataTable.Columns.Add("Beskrivelse", typeof(string));
+
+
+            return null;
+        }
+
         #endregion
 
         #region Clean Up

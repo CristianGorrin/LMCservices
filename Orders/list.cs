@@ -24,7 +24,7 @@ namespace Orders
             dataTable.Columns.Add("Create By", typeof(string));
             dataTable.Columns.Add("Create Date", typeof(DateTime));
             dataTable.Columns.Add("Customer", typeof(string));
-            dataTable.Columns.Add("Send Bill Date", typeof(DateTime));
+            dataTable.Columns.Add("Date Bill Send", typeof(DateTime));
             dataTable.Columns.Add("Days to Pay", typeof(int));
             dataTable.Columns.Add("Task Description", typeof(string));
             dataTable.Columns.Add("Hours Use", typeof(double));
@@ -37,7 +37,7 @@ namespace Orders
             foreach (var item in this.list)
             {
                 dataTable.Rows.Add(
-                    item.CreateBy.Name + " " + item.CreateBy.Surname,
+                    "#" + item.CreateBy.WorkNo.ToString() + " - " + item.CreateBy.Name + " " + item.CreateBy.Surname,
                     item.CreateDate,
                     @"#" + item.Customer.CompanyCustomersNo.ToString() + " - " + item.Customer.Name,
                     item.DateSendBill,
@@ -53,6 +53,20 @@ namespace Orders
             }
 
             return dataTable;
+        }
+
+        public bool RemoveAtId(int id)
+        {
+            for (int i = 0; i < this.list.Count; i++)
+            {
+                if (this.list[i].InvoiceNo == id)
+                {
+                    this.list.RemoveAt(i);
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 

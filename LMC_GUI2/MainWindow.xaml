@@ -87,15 +87,14 @@
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
                                     <TextBox x:Name="txt_u_orders_id" HorizontalAlignment="Left" Width="80"/>
-                                    <ComboBox x:Name="cmb_u_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
-                                    <ComboBox x:Name="cmb_u_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_u_orders_startdate" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_u_orders_description" Margin="0,5,0,0" MinLines="5" TextWrapping="Wrap"/>
+                                    <TextBox x:Name="cmb_u_orders_customer" IsReadOnly="True" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="cmb_u_orders_worker" IsReadOnly="true" Margin="0,5,0,0"/>
+                                    <DatePicker x:Name="dat_u_orders_startdate" Margin="0,5,0,0" IsEnabled="False"/>
+                                    <TextBox x:Name="txt_u_orders_description" Margin="0,5,0,0" MinLines="5" TextWrapping="Wrap" IsReadOnly="True"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
                                     <Button x:Name="btn_u_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                     <Button x:Name="btn_u_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_u_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -156,7 +155,7 @@
                     </TabItem>
                     <TabItem x:Name="tbi_orders_corporate">
                         <TabItem.Header>
-                            <TextBlock Text="Firmaer" FontSize="18" />
+                            <TextBlock Text="Firmaer" FontSize="18" Height="22" VerticalAlignment="Top" />
                         </TabItem.Header>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -169,7 +168,7 @@
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_orders" 
                                       Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True"
-                                      SelectionMode="Single"/>
+                                      SelectionMode="Single" SelectedCellsChanged="dgv_c_orders_SelectedCellsChanged"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -182,32 +181,28 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Order nr." HorizontalAlignment="Right"/>
                                     <Label Content="Kunde" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Oprettet af" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Timer brugt" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Timeløn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Start dato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Faktureringsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                    <Label Content="Betalingsdato" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                     <Label Content="Beskrivelse" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_c_orders_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_orders_id" HorizontalAlignment="Left" Width="80" GotKeyboardFocus="txt_c_orders_id_GotKeyboardFocus" KeyDown="txt_c_orders_id_KeyDown"/>
                                     <ComboBox x:Name="cmb_c_orders_customer" IsEditable="True" Margin="0,5,0,0"/>
                                     <ComboBox x:Name="cmb_c_orders_worker" IsEditable="True" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_c_orders_houruse" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_c_orders_paidhour" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <DatePicker x:Name="dat_c_orders_startdate" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_c_orders_invoicedate" Margin="0,5,0,0"/>
-                                    <DatePicker x:Name="dat_c_orders_paydate" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_c_orders_description" Margin="0,5,0,0" MinLines="5" TextWrapping="Wrap"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button x:Name="btn_c_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_c_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_c_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_c_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_orders_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_orders_clear_Click"/>
+                                    <Button x:Name="btn_c_orders_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_orders_search_Click"/>
+                                    <Button x:Name="btn_c_orders_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_orders_remove_Click"/>
+                                    <Button x:Name="btn_c_orders_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_orders_add_Click"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>

@@ -613,7 +613,7 @@ namespace UnitTestProject
                 Assert.AreEqual(49 , Order.CreateBy.WorkNo);
                 Assert.AreEqual("23-03-2015", Order.CreateDate.ToShortDateString());
                 Assert.AreEqual(1, Order.Customer.CompanyCustomersNo);
-                Assert.AreEqual("26-01-2014", Order.DateSendBill.ToShortDateString());
+                Assert.AreEqual("26-01-2014", Order.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(11, Order.DaysToPaid);
                 Assert.AreEqual("auctor ullamcorper, nisl arcu", Order.DescriptionTask);
                 Assert.AreEqual(2.0D, Order.HoutsUse);
@@ -636,7 +636,7 @@ namespace UnitTestProject
                 Assert.AreEqual(15, Order.CreateBy.WorkNo);
                 Assert.AreEqual("29-08-2013", Order.CreateDate.ToShortDateString());
                 Assert.AreEqual(16, Order.Customer.CompanyCustomersNo);
-                Assert.AreEqual("01-09-2013", Order.DateSendBill.ToShortDateString());
+                Assert.AreEqual("01-09-2013", Order.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(10, Order.DaysToPaid);
                 Assert.AreEqual("newDescriptionTask", Order.DescriptionTask);
                 Assert.AreEqual(3.5D, Order.HoutsUse);
@@ -666,7 +666,7 @@ namespace UnitTestProject
                 Assert.AreEqual(49, Order.CreateBy.WorkNo);
                 Assert.AreEqual("23-03-2015", Order.CreateDate.ToShortDateString());
                 Assert.AreEqual(1, Order.Customer.CompanyCustomersNo);
-                Assert.AreEqual("26-01-2014", Order.DateSendBill.ToShortDateString());
+                Assert.AreEqual("26-01-2014", Order.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(11, Order.DaysToPaid);
                 Assert.AreEqual("auctor ullamcorper, nisl arcu", Order.DescriptionTask);
                 Assert.AreEqual(2.0D, Order.HoutsUse);
@@ -689,7 +689,7 @@ namespace UnitTestProject
                 Assert.AreEqual(15, Order.CreateBy.WorkNo);
                 Assert.AreEqual("29-08-2013", Order.CreateDate.ToShortDateString());
                 Assert.AreEqual(16, Order.Customer.CompanyCustomersNo);
-                Assert.AreEqual("01-09-2013", Order.DateSendBill.ToShortDateString());
+                Assert.AreEqual("01-09-2013", Order.DateSendBill.Value.ToShortDateString());
                 Assert.AreEqual(10, Order.DaysToPaid);
                 Assert.AreEqual("newDescriptionTask", Order.DescriptionTask);
                 Assert.AreEqual(3.5D, Order.HoutsUse);
@@ -719,7 +719,7 @@ namespace UnitTestProject
                 public Iworker CreateBy { get { return new InterfaceAdaptor.Worker() { WorkNo = 15 }; } set { throw new NotImplementedException(); } }
                 public DateTime CreateDate { get { return new DateTime(2013, 8, 29); } }
                 public IcompanyCustomer Customer { get { return new InterfaceAdaptor.CompanyCustomer { CompanyCustomersNo = 16 }; } set { throw new NotImplementedException(); } }
-                public DateTime DateSendBill { get { return new DateTime(2013, 9, 1); } }
+                public DateTime? DateSendBill { get { return new DateTime(2013, 9, 1); } }
                 public int DaysToPaid { get { return 10; } }
                 public string DescriptionTask { get { return "newDescriptionTask"; } }
                 public double HoutsUse { get { return 3.5D; } }

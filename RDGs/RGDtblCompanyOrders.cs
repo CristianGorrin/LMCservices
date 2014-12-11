@@ -83,7 +83,7 @@ namespace RDGs
                                 PostNumber = item.tblCompanyCustomer.tblPostNo.postNo
                             },
                         },
-                        DateSendBill = (DateTime)item.dateSendBill,
+                        DateSendBill = item.dateSendBill,
                         DaysToPaid = (int)item.daysToPaid,
                         DescriptionTask = item.descriptionTask,
                         HoutsUse = (int)item.hoursUse,
@@ -151,7 +151,7 @@ namespace RDGs
                             PostNumber = companyOrderFound.tblCompanyCustomer.tblPostNo.postNo
                         },
                     },
-                    DateSendBill = (DateTime)companyOrderFound.dateSendBill,
+                    DateSendBill = companyOrderFound.dateSendBill,
                     DaysToPaid = (int)companyOrderFound.daysToPaid,
                     DescriptionTask = companyOrderFound.descriptionTask,
                     HoutsUse = (double)companyOrderFound.hoursUse,
@@ -196,18 +196,57 @@ namespace RDGs
             {
                 var companyOrderUpdateing = dbContext.tblCompanyOrders.SingleOrDefault(
                     x => x.invoiceNo == companyOrder.InvoiceNo);
-
+                
                 companyOrderUpdateing.createBy = companyOrder.CreateBy.WorkNo;
-                companyOrderUpdateing.createdDate = companyOrder.CreateDate;
-                companyOrderUpdateing.customer = companyOrder.Customer.CompanyCustomersNo;
-                companyOrderUpdateing.dateSendBill = companyOrder.DateSendBill;
-                companyOrderUpdateing.daysToPaid = companyOrder.DaysToPaid;
-                companyOrderUpdateing.descriptionTask = companyOrder.DescriptionTask;
-                companyOrderUpdateing.hoursUse = Convert.ToDecimal(companyOrder.HoutsUse);
+                if (companyOrder.CreateDate != new DateTime())
+                {
+                    companyOrderUpdateing.createdDate = companyOrder.CreateDate;
+                }
+
+                if (companyOrder.Customer.CompanyCustomersNo != -1)
+                {
+                    companyOrderUpdateing.customer = companyOrder.Customer.CompanyCustomersNo;
+                }
+
+                if (companyOrder.DateSendBill != null)
+                {
+                    if (companyOrder.DateSendBill != new DateTime())
+                    {
+                        companyOrderUpdateing.dateSendBill = companyOrder.DateSendBill;
+                    }
+                }
+
+                if (companyOrder.DaysToPaid != -1)
+                {
+                    companyOrderUpdateing.daysToPaid = companyOrder.DaysToPaid;
+                }
+
+                if (companyOrder.DescriptionTask != string.Empty)
+                {
+                    companyOrderUpdateing.descriptionTask = companyOrder.DescriptionTask;
+                }
+
+                if (companyOrder.HoutsUse != -1)
+                {
+                    companyOrderUpdateing.hoursUse = Convert.ToDecimal(companyOrder.HoutsUse);
+                }
+                
                 companyOrderUpdateing.paid = companyOrder.Paid;
-                companyOrderUpdateing.paidHour = Convert.ToDecimal(companyOrder.PaidHour);
-                companyOrderUpdateing.paidToACC = companyOrder.PaidToAcc;
-                companyOrderUpdateing.taskDate = companyOrder.TaskDate;
+
+                if (companyOrder.PaidHour != -1)
+                {
+                    companyOrderUpdateing.paidHour = Convert.ToDecimal(companyOrder.PaidHour);
+                }
+
+                if (companyOrder.PaidToAcc != -1)
+                {
+                    companyOrderUpdateing.paidToACC = companyOrder.PaidToAcc;
+                }
+
+                if (companyOrder.TaskDate != new DateTime())
+                {
+                    companyOrderUpdateing.taskDate = companyOrder.TaskDate;
+                }
 
                 dbContext.SubmitChanges();
             }
@@ -226,7 +265,7 @@ namespace RDGs
                 deleteInfo.Append("createdDate = " + companyOrderDeleteing.createdDate.ToString() + ", ");
                 deleteInfo.Append("taskDate = " + companyOrderDeleteing.taskDate.ToString() + ", ");
                 deleteInfo.Append("descriptionTask = " + companyOrderDeleteing.descriptionTask + ", ");
-                deleteInfo.Append("dateSendBill = " + companyOrderDeleteing.descriptionTask + ", ");
+                deleteInfo.Append("dateSendBill = " + companyOrderDeleteing.dateSendBill.Value.ToShortDateString() + ", ");
                 deleteInfo.Append("daysToPaid = " + companyOrderDeleteing.daysToPaid.ToString() + ", ");
                 deleteInfo.Append("hoursUse = " + companyOrderDeleteing.hoursUse.ToString() + ", ");
                 deleteInfo.Append("paidHour = " + companyOrderDeleteing.paidHour.ToString() + ", ");

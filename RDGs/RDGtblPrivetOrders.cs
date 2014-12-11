@@ -211,7 +211,7 @@ namespace RDGs
                     privetOrderUpteing.createdDate = privetOrder.CreateDate;
                 }
 
-                if (privetOrder.Customer.PrivateCustomersNo != null)
+                if (privetOrder.Customer.PrivateCustomersNo != -1)
                 {
                     privetOrderUpteing.customers = privetOrder.Customer.PrivateCustomersNo;
                 }
@@ -221,12 +221,12 @@ namespace RDGs
                     privetOrderUpteing.dateSendBill = privetOrder.DateSendBill;
                 }
 
-                if (privetOrder.DaysToPaid != null)
+                if (privetOrder.DaysToPaid != -1)
                 {
                     privetOrderUpteing.daysToPaid = privetOrder.DaysToPaid;
                 }
 
-                if (privetOrder.PaidToAcc != null)
+                if (privetOrder.PaidToAcc != -1)
                 {
                     privetOrderUpteing.paidToACC = privetOrder.PaidToAcc;
                 }
@@ -236,17 +236,14 @@ namespace RDGs
                     privetOrderUpteing.descriptionTask = privetOrder.DescriptionTask;
                 }
 
-                if (privetOrder.HourUse != null)
+                if (privetOrder.HourUse != -1)
                 {
                     privetOrderUpteing.hoursUse = Convert.ToDecimal(privetOrder.HourUse);
                 }
 
-                if (privetOrder.Paid != null)
-                {
-                    privetOrderUpteing.paid = privetOrder.Paid;
-                }
+                privetOrderUpteing.paid = privetOrder.Paid;
 
-                if (privetOrder.PaidHour != null)
+                if (privetOrder.PaidHour != -1)
                 {
                     privetOrderUpteing.paidHour = Convert.ToDecimal(privetOrder.PaidHour);
                 }

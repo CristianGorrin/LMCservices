@@ -13,7 +13,7 @@ namespace Orders
         private Interface.Iworker crateBy;
         private DateTime createdDate;
         private Interface.IcompanyCustomer customer;
-        private DateTime dateSenndBill;
+        private DateTime? dateSenndBill;
         private int daysToPaid;
         private string descriptionTask;
         private double hoursUse;
@@ -64,7 +64,7 @@ namespace Orders
         public Iworker CreateBy { get { return this.crateBy; } set { this.crateBy = value; } }
         public DateTime CreateDate { get { return this.createdDate; } set { this.createdDate = value; } }
         public IcompanyCustomer Customer { get { return this.customer; } set { this.customer = value; } }
-        public DateTime DateSendBill { get { return this.dateSenndBill; } set { this.dateSenndBill = value; } }
+        public DateTime? DateSendBill { get { return this.dateSenndBill; } set { this.dateSenndBill = value; } }
         public int DaysToPaid { get { return this.daysToPaid; } set { this.daysToPaid = value; } }
         public string DescriptionTask { get { return this.descriptionTask; } set { this.descriptionTask = value; } }
         public double HoutsUse { get { return this.hoursUse; } set { this.hoursUse = value; } }
