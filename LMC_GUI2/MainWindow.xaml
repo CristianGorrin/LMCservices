@@ -489,7 +489,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_customers" 
-                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True"
+                                      Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True"
                                       SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -545,7 +545,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_customers" 
-                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" 
+                                      Grid.Column="0" Margin="2,0,0,2" 
                                       IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -635,7 +635,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_workers" 
-                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" 
+                                      Grid.Column="0" Margin="2,0,0,2" 
                                       IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -723,7 +723,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_departments" 
-                                      Background="#FFE6E6E6" Grid.Column="0" Margin="2,0,0,2" 
+                                      Grid.Column="0" Margin="2,0,0,2" 
                                       IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
