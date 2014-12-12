@@ -212,46 +212,8 @@
                 </TabControl>
             </TabItem>
 
-            <TabItem x:Name="tbi_main_contracts" Header="Kontrakter">
-                <!--Section start-->
-                <TabControl x:Name="tbc_contracts">
-                    <TabControl.Resources>
-                        <Style TargetType="{x:Type TabItem}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type TabItem}">
-                                        <Grid>
-                                            <ContentPresenter VerticalAlignment="Center"
-                                                    HorizontalAlignment="Center"
-                                                    ContentSource="Header"
-                                                    RecognizesAccessKey="True"
-                                                    Margin="10,0,0,0" Width="Auto" Height="22">
-                                            </ContentPresenter>
-                                        </Grid>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="Foreground" Value="Black" />
-                                            </Trigger>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter Property="Foreground" Value="LightGray" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </TabControl.Resources>
-                    <TabItem x:Name="tbi_contracts_private">
-                        <TabItem.Header>
-                            <TextBlock Text="Private" FontSize="18" />
-                        </TabItem.Header>
-                    </TabItem>
-                    <TabItem x:Name="tbi_contracts_corporate">
-                        <TabItem.Header>
-                            <TextBlock Text="Firmaer" FontSize="18" />
-                        </TabItem.Header>
-                    </TabItem>
-                </TabControl>
+            <TabItem x:Name="tbi_main_contracts" Header="Kontrakter"><!--Section start-->
+                <Label Content="Kommer snart" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" Foreground="#FFF0EDED"/>
             </TabItem>
 
             <TabItem x:Name="tbi_main_invoices" Header="Regninger">
