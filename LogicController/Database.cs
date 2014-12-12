@@ -72,12 +72,12 @@ namespace LogicController
         #endregion
 
         #region privateCustomers
-        private void FildPrivateCustomers(bool? paid)
+        private void FildPrivateCustomers(bool? activet)
         {
             this.privateCustomers.Clear();
 
             var rdg = new RDGs.RDGtblPrivateCustomers(this.session.ConnectionString);
-            foreach (var item in rdg.Get(paid))
+            foreach (var item in rdg.Get(activet))
             {
                 this.privateCustomers.Add(item);
             }
@@ -96,6 +96,100 @@ namespace LogicController
 
             return list;
         }
+
+        public DataTable GetCustomersPrivet()
+        {
+            FildPrivateCustomers(true);
+
+            var dataTable = this.privateCustomers.AsDataTable();
+
+            dataTable.Columns[1].ColumnName = "Tlf nr 2";
+            dataTable.Columns[2].ColumnName = "Email";
+            dataTable.Columns[3].ColumnName = "Addresse";
+            dataTable.Columns[4].ColumnName = "Fornavn";
+            dataTable.Columns[5].ColumnName = "Tlf nr";
+            dataTable.Columns[6].ColumnName = "Post nr";
+            dataTable.Columns[7].ColumnName = "By";
+            dataTable.Columns[8].ColumnName = "Kunde nr";
+            dataTable.Columns[9].ColumnName = "Efternavn";
+
+            dataTable.Columns.Remove("Active");
+
+            return dataTable;
+        }
+
+        public bool PrivateCustomersDelete(int id)
+        {
+            var rdg = new RDGs.RDGtblPrivateCustomers(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            this.privateCustomers.RemoveAtId(id);
+
+            return true;
+        }
+
+        public bool PrivateCustomerAdd(string name, string surname, string address, int postNumber, string phoneNo,
+            string altPhoneNo, string email)
+        {
+            var rdg = new RDGs.RDGtblPrivateCustomers(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.PrivetCustomer()
+                {
+                    Active = true,
+                    AltPhoneNo = altPhoneNo,
+                    Email = email,
+                    HomeAddress = address,
+                    Name = name,
+                    PhoneNo = phoneNo,
+                    PostNo = this.postNumbers.GetAtPostNumber(postNumber),
+                    Surname = surname
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool PrivateCustomerUpdate(int id, string name, string surname, string address, int zip, string phoneNo,
+            string altPhoneNo, string email)
+        {
+            var rdg = new RDGs.RDGtblPrivateCustomers(this.session.ConnectionString);
+            try
+            {
+                rdg.Update(new InterfaceAdaptor.PrivetCustomer()
+                {
+                    Active = true,
+                    AltPhoneNo = altPhoneNo,
+                    Email = email,
+                    HomeAddress = address,
+                    Name = name,
+                    PhoneNo = phoneNo,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    PrivateCustomersNo = id,
+                    Surname = surname
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+           
+            return true;
+        }
+
         #endregion
 
         #region companyOrders
@@ -306,7 +400,26 @@ namespace LogicController
         #endregion
 
         #region postNumbers
-        
+        public void FildPostNo()
+        {
+            var rdg = new RDGs.RDGtblPostNo(this.session.ConnectionString);
+
+            foreach (Interface.IpostNo item in rdg.Get())
+            {
+                this.postNumbers.Add(item);
+            }
+        }
+
+        public bool TestPostNo(int number)
+        {
+            return this.postNumbers.Validate(number);
+        }
+
+        public string PostGetInfo(int postNumber)
+        {
+            var obj = this.postNumbers.GetAtPostNumber(postNumber);
+            return obj.PostNumber.ToString() + @" / " + obj.City;
+        }
         #endregion
 
         #region Get data tables

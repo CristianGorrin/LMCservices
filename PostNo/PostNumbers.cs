@@ -33,5 +33,33 @@ namespace PostNo
 
             return dataTable;
         }
+
+
+
+        public bool Validate(int number)
+        {
+            foreach (var item in this.list)
+            {
+                if (item.PostNumber == number)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public Interface.IpostNo GetAtPostNumber(int number)
+        {
+            foreach (var item in this.list)
+            {
+                if (item.PostNumber == number)
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
     }
 }

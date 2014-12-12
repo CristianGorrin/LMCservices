@@ -29,5 +29,9 @@ namespace LogicController
         }
 
         public Session Session { get { return this.session; } }
+
+
+
+
     }
 }
