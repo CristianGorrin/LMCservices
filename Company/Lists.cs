@@ -31,6 +31,7 @@ namespace Company
             dataTable.Columns.Add(@"Phone Number", typeof(string));
             dataTable.Columns.Add(@"Alt Phone Number", typeof(string));
             dataTable.Columns.Add(@"Email", typeof(string));
+            dataTable.Columns.Add(@"Active", typeof(bool));
 
             foreach (var item in this.list)
             {
@@ -38,13 +39,14 @@ namespace Company
                        item.Deparment,
                        item.CompanyName,
                        item.CvrNo,
-                       @"#" + item.DeparmentHead.WorkNo.ToString() + " - " + item.DeparmentHead.Name,
+                       @"#" + item.DeparmentHead.WorkNo.ToString() + " - " + item.DeparmentHead.Name + " " + item.DeparmentHead.Surname,
                        item.Address,
                        item.PostNo.PostNumber,
                        item.PostNo.City,
                        item.PhoneNo,
                        item.AltPhoneNo,
-                       item.Email);
+                       item.Email,
+                       item.Active);
             }
 
             return dataTable;
@@ -72,6 +74,7 @@ namespace Company
             dataTable.Columns.Add("City", typeof(string));
             dataTable.Columns.Add("Status", typeof(string));
             dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Surname", typeof(string));
 
             foreach (var item in this.list)
             {
@@ -85,10 +88,23 @@ namespace Company
                     item.PostNo.PostNumber,
                     item.PostNo.City,
                     item.WorkerStatus.Staus,
-                    item.WorkNo);
+                    item.WorkNo,
+                    item.Surname);
             }
 
             return dataTable;
+        }
+
+        public void RemoveAtWorkerId(int id)
+        {
+            for (int i = 0; i < this.list.Count; i++)
+            {
+                if (this.list[i].WorkNo == id)
+                {
+                    this.list.RemoveAt(i);
+                    break;
+                }
+            }
         }
     }
 }

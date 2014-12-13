@@ -28,7 +28,17 @@ namespace LogicController
 
 
         #region departments
+        private void Filddepartments(bool? active)
+        {
+            this.departments.Clear();
 
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            foreach (var item in rdg.Get(active))
+            {
+                this.departments.Add(item);
+            }
+        }
         #endregion
 
         #region workers
@@ -43,6 +53,89 @@ namespace LogicController
             }
 
             return list;
+        }
+
+        private void FildWorkers(bool? active)
+        {
+            this.workers.Clear();
+
+            var rgd = new RDGs.RDGtblWorkers(this.session.ConnectionString);
+
+            foreach (var item in rgd.Get(active))
+            {
+                this.workers.Add(item);
+            }
+        }
+
+        public bool DepartmentsRemove(int id)
+        {
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool DepartmentsUpdate(int deparment, string address, string altPhoneNo, string companyName, int cvrNo,
+            int deparmentHead, string email, string phoneNo, int zip)
+        {
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Update(new InterfaceAdaptor.Department()
+                {
+                    Deparment = deparment,
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altPhoneNo,
+                    CompanyName = companyName,
+                    CvrNo = cvrNo,
+                    DeparmentHead = new InterfaceAdaptor.Worker() { WorkNo = deparmentHead },
+                    Email = email,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    PhoneNo = phoneNo,
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool DepartmentsAdd(string address, string altPhoneno, string companyName, int cvrNo, 
+            int deparmentHead, string email, string phoneNo, int zip)
+        {
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.Department()
+                {
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altPhoneno,
+                    CompanyName = companyName,
+                    CvrNo = cvrNo,
+                    DeparmentHead = new InterfaceAdaptor.Worker() { WorkNo = deparmentHead },
+                    Email = email,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    PhoneNo = phoneNo,
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
         #endregion
 
@@ -135,6 +228,98 @@ namespace LogicController
                     Name = name,
                     PhoneNo = phoneno,
                     PostNo = this.postNumbers.GetAtPostNumber(zip)
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool WorkersRemove(int id)
+        {
+            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            this.workers.RemoveAtWorkerId(id);
+            return true;
+        }
+
+        public bool WorkerAdd(string name, string surname, string address, int zip, 
+            string phoneNo, string altPhoneNo, string email)
+        {
+            int workerStatusId = -1;
+            
+            try
+            {
+                var rdgWorkerStatus = new RDGs.RDGtblWorkerStatus(this.session.ConnectionString);
+                workerStatusId = rdgWorkerStatus.NextId;
+                rdgWorkerStatus.Add(new InterfaceAdaptor.WorkerStatus()
+                {
+                    Staus = "temp" // TODO add worker status to the program
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            if (workerStatusId == -1)
+                return false;
+
+            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.Worker()
+                {
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altPhoneNo,
+                    Email = email,
+                    Name = name,
+                    PhoneNo = phoneNo,
+                    PostNo = postNumbers.GetAtPostNumber(zip),
+                    Surname = surname,
+                    WorkerStatus = new InterfaceAdaptor.WorkerStatus() { StautsNo = workerStatusId },
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool WorkerUpdate(int id, string name, string surname, string address, int zip,
+            string phoneNo, string altPhoneNo, string email)
+        {
+            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Update(new InterfaceAdaptor.Worker()
+                {
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altPhoneNo,
+                    Email = email,
+                    Name = name,
+                    PhoneNo = phoneNo,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    Surname = surname,
+                    WorkerStatus = null, // TODO add worker status to the program
+                    WorkNo = id
                 });
             }
             catch (Exception)
@@ -453,6 +638,8 @@ namespace LogicController
 
             return true;
         }
+
+
         #endregion
 
         #region postNumbers
@@ -476,7 +663,11 @@ namespace LogicController
         public string PostGetInfo(int postNumber)
         {
             var obj = this.postNumbers.GetAtPostNumber(postNumber);
-            return obj.PostNumber.ToString() + @" / " + obj.City;
+
+            if (obj != null)
+                return obj.PostNumber.ToString() + @" / " + obj.City;
+            else
+                return string.Empty;
         }
         #endregion
 
@@ -614,7 +805,55 @@ namespace LogicController
             return dataTable;
         }
 
-        // Testing ignore house and less
+        public DataTable GetWorkers()
+        {
+            FildWorkers(true);
+
+            var dataTable = this.workers.AsDataTable();
+
+            dataTable.Columns[1].ColumnName = "Addresse";
+            dataTable.Columns[2].ColumnName = "Tlf nr 2";
+            dataTable.Columns[3].ColumnName = "Email";
+            dataTable.Columns[4].ColumnName = "Fornavn";
+            dataTable.Columns[5].ColumnName = "Tlf nr";
+            dataTable.Columns[6].ColumnName = "Post nr";
+            dataTable.Columns[7].ColumnName = "by";
+            dataTable.Columns[8].ColumnName = "Status";
+            dataTable.Columns[9].ColumnName = "Id";
+            dataTable.Columns[10].ColumnName = "Efternavn";
+
+
+            dataTable.Columns.Remove("Active");
+
+            return dataTable;
+        }
+
+        public DataTable GetDepartments()
+        {
+            Filddepartments(true);
+
+            var dataTable = this.departments.AsDataTable();
+
+            dataTable.Columns[1].ColumnName = "Afdeling Navn";
+            dataTable.Columns[2].ColumnName = "CVR nr";
+            dataTable.Columns[3].ColumnName = "Afdelingsleder";
+            dataTable.Columns[4].ColumnName = "Adresse";
+            dataTable.Columns[5].ColumnName = "Post nummer";
+            dataTable.Columns[6].ColumnName = "By";
+            dataTable.Columns[7].ColumnName = "Tlf nr";
+            dataTable.Columns[8].ColumnName = "Tlf nr2";
+            dataTable.Columns[9].ColumnName = "Email";
+
+            dataTable.Columns.Remove("Active");
+
+            return dataTable;
+        }
+
+        /// <summary>
+        /// Testing ignores house and less
+        /// </summary>
+        /// <param name="date">test base on</param>
+        /// <returns>if date is gather then now returns true else false</returns>
         public static bool DateIsAfterToday(DateTime date)
         {
             if (date.Year > DateTime.Now.Year)

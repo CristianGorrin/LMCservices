@@ -12,6 +12,9 @@ namespace UnitTestProject
 {
     // The tests is base on the values from testingValuesV1.sql
 
+    /// <summary>
+    /// the test for delelting are outdate now 13-12-2014
+    /// </summary>
     [TestClass]
     public class TestRDGs
     {

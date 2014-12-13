@@ -140,17 +140,47 @@ namespace RDGs
         {
             using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
             {
-                tblWorker updateWorker = dbContext.tblWorkers.SingleOrDefault(x => x.workNo == worker.WorkNo);
+                tblWorker updateWorker = dbContext.tblWorkers.SingleOrDefault(
+                    x => x.workNo == worker.WorkNo);
 
                 updateWorker.active = worker.Active;
+                
+
                 updateWorker.altPhoneNo = worker.AltPhoneNo;
-                updateWorker.email = worker.Email;
-                updateWorker.homeAddress = worker.Address;
-                updateWorker.name = worker.Name;
-                updateWorker.phoneNo = worker.PhoneNo;
-                updateWorker.postNo = worker.PostNo.Id;
-                updateWorker.surname = worker.Surname;
-                updateWorker.workerStatus = worker.WorkerStatus.StautsNo;
+
+                if (worker.Email != string.Empty)
+                {
+                    updateWorker.email = worker.Email;
+                }
+
+                if (worker.Email != string.Empty)
+                {
+                    updateWorker.homeAddress = worker.Address;
+                }
+
+                if (worker.Name != string.Empty)
+                {
+                    updateWorker.name = worker.Name;
+                }
+
+                if (worker.PhoneNo != string.Empty)
+                {
+                    updateWorker.phoneNo = worker.PhoneNo;
+                }
+
+                if (worker.PhoneNo != null)
+                {
+                    updateWorker.postNo = worker.PostNo.Id;
+                }
+                if (worker.Surname != string.Empty)
+                {
+                    updateWorker.surname = worker.Surname;
+                }
+
+                if (worker.WorkerStatus != null)
+                {
+                    updateWorker.workerStatus = worker.WorkerStatus.StautsNo;
+                }
 
                 dbContext.SubmitChanges();
             }
@@ -184,8 +214,9 @@ namespace RDGs
                     restored = false
                 };
 
+                workerItem.active = false;
+
                 dbContext.tblDeleteItems.InsertOnSubmit(newDeleteItem);
-                dbContext.tblWorkers.DeleteOnSubmit(workerItem);
 
                 dbContext.SubmitChanges();
             }
