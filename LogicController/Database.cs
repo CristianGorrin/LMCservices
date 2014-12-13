@@ -47,10 +47,12 @@ namespace LogicController
         #endregion
 
         #region companyCustomers
-        private void FildCompanyCustomers(bool? paid) 
+        private void FildCompanyCustomers(bool? active) 
         {
+            this.companyCustomers.Clear();
+
             var rdg = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
-            foreach (var item in rdg.Get(paid))
+            foreach (var item in rdg.Get(active))
             {
                 this.companyCustomers.Add(item);
             }
@@ -68,6 +70,79 @@ namespace LogicController
             }
 
             return list;
+        }
+
+        public bool CompanyCustomerRemove(int id)
+        {
+            var rdg = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool CompanyCustomerAdd(int cvr, string name, string address, int zip,
+            string contactperson, string phoneno, string altphoneno, string email)
+        {
+            var rdg = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.CompanyCustomer()
+                {
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altphoneno,
+                    ContactPerson = contactperson,
+                    CvrNo = cvr,
+                    Email = email,
+                    Name = name,
+                    PhoneNo = phoneno,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip)
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool CompanyCustomerUpdate(int id, int cvr, string name, string address, int zip,
+            string contactperson, string phoneno, string altphoneno, string email)
+        {
+            var rdg = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
+            
+            try
+            {
+                rdg.Update(new InterfaceAdaptor.CompanyCustomer()
+                {
+                    CompanyCustomersNo = id,
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altphoneno,
+                    ContactPerson = contactperson,
+                    CvrNo = cvr,
+                    Email = email,
+                    Name = name,
+                    PhoneNo = phoneno,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip)
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
         #endregion
 
@@ -97,26 +172,7 @@ namespace LogicController
             return list;
         }
 
-        public DataTable GetCustomersPrivet()
-        {
-            FildPrivateCustomers(true);
-
-            var dataTable = this.privateCustomers.AsDataTable();
-
-            dataTable.Columns[1].ColumnName = "Tlf nr 2";
-            dataTable.Columns[2].ColumnName = "Email";
-            dataTable.Columns[3].ColumnName = "Addresse";
-            dataTable.Columns[4].ColumnName = "Fornavn";
-            dataTable.Columns[5].ColumnName = "Tlf nr";
-            dataTable.Columns[6].ColumnName = "Post nr";
-            dataTable.Columns[7].ColumnName = "By";
-            dataTable.Columns[8].ColumnName = "Kunde nr";
-            dataTable.Columns[9].ColumnName = "Efternavn";
-
-            dataTable.Columns.Remove("Active");
-
-            return dataTable;
-        }
+        
 
         public bool PrivateCustomersDelete(int id)
         {
@@ -402,6 +458,8 @@ namespace LogicController
         #region postNumbers
         public void FildPostNo()
         {
+            this.postNumbers.Clear();
+
             var rdg = new RDGs.RDGtblPostNo(this.session.ConnectionString);
 
             foreach (Interface.IpostNo item in rdg.Get())
@@ -510,6 +568,48 @@ namespace LogicController
                     });
                 }
             }
+
+            return dataTable;
+        }
+
+        public DataTable GetCustomersCompany()
+        {
+            FildCompanyCustomers(true);
+
+            var dataTable =  this.companyCustomers.AsDataTable();
+
+            dataTable.Columns[0].ColumnName = "Addresse";
+            dataTable.Columns[1].ColumnName = "Tlf nr 2";
+            dataTable.Columns[3].ColumnName = "Kunde nr";
+            dataTable.Columns[4].ColumnName = "Kontaktperson";
+            dataTable.Columns[5].ColumnName = "CVR nr";
+            dataTable.Columns[6].ColumnName = "Email";
+            dataTable.Columns[7].ColumnName = "Frimanavn";
+            dataTable.Columns[8].ColumnName = "Tlf";
+            dataTable.Columns[9].ColumnName = "Post Nr";
+            dataTable.Columns[10].ColumnName = "By";
+
+            dataTable.Columns.Remove("Active");
+            return dataTable;
+        }
+
+        public DataTable GetCustomersPrivet()
+        {
+            FildPrivateCustomers(true);
+
+            var dataTable = this.privateCustomers.AsDataTable();
+
+            dataTable.Columns[1].ColumnName = "Tlf nr 2";
+            dataTable.Columns[2].ColumnName = "Email";
+            dataTable.Columns[3].ColumnName = "Addresse";
+            dataTable.Columns[4].ColumnName = "Fornavn";
+            dataTable.Columns[5].ColumnName = "Tlf nr";
+            dataTable.Columns[6].ColumnName = "Post nr";
+            dataTable.Columns[7].ColumnName = "By";
+            dataTable.Columns[8].ColumnName = "Kunde nr";
+            dataTable.Columns[9].ColumnName = "Efternavn";
+
+            dataTable.Columns.Remove("Active");
 
             return dataTable;
         }

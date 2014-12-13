@@ -124,17 +124,41 @@ namespace RDGs
             {
                 var companyCustomerUpdateing = dbContext.tblCompanyCustomers.SingleOrDefault(
                     x => x.companyCustomersNo == companyCustomer.CompanyCustomersNo);
-
-                companyCustomerUpdateing._address = companyCustomer.Address;
+                if (companyCustomer.Address != string.Empty)
+                {
+                    companyCustomerUpdateing._address = companyCustomer.Address;
+                }
+                
                 companyCustomerUpdateing.active = companyCustomer.Active;
+
                 companyCustomerUpdateing.altPhoneNo = companyCustomer.AltPhoneNo;
-                companyCustomerUpdateing.companyContactPerson = companyCustomer.ContactPerson;
-                companyCustomerUpdateing.companyCustomersNo = companyCustomer.CompanyCustomersNo;
-                companyCustomerUpdateing.companyName = companyCustomer.Name;
-                companyCustomerUpdateing.cvrNo = companyCustomer.CvrNo;
+
+                if (companyCustomer.ContactPerson != string.Empty)
+                {
+                    companyCustomerUpdateing.companyContactPerson = companyCustomer.ContactPerson;
+                }
+
+                if (companyCustomer.Name != string.Empty)
+                {
+                    companyCustomerUpdateing.companyName = companyCustomer.Name;
+                }
+
+                if (companyCustomer.CvrNo != -1)
+                {
+                    companyCustomerUpdateing.cvrNo = companyCustomer.CvrNo;
+                }
+
                 companyCustomerUpdateing.email = companyCustomer.Email;
-                companyCustomerUpdateing.phoneNo = companyCustomer.PhoneNo;
-                companyCustomerUpdateing.postNo = companyCustomer.PostNo.Id;
+
+                if (companyCustomer.PhoneNo != string.Empty)
+                {
+                    companyCustomerUpdateing.phoneNo = companyCustomer.PhoneNo;
+                }
+
+                if (companyCustomer.PostNo.Id != -1)
+                {
+                    companyCustomerUpdateing.postNo = companyCustomer.PostNo.Id;
+                }
 
                 dbContext.SubmitChanges();
             }
@@ -162,14 +186,14 @@ namespace RDGs
                 if ((bool)deletingItem.active) { deletingInfo.Append("1"); } else { deletingInfo.Append("0"); }
                 deletingInfo.Append(" }");
 
+                deletingItem.active = false;
+
                 dbContext.tblDeleteItems.InsertOnSubmit(new tblDeleteItem()
                 {
                     deleteDate = DateTime.Now,
                     itemInfo = deletingInfo.ToString(),
                     restored = false
                 });
-
-                dbContext.tblCompanyCustomers.DeleteOnSubmit(deletingItem);
 
                 dbContext.SubmitChanges();
             }

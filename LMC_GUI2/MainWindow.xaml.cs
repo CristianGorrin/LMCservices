@@ -18,6 +18,7 @@ using System.Data;
 
 using Interface;
 using LogicController;
+using System.Threading;
 
 namespace LMC_GUI2
 {
@@ -121,7 +122,7 @@ namespace LMC_GUI2
 
                                 this.dgv_u_orders.ItemsSource = this.controller.GetOrdersCompanyAndPrivet().AsDataView();
                                 this.tabIndex = 0;
-                                this.subTabIndex = 1;
+                                this.subTabIndex = 0;
                             }
                             break;
                         case 1:
@@ -213,6 +214,19 @@ namespace LMC_GUI2
                             }
                             break;
                         case 1:
+                            if (this.tabIndex == 3 && this.subTabIndex == 1)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 3;
+                                this.subTabIndex = 1;
+
+                                this.dgv_c_customers.ItemsSource = this.controller.GetCustomersCompany().AsDataView();
+                            }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException("Sub tab index");
@@ -238,7 +252,71 @@ namespace LMC_GUI2
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Logon();
+
+            MetroWindow loadingWindow = null;
+
+            Thread newWindowThread = new Thread(new ThreadStart(() =>
+            {
+                // Create the Window
+                loadingWindow = makeLoadingWindow();
+
+                //show the Window
+                loadingWindow.Show();
+                // Start the Dispatcher Processing
+                System.Windows.Threading.Dispatcher.Run();
+            }));
+            // Set the apartment state
+            newWindowThread.SetApartmentState(ApartmentState.STA);
+            // Make the thread a background thread
+            newWindowThread.IsBackground = true;
+            // Start the thread
+            newWindowThread.Start();
+
+            // wit for the newWindowThread to start up 
+            Thread.Sleep(1000);
+
             this.controller.FildPostNo();
+            this.dgv_u_orders.ItemsSource = this.controller.GetOrdersCompanyAndPrivet().AsDataView();
+
+            bool? loaded = null;
+            try
+            {
+                loadingWindow.Dispatcher.Invoke(() => { loaded = loadingWindow.IsLoaded; });
+                loadingWindow.Dispatcher.Invoke(() => { loadingWindow.Close(); });
+            }
+            catch (Exception)
+            {
+                Environment.Exit(0);
+            }
+
+
+            if (loaded == false)
+                Environment.Exit(0);
+        }
+
+        private MetroWindow makeLoadingWindow()
+        {
+            var loadingWindow = new MetroWindow();
+            loadingWindow.Title = "Loading...";
+            loadingWindow.Height = 200;
+            loadingWindow.Width = 400;
+            loadingWindow.ShowCloseButton = false;
+            loadingWindow.Topmost = true;
+            loadingWindow.Background = Brushes.DarkGreen;
+
+            loadingWindow.ShowInTaskbar = false;
+            loadingWindow.EnableDWMDropShadow = true;
+            loadingWindow.WindowTransitionsEnabled = false;
+
+            var progressRing = new MahApps.Metro.Controls.ProgressRing();
+            progressRing.IsActive = true;
+            progressRing.Foreground = Brushes.WhiteSmoke;
+
+            loadingWindow.Content = progressRing;
+            loadingWindow.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
+            loadingWindow.ResizeMode = System.Windows.ResizeMode.NoResize;
+            return loadingWindow;
         }
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
@@ -992,18 +1070,18 @@ namespace LMC_GUI2
 
         private void btn_p_customers_search_Click(object sender, RoutedEventArgs e)
         {
-            FindCustomer();
+            FindCustomerPrivait();
         }
 
         private void txt_p_customers_id_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                FindCustomer();
+                FindCustomerPrivait();
             }
         }
 
-        private void FindCustomer()
+        private void FindCustomerPrivait()
         {
             for (int i = 0; i < this.dgv_p_customers.Items.Count; i++)
             {
@@ -1204,7 +1282,248 @@ namespace LMC_GUI2
         #endregion
 
         #region Customers company
+        private void btn_c_customers_add_Click(object sender, RoutedEventArgs e)
+        {
+            string messages = string.Empty;
+            bool ok = true;
 
+            int cvr = -1;
+            if (!int.TryParse(this.txt_c_customers_cvr.Text, out cvr))
+            {
+                messages += "CVR skal ind taste" + Environment.NewLine;
+                ok = false;
+            }
+
+            if (this.txt_c_customers_name.Text == string.Empty)
+            {
+                messages += "Frimanavn skal ind taste" + Environment.NewLine;
+                ok = false;
+            }
+
+            if (this.txt_c_customers_address.Text == string.Empty)
+            {
+                messages += "Addressen skal ind taste" + Environment.NewLine;
+                ok = false;
+            }
+
+            string postNumber = string.Empty;
+            foreach (char item in this.txt_c_customers_postno.Text)
+	        {
+                int temp = -1;
+                if (int.TryParse(item.ToString(), out temp))
+                {
+                    postNumber += item;
+                }
+                else if (item == ' ' || item == '/')
+                {
+                    break;
+                }
+	        }
+
+            try
+            {
+                if (!this.controller.TestPostNo(Convert.ToInt32(postNumber)))
+                {
+                    ok = false;
+                    messages += "Post nummer er ikke gyldig" + Environment.NewLine;
+                }
+            }
+            catch (Exception)
+            {
+                messages = "Ind tast et post nummer" + Environment.NewLine;
+                ok = false;
+            }
+
+            if (this.txt_c_customers_phoneno.Text == string.Empty)
+            {
+                ok = false;
+                messages += "Ind tast et telephone nr" + Environment.NewLine;
+            }
+
+            if (!ok)
+            {
+                MessageBox.Show("Data blive ikke gemt da: " + messages);
+                return;
+            }
+
+            bool selectNew = false;
+            int selectedIndex = -1;
+
+            if (this.txt_c_customers_id.Text == string.Empty)
+            {
+                // add new
+                if(!this.controller.CompanyCustomerAdd(cvr, this.txt_c_customers_name.Text, this.txt_c_customers_address.Text,
+                        Convert.ToInt32(postNumber), this.txt_c_customers_contactperson.Text, this.txt_c_customers_phoneno.Text,
+                        this.txt_c_customers_altphoneno.Text, this.txt_c_customers_email.Text))
+                    MessageBox.Show("Data blive ikke gemt til databasen");
+
+                selectNew = true;
+
+            }
+            else
+            {
+                // update
+                if (this.dgv_c_customers.SelectedIndex == -1)
+                    return;
+                
+
+                if(!this.controller.CompanyCustomerUpdate(Convert.ToInt32(this.txt_c_customers_id.Text), cvr, this.txt_c_customers_name.Text, this.txt_c_customers_address.Text,
+                        Convert.ToInt32(postNumber), this.txt_c_customers_contactperson.Text, this.txt_c_customers_phoneno.Text,
+                        this.txt_c_customers_altphoneno.Text, this.txt_c_customers_email.Text))
+                    MessageBox.Show("Data blive ikke gemt til databasen");
+
+                selectedIndex = this.dgv_c_customers.SelectedIndex;
+            }
+
+
+            this.dgv_c_customers.ItemsSource = this.controller.GetCustomersCompany().AsDataView();
+
+            if (selectNew)
+                this.dgv_c_customers.SelectedIndex = this.dgv_c_customers.Items.Count - 1;
+            else
+                this.dgv_c_customers.SelectedIndex = selectedIndex;
+        }
+
+        private void txt_c_customers_postno_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string postNumber = string.Empty;
+            foreach (char item in this.txt_c_customers_postno.Text)
+            {
+                int temp;
+
+                if (int.TryParse(item.ToString(), out temp))
+                {
+                    postNumber += item;
+                }
+                else if(item == ' ' || item == '/')
+                {
+                    break;
+                }
+            }
+
+            if (postNumber != string.Empty)
+            {
+                this.txt_c_customers_postno.Text = this.controller.PostGetInfo(Convert.ToInt32(postNumber));
+            }
+        }
+
+        private void btn_c_customers_clear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearCompanyCustomer();
+        }
+
+        private void btn_c_customers_search_Click(object sender, RoutedEventArgs e)
+        {
+            FindCustomerCompany();
+        }
+
+        private void btn_c_customers_remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_c_customers.SelectedIndex == -1)
+                return;
+
+            int id;
+
+            if (int.TryParse(this.txt_c_customers_id.Text, out id))
+            {
+                var result = MessageBox.Show("Vil du slette kunde: #" + id.ToString() + " - " + this.txt_c_customers_name.Text, "Fjern",
+                    MessageBoxButton.YesNo);
+
+                bool ok = false;
+
+                if (result == MessageBoxResult.Yes)
+                    ok = this.controller.CompanyCustomerRemove(id);
+                else
+                    return;
+
+                if (!ok)
+                {
+                    MessageBox.Show("Kunne ikke slette kunden");
+                    return;
+                }
+            }
+
+            this.dgv_c_customers.ItemsSource = this.controller.GetCustomersCompany().AsDataView();
+
+            this.dgv_c_customers.SelectedIndex = -1;
+            ClearCompanyCustomer();
+        }
+
+        private void txt_c_customers_id_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            ClearCompanyCustomer();
+        }
+
+        private void txt_c_customers_id_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                FindCustomerCompany();
+            }
+        }
+
+        private void dgv_c_customers_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            DataGrid senderItem = null;
+            DataRowView selectedItem = null;
+            DataRow row = null;
+
+            try
+            {
+                senderItem = (DataGrid)sender;
+                selectedItem = (DataRowView)senderItem.SelectedItem;
+                row = (DataRow)selectedItem.Row;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            this.txt_c_customers_id.Text = row.ItemArray[2].ToString();
+            this.txt_c_customers_name.Text = row.ItemArray[6].ToString();
+            this.txt_c_customers_cvr.Text = row.ItemArray[4].ToString();
+            this.txt_c_customers_address.Text = row.ItemArray[0].ToString();
+            this.txt_c_customers_postno.Text = row.ItemArray[8].ToString() + @" / " + row.ItemArray[9].ToString();
+            this.txt_c_customers_phoneno.Text = row.ItemArray[7].ToString();
+            this.txt_c_customers_altphoneno.Text = row.ItemArray[1].ToString();
+            this.txt_c_customers_email.Text = row.ItemArray[5].ToString();
+            this.txt_c_customers_contactperson.Text = row.ItemArray[3].ToString();
+        }
+
+        private void ClearCompanyCustomer()
+        {
+            this.txt_c_customers_id.Text = string.Empty;
+            this.txt_c_customers_cvr.Text = string.Empty;
+            this.txt_c_customers_name.Text = string.Empty;
+            this.txt_c_customers_address.Text = string.Empty;
+            this.txt_c_customers_postno.Text = string.Empty;
+            this.txt_c_customers_contactperson.Text = string.Empty;
+            this.txt_c_customers_phoneno.Text = string.Empty;
+            this.txt_c_customers_altphoneno.Text = string.Empty;
+            this.txt_c_customers_email.Text = string.Empty;
+        }
+
+        private void FindCustomerCompany()
+        {
+            int id = -1;
+
+            if (!int.TryParse(this.txt_c_customers_id.Text, out id))
+                return;
+
+            for (int i = 0; i < this.dgv_c_customers.Items.Count; i++)
+            {
+                var row = (DataRowView)this.dgv_c_customers.Items[i];
+
+                if (row.Row.ItemArray[2].ToString() == this.txt_c_customers_id.Text)
+                {
+                    this.dgv_c_customers.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
         #endregion
         #endregion
 
@@ -1248,6 +1567,8 @@ namespace LMC_GUI2
                             this.dgv_p_customers.ItemsSource = null;
                             break;
                         case 1:
+                            this.dgv_c_customers.ItemsSource = null;
+                            break;
                         default:
                             throw new ArgumentOutOfRangeException("CleanUp sup tab customer");
 	                }
@@ -1262,7 +1583,5 @@ namespace LMC_GUI2
                     throw new ArgumentOutOfRangeException("CleanUp");
             }
         }
-
-
     }
 }
