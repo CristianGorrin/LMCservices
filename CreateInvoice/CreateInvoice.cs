@@ -35,7 +35,7 @@ namespace TestingExcelAPI
         private int daysToPay;
         private string fakturaNo;
 
-        private const int rowsOffset = 17;
+        private const int rowsOffset = 16;
         private const int columnsOffset = 2;
 
         /// <summary>
@@ -156,13 +156,13 @@ namespace TestingExcelAPI
             }
 
             //Merge columns C-E (rows 9-14)
-            for (int i = 9; i <= 14; i++)
+            for (int i = 8; i <= 13; i++)
             {
                 xlSheet.get_Range("C" + i, "E" + i).Merge(Type.Missing);
             }
 
-            //Merge main cells - columns B-F, G-H, I-J, K-L, M-N (rows 16-33) and border them
-            for (int i = 16; i <= 33; i++)
+            //Merge main cells - columns B-F, G-H, I-J, K-L, M-N (rows 15-35) and border them
+            for (int i = 15; i <= 35; i++)
             {
                 xlSheet.get_Range("B" + i, "G" + i).Merge(Type.Missing);
                 xlSheet.get_Range("B" + i, "G" + i).BorderAround(Type.Missing);
@@ -177,7 +177,7 @@ namespace TestingExcelAPI
             }
 
             //Totals - merge and border
-            for (int i = 34; i <= 36; i++)
+            for (int i = 36; i <= 38; i++)
             {
                 xlSheet.get_Range("L" + i, "M" + i).Merge(Type.Missing);
                 xlSheet.get_Range("L" + i, "M" + i).BorderAround(Type.Missing);
@@ -186,7 +186,7 @@ namespace TestingExcelAPI
                 xlSheet.get_Range("N" + i, "O" + i).BorderAround(Type.Missing);
                 xlSheet.get_Range("N" + i, "O" + i).Borders.Weight = Excel.XlBorderWeight.xlMedium;
             }
-            xlSheet.get_Range("L38", "O38").Merge(Type.Missing);
+            xlSheet.get_Range("D38", "G38").Merge(Type.Missing);
         }
 
         /*
@@ -202,22 +202,23 @@ namespace TestingExcelAPI
             xlSheet.get_Range("L1", "O13").HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
             //Customer info
             xlSheet.get_Range("A9", "A14").Font.Bold = true;
-            xlSheet.get_Range("C8", "C8").Font.Bold = true;
+            xlSheet.get_Range("C7", "C7").Font.Bold = true;
             xlSheet.get_Range("C9", "E14").HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
 
             //Format and alignment  headers           
-            xlSheet.get_Range("B16", "N16").Font.Bold = true;
-            xlSheet.get_Range("B16", "N16").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            xlSheet.get_Range("B15", "N15").Font.Bold = true;
+            xlSheet.get_Range("B15", "N15").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
             //Style
-            xlSheet.get_Range("B16", "N16").Interior.Color = Excel.XlRgbColor.rgbGrey;
-            xlSheet.get_Range("B16", "N16").Font.Color = Excel.XlRgbColor.rgbWhite;
+            xlSheet.get_Range("B15", "N15").Interior.Color = Excel.XlRgbColor.rgbGrey;
+            xlSheet.get_Range("B15", "N15").Font.Color = Excel.XlRgbColor.rgbWhite;
 
             //Format and alignment totals and "Beløb"         
-            xlSheet.get_Range("L34", "L38").Font.Bold = true;
-            xlSheet.get_Range("L34", "N36").HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
-            xlSheet.get_Range("N17", "N36").NumberFormat = "#,##0.00 kr";
-            xlSheet.get_Range("L38", "O38").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-            xlSheet.get_Range("H17", "O33").HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
+            xlSheet.get_Range("L36", "L38").Font.Bold = true;
+            xlSheet.get_Range("L34", "N38").HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
+            xlSheet.get_Range("N16", "N38").NumberFormat = "#,##0.00 kr";
+            xlSheet.get_Range("D38", "G38").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter; // Constant text
+            xlSheet.get_Range("D38", "G38").Font.Bold = true; // Constant text
+            xlSheet.get_Range("H16", "O35").HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
         }
 
         /*
@@ -238,29 +239,29 @@ namespace TestingExcelAPI
             xlSheet.Cells[12, 12] = "DATO";
 
             //Customer information
-            xlSheet.Cells[8, 3] = "KUNDE";
-            xlSheet.Cells[9, 1] = "Att.:";
-            xlSheet.Cells[10, 1] = "Firmanavn:";
-            xlSheet.Cells[11, 1] = "Adresse:";
-            xlSheet.Cells[12, 1] = "Postnr. & by:";
-            xlSheet.Cells[13, 1] = "Telefonnr.:";
-            xlSheet.Cells[14, 1] = "E-mail:";
+            xlSheet.Cells[7, 3] = "KUNDE";
+            xlSheet.Cells[8, 1] = "Att.:";
+            xlSheet.Cells[9, 1] = "Firmanavn:";
+            xlSheet.Cells[10, 1] = "Adresse:";
+            xlSheet.Cells[11, 1] = "Postnr. & by:";
+            xlSheet.Cells[12, 1] = "Telefonnr.:";
+            xlSheet.Cells[13, 1] = "E-mail:";
 
             //Headers
-            xlSheet.Cells[16, 2] = "BESKRIVELSE";
-            xlSheet.Cells[16, 8] = "DATO";
-            xlSheet.Cells[16, 10] = "TIMER";
-            xlSheet.Cells[16, 12] = "SATS";
-            xlSheet.Cells[16, 14] = "BELØB";
+            xlSheet.Cells[15, 2] = "BESKRIVELSE";
+            xlSheet.Cells[15, 8] = "DATO";
+            xlSheet.Cells[15, 10] = "TIMER";
+            xlSheet.Cells[15, 12] = "SATS";
+            xlSheet.Cells[15, 14] = "BELØB";
 
             //Total text
-            xlSheet.Cells[34, 12] = "SUBTOTAL";
-            xlSheet.Cells[35, 12] = "MOMS";
-            xlSheet.Cells[36, 12] = "I ALT";
+            xlSheet.Cells[36, 12] = "SUBTOTAL";
+            xlSheet.Cells[37, 12] = "MOMS";
+            xlSheet.Cells[38, 12] = "I ALT";
 
             //Misc text
-            xlSheet.Cells[35, 2] = "Hvis der er spørgsmål til denne faktura, bedes De venligst kontakte os via tlf.nr. eller e-mail.";
-            xlSheet.Cells[38, 12] = "TAK FORDI DE HANDLEDE MED OS!";
+            xlSheet.Cells[37, 2] = "Hvis der er spørgsmål til denne faktura, bedes De venligst kontakte os via tlf.nr. eller e-mail.";
+            xlSheet.Cells[38, 4] = "TAK FORDI DE HANDLEDE MED OS!";
         }
 
         /*
@@ -271,22 +272,22 @@ namespace TestingExcelAPI
             if (this.privateCustomer != null)
             {
                 //Insert customer information
-                xlSheet.Cells[9, 3] = this.privateCustomer.Name + " " + this.privateCustomer.Surname; // Insert customer name
-                xlSheet.Cells[10, 3] = ""; // Insert company name
-                xlSheet.Cells[11, 3] = this.privateCustomer.HomeAddress; // Insert address
-                xlSheet.Cells[12, 3] = this.privateCustomer.PostNo.PostNumber.ToString() + ", " + this.privateCustomer.PostNo.City; // Insert postno. & city
-                xlSheet.Cells[13, 3] = this.privateCustomer.PhoneNo.ToString(); // Insert telephone no.
-                xlSheet.Cells[14, 3] = this.privateCustomer.Email; // Insert e-mail
+                xlSheet.Cells[8, 3] = this.privateCustomer.Name + " " + this.privateCustomer.Surname; // Insert customer name
+                xlSheet.Cells[9, 3] = ""; // Insert company name
+                xlSheet.Cells[10, 3] = this.privateCustomer.HomeAddress; // Insert address
+                xlSheet.Cells[11, 3] = this.privateCustomer.PostNo.PostNumber.ToString() + ", " + this.privateCustomer.PostNo.City; // Insert postno. & city
+                xlSheet.Cells[12, 3] = this.privateCustomer.PhoneNo.ToString(); // Insert telephone no.
+                xlSheet.Cells[13, 3] = this.privateCustomer.Email; // Insert e-mail
             }
             else if (this.companyCustomer != null)
             {
                 //Insert customer information
-                xlSheet.Cells[9, 3] = this.companyCustomer.ContactPerson; // Insert customer name
-                xlSheet.Cells[10, 3] = this.companyCustomer.Name; // Insert company name
-                xlSheet.Cells[11, 3] = this.companyCustomer.Address; // Insert address
-                xlSheet.Cells[12, 3] = this.companyCustomer.PostNo.PostNumber.ToString() + ", " + this.companyCustomer.PostNo.City; // Insert postno. & city
-                xlSheet.Cells[13, 3] = this.companyCustomer.PhoneNo.ToString(); // Insert telephone no.
-                xlSheet.Cells[14, 3] = this.companyCustomer.Email; // Insert e-mail
+                xlSheet.Cells[8, 3] = this.companyCustomer.ContactPerson; // Insert customer name
+                xlSheet.Cells[9, 3] = this.companyCustomer.Name; // Insert company name
+                xlSheet.Cells[10, 3] = this.companyCustomer.Address; // Insert address
+                xlSheet.Cells[11, 3] = this.companyCustomer.PostNo.PostNumber.ToString() + ", " + this.companyCustomer.PostNo.City; // Insert postno. & city
+                xlSheet.Cells[12, 3] = this.companyCustomer.PhoneNo.ToString(); // Insert telephone no.
+                xlSheet.Cells[13, 3] = this.companyCustomer.Email; // Insert e-mail
             }
             else
             {
@@ -389,9 +390,9 @@ namespace TestingExcelAPI
             }   
             double moms =  total / 4;
 
-            xlSheet.Cells[34, 14] = total - moms; // SUBTOTAL
-            xlSheet.Cells[35, 14] = moms.ToString(); // MOMS
-            xlSheet.Cells[36, 14] = total.ToString(); // I ALT
+            xlSheet.Cells[36, 14] = total - moms; // SUBTOTAL
+            xlSheet.Cells[37, 14] = moms.ToString(); // MOMS
+            xlSheet.Cells[38, 14] = total.ToString(); // I ALT
         }
     }
 }
