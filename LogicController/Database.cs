@@ -973,11 +973,11 @@ namespace LogicController
             var dataTable = this.privetOrders.AsDataTable();
             
             dataTable.Columns[0].ColumnName = "Oprettet af";
-            dataTable.Columns[1].ColumnName = "Oprettet Dato";
+            dataTable.Columns[1].ColumnName = "Oprettelsesdato";
             dataTable.Columns[2].ColumnName = "Kunde";
             dataTable.Columns[5].ColumnName = "Beskrivelse";
             dataTable.Columns[6].ColumnName = "Timer brugt";
-            dataTable.Columns[7].ColumnName = "Order nr";
+            dataTable.Columns[7].ColumnName = "Ordrenr";
             dataTable.Columns[9].ColumnName = "Timeløn";
             dataTable.Columns[11].ColumnName = "Start dato";
 
@@ -995,11 +995,11 @@ namespace LogicController
             var dataTable = this.companyOrders.AsDataTable();
 
             dataTable.Columns[0].ColumnName = "Oprettet af";
-            dataTable.Columns[1].ColumnName = "Oprettet Dato";
+            dataTable.Columns[1].ColumnName = "Oprettelsesdato";
             dataTable.Columns[2].ColumnName = "Kunde";
             dataTable.Columns[5].ColumnName = "Beskrivelse";
             dataTable.Columns[6].ColumnName = "Timer brugt";
-            dataTable.Columns[7].ColumnName = "Order nr";
+            dataTable.Columns[7].ColumnName = "Ordrenr";
             dataTable.Columns[9].ColumnName = "Timeløn";
             dataTable.Columns[11].ColumnName = "Start dato";
 
@@ -1018,11 +1018,11 @@ namespace LogicController
 
             var dataTable = new DataTable();
 
-            dataTable.Columns.Add("Order Nr", typeof(int));
+            dataTable.Columns.Add("Ordrenr", typeof(int));
             dataTable.Columns.Add("Kunde", typeof(string));
-            dataTable.Columns.Add("Kunde type", typeof(string));
+            dataTable.Columns.Add("Kundetype", typeof(string));
             dataTable.Columns.Add("Oprettet af", typeof(string));
-            dataTable.Columns.Add("Start Dato", typeof(DateTime));
+            dataTable.Columns.Add("Startdato", typeof(DateTime));
             dataTable.Columns.Add("Beskrivelse", typeof(string));
 
             foreach (DataRow item in privet.Rows)
@@ -1032,7 +1032,7 @@ namespace LogicController
                     dataTable.Rows.Add(new object[6] {
                     item.ItemArray[5],
                     item.ItemArray[2],
-                    "Private kunden",
+                    "Privat",
                     item.ItemArray[0],
                     item.ItemArray[7],
                     item.ItemArray[3],
@@ -1047,7 +1047,7 @@ namespace LogicController
                     dataTable.Rows.Add(new object[6] {
                     item.ItemArray[5],
                     item.ItemArray[2],
-                    "Firma kunden",
+                    "Firma",
                     item.ItemArray[0],
                     item.ItemArray[7],
                     item.ItemArray[3],
@@ -1066,11 +1066,11 @@ namespace LogicController
 
             dataTable.Columns[0].ColumnName = "Addresse";
             dataTable.Columns[1].ColumnName = "Tlf nr 2";
-            dataTable.Columns[3].ColumnName = "Kunde nr";
+            dataTable.Columns[3].ColumnName = "Kundenr";
             dataTable.Columns[4].ColumnName = "Kontaktperson";
-            dataTable.Columns[5].ColumnName = "CVR nr";
+            dataTable.Columns[5].ColumnName = "CVR-nr";
             dataTable.Columns[6].ColumnName = "Email";
-            dataTable.Columns[7].ColumnName = "Frimanavn";
+            dataTable.Columns[7].ColumnName = "Firmanavn";
             dataTable.Columns[8].ColumnName = "Tlf";
             dataTable.Columns[9].ColumnName = "Post Nr";
             dataTable.Columns[10].ColumnName = "By";
@@ -1090,9 +1090,9 @@ namespace LogicController
             dataTable.Columns[3].ColumnName = "Addresse";
             dataTable.Columns[4].ColumnName = "Fornavn";
             dataTable.Columns[5].ColumnName = "Tlf nr";
-            dataTable.Columns[6].ColumnName = "Post nr";
+            dataTable.Columns[6].ColumnName = "Postnr";
             dataTable.Columns[7].ColumnName = "By";
-            dataTable.Columns[8].ColumnName = "Kunde nr";
+            dataTable.Columns[8].ColumnName = "Kundenr";
             dataTable.Columns[9].ColumnName = "Efternavn";
 
             dataTable.Columns.Remove("Active");
@@ -1111,8 +1111,8 @@ namespace LogicController
             dataTable.Columns[3].ColumnName = "Email";
             dataTable.Columns[4].ColumnName = "Fornavn";
             dataTable.Columns[5].ColumnName = "Tlf nr";
-            dataTable.Columns[6].ColumnName = "Post nr";
-            dataTable.Columns[7].ColumnName = "by";
+            dataTable.Columns[6].ColumnName = "Postnr";
+            dataTable.Columns[7].ColumnName = "By";
             dataTable.Columns[8].ColumnName = "Status";
             dataTable.Columns[9].ColumnName = "Id";
             dataTable.Columns[10].ColumnName = "Efternavn";
@@ -1129,11 +1129,11 @@ namespace LogicController
 
             var dataTable = this.departments.AsDataTable();
 
-            dataTable.Columns[1].ColumnName = "Afdeling Navn";
-            dataTable.Columns[2].ColumnName = "CVR nr";
+            dataTable.Columns[1].ColumnName = "Afdelingsnavn";
+            dataTable.Columns[2].ColumnName = "CVR-nr";
             dataTable.Columns[3].ColumnName = "Afdelingsleder";
             dataTable.Columns[4].ColumnName = "Adresse";
-            dataTable.Columns[5].ColumnName = "Post nummer";
+            dataTable.Columns[5].ColumnName = "Postnr";
             dataTable.Columns[6].ColumnName = "By";
             dataTable.Columns[7].ColumnName = "Tlf nr";
             dataTable.Columns[8].ColumnName = "Tlf nr2";
