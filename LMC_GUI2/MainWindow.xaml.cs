@@ -85,6 +85,8 @@ namespace LMC_GUI2
         {
             if (!(e.OriginalSource is TabControl))
                 return;
+            
+            Mouse.OverrideCursor = Cursors.Wait;
 
             TabControl tabCon;
             TabControl tab;
@@ -96,12 +98,16 @@ namespace LMC_GUI2
             }
             catch (Exception)
             {
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
-            
+
 
             if (tab == null || tabCon == null)
+            {
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
+            }
 
             // TODO clean up 
 
@@ -182,14 +188,69 @@ namespace LMC_GUI2
                     switch (tab.SelectedIndex)
                     {
                         case 0:
+                            if (this.tabIndex == 2 && this.subTabIndex == 0)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 0;
+                            }
                             break;
                         case 1:
+                            if (this.tabIndex == 2 && this.subTabIndex == 1)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 1;
+                            }
                             break;
                         case 2:
+                            if (this.tabIndex == 2 && this.subTabIndex == 2)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 2;
+                            }
                             break;
                         case 3:
+                            if (this.tabIndex == 2 && this.subTabIndex == 3)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 3;
+                            }
                             break;
                         case 4:
+                            if (this.tabIndex == 2 && this.subTabIndex == 4)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 4;
+                            }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException("Sub tab index");
@@ -272,6 +333,8 @@ namespace LMC_GUI2
                 default:
                     throw new ArgumentOutOfRangeException("TabCon index");
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
         #endregion
 
@@ -387,6 +450,8 @@ namespace LMC_GUI2
             if (this.dgv_p_orders.SelectedIndex == -1)
                 return;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             int id;
 
             try
@@ -396,12 +461,14 @@ namespace LMC_GUI2
             catch (Exception)
             {
                 MessageBox.Show("Order nr. er ikke gyldig");
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             var deleteOk = MessageBox.Show("Er du skikker at du vil seltte ordern nr.: " + id.ToString(),"Fjern order", MessageBoxButton.YesNo);
             if (deleteOk != MessageBoxResult.Yes)
             {
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
@@ -430,20 +497,24 @@ namespace LMC_GUI2
                 }
 
                 MessageBox.Show(message);
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             if (!ok)
             {
                 MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             this.dgv_p_orders.ItemsSource = this.controller.GetOrdersPrivet().DefaultView;
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_p_orders_add_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             bool ok = true;
             string messege = string.Empty;
 
@@ -559,6 +630,7 @@ namespace LMC_GUI2
             if (!ok)
 	        {
                 MessageBox.Show("Kan ikke tilføje/updater den nye order:" + Environment.NewLine + messege);
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
 	        }
 
@@ -579,6 +651,7 @@ namespace LMC_GUI2
                 if (!int.TryParse(this.txt_p_orders_id.Text, out id))
                 {
                     MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
 
@@ -594,6 +667,8 @@ namespace LMC_GUI2
                 this.dgv_p_orders.SelectedIndex = this.dgv_p_orders.Items.Count - 1;
             else
                 this.dgv_p_orders.SelectedIndex = selectNow;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_p_orders_clear_Click(object sender, RoutedEventArgs e)
@@ -718,6 +793,8 @@ namespace LMC_GUI2
                 return;
             }
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             int[] inUse;
             bool ok = this.controller.CompanyOrdersRemove(id, out inUse);
 
@@ -743,16 +820,19 @@ namespace LMC_GUI2
                 }
 
                 MessageBox.Show(message);
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             if (!ok)
             {
                 MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             this.dgv_c_orders.ItemsSource = this.controller.GetOrdersCompany().DefaultView;
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_c_orders_clear_Click(object sender, RoutedEventArgs e)
@@ -882,6 +962,8 @@ namespace LMC_GUI2
 
             bool selectNew = false;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_c_orders_id.Text == string.Empty)
             {
                 // Add new order
@@ -897,6 +979,7 @@ namespace LMC_GUI2
                 if (!int.TryParse(this.txt_c_orders_id.Text, out id))
                 {
                     MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
 
@@ -912,6 +995,8 @@ namespace LMC_GUI2
                 this.dgv_c_orders.SelectedIndex = this.dgv_c_orders.Items.Count - 1;
             else
                 this.dgv_c_orders.SelectedIndex = selectNow;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_c_orders_search_Click(object sender, RoutedEventArgs e)
@@ -1208,6 +1293,8 @@ namespace LMC_GUI2
 
             bool selectNew = false;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_p_customers_id.Text == string.Empty)
             {
                 // add new
@@ -1216,6 +1303,7 @@ namespace LMC_GUI2
                     this.txt_p_customers_email.Text))
                 {
                     MessageBox.Show("Kunden bliv ikke gemt til database");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
                 else
@@ -1229,6 +1317,7 @@ namespace LMC_GUI2
                 if (!int.TryParse(this.txt_p_customers_id.Text, out temp))
                 {
                     MessageBox.Show("Kunden id er ikke gyldig: " + this.txt_p_customers_id.Text);
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
 
@@ -1237,6 +1326,7 @@ namespace LMC_GUI2
                     this.txt_p_customers_email.Text))
                 {
                     MessageBox.Show("Kunden bliv ikke gemt til database");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
             }
@@ -1245,6 +1335,8 @@ namespace LMC_GUI2
 
             if (selectNew)
                 this.dgv_p_customers.SelectedIndex = this.dgv_p_customers.Items.Count - 1;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_p_customers_remove_Click(object sender, RoutedEventArgs e)
@@ -1260,6 +1352,8 @@ namespace LMC_GUI2
 
             int id;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+            
             if (int.TryParse(this.txt_p_customers_id.Text, out id))
             {
                 if (this.controller.PrivateCustomersDelete(id))
@@ -1269,6 +1363,8 @@ namespace LMC_GUI2
                     ClearPrivetCustomer();
                 }
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void ClearPrivetCustomer()
@@ -1641,12 +1737,16 @@ namespace LMC_GUI2
             if (result != MessageBoxResult.Yes)
                 return;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (!this.controller.WorkersRemove(Convert.ToInt32(this.txt_workers_id.Text)))
                 MessageBox.Show("Den ansar bilve ikke fjern fra database");
 
             this.dgv_workers.ItemsSource = this.controller.GetWorkers().AsDataView();
    
             ClearWorker();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
         
         private void btn_workers_add_Click(object sender, RoutedEventArgs e)
@@ -1722,6 +1822,8 @@ namespace LMC_GUI2
 
             bool selectedNew = false;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_workers_id.Text == string.Empty)
             {
                 // add new
@@ -1735,7 +1837,10 @@ namespace LMC_GUI2
             {
                 // update
                 if (this.dgv_workers.SelectedIndex == -1)
+                {
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
+                }
 
                 if (!this.controller.WorkerUpdate(Convert.ToInt32(this.txt_workers_id.Text) ,this.txt_workers_name.Text, this.txt_workers_surname.Text, this.txt_workers_address.Text,
                         Convert.ToInt32(postNo), this.txt_workers_phoneno.Text, this.txt_workers_altphoneno.Text, this.txt_workers_email.Text))
@@ -1754,6 +1859,8 @@ namespace LMC_GUI2
             {
                 this.dgv_workers.SelectedIndex = index;
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void FindWorker()
@@ -1867,12 +1974,16 @@ namespace LMC_GUI2
             if (result != MessageBoxResult.Yes)
                 return;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (!this.controller.DepartmentsRemove(Convert.ToInt32(this.txt_departments_number.Text)))
                 MessageBox.Show("Afdelingen bliv ikke Fjernet");
 
             ClaerDepartment();
 
             this.dgv_departments.ItemsSource = this.controller.GetDepartments().AsDataView();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_departments_add_Click(object sender, RoutedEventArgs e)
@@ -1995,6 +2106,8 @@ namespace LMC_GUI2
             bool selectNew = false;
             int index = this.dgv_departments.SelectedIndex;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_departments_number.Text == string.Empty)
             {
                 // add new
@@ -2009,7 +2122,10 @@ namespace LMC_GUI2
             {
                 // update
                 if (this.dgv_departments.SelectedIndex == -1)
+                {
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
+                }
 
                 if (!this.controller.DepartmentsUpdate(Convert.ToInt32(this.txt_departments_number.Text), this.txt_departments_address.Text, this.txt_departments_altphoneno.Text,
                     this.txt_departments_name.Text, cvrNo, departmentHead, this.txt_departments_email.Text, this.txt_departments_phoneno.Text,
@@ -2027,6 +2143,8 @@ namespace LMC_GUI2
             {
                 this.dgv_departments.SelectedIndex = index;
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void ClaerDepartment()
