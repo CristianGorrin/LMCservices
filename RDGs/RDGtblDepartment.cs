@@ -223,8 +223,9 @@ namespace RDGs
                     restored = false,
                 };
 
+                item.active = false;
+
                 dbContext.tblDeleteItems.InsertOnSubmit(deleteItem);
-                dbContext.tblDepartments.DeleteOnSubmit(item);
 
                 dbContext.SubmitChanges();
             }

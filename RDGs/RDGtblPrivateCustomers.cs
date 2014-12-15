@@ -161,8 +161,8 @@ namespace RDGs
                     restored = false
                 };
 
+                deleteingItem.active = false;
                 dbContext.tblDeleteItems.InsertOnSubmit(deleteData);
-                dbContext.tblPrivateCustomers.DeleteOnSubmit(deleteingItem);
 
                 dbContext.SubmitChanges();
             }

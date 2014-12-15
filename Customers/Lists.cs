@@ -90,5 +90,17 @@ namespace Customers
 
             return dataTable;
         }
+
+        public void RemoveAtId(int id)
+        {
+            for (int i = 0; i < this.list.Count; i++)
+            {
+                if (this.list[i].PrivateCustomersNo == id)
+                {
+                    this.list.RemoveAt(i);
+                    break;
+                }
+            }
+        }
     }
 }

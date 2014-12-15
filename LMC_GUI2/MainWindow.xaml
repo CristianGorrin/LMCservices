@@ -212,7 +212,8 @@
                 </TabControl>
             </TabItem>
 
-            <TabItem x:Name="tbi_main_contracts" Header="Kontrakter"><!--Section start-->
+            <TabItem x:Name="tbi_main_contracts" Header="Kontrakter">
+                <!--Section start-->
                 <Label Content="Kommer snart" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" Foreground="#FFF0EDED"/>
             </TabItem>
 
@@ -490,7 +491,7 @@
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_customers" 
                                       Grid.Column="0" Margin="2,0,0,2" IsReadOnly="True"
-                                      SelectionMode="Single"/>
+                                      SelectionMode="Single" SelectedCellsChanged="dgv_p_customers_SelectedCellsChanged"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -513,20 +514,20 @@
                                     <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_p_customers_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_customers_id" HorizontalAlignment="Left" Width="91" GotKeyboardFocus="txt_p_customers_id_GotKeyboardFocus" KeyDown="txt_p_customers_id_KeyDown"/>
                                     <TextBox x:Name="txt_p_customers_name" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_p_customers_surname" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_p_customers_address" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_customers_postno" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_p_customers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
-                                    <TextBox x:Name="txt_p_customers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_p_customers_postno" Margin="0,5,0,0" LostKeyboardFocus="txt_p_customers_postno_LostKeyboardFocus"/>
+                                    <TextBox x:Name="txt_p_customers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="91"/>
+                                    <TextBox x:Name="txt_p_customers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="91"/>
                                     <TextBox x:Name="txt_p_customers_email" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button x:Name="btn_p_customers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_p_customers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_p_customers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_p_customers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_p_customers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_customers_clear_Click"/>
+                                    <Button x:Name="btn_p_customers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_customers_search_Click"/>
+                                    <Button x:Name="btn_p_customers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_customers_remove_Click"/>
+                                    <Button x:Name="btn_p_customers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_customers_add_Click"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -545,7 +546,7 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_customers" 
-                                      Grid.Column="0" Margin="2,0,0,2" 
+                                      Grid.Column="0" Margin="2,-8,0,10" SelectedCellsChanged="dgv_c_customers_SelectedCellsChanged"
                                       IsReadOnly="True" SelectionMode="Single"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -570,21 +571,22 @@
                                     <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_c_customers_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_c_customers_id" HorizontalAlignment="Left" Width="80"  GotKeyboardFocus="txt_c_customers_id_GotKeyboardFocus" 
+                                             KeyDown="txt_c_customers_id_KeyDown"/>
                                     <TextBox x:Name="txt_c_customers_cvr" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_c_customers_name" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_c_customers_address" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_c_customers_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_c_customers_postno" Margin="0,5,0,0" LostFocus="txt_c_customers_postno_LostFocus"/>
                                     <TextBox x:Name="txt_c_customers_contactperson" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_c_customers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_c_customers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_c_customers_email" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button x:Name="btn_c_customers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_c_customers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_c_customers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_c_customers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_c_customers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_customers_clear_Click"/>
+                                    <Button x:Name="btn_c_customers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_customers_search_Click"/>
+                                    <Button x:Name="btn_c_customers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_customers_remove_Click"/>
+                                    <Button x:Name="btn_c_customers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_c_customers_add_Click"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -636,7 +638,8 @@
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_workers" 
                                       Grid.Column="0" Margin="2,0,0,2" 
-                                      IsReadOnly="True" SelectionMode="Single"/>
+                                      IsReadOnly="True" SelectionMode="Single"
+                                      SelectedCellsChanged="dgv_workers_SelectedCellsChanged"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -659,20 +662,20 @@
                                     <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_workers_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_workers_id" HorizontalAlignment="Left" Width="80" GotKeyboardFocus="txt_workers_id_GotKeyboardFocus" KeyDown="txt_workers_id_KeyDown"/>
                                     <TextBox x:Name="txt_workers_name" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_workers_surname" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_workers_address" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_workers_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_workers_postno" Margin="0,5,0,0" LostFocus="txt_workers_postno_LostFocus"/>
                                     <TextBox x:Name="txt_workers_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_workers_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_workers_email" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button x:Name="btn_workers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_workers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_workers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_workers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_workers_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_clear_Click"/>
+                                    <Button x:Name="btn_workers_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_search_Click"/>
+                                    <Button x:Name="btn_workers_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_remove_Click"/>
+                                    <Button x:Name="btn_workers_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_add_Click"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -724,7 +727,7 @@
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_departments" 
                                       Grid.Column="0" Margin="2,0,0,2" 
-                                      IsReadOnly="True" SelectionMode="Single"/>
+                                      IsReadOnly="True" SelectionMode="Single" SelectedCellsChanged="dgv_departments_SelectedCellsChanged"/>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -748,21 +751,21 @@
                                     <Label Content="E-mail" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_departments_number" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_departments_number" HorizontalAlignment="Left" Width="80" GotKeyboardFocus="txt_departments_number_GotKeyboardFocus"/>
                                     <TextBox x:Name="txt_departments_name" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_departments_cvr" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
-                                    <ComboBox x:Name="txt_departments_head" Margin="0,5,0,0"/>
+                                    <ComboBox x:Name="cmb_departments_head" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_departments_address" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_departments_postno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_departments_postno" Margin="0,5,0,0" LostFocus="txt_departments_postno_LostFocus"/>
                                     <TextBox x:Name="txt_departments_phoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_departments_altphoneno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
                                     <TextBox x:Name="txt_departments_email" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button x:Name="btn_departments_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_departments_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_departments_clear_Click"/>
                                     <Button x:Name="btn_departments_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_departments_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                    <Button x:Name="btn_departments_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                                    <Button x:Name="btn_departments_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_departments_remove_Click"/>
+                                    <Button x:Name="btn_departments_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_departments_add_Click"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>
