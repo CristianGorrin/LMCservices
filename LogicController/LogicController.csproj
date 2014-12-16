@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Invoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializeSession.cs" />
     <Compile Include="Session.cs" />
@@ -53,6 +54,10 @@
     <ProjectReference Include="..\Company\Company.csproj">
       <Project>{f9385457-756b-4a04-b151-84b73bdaa117}</Project>
       <Name>Company</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreateInvoice\CreateInvoice.csproj">
+      <Project>{fbcfb97c-c218-44ce-84d8-88a047fa57b9}</Project>
+      <Name>CreateInvoice</Name>
     </ProjectReference>
     <ProjectReference Include="..\Customers\Customers.csproj">
       <Project>{c7bb4979-49b7-4335-bb33-04a926429005}</Project>

@@ -17,7 +17,7 @@ using System.Diagnostics;
 
 using System.IO;
 
-namespace TestingExcelAPI
+namespace ExcelAPI
 {
     public class CreateInvoice <T>
     {
@@ -45,7 +45,8 @@ namespace TestingExcelAPI
         /*
          * Private Orders
          */
-        public CreateInvoice(List<T> input, Interface.IprivetCustomer customer, Interface.IbankAccounts bank, Interface.Idepartment dep, int daysToPay, string fakturaNo)
+        public CreateInvoice(List<T> input, Interface.IprivetCustomer customer, Interface.IbankAccounts bank, 
+            Interface.Idepartment dep, int daysToPay, string fakturaNo)
         {
             this.orders = input;
 
@@ -55,7 +56,7 @@ namespace TestingExcelAPI
             this.privateCustomer = customer;
             this.bank = bank;
             this.daysToPay = daysToPay;
-            this.fakturaNo = fakturaNo;
+            this.fakturaNo = "P" + fakturaNo;
             this.dep = dep;
         }
         //  Interface.Iworker worker, Interface.Idepartment dep, 
@@ -63,7 +64,8 @@ namespace TestingExcelAPI
         /*
          * Company orders
          */
-        public CreateInvoice(List<T> input, Interface.IcompanyCustomer customer, Interface.IbankAccounts bank, Interface.Idepartment dep, int daysToPay, string fakturaNo)
+        public CreateInvoice(List<T> input, Interface.IcompanyCustomer customer, Interface.IbankAccounts bank,
+            Interface.Idepartment dep, int daysToPay, string fakturaNo)
         {
             this.orders = input;
 
@@ -73,7 +75,7 @@ namespace TestingExcelAPI
             this.companyCustomer = customer;
             this.bank = bank;
             this.daysToPay = daysToPay;
-            this.fakturaNo = fakturaNo;
+            this.fakturaNo = "C" + fakturaNo;
             this.dep = dep;
         }
 
@@ -240,7 +242,10 @@ namespace TestingExcelAPI
             //Customer information
             xlSheet.Cells[8, 3] = "KUNDE";
             xlSheet.Cells[9, 1] = "Att.:";
+
+            if (this.companyCustomer != null)
             xlSheet.Cells[10, 1] = "Firmanavn:";
+
             xlSheet.Cells[11, 1] = "Adresse:";
             xlSheet.Cells[12, 1] = "Postnr. & by:";
             xlSheet.Cells[13, 1] = "Telefonnr.:";
@@ -334,6 +339,9 @@ namespace TestingExcelAPI
             {
                 foreach (Interface.IprivetOrder item in this.orders)
                 {
+                    if (item == null)
+                        break;
+
                     xlSheet.Cells[rowsOffset + rows, columnsOffset] = item.DescriptionTask;
                     xlSheet.Cells[rowsOffset + rows, columnsOffset + 6] = item.TaskDate.ToShortDateString();
                     xlSheet.Cells[rowsOffset + rows, columnsOffset + 8] = item.HourUse.ToString();
@@ -347,6 +355,9 @@ namespace TestingExcelAPI
             {
                 foreach (Interface.IcompanyOrder item in this.orders)
                 {
+                    if (item == null)
+                        break;
+
                     xlSheet.Cells[rowsOffset + rows, columnsOffset] = item.DescriptionTask;
                     xlSheet.Cells[rowsOffset + rows, columnsOffset + 6] = item.TaskDate.ToShortDateString();
                     xlSheet.Cells[rowsOffset + rows, columnsOffset + 8] = item.HoutsUse.ToString();
@@ -373,6 +384,9 @@ namespace TestingExcelAPI
             {
                 foreach (Interface.IprivetOrder item in this.orders)
                 {
+                    if (item == null)
+                        break;
+
                     total += item.PaidHour * item.HourUse;
                 }
             }
@@ -380,6 +394,9 @@ namespace TestingExcelAPI
             {
                 foreach (Interface.IcompanyOrder item in this.orders)
                 {
+                    if (item == null)
+                        break;
+
                     total += item.PaidHour * item.HoutsUse;
                 }
             }

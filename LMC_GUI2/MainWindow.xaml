@@ -213,7 +213,7 @@
                 </TabControl>
             </TabItem>
 
-            <TabItem x:Name="tbi_main_contracts" Header="Kontrakter">
+            <TabItem x:Name="tbi_main_Acc" Header="Bank">
                 <!--Section start-->
                 <Label Content="Kommer snart" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" Foreground="#FFF0EDED"/>
             </TabItem>
@@ -261,7 +261,14 @@
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_invoices" Grid.Column="0" 
-                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Extended" MouseDoubleClick="dgv_p_invoices_MouseDoubleClick"
+                                      KeyDown="dgv_p_invoices_KeyDown">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="ContextMenu_dgv_p_invoices" Header="Tilføj markt" Click="ContextMenu_dgv_p_invoices_Click"/>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+                            </DataGrid>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
@@ -274,23 +281,26 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Kunde" HorizontalAlignment="Right"/>
                                     <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
-                                    <TextBox x:Name="txt_p_invoices_id" HorizontalAlignment="Left" Width="80"/>
+                                    <ComboBox x:Name="cbm_p_invoices_customers" Margin="0,7,0,0" SelectionChanged="cbm_p_invoices_customers_SelectionChanged"/>
                                     <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_p_invoices_orders" 
                                               Height="300" Margin="0,5,0,0" IsReadOnly="True"
-                                              SelectionMode="Single"/>
+                                              SelectionMode="Extended" MouseDoubleClick="dgv_p_invoices_orders_MouseDoubleClick"
+                                              KeyDown="dgv_p_invoices_orders_KeyDown">
+                                        <DataGrid.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Header="Fjerne markt" x:Name="menu_dgv_p_invoices_orders" Click="menu_dgv_p_invoices_orders_Click"/>
+                                            </ContextMenu>
+                                        </DataGrid.ContextMenu>
+                                    </DataGrid>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
                                     <WrapPanel Width="300">
-                                        <Button x:Name="btn_p_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_p_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_p_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_p_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_p_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_p_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
+                                        <Button x:Name="btn_p_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_invoices_clear_Click"/>
+                                        <Button x:Name="btn_p_invoices_add" Content="Ny regning" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_p_invoices_add_Click"/>
                                     </WrapPanel>
                                 </StackPanel>
                             </Grid>
@@ -305,13 +315,14 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="31*" />
+                                <ColumnDefinition Width="507*"/>
                                 <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
 
                             <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_invoices" Grid.Column="0" 
-                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
-                            <Grid Grid.Column="1">
+                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single" Grid.ColumnSpan="2"/>
+                            <Grid Grid.Column="2">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="Auto" />
@@ -323,70 +334,19 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
+                                    <Label Content="Kunde" HorizontalAlignment="Right"/>
                                     <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
-                                    <TextBox x:Name="txt_c_invoices_id" HorizontalAlignment="Left" Width="80"/>
+                                    <ComboBox x:Name="cbm_c_invoices_customers" HorizontalAlignment="Left" Margin="0,7,0,0" Width="290"/>
                                     <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_c_invoices_orders"
                                               Height="300" Margin="0,5,0,0" IsReadOnly="True" SelectionMode="Single"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
                                     <WrapPanel Width="300">
                                         <Button x:Name="btn_c_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_c_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_c_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                         <Button x:Name="btn_c_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_c_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
                                         <Button x:Name="btn_c_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
-                                    </WrapPanel>
-                                </StackPanel>
-                            </Grid>
-                        </Grid>
-                    </TabItem>
-                    <TabItem x:Name="tbi_invoices_notsent">
-                        <TabItem.Header>
-                            <TextBlock Text="Ikke afsendt" FontSize="18" />
-                        </TabItem.Header>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="400" />
-                            </Grid.ColumnDefinitions>
-
-                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_ns_invoices" Grid.Column="0" 
-                                      Margin="2,0,0,2" IsReadOnly="True" SelectionMode="Single"/>
-                            <Grid Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="100" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
-                                    <Label Content="Regning nr." HorizontalAlignment="Right"/>
-                                    <Label Content="Ordrer" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-                                </StackPanel>
-                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
-                                    <TextBox x:Name="txt_ns_invoices_id" HorizontalAlignment="Left" Width="80"/>
-                                    <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_ns_invoices_orders" 
-                                              Height="300" Margin="0,5,0,0" IsReadOnly="True" SelectionMode="Single"/>
-                                </StackPanel>
-                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" SnapsToDevicePixels="True" IsHitTestVisible="True" HorizontalAlignment="Right">
-                                    <WrapPanel Width="300">
-                                        <Button x:Name="btn_ns_invoices_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_ns_invoices_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_ns_invoices_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_ns_invoices_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_ns_invoices_export" Content="Eksportér til Excel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                                        <Button x:Name="btn_ns_invoices_editorders" Content="Redigér ordrer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,0,0"/>
                                     </WrapPanel>
                                 </StackPanel>
                             </Grid>

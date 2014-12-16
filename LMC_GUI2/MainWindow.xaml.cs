@@ -198,6 +198,8 @@ namespace LMC_GUI2
 
                                 this.tabIndex = 2;
                                 this.subTabIndex = 0;
+
+                                this.cbm_p_invoices_customers.ItemsSource = this.controller.ListOfPrivateCustomersForInvoice();
                             }
                             break;
                         case 1:
@@ -211,6 +213,8 @@ namespace LMC_GUI2
 
                                 this.tabIndex = 2;
                                 this.subTabIndex = 1;
+
+                                this.cbm_c_invoices_customers.ItemsSource = this.controller.ListOfCompanyCustomersForInvoice();
                             }
                             break;
                         case 2:
@@ -237,19 +241,6 @@ namespace LMC_GUI2
 
                                 this.tabIndex = 2;
                                 this.subTabIndex = 3;
-                            }
-                            break;
-                        case 4:
-                            if (this.tabIndex == 2 && this.subTabIndex == 4)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                CleanUp();
-
-                                this.tabIndex = 2;
-                                this.subTabIndex = 4;
                             }
                             break;
                         default:
@@ -2162,6 +2153,317 @@ namespace LMC_GUI2
             this.dgv_departments.SelectedIndex = -1;
         }
         #endregion
+
+        #region Invoices Private
+        private void cbm_p_invoices_customers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.cbm_p_invoices_customers.SelectedIndex == -1)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            string temp = string.Empty;
+
+            foreach (char item in this.cbm_p_invoices_customers.SelectedItem.ToString())
+            {
+                int ignore;
+                if (int.TryParse(item.ToString(), out ignore))
+                {
+                    temp += item;
+                }
+                else if (item == ' ' || item == '-')
+                {
+                    break;
+                } 
+            }
+
+            try
+            {
+                this.dgv_p_invoices.ItemsSource = this.controller.GetCustomersPrivetForInvoices(Convert.ToInt32(temp)).AsDataView();
+            }
+            catch (Exception)
+            {
+            }
+
+            this.dgv_p_invoices_orders.ItemsSource = null;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+        private DataTable DataTabelForInvoices()
+        {
+            DataTable dataTable = new DataTable();
+
+            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Opgave", typeof(string));
+            dataTable.Columns.Add("Dato", typeof(DateTime));
+            dataTable.Columns.Add("Timer brugt", typeof(double));
+            dataTable.Columns.Add("Time løn", typeof(double));
+
+            return dataTable;
+        }
+
+        private void dgv_p_invoices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            if (dgv_p_invoices_orders.Items.Count > 20)
+            {
+                MessageBox.Show("Der må kun være 20 order pr. regninge");
+                return;
+            }
+
+            var dataGrid = (DataGrid)sender;
+
+            if (dataGrid.SelectedItem != null)
+            {
+                DataTable dataTableInvoices = DataTabelForInvoices();
+                DataTable dataTableOrders = DataTabelForInvoices();
+
+                foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+                {
+                    dataTableInvoices.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+
+                var moving = (DataRow)((DataRowView)dataGrid.SelectedItem).Row;
+
+                dataTableInvoices.Rows.Add(moving.ItemArray);
+
+                dgv_p_invoices_orders.ItemsSource = dataTableInvoices.AsDataView();
+
+                foreach (DataRowView item in this.dgv_p_invoices.Items)
+                {
+                    if (item != dataGrid.SelectedItem)
+                    {
+                        dataTableOrders.Rows.Add(((DataRow)item.Row).ItemArray);
+                    }
+                }
+
+                this.dgv_p_invoices.ItemsSource = dataTableOrders.AsDataView();
+            }
+        }
+
+        private void dgv_p_invoices_orders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            var dataGrid = (DataGrid)sender;
+
+            if (dataGrid.SelectedIndex == -1)
+                return;
+
+            DataTable dataTableInvoices = DataTabelForInvoices();
+            DataTable dataTableOrders = DataTabelForInvoices();
+
+            foreach (DataRowView item in this.dgv_p_invoices.Items)
+            {
+                dataTableOrders.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            var moving = (DataRow)((DataRowView)dataGrid.SelectedItem).Row;
+
+            dataTableOrders.Rows.Add(moving.ItemArray);
+
+            this.dgv_p_invoices.ItemsSource = dataTableOrders.AsDataView();
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+            {
+                if (item != dataGrid.SelectedItem)
+                {
+                    dataTableInvoices.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            this.dgv_p_invoices_orders.ItemsSource = dataTableInvoices.AsDataView();
+        }
+
+        private void ContextMenu_dgv_p_invoices_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_p_invoices.SelectedItems.Count < 1)
+                return;
+
+            if (this.dgv_p_invoices.SelectedItems.Count + this.dgv_p_invoices_orders.Items.Count > 20)
+            {
+                MessageBox.Show("Der er kun plas til 20 order på en regninge");
+                return;
+            }
+
+            var oderes = DataTabelForInvoices();
+            var oderesSelected = DataTabelForInvoices();
+
+            var moving = new List<DataRow>();
+            var listDeleteingIndex = new List<int>();
+
+
+            foreach (DataRowView item in this.dgv_p_invoices.SelectedItems)
+            {
+                moving.Add((DataRow)item.Row);
+                listDeleteingIndex.Add((int)((DataRow)item.Row).ItemArray[0]);
+            }
+
+            foreach (DataRowView item in this.dgv_p_invoices.Items)
+            {
+                int id = (int)((DataRow)item.Row).ItemArray[0];
+                
+                if (!listDeleteingIndex.Contains(id))
+                {
+                    oderes.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            foreach (DataRowView item in dgv_p_invoices_orders.Items)
+            {
+                oderesSelected.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            foreach (var item in moving)
+            {
+                oderesSelected.Rows.Add(item.ItemArray);
+            }
+
+            dgv_p_invoices_orders.ItemsSource = oderesSelected.AsDataView();
+            dgv_p_invoices.ItemsSource = oderes.AsDataView();
+        }
+
+        private void menu_dgv_p_invoices_orders_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_p_invoices_orders.SelectedItems.Count < 1)
+                return;
+
+            var oderes = DataTabelForInvoices();
+            var oderesSelected = DataTabelForInvoices();
+
+            var moving = new List<DataRow>();
+            var listDeleteingIndex = new List<int>();
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.SelectedItems)
+            {
+                moving.Add((DataRow)item.Row);
+                listDeleteingIndex.Add((int)((DataRow)item.Row).ItemArray[0]);
+            }
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+            {
+                int id = (int)((DataRow)item.Row).ItemArray[0];
+
+                if (!listDeleteingIndex.Contains(id))
+                {
+                    oderesSelected.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            foreach (DataRowView item in dgv_p_invoices.Items)
+            {
+                oderes.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            foreach (var item in moving)
+            {
+                oderes.Rows.Add(item.ItemArray);
+            }
+
+            dgv_p_invoices_orders.ItemsSource = oderesSelected.AsDataView();
+            dgv_p_invoices.ItemsSource = oderes.AsDataView();
+        }
+
+        private void btn_p_invoices_add_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_p_invoices_orders.Items.Count < 1)
+            {
+                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                return;
+            }
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            var departments = this.controller.ListOfDepartments();
+            var acc = this.controller.ListOfBankAcc();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+
+            var window = new WpfAddInvoice(acc, departments);
+            window.ShowDialog();
+
+            if (!window.Ok)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            var orders = new List<int?>();
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+            {
+                orders.Add((int)(((DataRow)item.Row).ItemArray[0]));
+            }
+
+            for (int i = orders.Count; i < 20; i++)
+            {
+                orders.Add(null);
+            }
+
+            string customersId = string.Empty;
+
+            foreach (char item in cbm_p_invoices_customers.Text)
+	        {
+                int temp;
+		        if(int.TryParse(item.ToString(), out temp))
+                {
+                    customersId += item;
+                }
+                else if (item == ' ' || item == '-')
+	            {
+		            break;
+	            }
+	        }
+
+            int? newInvoiceId;
+
+            this.controller.CreateInvoicePrivate(orders.ToArray(), Convert.ToInt32(customersId),Convert.ToInt32(window.Bank),
+                Convert.ToInt32(window.Department), window.DaysToPaid, out newInvoiceId);
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+            if (newInvoiceId == null || newInvoiceId == -1)
+            {
+                MessageBox.Show("Der opstod en fjel, kunne ikke lave en regningen");
+            }
+            else
+            {
+                this.dgv_p_invoices_orders.ItemsSource = null;
+
+                if (this.dgv_p_invoices.Items.Count < 1)
+                {
+                    var dleleteingItem = (string)this.cbm_p_invoices_customers.SelectedItem;
+                    this.cbm_p_invoices_customers.SelectedIndex = -1;
+                    var list = (List<string>)this.cbm_p_invoices_customers.ItemsSource;
+                    list.Remove(dleleteingItem);
+
+                    this.cbm_p_invoices_customers.ItemsSource = null;
+                    this.cbm_p_invoices_customers.ItemsSource = list;
+                }
+            }
+        }
+
+        private void dgv_p_invoices_orders_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                this.dgv_p_invoices.SelectAll();
+        }
+
+        private void dgv_p_invoices_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                this.dgv_p_invoices_orders.SelectAll();
+        }
+
+        private void btn_p_invoices_clear_Click(object sender, RoutedEventArgs e)
+        {
+            this.cbm_p_invoices_customers.SelectedIndex = -1;
+            this.dgv_p_invoices.ItemsSource = null;
+            this.dgv_p_invoices_orders.ItemsSource = null;
+        }
+        #endregion
         #endregion
 
         private void CleanUp()
@@ -2201,9 +2503,11 @@ namespace LMC_GUI2
                     switch (this.subTabIndex)
 	                {
                         case 0:
+                            this.controller.CleanUpPrivateCustomers();
                             this.dgv_p_customers.ItemsSource = null;
                             break;
                         case 1:
+                            this.controller.CleanUpCompanyCustomers();
                             this.dgv_c_customers.ItemsSource = null;
                             break;
                         default:
@@ -2214,10 +2518,34 @@ namespace LMC_GUI2
                     this.dgv_workers.ItemsSource = null;
                     break;
                 case 5:
+                    this.controller.CleanUpDepartments();
                     this.dgv_departments.ItemsSource = null;
                     this.cmb_departments_head.ItemsSource = null;
                     break;
                 case 6:
+                    switch (this.subTabIndex)
+	                {
+                        case 0:
+                            this.dgv_p_invoices.ItemsSource = null;
+                            this.dgv_p_invoices_orders.ItemsSource = null;
+
+                            this.cbm_p_invoices_customers.ItemsSource = null;
+                            break;
+                        case 1:
+                            this.dgv_c_invoices.ItemsSource = null;
+                            this.dgv_c_invoices_orders.ItemsSource = null;
+
+                            this.cbm_c_invoices_customers.ItemsSource = null;
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+		                default:
+                            throw new ArgumentOutOfRangeException("Cleanup invoices");
+	                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("CleanUp");

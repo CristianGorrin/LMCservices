@@ -39,6 +39,20 @@ namespace LogicController
                 this.departments.Add(item);
             }
         }
+
+        public List<string> ListOfDepartments()
+        {
+            var list = new List<string>();
+
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            foreach (var item in rdg.Get(true))
+            {
+                list.Add("#" + item.Deparment + " " + item.CompanyName);
+            }
+
+            return list;
+        }
         #endregion
 
         #region workers
@@ -161,6 +175,46 @@ namespace LogicController
             {
                 list.Add("#" + item.CompanyCustomersNo.ToString() + " - " + item.Name);
             }
+
+            return list;
+        }
+
+        public List<string> ListOfCompanyCustomersForInvoice()
+        {
+            var list = new List<string>();
+            var filter = new List<int>();
+
+            var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+
+            string temp = string.Empty;
+
+            foreach (var item in rdg.Get(false))
+            {
+                if (!filter.Contains(item.Customer.CompanyCustomersNo))
+                {
+                    temp = "#";
+                    if (item.Customer.CompanyCustomersNo < 10)
+                    {
+                        temp += "00" + item.Customer.CompanyCustomersNo;
+                    }
+                    else if (item.Customer.CompanyCustomersNo < 100)
+                    {
+                        temp += "0" + item.Customer.CompanyCustomersNo;
+                    }
+                    else
+                    {
+                        temp += item.Customer.CompanyCustomersNo;
+                    }
+
+                    temp += " - " + item.Customer.Name;
+
+                    list.Add(temp);
+
+                    filter.Add(item.Customer.CompanyCustomersNo);
+                }
+            }
+
+            list.Sort();
 
             return list;
         }
@@ -357,7 +411,45 @@ namespace LogicController
             return list;
         }
 
-        
+        public List<string> ListOfPrivateCustomersForInvoice()
+        {
+            var list = new List<string>();
+            var filter = new List<int>();
+
+            var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
+
+            string temp = string.Empty;
+
+            foreach (var item in rdg.Get(false))
+            {
+                if (!filter.Contains(item.Customer.PrivateCustomersNo))
+                {
+                    temp = "#";
+                    if (item.Customer.PrivateCustomersNo < 10)
+                    {
+                        temp += "00" + item.Customer.PrivateCustomersNo;
+                    }
+                    else if (item.Customer.PrivateCustomersNo < 100)
+                    {
+                        temp += "0" + item.Customer.PrivateCustomersNo;
+                    }
+                    else
+                    {
+                        temp += item.Customer.PrivateCustomersNo;
+                    }
+
+                    temp += " - " + item.Customer.Name + " " + item.Customer.Surname;
+                    
+                    list.Add(temp);
+
+                    filter.Add(item.Customer.PrivateCustomersNo);
+                }
+            }
+
+            list.Sort();
+
+            return list;
+        }
 
         public bool PrivateCustomersDelete(int id)
         {
@@ -429,6 +521,31 @@ namespace LogicController
             }
            
             return true;
+        }
+
+        public DataTable GetCustomersPrivetForInvoices(int id)
+        {
+            DataTable dataTable = new DataTable();
+
+            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Opgave", typeof(string));
+            dataTable.Columns.Add("Dato", typeof(DateTime));
+            dataTable.Columns.Add("Timer brugt", typeof(double));
+            dataTable.Columns.Add("Time løn", typeof(double));
+            
+            var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
+
+            foreach (var item in rdg.GetBaseCustomer(id, false))
+            {
+                dataTable.Rows.Add(
+                    item.InvoiceNo,
+                    item.DescriptionTask,
+                    item.CreateDate,
+                    item.HourUse,
+                    item.PaidHour);
+            } 
+
+            return dataTable;
         }
 
         #endregion
@@ -668,6 +785,22 @@ namespace LogicController
                 return obj.PostNumber.ToString() + @" / " + obj.City;
             else
                 return string.Empty;
+        }
+        #endregion
+
+        #region AccBank
+        public List<string> ListOfBankAcc()
+        {
+            var list = new List<string>();
+            
+            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
+
+            foreach (var item in rdg.Get())
+	        {
+                list.Add("#" + item.Id + " - " + item.AccountName);
+	        }
+
+            return list;
         }
         #endregion
 
