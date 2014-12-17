@@ -21,6 +21,7 @@ namespace LogicController
 
             this.departments = new Company.Departments();
             this.workers = new Company.Workers();
+            this.bankAccounts = new Company.BankAccounts();
             this.companyCustomers = new Customers.CompanyCustomers();
             this.privateCustomers = new Customers.PrivateCustomers();
             this.companyOrders = new Orders.CompanyOrders();

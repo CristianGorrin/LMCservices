@@ -1631,6 +1631,187 @@ namespace LMC_GUI2
         }
         #endregion
 
+        #region Bank Accounts
+        private void ClearBankAccounts()
+        {
+            this.txt_bank_bankname.Text = String.Empty;
+            this.txt_bank_accname.Text = String.Empty;
+            this.txt_bank_regno.Text = String.Empty;
+            this.txt_bank_accno.Text = String.Empty;
+            this.txt_bank_balance.Text = String.Empty;
+            this.dgv_bank.SelectedIndex = -1;
+        }
+        private void FindBankAccount()
+        {
+            int id = -1;
+
+            if (!int.TryParse(this.txt_bank_id.Text, out id))
+                return;
+
+            var items = (ItemCollection)this.dgv_bank.Items;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var view = (DataRowView)items[i];
+                if (view.Row.ItemArray[8].ToString() == id.ToString())
+                {
+                    this.dgv_workers.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+        private void dgv_bank_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            DataGrid senderItem = null;
+            DataRowView selectedItem = null;
+            DataRow row = null;
+
+            try
+            {
+                senderItem = (DataGrid)sender;
+                selectedItem = (DataRowView)senderItem.SelectedItem;
+                row = (DataRow)selectedItem.Row;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            this.txt_bank_id.Text = row.ItemArray[0].ToString();
+            this.txt_bank_bankname.Text = row.ItemArray[1].ToString();
+            this.txt_bank_accname.Text = row.ItemArray[2].ToString();
+            this.txt_bank_regno.Text = row.ItemArray[3].ToString();
+            this.txt_bank_accno.Text = row.ItemArray[4].ToString();
+            this.txt_bank_balance.Text = row.ItemArray[5].ToString();
+        }
+        private void btn_bank_clear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearBankAccounts();
+        }
+        private void btn_bank_search_Click(object sender, RoutedEventArgs e)
+        {
+            FindBankAccount();
+        }
+        private void txt_bank_Id_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            ClearBankAccounts();
+        }
+        private void txt_bank_Id_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                FindBankAccount();
+            }
+        }
+        private void btn_bank_remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_bank.SelectedIndex == -1)
+                return;
+
+            var result = MessageBox.Show("Do you want to delete Bank Account No: #" + this.txt_bank_id.Text + "?", "?", MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            if (!this.controller.BankAccountsRemove(Convert.ToInt32(this.txt_bank_id.Text)))
+                MessageBox.Show("Department was not deleted");
+
+            this.dgv_bank.ItemsSource = this.controller.GetBankAccounts().AsDataView();
+
+            ClearWorker();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+        private void btn_bank_add_Click(object sender, RoutedEventArgs e)
+        {
+            bool ok = true;
+            string messges = string.Empty;
+
+            if (txt_bank_bankname.Text == string.Empty)
+            {
+                ok = false;
+                messges += "Bank Name field is empty." + Environment.NewLine;
+            }
+
+            if (this.txt_bank_accname.Text == string.Empty)
+            {
+                ok = false;
+                messges += "Account Name field is empty." + Environment.NewLine;
+            }
+
+            if (this.txt_bank_accno.Text == string.Empty)
+            {
+                ok = false;
+                messges += "Account Number field is empty" + Environment.NewLine;
+            }
+
+            if (this.txt_bank_regno.Text == string.Empty)
+            {
+                ok = false;
+                messges += "Bank Reg No field is empty";
+            }
+
+            if (this.txt_bank_balance.Text == string.Empty)
+            {
+                ok = false;
+                messges += "Bank Balance field is empty";
+            }
+
+            if (!ok)
+            {
+                MessageBox.Show("You failed because: " + messges);
+                return;
+            }
+
+            bool selectedNew = false;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            if (this.txt_bank_id.Text == string.Empty)
+            {
+                // add new
+                if (!this.controller.BankAccountsAdd(txt_bank_bankname.Text, txt_bank_accname.Text, Convert.ToInt32(txt_bank_regno.Text), txt_bank_accno.Text, Convert.ToDouble(txt_bank_balance.Text)))
+                    MessageBox.Show("Bank not Added");
+
+                selectedNew = true;
+            }
+            else
+            {
+                // update
+                if (this.dgv_bank.SelectedIndex == -1)
+                {
+                    Mouse.OverrideCursor = Cursors.Arrow;
+                    return;
+                }
+
+                if (!this.controller.BankAccountsUpdate(Convert.ToInt32(txt_bank_id.Text), txt_bank_bankname.Text, txt_bank_accname.Text, Convert.ToInt32(txt_bank_regno.Text), txt_bank_accno.Text, Convert.ToDouble(txt_bank_balance.Text)))
+                    MessageBox.Show("Bank was not updated");
+            }
+
+            int index = this.dgv_bank.SelectedIndex;
+
+            this.dgv_bank.ItemsSource = this.controller.GetBankAccounts().AsDataView();
+
+            if (selectedNew == true)
+            {
+                this.dgv_bank.SelectedIndex = this.dgv_bank.Items.Count - 1;
+            }
+            else
+            {
+                this.dgv_bank.SelectedIndex = index;
+            }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+
+
+        #endregion 
+
         #region Workers
         private void dgv_workers_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {

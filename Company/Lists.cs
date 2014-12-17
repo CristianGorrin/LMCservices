@@ -107,4 +107,52 @@ namespace Company
             }
         }
     }
+
+
+
+    public class BankAccounts : API.Lists<Interface.IbankAccounts>
+    {
+        public BankAccounts()
+            : base()
+        {
+        }
+        public override System.Data.DataTable AsDataTable()
+        {
+            var dataTable = new System.Data.DataTable();
+
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("Bank", typeof(string));
+            dataTable.Columns.Add("Account Name", typeof(string));
+            dataTable.Columns.Add("Reg No", typeof(int));
+            dataTable.Columns.Add("Account Number", typeof(string));
+            dataTable.Columns.Add("Balance", typeof(double));
+
+            foreach (var item in this.list)
+            {
+                dataTable.Rows.Add(
+                    item.Id,
+                    item.Bank,
+                    item.AccountName,
+                    item.RegNo,
+                    item.AccountNo,
+                    item.Balance);
+
+            }
+
+            return dataTable;
+        }
+
+        public void RemoveAtBankAccountId(int id)
+        {
+
+            for (int i = 0; i < this.list.Count; i++)
+            {
+                if (this.list[i].Id == id)
+                {
+                    this.list.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+    }
 }

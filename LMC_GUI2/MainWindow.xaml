@@ -215,7 +215,86 @@
 
             <TabItem x:Name="tbi_main_Acc" Header="Bank">
                 <!--Section start-->
-                <Label Content="Kommer snart" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" Foreground="#FFF0EDED"/>
+                <TabControl x:Name="tbc_bank">
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid>
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    RecognizesAccessKey="True"
+                                                    Margin="10,0,0,0" Width="Auto" Height="22">
+                                            </ContentPresenter>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter Property="Foreground" Value="LightGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem x:Name="tbi_bank_all">
+                        <TabItem.Header>
+                            <TextBlock Text="" FontSize="18" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="400" />
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid GridLinesVisibility="Horizontal" x:Name="dgv_bank" 
+                                      Grid.Column="0" Margin="2,0,0,2" 
+                                      IsReadOnly="True" SelectionMode="Single"
+                                      SelectedCellsChanged="dgv_bank_SelectedCellsChanged"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Grid.Row="1">
+                                    <Label Content="ID" HorizontalAlignment="Right"/>
+                                    <Label Content="Bank" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Kontonavn" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Kontonr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Reg.nr." HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                    <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                                    <TextBox x:Name="txt_bank_id" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_bank_bankname" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_bank_accname" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_bank_accno" Margin="0,5,0,0"/>
+                                    <TextBox x:Name="txt_bank_regno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_bank_balance" Margin="0,5,0,0"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="btn_bank_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_clear_Click"/>
+                                    <Button x:Name="btn_bank_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_search_Click"/>
+                                    <Button x:Name="btn_bank_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_remove_Click"/>
+                                    <Button x:Name="btn_bank_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_workers_add_Click"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
             </TabItem>
 
             <TabItem x:Name="tbi_main_invoices" Header="Regninger">

@@ -25,7 +25,93 @@ namespace LogicController
         private CompanyOrders companyOrders;
         private PrivetOrders privetOrders;
         private PostNumbers postNumbers;
+        private BankAccounts bankAccounts;
 
+        #region BankAccounts
+        public bool BankAccountsRemove(int id)
+        {
+            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool BankAccountsUpdate(int newId, string newBank, string newAccountName, int newRegNo, string newAccountNo, double newBalance)
+        {
+            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
+            try
+            {
+                rdg.Update(new InterfaceAdaptor.BankAccounts()
+                {
+                    Id = newId,
+                    Bank = newBank,
+                    AccountName = newAccountName,
+                    RegNo = newRegNo,
+                    AccountNo = newAccountNo,
+                    Balance = newBalance
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool BankAccountsAdd(string newBank, string newAccountName, int newRegNo, string newAccountNo, double newBalance)
+        {
+            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.BankAccounts()
+                {
+                    Bank = newBank,
+                    AccountName = newAccountName,
+                    RegNo = newRegNo,
+                    AccountNo = newAccountNo,
+                    Balance = newBalance
+                });
+            }
+
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public List<string> ListOfBankAcc()
+        {
+            var list = new List<string>();
+
+            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
+
+            foreach (var item in rdg.Get())
+            {
+                list.Add("#" + item.Id + " - " + item.AccountName);
+            }
+
+            return list;
+        }
+        private void FildBankAccounts(bool? active)
+        {
+            this.bankAccounts.Clear();
+
+            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
+
+            foreach (var item in rdg.Get())
+            {
+                this.bankAccounts.Add(item);
+            }
+        }
+
+        #endregion
 
         #region departments
         public bool DepartmentsRemove(int id)
@@ -856,22 +942,6 @@ namespace LogicController
         }
         #endregion
 
-        #region AccBank
-        public List<string> ListOfBankAcc()
-        {
-            var list = new List<string>();
-            
-            var rdg = new RDGs.RDGtblBankAccounts(this.session.ConnectionString);
-
-            foreach (var item in rdg.Get())
-	        {
-                list.Add("#" + item.Id + " - " + item.AccountName);
-	        }
-
-            return list;
-        }
-        #endregion
-
         #region Invoice
         public string FindOrdersInfo(char type, int id)
         {
@@ -967,6 +1037,22 @@ namespace LogicController
         #endregion
 
         #region Get data tables
+
+        public DataTable GetBankAccounts()
+        {
+            FildBankAccounts(true);
+            var dataTable = this.bankAccounts.AsDataTable();
+
+            dataTable.Columns[0].ColumnName = "ID Number";
+            dataTable.Columns[1].ColumnName = "Bank name";
+            dataTable.Columns[3].ColumnName = "Account name";
+            dataTable.Columns[4].ColumnName = "Reg No";
+            dataTable.Columns[5].ColumnName = "Account No";
+            dataTable.Columns[6].ColumnName = "Balance";
+
+            return dataTable;
+                
+        }
         public DataTable GetOrdersPrivet()
         {
             FildPrivetOrders(false);
