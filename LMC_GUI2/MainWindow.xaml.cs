@@ -1645,8 +1645,6 @@ namespace LMC_GUI2
         }
         private void FindBankAccount()
         {
-            int id = -1;
-
             var items = (ItemCollection)this.dgv_bank.Items;
 
             for (int i = 0; i < items.Count; i++)
@@ -1806,6 +1804,35 @@ namespace LMC_GUI2
 
             Mouse.OverrideCursor = Cursors.Arrow;
         }
+        private void txt_bank_id_TextChanged(object sender, RoutedEventArgs e)
+        {
+            var items = (ItemCollection)this.dgv_bank.Items;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var view = (DataRowView)items[i];
+                if (view.Row.ItemArray[0].ToString() == txt_bank_id.Text)
+                {
+                    this.dgv_bank.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+        private void txt_bank_regNo_Textchanged(object sender, RoutedEventArgs e)
+        {
+            var items = (ItemCollection)this.dgv_bank.Items;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var view = (DataRowView)items[i];
+                if (view.Row.ItemArray[3].ToString() == txt_bank_regno.Text)
+                {
+                    this.dgv_bank.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
 
 
 

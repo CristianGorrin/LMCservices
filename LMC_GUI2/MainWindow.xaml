@@ -278,11 +278,11 @@
                                     <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel Width="290" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                                    <TextBox x:Name="txt_bank_id" HorizontalAlignment="Left" Width="80" GotKeyboardFocus="txt_bank_Id_GotKeyboardFocus" KeyDown="txt_bank_Id_KeyDown"/>
+                                    <TextBox x:Name="txt_bank_id" HorizontalAlignment="Left" Width="80" GotKeyboardFocus="txt_bank_Id_GotKeyboardFocus" KeyDown="txt_bank_Id_KeyDown" TextChanged="txt_bank_id_TextChanged"/>
                                     <TextBox x:Name="txt_bank_bankname" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_bank_accname" Margin="0,5,0,0"/>
                                     <TextBox x:Name="txt_bank_accno" Margin="0,5,0,0"/>
-                                    <TextBox x:Name="txt_bank_regno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80"/>
+                                    <TextBox x:Name="txt_bank_regno" Margin="0,5,0,0" HorizontalAlignment="Left" Width="80" TextChanged="txt_bank_regNo_Textchanged"/>
                                     <TextBox x:Name="txt_bank_balance" Margin="0,5,0,0"/>
                                 </StackPanel>
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
