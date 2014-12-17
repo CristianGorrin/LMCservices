@@ -56,7 +56,7 @@ namespace ExcelAPI
             this.privateCustomer = customer;
             this.bank = bank;
             this.daysToPay = daysToPay;
-            this.fakturaNo = "P" + fakturaNo;
+            this.fakturaNo = "P-" + fakturaNo;
             this.dep = dep;
         }
         //  Interface.Iworker worker, Interface.Idepartment dep, 
@@ -75,7 +75,7 @@ namespace ExcelAPI
             this.companyCustomer = customer;
             this.bank = bank;
             this.daysToPay = daysToPay;
-            this.fakturaNo = "C" + fakturaNo;
+            this.fakturaNo = "C-" + fakturaNo;
             this.dep = dep;
         }
 

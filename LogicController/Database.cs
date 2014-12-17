@@ -28,6 +28,78 @@ namespace LogicController
 
 
         #region departments
+        public bool DepartmentsRemove(int id)
+        {
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Delete(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool DepartmentsUpdate(int deparment, string address, string altPhoneNo, string companyName, int cvrNo,
+            int deparmentHead, string email, string phoneNo, int zip)
+        {
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Update(new InterfaceAdaptor.Department()
+                {
+                    Deparment = deparment,
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altPhoneNo,
+                    CompanyName = companyName,
+                    CvrNo = cvrNo,
+                    DeparmentHead = new InterfaceAdaptor.Worker() { WorkNo = deparmentHead },
+                    Email = email,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    PhoneNo = phoneNo,
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool DepartmentsAdd(string address, string altPhoneno, string companyName, int cvrNo,
+            int deparmentHead, string email, string phoneNo, int zip)
+        {
+            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.Department()
+                {
+                    Active = true,
+                    Address = address,
+                    AltPhoneNo = altPhoneno,
+                    CompanyName = companyName,
+                    CvrNo = cvrNo,
+                    DeparmentHead = new InterfaceAdaptor.Worker() { WorkNo = deparmentHead },
+                    Email = email,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    PhoneNo = phoneNo,
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
         private void Filddepartments(bool? active)
         {
             this.departments.Clear();
@@ -81,9 +153,10 @@ namespace LogicController
             }
         }
 
-        public bool DepartmentsRemove(int id)
+
+        public bool WorkersRemove(int id)
         {
-            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
 
             try
             {
@@ -94,27 +167,46 @@ namespace LogicController
                 return false;
             }
 
+            this.workers.RemoveAtWorkerId(id);
             return true;
         }
-        public bool DepartmentsUpdate(int deparment, string address, string altPhoneNo, string companyName, int cvrNo,
-            int deparmentHead, string email, string phoneNo, int zip)
+
+        public bool WorkerAdd(string name, string surname, string address, int zip,
+            string phoneNo, string altPhoneNo, string email)
         {
-            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+            int workerStatusId = -1;
 
             try
             {
-                rdg.Update(new InterfaceAdaptor.Department()
+                var rdgWorkerStatus = new RDGs.RDGtblWorkerStatus(this.session.ConnectionString);
+                workerStatusId = rdgWorkerStatus.NextId;
+                rdgWorkerStatus.Add(new InterfaceAdaptor.WorkerStatus()
                 {
-                    Deparment = deparment,
+                    Staus = "temp" // TODO add worker status to the program
+                });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            if (workerStatusId == -1)
+                return false;
+
+            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
+            try
+            {
+                rdg.Add(new InterfaceAdaptor.Worker()
+                {
                     Active = true,
                     Address = address,
                     AltPhoneNo = altPhoneNo,
-                    CompanyName = companyName,
-                    CvrNo = cvrNo,
-                    DeparmentHead = new InterfaceAdaptor.Worker() { WorkNo = deparmentHead },
                     Email = email,
-                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    Name = name,
                     PhoneNo = phoneNo,
+                    PostNo = postNumbers.GetAtPostNumber(zip),
+                    Surname = surname,
+                    WorkerStatus = new InterfaceAdaptor.WorkerStatus() { StautsNo = workerStatusId },
                 });
             }
             catch (Exception)
@@ -124,24 +216,26 @@ namespace LogicController
 
             return true;
         }
-        public bool DepartmentsAdd(string address, string altPhoneno, string companyName, int cvrNo, 
-            int deparmentHead, string email, string phoneNo, int zip)
+
+        public bool WorkerUpdate(int id, string name, string surname, string address, int zip,
+            string phoneNo, string altPhoneNo, string email)
         {
-            var rdg = new RDGs.RDGtblDepartment(this.session.ConnectionString);
+            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
 
             try
             {
-                rdg.Add(new InterfaceAdaptor.Department()
+                rdg.Update(new InterfaceAdaptor.Worker()
                 {
                     Active = true,
                     Address = address,
-                    AltPhoneNo = altPhoneno,
-                    CompanyName = companyName,
-                    CvrNo = cvrNo,
-                    DeparmentHead = new InterfaceAdaptor.Worker() { WorkNo = deparmentHead },
+                    AltPhoneNo = altPhoneNo,
                     Email = email,
-                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    Name = name,
                     PhoneNo = phoneNo,
+                    PostNo = this.postNumbers.GetAtPostNumber(zip),
+                    Surname = surname,
+                    WorkerStatus = null, // TODO add worker status to the program
+                    WorkNo = id
                 });
             }
             catch (Exception)
@@ -292,100 +386,74 @@ namespace LogicController
             return true;
         }
 
-        public bool WorkersRemove(int id)
+        public DataTable GetCompanyCustomerstForInvoices(int id)
         {
-            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
+            DataTable dataTable = new DataTable();
 
-            try
+            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Opgave", typeof(string));
+            dataTable.Columns.Add("Dato", typeof(DateTime));
+            dataTable.Columns.Add("Timer brugt", typeof(double));
+            dataTable.Columns.Add("Time løn", typeof(double));
+
+            var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+
+            foreach (var item in rdg.GetBaseCustomer(id, false))
             {
-                rdg.Delete(id);
-            }
-            catch (Exception)
-            {
-                return false;
+                dataTable.Rows.Add(
+                    item.InvoiceNo,
+                    item.DescriptionTask,
+                    item.CreateDate,
+                    item.HoutsUse,
+                    item.PaidHour);
             }
 
-            this.workers.RemoveAtWorkerId(id);
-            return true;
+            return dataTable;
         }
 
-        public bool WorkerAdd(string name, string surname, string address, int zip, 
-            string phoneNo, string altPhoneNo, string email)
+        public Interface.IcompanyCustomer FindCompanyCustomer(int id)
         {
-            int workerStatusId = -1;
-            
+            var rdg = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
+
             try
             {
-                var rdgWorkerStatus = new RDGs.RDGtblWorkerStatus(this.session.ConnectionString);
-                workerStatusId = rdgWorkerStatus.NextId;
-                rdgWorkerStatus.Add(new InterfaceAdaptor.WorkerStatus()
-                {
-                    Staus = "temp" // TODO add worker status to the program
-                });
+                return rdg.Find(id);
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
-
-            if (workerStatusId == -1)
-                return false;
-
-            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
-            try
-            {
-                rdg.Add(new InterfaceAdaptor.Worker()
-                {
-                    Active = true,
-                    Address = address,
-                    AltPhoneNo = altPhoneNo,
-                    Email = email,
-                    Name = name,
-                    PhoneNo = phoneNo,
-                    PostNo = postNumbers.GetAtPostNumber(zip),
-                    Surname = surname,
-                    WorkerStatus = new InterfaceAdaptor.WorkerStatus() { StautsNo = workerStatusId },
-                });
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
         }
 
-        public bool WorkerUpdate(int id, string name, string surname, string address, int zip,
-            string phoneNo, string altPhoneNo, string email)
+        public Interface.IcompanyCustomer FindCompanyCustomerBaseOrder(int orderId)
         {
-            var rdg = new RDGs.RDGtblWorkers(this.session.ConnectionString);
-
-            try
-            {
-                rdg.Update(new InterfaceAdaptor.Worker()
-                {
-                    Active = true,
-                    Address = address,
-                    AltPhoneNo = altPhoneNo,
-                    Email = email,
-                    Name = name,
-                    PhoneNo = phoneNo,
-                    PostNo = this.postNumbers.GetAtPostNumber(zip),
-                    Surname = surname,
-                    WorkerStatus = null, // TODO add worker status to the program
-                    WorkNo = id
-                });
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+            return rdg.Find(orderId).Customer;
         }
+
         #endregion
 
         #region privateCustomers
+        public Interface.IprivetCustomer FindPrivateCustomer(int id)
+        {
+            var rdg = new RDGs.RDGtblPrivateCustomers(this.session.ConnectionString);
+
+            try
+            {
+                return rdg.Find(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Interface.IprivetCustomer FindPrivateCustomerBaseOrder(int orderId)
+        {
+            var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
+            return rdg.Find(orderId).Customer;
+        }
+
         private void FildPrivateCustomers(bool? activet)
         {
             this.privateCustomers.Clear();
@@ -804,6 +872,100 @@ namespace LogicController
         }
         #endregion
 
+        #region Invoice
+        public string FindOrdersInfo(char type, int id)
+        {
+            if (type == 'C')
+            {
+                var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
+                return rdg.Find(id).DescriptionTask;
+            }
+            else if (type == 'P')
+            {
+                var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
+                return rdg.Find(id).DescriptionTask;
+            }
+            else
+	        {
+                throw new ArgumentException("Type");
+	        }
+        }
+
+        public bool DelelteInvoice(char type, int id)
+        {
+            if (type == 'C')
+            {
+                var rdg = new RDGs.RDGtblInvoiceCompany(this.session.ConnectionString);
+
+                try
+                {
+                    rdg.Delete(id);
+                }
+                catch (Exception)
+                {
+
+                    return false;
+                }
+
+                return true;
+            }
+            else if (type == 'P')
+            {
+                var rdg = new RDGs.RDGtblInvoicePrivet(this.session.ConnectionString);
+
+                try
+                {
+                    rdg.Delete(id);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            else
+            {
+                throw new ArgumentException("Type");
+            }
+        }
+
+        public bool PiadInvoice(char type, int id)
+        {
+            if (type == 'C')
+            {
+                try
+                {
+                    var rdg = new RDGs.RDGtblInvoiceCompany(this.session.ConnectionString);
+
+                    rdg.UpdateActive(id, false);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else if (type == 'P')
+            {
+                try
+                {
+                    var rdg = new RDGs.RDGtblInvoicePrivet(this.session.ConnectionString);
+                    rdg.UpdateActive(id, false);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
+
+            return true;
+        }
+        #endregion
+
         #region Get data tables
         public DataTable GetOrdersPrivet()
         {
@@ -978,6 +1140,99 @@ namespace LogicController
             dataTable.Columns[9].ColumnName = "Email";
 
             dataTable.Columns.Remove("Active");
+
+            return dataTable;
+        }
+
+        public DataTable GetInvoice()
+        {
+            var dataTable = new DataTable();
+
+            dataTable.Columns.Add("Faktura nr", typeof(string));
+            dataTable.Columns.Add("Kunde", typeof(string));
+            dataTable.Columns.Add("Orders nr 1", typeof(string));
+            dataTable.Columns.Add("Orders nr 2", typeof(string));
+            dataTable.Columns.Add("Orders nr 3", typeof(string));
+            dataTable.Columns.Add("Orders nr 4", typeof(string));
+            dataTable.Columns.Add("Orders nr 5", typeof(string));
+            dataTable.Columns.Add("Orders nr 6", typeof(string));
+            dataTable.Columns.Add("Orders nr 7", typeof(string));
+            dataTable.Columns.Add("Orders nr 8", typeof(string));
+            dataTable.Columns.Add("Orders nr 9", typeof(string));
+            dataTable.Columns.Add("Orders nr 10", typeof(string));
+            dataTable.Columns.Add("Orders nr 11", typeof(string));
+            dataTable.Columns.Add("Orders nr 12", typeof(string));
+            dataTable.Columns.Add("Orders nr 13", typeof(string));
+            dataTable.Columns.Add("Orders nr 14", typeof(string));
+            dataTable.Columns.Add("Orders nr 15", typeof(string));
+            dataTable.Columns.Add("Orders nr 16", typeof(string));
+            dataTable.Columns.Add("Orders nr 17", typeof(string));
+            dataTable.Columns.Add("Orders nr 18", typeof(string));
+            dataTable.Columns.Add("Orders nr 19", typeof(string));
+            dataTable.Columns.Add("Orders nr 20", typeof(string));
+
+            var rdgCustomersC = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
+            var invoiceCompany = new RDGs.RDGtblInvoiceCompany(this.session.ConnectionString).Get(true);
+            foreach (var item in invoiceCompany)
+            {
+                var customers = rdgCustomersC.Find((int)item.Order[0]);
+
+                dataTable.Rows.Add(
+                    "C-" + item.Id,
+                    "#" + customers.CompanyCustomersNo + ": " + customers.Name,
+                    item.Order[0].ToString(),
+                    item.Order[1].ToString(),
+                    item.Order[2].ToString(),
+                    item.Order[3].ToString(),
+                    item.Order[4].ToString(),
+                    item.Order[5].ToString(),
+                    item.Order[6].ToString(),
+                    item.Order[7].ToString(),
+                    item.Order[8].ToString(),
+                    item.Order[9].ToString(),                    
+                    item.Order[10].ToString(),
+                    item.Order[11].ToString(),
+                    item.Order[12].ToString(),
+                    item.Order[13].ToString(),
+                    item.Order[14].ToString(),                    
+                    item.Order[15].ToString(),
+                    item.Order[16].ToString(),
+                    item.Order[17].ToString(),
+                    item.Order[18].ToString(),
+                    item.Order[19].ToString());
+            }
+
+            var rdgCustomersP = new RDGs.RDGtblPrivateCustomers(this.session.ConnectionString);
+            var invoicePrivet = new RDGs.RDGtblInvoicePrivet(this.session.ConnectionString).Get(true);
+
+            foreach (var item in invoicePrivet)
+            {
+                var customers = rdgCustomersP.Find((int)item.Order[0]);
+
+                dataTable.Rows.Add(
+                    "P-" + item.Id,
+                    "#" + customers.PrivateCustomersNo + ": " + customers.Name + " " + customers.Surname,
+                    item.Order[0].ToString(),
+                    item.Order[1].ToString(),
+                    item.Order[2].ToString(),
+                    item.Order[3].ToString(),
+                    item.Order[4].ToString(),
+                    item.Order[5].ToString(),
+                    item.Order[6].ToString(),
+                    item.Order[7].ToString(),
+                    item.Order[8].ToString(),
+                    item.Order[9].ToString(),
+                    item.Order[10].ToString(),
+                    item.Order[11].ToString(),
+                    item.Order[12].ToString(),
+                    item.Order[13].ToString(),
+                    item.Order[14].ToString(),
+                    item.Order[15].ToString(),
+                    item.Order[16].ToString(),
+                    item.Order[17].ToString(),
+                    item.Order[18].ToString(),
+                    item.Order[19].ToString());
+            }
 
             return dataTable;
         }
