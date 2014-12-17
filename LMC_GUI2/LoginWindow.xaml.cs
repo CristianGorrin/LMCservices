@@ -99,6 +99,8 @@ namespace LMC_GUI2
 
         private void btn_login_login_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
+
             bool ok = TestServerConnection(BulidConnectionStringFromGUI());
 
             if (ok)
@@ -125,6 +127,8 @@ namespace LMC_GUI2
             {
                 MessageBox.Show("Der kan ikke oprettes en forbindelse til serveren");
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         public bool Exit { get { return this.exit; } }

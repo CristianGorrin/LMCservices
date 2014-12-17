@@ -85,6 +85,8 @@ namespace LMC_GUI2
         {
             if (!(e.OriginalSource is TabControl))
                 return;
+            
+            Mouse.OverrideCursor = Cursors.Wait;
 
             TabControl tabCon;
             TabControl tab;
@@ -96,12 +98,16 @@ namespace LMC_GUI2
             }
             catch (Exception)
             {
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
-            
+
 
             if (tab == null || tabCon == null)
+            {
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
+            }
 
             // TODO clean up 
 
@@ -166,30 +172,67 @@ namespace LMC_GUI2
 	                }
                     break;
                 case 1:
-                    // Kontrakter
-                    switch (tab.SelectedIndex)
-                    {
-                        case 0:
-                            
-                        case 1:
+                    //Acc
+                        if (this.tabIndex == 1 && this.subTabIndex == 0)
+                        {
                             break;
-                        default:
-                            throw new ArgumentOutOfRangeException("Sub tab index");
-                    }
+                        }
+                        else
+                        {
+                            CleanUp();
+
+                            this.tabIndex = 1;
+                            this.subTabIndex = 0;
+                        }
                     break;
                 case 2:
                     // Regninger
                     switch (tab.SelectedIndex)
                     {
                         case 0:
+                            if (this.tabIndex == 2 && this.subTabIndex == 0)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 0;
+
+                                this.cbm_p_invoices_customers.ItemsSource = this.controller.ListOfPrivateCustomersForInvoice();
+                            }
                             break;
                         case 1:
+                            if (this.tabIndex == 2 && this.subTabIndex == 1)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 1;
+
+                                this.cbm_c_invoices_customers.ItemsSource = this.controller.ListOfCompanyCustomersForInvoice();
+                            }
                             break;
                         case 2:
-                            break;
-                        case 3:
-                            break;
-                        case 4:
+                            if (this.tabIndex == 2 && this.subTabIndex == 2)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                CleanUp();
+
+                                this.tabIndex = 2;
+                                this.subTabIndex = 2;
+
+                                this.dgv_np_invoices.ItemsSource = this.controller.GetInvoice().AsDataView();
+                            }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException("Sub tab index");
@@ -272,6 +315,8 @@ namespace LMC_GUI2
                 default:
                     throw new ArgumentOutOfRangeException("TabCon index");
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
         #endregion
 
@@ -387,6 +432,8 @@ namespace LMC_GUI2
             if (this.dgv_p_orders.SelectedIndex == -1)
                 return;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             int id;
 
             try
@@ -396,12 +443,14 @@ namespace LMC_GUI2
             catch (Exception)
             {
                 MessageBox.Show("Order nr. er ikke gyldig");
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             var deleteOk = MessageBox.Show("Er du skikker at du vil seltte ordern nr.: " + id.ToString(),"Fjern order", MessageBoxButton.YesNo);
             if (deleteOk != MessageBoxResult.Yes)
             {
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
@@ -430,20 +479,24 @@ namespace LMC_GUI2
                 }
 
                 MessageBox.Show(message);
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             if (!ok)
             {
                 MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             this.dgv_p_orders.ItemsSource = this.controller.GetOrdersPrivet().DefaultView;
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_p_orders_add_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             bool ok = true;
             string messege = string.Empty;
 
@@ -559,6 +612,7 @@ namespace LMC_GUI2
             if (!ok)
 	        {
                 MessageBox.Show("Kan ikke tilføje/updater den nye order:" + Environment.NewLine + messege);
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
 	        }
 
@@ -579,6 +633,7 @@ namespace LMC_GUI2
                 if (!int.TryParse(this.txt_p_orders_id.Text, out id))
                 {
                     MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
 
@@ -594,6 +649,8 @@ namespace LMC_GUI2
                 this.dgv_p_orders.SelectedIndex = this.dgv_p_orders.Items.Count - 1;
             else
                 this.dgv_p_orders.SelectedIndex = selectNow;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_p_orders_clear_Click(object sender, RoutedEventArgs e)
@@ -718,6 +775,8 @@ namespace LMC_GUI2
                 return;
             }
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             int[] inUse;
             bool ok = this.controller.CompanyOrdersRemove(id, out inUse);
 
@@ -743,16 +802,19 @@ namespace LMC_GUI2
                 }
 
                 MessageBox.Show(message);
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             if (!ok)
             {
                 MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
             this.dgv_c_orders.ItemsSource = this.controller.GetOrdersCompany().DefaultView;
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_c_orders_clear_Click(object sender, RoutedEventArgs e)
@@ -882,6 +944,8 @@ namespace LMC_GUI2
 
             bool selectNew = false;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_c_orders_id.Text == string.Empty)
             {
                 // Add new order
@@ -897,6 +961,7 @@ namespace LMC_GUI2
                 if (!int.TryParse(this.txt_c_orders_id.Text, out id))
                 {
                     MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
 
@@ -912,6 +977,8 @@ namespace LMC_GUI2
                 this.dgv_c_orders.SelectedIndex = this.dgv_c_orders.Items.Count - 1;
             else
                 this.dgv_c_orders.SelectedIndex = selectNow;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_c_orders_search_Click(object sender, RoutedEventArgs e)
@@ -1208,6 +1275,8 @@ namespace LMC_GUI2
 
             bool selectNew = false;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_p_customers_id.Text == string.Empty)
             {
                 // add new
@@ -1216,6 +1285,7 @@ namespace LMC_GUI2
                     this.txt_p_customers_email.Text))
                 {
                     MessageBox.Show("Kunden bliv ikke gemt til database");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
                 else
@@ -1229,6 +1299,7 @@ namespace LMC_GUI2
                 if (!int.TryParse(this.txt_p_customers_id.Text, out temp))
                 {
                     MessageBox.Show("Kunden id er ikke gyldig: " + this.txt_p_customers_id.Text);
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
 
@@ -1237,6 +1308,7 @@ namespace LMC_GUI2
                     this.txt_p_customers_email.Text))
                 {
                     MessageBox.Show("Kunden bliv ikke gemt til database");
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
             }
@@ -1245,6 +1317,8 @@ namespace LMC_GUI2
 
             if (selectNew)
                 this.dgv_p_customers.SelectedIndex = this.dgv_p_customers.Items.Count - 1;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_p_customers_remove_Click(object sender, RoutedEventArgs e)
@@ -1260,6 +1334,8 @@ namespace LMC_GUI2
 
             int id;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+            
             if (int.TryParse(this.txt_p_customers_id.Text, out id))
             {
                 if (this.controller.PrivateCustomersDelete(id))
@@ -1269,6 +1345,8 @@ namespace LMC_GUI2
                     ClearPrivetCustomer();
                 }
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void ClearPrivetCustomer()
@@ -1641,12 +1719,16 @@ namespace LMC_GUI2
             if (result != MessageBoxResult.Yes)
                 return;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (!this.controller.WorkersRemove(Convert.ToInt32(this.txt_workers_id.Text)))
                 MessageBox.Show("Den ansar bilve ikke fjern fra database");
 
             this.dgv_workers.ItemsSource = this.controller.GetWorkers().AsDataView();
    
             ClearWorker();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
         
         private void btn_workers_add_Click(object sender, RoutedEventArgs e)
@@ -1722,6 +1804,8 @@ namespace LMC_GUI2
 
             bool selectedNew = false;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_workers_id.Text == string.Empty)
             {
                 // add new
@@ -1735,7 +1819,10 @@ namespace LMC_GUI2
             {
                 // update
                 if (this.dgv_workers.SelectedIndex == -1)
+                {
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
+                }
 
                 if (!this.controller.WorkerUpdate(Convert.ToInt32(this.txt_workers_id.Text) ,this.txt_workers_name.Text, this.txt_workers_surname.Text, this.txt_workers_address.Text,
                         Convert.ToInt32(postNo), this.txt_workers_phoneno.Text, this.txt_workers_altphoneno.Text, this.txt_workers_email.Text))
@@ -1754,6 +1841,8 @@ namespace LMC_GUI2
             {
                 this.dgv_workers.SelectedIndex = index;
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void FindWorker()
@@ -1867,12 +1956,16 @@ namespace LMC_GUI2
             if (result != MessageBoxResult.Yes)
                 return;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (!this.controller.DepartmentsRemove(Convert.ToInt32(this.txt_departments_number.Text)))
                 MessageBox.Show("Afdelingen bliv ikke Fjernet");
 
             ClaerDepartment();
 
             this.dgv_departments.ItemsSource = this.controller.GetDepartments().AsDataView();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void btn_departments_add_Click(object sender, RoutedEventArgs e)
@@ -1995,6 +2088,8 @@ namespace LMC_GUI2
             bool selectNew = false;
             int index = this.dgv_departments.SelectedIndex;
 
+            Mouse.OverrideCursor = Cursors.Wait;
+
             if (this.txt_departments_number.Text == string.Empty)
             {
                 // add new
@@ -2009,7 +2104,10 @@ namespace LMC_GUI2
             {
                 // update
                 if (this.dgv_departments.SelectedIndex == -1)
+                {
+                    Mouse.OverrideCursor = Cursors.Arrow;
                     return;
+                }
 
                 if (!this.controller.DepartmentsUpdate(Convert.ToInt32(this.txt_departments_number.Text), this.txt_departments_address.Text, this.txt_departments_altphoneno.Text,
                     this.txt_departments_name.Text, cvrNo, departmentHead, this.txt_departments_email.Text, this.txt_departments_phoneno.Text,
@@ -2027,6 +2125,8 @@ namespace LMC_GUI2
             {
                 this.dgv_departments.SelectedIndex = index;
             }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         private void ClaerDepartment()
@@ -2042,6 +2142,894 @@ namespace LMC_GUI2
             this.txt_departments_email.Text = "";
 
             this.dgv_departments.SelectedIndex = -1;
+        }
+        #endregion
+
+        #region Invoices Private
+        private void cbm_p_invoices_customers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.cbm_p_invoices_customers.SelectedIndex == -1)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            string temp = string.Empty;
+
+            foreach (char item in this.cbm_p_invoices_customers.SelectedItem.ToString())
+            {
+                int ignore;
+                if (int.TryParse(item.ToString(), out ignore))
+                {
+                    temp += item;
+                }
+                else if (item == ' ' || item == '-')
+                {
+                    break;
+                } 
+            }
+
+            try
+            {
+                this.dgv_p_invoices.ItemsSource = this.controller.GetCustomersPrivetForInvoices(Convert.ToInt32(temp)).AsDataView();
+            }
+            catch (Exception)
+            {
+            }
+
+            this.dgv_p_invoices_orders.ItemsSource = null;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+        private DataTable DataTabelForInvoices()
+        {
+            DataTable dataTable = new DataTable();
+
+            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Opgave", typeof(string));
+            dataTable.Columns.Add("Dato", typeof(DateTime));
+            dataTable.Columns.Add("Timer brugt", typeof(double));
+            dataTable.Columns.Add("Time løn", typeof(double));
+
+            return dataTable;
+        }
+
+        private void dgv_p_invoices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            if (dgv_p_invoices_orders.Items.Count > 20)
+            {
+                MessageBox.Show("Der må kun være 20 order pr. regninge");
+                return;
+            }
+
+            var dataGrid = (DataGrid)sender;
+
+            if (dataGrid.SelectedItem != null)
+            {
+                DataTable dataTableInvoices = DataTabelForInvoices();
+                DataTable dataTableOrders = DataTabelForInvoices();
+
+                foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+                {
+                    dataTableInvoices.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+
+                var moving = (DataRow)((DataRowView)dataGrid.SelectedItem).Row;
+
+                dataTableInvoices.Rows.Add(moving.ItemArray);
+
+                dgv_p_invoices_orders.ItemsSource = dataTableInvoices.AsDataView();
+
+                foreach (DataRowView item in this.dgv_p_invoices.Items)
+                {
+                    if (item != dataGrid.SelectedItem)
+                    {
+                        dataTableOrders.Rows.Add(((DataRow)item.Row).ItemArray);
+                    }
+                }
+
+                this.dgv_p_invoices.ItemsSource = dataTableOrders.AsDataView();
+            }
+        }
+
+        private void dgv_p_invoices_orders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            var dataGrid = (DataGrid)sender;
+
+            if (dataGrid.SelectedIndex == -1)
+                return;
+
+            DataTable dataTableInvoices = DataTabelForInvoices();
+            DataTable dataTableOrders = DataTabelForInvoices();
+
+            foreach (DataRowView item in this.dgv_p_invoices.Items)
+            {
+                dataTableOrders.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            var moving = (DataRow)((DataRowView)dataGrid.SelectedItem).Row;
+
+            dataTableOrders.Rows.Add(moving.ItemArray);
+
+            this.dgv_p_invoices.ItemsSource = dataTableOrders.AsDataView();
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+            {
+                if (item != dataGrid.SelectedItem)
+                {
+                    dataTableInvoices.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            this.dgv_p_invoices_orders.ItemsSource = dataTableInvoices.AsDataView();
+        }
+
+        private void ContextMenu_dgv_p_invoices_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_p_invoices.SelectedItems.Count < 1)
+                return;
+
+            if (this.dgv_p_invoices.SelectedItems.Count + this.dgv_p_invoices_orders.Items.Count > 20)
+            {
+                MessageBox.Show("Der er kun plas til 20 order på en regninge");
+                return;
+            }
+
+            var oderes = DataTabelForInvoices();
+            var oderesSelected = DataTabelForInvoices();
+
+            var moving = new List<DataRow>();
+            var listDeleteingIndex = new List<int>();
+
+
+            foreach (DataRowView item in this.dgv_p_invoices.SelectedItems)
+            {
+                moving.Add((DataRow)item.Row);
+                listDeleteingIndex.Add((int)((DataRow)item.Row).ItemArray[0]);
+            }
+
+            foreach (DataRowView item in this.dgv_p_invoices.Items)
+            {
+                int id = (int)((DataRow)item.Row).ItemArray[0];
+                
+                if (!listDeleteingIndex.Contains(id))
+                {
+                    oderes.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            foreach (DataRowView item in dgv_p_invoices_orders.Items)
+            {
+                oderesSelected.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            foreach (var item in moving)
+            {
+                oderesSelected.Rows.Add(item.ItemArray);
+            }
+
+            dgv_p_invoices_orders.ItemsSource = oderesSelected.AsDataView();
+            dgv_p_invoices.ItemsSource = oderes.AsDataView();
+        }
+
+        private void menu_dgv_p_invoices_orders_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_p_invoices_orders.SelectedItems.Count < 1)
+                return;
+
+            var oderes = DataTabelForInvoices();
+            var oderesSelected = DataTabelForInvoices();
+
+            var moving = new List<DataRow>();
+            var listDeleteingIndex = new List<int>();
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.SelectedItems)
+            {
+                moving.Add((DataRow)item.Row);
+                listDeleteingIndex.Add((int)((DataRow)item.Row).ItemArray[0]);
+            }
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+            {
+                int id = (int)((DataRow)item.Row).ItemArray[0];
+
+                if (!listDeleteingIndex.Contains(id))
+                {
+                    oderesSelected.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            foreach (DataRowView item in dgv_p_invoices.Items)
+            {
+                oderes.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            foreach (var item in moving)
+            {
+                oderes.Rows.Add(item.ItemArray);
+            }
+
+            dgv_p_invoices_orders.ItemsSource = oderesSelected.AsDataView();
+            dgv_p_invoices.ItemsSource = oderes.AsDataView();
+        }
+
+        private void btn_p_invoices_add_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_p_invoices_orders.Items.Count < 1)
+            {
+                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                return;
+            }
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            var departments = this.controller.ListOfDepartments();
+            var acc = this.controller.ListOfBankAcc();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+
+            var window = new WpfAddInvoice(acc, departments);
+            window.ShowDialog();
+
+            if (!window.Ok)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            var orders = new List<int?>();
+
+            foreach (DataRowView item in this.dgv_p_invoices_orders.Items)
+            {
+                orders.Add((int)(((DataRow)item.Row).ItemArray[0]));
+            }
+
+            for (int i = orders.Count; i < 20; i++)
+            {
+                orders.Add(null);
+            }
+
+            string customersId = string.Empty;
+
+            foreach (char item in cbm_p_invoices_customers.Text)
+	        {
+                int temp;
+		        if(int.TryParse(item.ToString(), out temp))
+                {
+                    customersId += item;
+                }
+                else if (item == ' ' || item == '-')
+	            {
+		            break;
+	            }
+	        }
+
+            int? newInvoiceId;
+
+            this.controller.CreateInvoicePrivate(orders.ToArray(), Convert.ToInt32(customersId),Convert.ToInt32(window.Bank),
+                Convert.ToInt32(window.Department), window.DaysToPaid, out newInvoiceId);
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+            if (newInvoiceId == null || newInvoiceId == -1)
+            {
+                MessageBox.Show("Der opstod en fjel, kunne ikke lave en regningen");
+            }
+            else
+            {
+                this.dgv_p_invoices_orders.ItemsSource = null;
+
+                if (this.dgv_p_invoices.Items.Count < 1)
+                {
+                    var dleleteingItem = (string)this.cbm_p_invoices_customers.SelectedItem;
+                    this.cbm_p_invoices_customers.SelectedIndex = -1;
+                    var list = (List<string>)this.cbm_p_invoices_customers.ItemsSource;
+                    list.Remove(dleleteingItem);
+
+                    this.cbm_p_invoices_customers.ItemsSource = null;
+                    this.cbm_p_invoices_customers.ItemsSource = list;
+                }
+            }
+        }
+
+        private void dgv_p_invoices_orders_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                this.dgv_p_invoices.SelectAll();
+        }
+
+        private void dgv_p_invoices_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                this.dgv_p_invoices_orders.SelectAll();
+        }
+
+        private void btn_p_invoices_clear_Click(object sender, RoutedEventArgs e)
+        {
+            this.cbm_p_invoices_customers.SelectedIndex = -1;
+            this.dgv_p_invoices.ItemsSource = null;
+            this.dgv_p_invoices_orders.ItemsSource = null;
+        }
+        #endregion
+
+        #region Invoices Company
+        private void cbm_c_invoices_customers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.cbm_c_invoices_customers.SelectedIndex == -1)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            string temp = string.Empty;
+
+            foreach (char item in this.cbm_c_invoices_customers.SelectedItem.ToString())
+            {
+                int ignore;
+                if (int.TryParse(item.ToString(), out ignore))
+                {
+                    temp += item;
+                }
+                else if (item == ' ' || item == '-')
+                {
+                    break;
+                }
+            }
+
+            try
+            {
+                this.dgv_c_invoices.ItemsSource = this.controller.GetCompanyCustomerstForInvoices(Convert.ToInt32(temp)).AsDataView();
+            }
+            catch (Exception)
+            {
+            }
+
+            this.dgv_c_invoices_orders.ItemsSource = null;
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+        private void dgv_c_invoices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            if (dgv_p_invoices_orders.Items.Count > 20)
+            {
+                MessageBox.Show("Der må kun være 20 order pr. regninge");
+                return;
+            }
+
+            var dataGrid = (DataGrid)sender;
+
+            if (dataGrid.SelectedItem != null)
+            {
+                DataTable dataTableInvoices = DataTabelForInvoices();
+                DataTable dataTableOrders = DataTabelForInvoices();
+
+                foreach (DataRowView item in this.dgv_c_invoices_orders.Items)
+                {
+                    dataTableInvoices.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+
+                var moving = (DataRow)((DataRowView)dataGrid.SelectedItem).Row;
+
+                dataTableInvoices.Rows.Add(moving.ItemArray);
+
+                dgv_c_invoices_orders.ItemsSource = dataTableInvoices.AsDataView();
+
+                foreach (DataRowView item in this.dgv_c_invoices.Items)
+                {
+                    if (item != dataGrid.SelectedItem)
+                    {
+                        dataTableOrders.Rows.Add(((DataRow)item.Row).ItemArray);
+                    }
+                }
+
+                this.dgv_c_invoices.ItemsSource = dataTableOrders.AsDataView();
+            }
+        }
+
+        private void ContextMenu_dgv_c_invoices_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_c_invoices.SelectedItems.Count < 1)
+                return;
+
+            if (this.dgv_c_invoices.SelectedItems.Count + this.dgv_c_invoices_orders.Items.Count > 20)
+            {
+                MessageBox.Show("Der er kun plas til 20 order på en regninge");
+                return;
+            }
+
+            var oderes = DataTabelForInvoices();
+            var oderesSelected = DataTabelForInvoices();
+
+            var moving = new List<DataRow>();
+            var listDeleteingIndex = new List<int>();
+
+
+            foreach (DataRowView item in this.dgv_c_invoices.SelectedItems)
+            {
+                moving.Add((DataRow)item.Row);
+                listDeleteingIndex.Add((int)((DataRow)item.Row).ItemArray[0]);
+            }
+
+            foreach (DataRowView item in this.dgv_c_invoices.Items)
+            {
+                int id = (int)((DataRow)item.Row).ItemArray[0];
+
+                if (!listDeleteingIndex.Contains(id))
+                {
+                    oderes.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            foreach (DataRowView item in dgv_c_invoices_orders.Items)
+            {
+                oderesSelected.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            foreach (var item in moving)
+            {
+                oderesSelected.Rows.Add(item.ItemArray);
+            }
+
+            dgv_c_invoices_orders.ItemsSource = oderesSelected.AsDataView();
+            dgv_c_invoices.ItemsSource = oderes.AsDataView();
+        }
+
+        private void dgv_c_invoices_orders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is DataGrid))
+                return;
+
+            var dataGrid = (DataGrid)sender;
+
+            if (dataGrid.SelectedIndex == -1)
+                return;
+
+            DataTable dataTableInvoices = DataTabelForInvoices();
+            DataTable dataTableOrders = DataTabelForInvoices();
+
+            foreach (DataRowView item in this.dgv_c_invoices.Items)
+            {
+                dataTableOrders.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            var moving = (DataRow)((DataRowView)dataGrid.SelectedItem).Row;
+
+            dataTableOrders.Rows.Add(moving.ItemArray);
+
+            this.dgv_c_invoices.ItemsSource = dataTableOrders.AsDataView();
+
+            foreach (DataRowView item in this.dgv_c_invoices_orders.Items)
+            {
+                if (item != dataGrid.SelectedItem)
+                {
+                    dataTableInvoices.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            this.dgv_c_invoices_orders.ItemsSource = dataTableInvoices.AsDataView();
+        }
+
+        private void menu_dgv_c_invoices_orders_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_c_invoices_orders.SelectedItems.Count < 1)
+                return;
+
+            var oderes = DataTabelForInvoices();
+            var oderesSelected = DataTabelForInvoices();
+
+            var moving = new List<DataRow>();
+            var listDeleteingIndex = new List<int>();
+
+            foreach (DataRowView item in this.dgv_c_invoices_orders.SelectedItems)
+            {
+                moving.Add((DataRow)item.Row);
+                listDeleteingIndex.Add((int)((DataRow)item.Row).ItemArray[0]);
+            }
+
+            foreach (DataRowView item in this.dgv_c_invoices_orders.Items)
+            {
+                int id = (int)((DataRow)item.Row).ItemArray[0];
+
+                if (!listDeleteingIndex.Contains(id))
+                {
+                    oderesSelected.Rows.Add(((DataRow)item.Row).ItemArray);
+                }
+            }
+
+            foreach (DataRowView item in dgv_c_invoices.Items)
+            {
+                oderes.Rows.Add(((DataRow)item.Row).ItemArray);
+            }
+
+            foreach (var item in moving)
+            {
+                oderes.Rows.Add(item.ItemArray);
+            }
+
+            dgv_c_invoices_orders.ItemsSource = oderesSelected.AsDataView();
+            dgv_c_invoices.ItemsSource = oderes.AsDataView();
+        }
+
+        private void dgv_c_invoices_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                this.dgv_c_invoices.SelectAll();
+        }
+
+        private void dgv_c_invoices_orders_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                this.dgv_c_invoices_orders.SelectAll();
+        }
+
+        private void btn_c_invoices_clear_Click(object sender, RoutedEventArgs e)
+        {
+            this.cbm_c_invoices_customers.SelectedIndex = -1;
+            this.dgv_c_invoices.ItemsSource = null;
+            this.dgv_c_invoices_orders.ItemsSource = null;
+        }
+
+        private void btn_c_invoices_add_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_c_invoices_orders.Items.Count < 1)
+            {
+                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                return;
+            }
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            var departments = this.controller.ListOfDepartments();
+            var acc = this.controller.ListOfBankAcc();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+            var window = new WpfAddInvoice(acc, departments);
+            window.ShowDialog();
+
+            if (!window.Ok)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            var orders = new List<int?>();
+            
+            foreach (DataRowView item in this.dgv_c_invoices_orders.Items)
+            {
+                orders.Add((int)(((DataRow)item.Row).ItemArray[0]));
+            }
+
+            for (int i = orders.Count; i < 20; i++)
+            {
+                orders.Add(null);
+            }
+
+            string customersId = string.Empty;
+
+            foreach (char item in cbm_c_invoices_customers.Text)
+            {
+                int temp;
+                if (int.TryParse(item.ToString(), out temp))
+                {
+                    customersId += item;
+                }
+                else if (item == ' ' || item == '-')
+                {
+                    break;
+                }
+            }
+
+            int? newInvoiceId;
+
+            this.controller.CreateInvoiceCompany(orders.ToArray(), Convert.ToInt32(customersId), Convert.ToInt32(window.Bank),
+                Convert.ToInt32(window.Department), window.DaysToPaid, out newInvoiceId);
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+            if (newInvoiceId == null || newInvoiceId == -1)
+            {
+                MessageBox.Show("Der opstod en fjel, kunne ikke lave en regningen");
+            }
+            else
+            {
+                this.dgv_c_invoices_orders.ItemsSource = null;
+
+                if (this.dgv_c_invoices.Items.Count < 1)
+                {
+                    var dleleteingItem = (string)this.cbm_c_invoices_customers.SelectedItem;
+                    this.cbm_c_invoices_customers.SelectedIndex = -1;
+                    var list = (List<string>)this.cbm_c_invoices_customers.ItemsSource;
+                    list.Remove(dleleteingItem);
+
+                    this.cbm_c_invoices_customers.ItemsSource = null;
+                    this.cbm_c_invoices_customers.ItemsSource = list;
+                }
+            }
+        }
+        #endregion
+
+        #region Invoices not paid
+        private void dgv_np_invoices_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (((DataGrid)sender).SelectedIndex == -1)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            this.txt_np_invoices_id.Text = ((DataRowView)((DataGrid)sender).SelectedItem).Row.ItemArray[0].ToString();
+
+            var list = new List<string>();
+
+
+            var row = ((DataRowView)((DataGrid)sender).SelectedItem).Row.ItemArray;
+
+            var id = string.Empty;
+
+            for (int i = 2; i < row[0].ToString().Length; i++)
+			{
+			    id += row[0].ToString()[i];
+			}
+
+            for (int i = 2; i < row.Length; i++)
+            {
+                if (row[0].ToString()[0] == 'C')
+                {
+                    if (row[i].ToString() != string.Empty)
+                    {
+                        list.Add(this.controller.FindOrdersInfo('C', Convert.ToInt32(row[i].ToString())));
+                    }
+                }
+                else if (row[0].ToString()[0] == 'P')
+                {
+                    if (row[i].ToString() != string.Empty)
+                    {
+                        list.Add(this.controller.FindOrdersInfo('P', Convert.ToInt32(row[i].ToString())));
+                    }
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Beskrivelse", typeof(string));
+
+            foreach (var item in list)
+            {
+                dataTable.Rows.Add(item);
+            }
+
+            this.dgv_np_invoices_orders.ItemsSource = dataTable.AsDataView();
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+        private void txt_np_invoices_id_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            ClearInvoices();
+        }
+
+        private void btn_np_invoices_clear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearInvoices();
+        }
+
+        private void ClearInvoices()
+        {
+            this.dgv_np_invoices_orders.ItemsSource = null;
+            this.txt_np_invoices_id.Text = string.Empty;
+            this.dgv_np_invoices.SelectedIndex = -1;
+        }
+
+        private void btn_np_invoices_search_Click(object sender, RoutedEventArgs e)
+        {
+            FindInvoices();
+        }
+
+        private void txt_np_invoices_id_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                FindInvoices();
+            }
+        }
+
+        private void FindInvoices()
+        {
+            if (txt_np_invoices_id.Text == string.Empty)
+                return;
+
+            int index = 0;
+            bool found = false;
+            foreach (DataRowView item in this.dgv_np_invoices.ItemsSource)
+	        {
+                if (item.Row.ItemArray[0].ToString() == txt_np_invoices_id.Text.ToUpper())
+                {
+                    found = true;
+                    break;
+                }
+
+                index++;
+	        }
+
+            if (found)
+            {
+                this.dgv_np_invoices.SelectedIndex = index;
+            }
+            else
+            {
+                ClearInvoices();
+            }
+
+            this.dgv_np_invoices_orders.Focus();
+        }
+
+        private void btn_np_invoices_remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgv_np_invoices.SelectedIndex == -1)
+                return;
+
+            var result = MessageBox.Show("Vil du slette regningen: " + txt_np_invoices_id.Text, "Slette regningen", MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            string id = string.Empty;
+
+            for (int i = 2; i < this.txt_np_invoices_id.Text.Length; i++)
+            {
+                id += this.txt_np_invoices_id.Text[i];
+            }
+
+            if (this.controller.DelelteInvoice(this.txt_np_invoices_id.Text[0], Convert.ToInt32(id)))
+            {
+                var dataTable = new DataTable();
+                
+                foreach (var item in this.dgv_np_invoices.Columns)
+	            {
+                    dataTable.Columns.Add(item.Header.ToString(), typeof(string));
+	            }
+                
+                foreach (DataRowView item in this.dgv_np_invoices.ItemsSource)
+                {
+                    if (item.Row.ItemArray[0].ToString() != this.txt_np_invoices_id.Text.ToUpper())
+                    {
+                        dataTable.Rows.Add(item.Row.ItemArray);
+                    }
+                }
+
+                this.dgv_np_invoices.ItemsSource = dataTable.AsDataView();
+            }
+            else
+            {
+                MessageBox.Show("Kunne ikke slette fra databasen");
+            }
+
+            ClearInvoices();
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+        private void btn_np_invoices_paid_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_np_invoices.SelectedIndex == -1)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            var row = (DataRowView)dgv_np_invoices.SelectedItem;
+
+            string id = string.Empty;
+
+            for (int i = 2; i < row.Row.ItemArray[0].ToString().Length; i++)
+            {
+                id += row.Row.ItemArray[0].ToString()[i];
+            }
+
+            if (this.controller.PiadInvoice(row.Row.ItemArray[0].ToString()[0], Convert.ToInt32(id)))
+            {
+                var dataTable = new DataTable();
+
+                foreach (var item in this.dgv_np_invoices.Columns)
+                {
+                    dataTable.Columns.Add(item.Header.ToString(), typeof(string));
+                }
+
+                foreach (DataRowView item in this.dgv_np_invoices.ItemsSource)
+                {
+                    if (item.Row.ItemArray[0].ToString() != row.Row.ItemArray[0].ToString())
+                    {
+                        dataTable.Rows.Add(item.Row.ItemArray);
+                    }
+                }
+
+                this.dgv_np_invoices.ItemsSource = dataTable.AsDataView();
+                ClearInvoices();
+            }
+            else
+            {
+                MessageBox.Show("Regningen blive ikke opdatert");
+            }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
+        private void btn_np_invoices_export_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dgv_np_invoices.Items.Count < 1)
+            {
+                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                return;
+            }
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            var departments = this.controller.ListOfDepartments();
+            var acc = this.controller.ListOfBankAcc();
+
+            Mouse.OverrideCursor = Cursors.Arrow;
+
+            var window = new WpfAddInvoice(acc, departments);
+            window.ShowDialog();
+
+            if (!window.Ok)
+                return;
+
+            Mouse.OverrideCursor = Cursors.Wait;
+
+            var orders = new List<int?>();
+
+            var row = (DataRow)((DataRowView)this.dgv_np_invoices.SelectedItem).Row;
+
+            for (int i = 2; i < row.ItemArray.Length; i++)
+            {
+                if (row.ItemArray[i] != null)
+                {
+                    orders.Add(Convert.ToInt32(row.ItemArray[i].ToString()));
+                }
+                else
+                {
+                    orders.Add(null);
+                }
+            }
+
+            bool ok = false;
+            var customersId = string.Empty;
+            for (int i = 0; i < orders.Count; i++)
+            {
+                int? ignore;
+                if (orders[i] != null)
+                {
+                    if (this.txt_np_invoices_id.Text[0] == 'C')
+                    {
+                        ok = this.controller.CreateInvoiceCompany(orders.ToArray<int?>(), this.controller.FindCompanyCustomerBaseOrder((int)orders[i]).CompanyCustomersNo,
+                            Convert.ToInt32(window.Bank), Convert.ToInt32(window.Department), window.DaysToPaid, out ignore);
+                    }
+                    else if (this.txt_np_invoices_id.Text[0] == 'P')
+                    {
+                        ok = this.controller.CreateInvoicePrivate(orders.ToArray<int?>(), this.controller.FindPrivateCustomerBaseOrder((int)orders[i]).PrivateCustomersNo,
+                            Convert.ToInt32(window.Bank), Convert.ToInt32(window.Department), window.DaysToPaid, out ignore);
+                    }
+                    else
+                    {
+                        throw new ArgumentException();
+                    }
+                    break;
+                }
+            }
+
+            if (!ok)
+            {
+                MessageBox.Show("Kunne ikke lave regningen");
+            }
+
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
         #endregion
         #endregion
@@ -2083,9 +3071,11 @@ namespace LMC_GUI2
                     switch (this.subTabIndex)
 	                {
                         case 0:
+                            this.controller.CleanUpPrivateCustomers();
                             this.dgv_p_customers.ItemsSource = null;
                             break;
                         case 1:
+                            this.controller.CleanUpCompanyCustomers();
                             this.dgv_c_customers.ItemsSource = null;
                             break;
                         default:
@@ -2096,10 +3086,32 @@ namespace LMC_GUI2
                     this.dgv_workers.ItemsSource = null;
                     break;
                 case 5:
+                    this.controller.CleanUpDepartments();
                     this.dgv_departments.ItemsSource = null;
                     this.cmb_departments_head.ItemsSource = null;
                     break;
                 case 6:
+                    switch (this.subTabIndex)
+	                {
+                        case 0:
+                            this.dgv_p_invoices.ItemsSource = null;
+                            this.dgv_p_invoices_orders.ItemsSource = null;
+
+                            this.cbm_p_invoices_customers.ItemsSource = null;
+                            break;
+                        case 1:
+                            this.dgv_c_invoices.ItemsSource = null;
+                            this.dgv_c_invoices_orders.ItemsSource = null;
+
+                            this.cbm_c_invoices_customers.ItemsSource = null;
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+		                default:
+                            throw new ArgumentOutOfRangeException("Cleanup invoices");
+	                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("CleanUp");

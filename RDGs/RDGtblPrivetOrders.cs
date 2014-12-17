@@ -17,6 +17,37 @@ namespace RDGs
             this.connectionString = connectionString;
         }
 
+        public List<Interface.IprivetOrder> GetBaseCustomer(int id, bool? paid)
+        {
+            var list = new List<Interface.IprivetOrder>();
+
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+            {
+                IQueryable<tblPrivetOrder> privetOrders;
+
+                if (paid == null)
+                {
+                    privetOrders = from tblPrivetOrder in dbContext.tblPrivetOrders
+                                   where tblPrivetOrder.customers == id
+                                   select tblPrivetOrder;
+                }
+                else
+                {
+                    privetOrders = from tblPrivetOrder in dbContext.tblPrivetOrders
+                                   where tblPrivetOrder.customers == id && tblPrivetOrder.paid == paid
+                                   select tblPrivetOrder;
+                }
+
+                foreach (var item in privetOrders)
+                {
+                    list.Add(tblPrivetOrderToPrivetOrder(item));
+                }
+            }
+
+            return list;
+        }
+
+
         public List<Interface.IprivetOrder> Get(bool? paid)
         {
             var list = new List<Interface.IprivetOrder>();
@@ -39,62 +70,67 @@ namespace RDGs
 
                 foreach (var item in privetOrders)
                 {
-                    list.Add(new InterfaceAdaptor.PrivetOrder()
-                    {
-                        CreateBy = new InterfaceAdaptor.Worker()
-                        {
-                            Active = (bool)item.tblWorker.active,
-                            Address = item.tblWorker.homeAddress,
-                            AltPhoneNo = item.tblWorker.altPhoneNo,
-                            Email = item.tblWorker.email,
-                            Name = item.tblWorker.name,
-                            PhoneNo = item.tblWorker.phoneNo,
-                            PostNo = new InterfaceAdaptor.PostNo()
-                            {
-                                City = item.tblWorker.tblPostNo.city,
-                                Id = item.tblWorker.tblPostNo.ID,
-                                PostNumber = item.tblWorker.tblPostNo.postNo
-                            },
-                            Surname = item.tblWorker.surname,
-                            WorkerStatus = new InterfaceAdaptor.WorkerStatus()
-                            {
-                                StautsNo = item.tblWorker.tblWorkerStatus.statusNo,
-                                Staus = item.tblWorker.tblWorkerStatus.status
-                            },
-                            WorkNo = item.tblWorker.workNo
-                        },
-                        CreateDate = (DateTime)item.createdDate,
-                        Customer = new InterfaceAdaptor.PrivetCustomer()
-                        {
-                            Active = (bool)item.tblPrivateCustomer.active,
-                            AltPhoneNo = item.tblPrivateCustomer.altPhoneNo,
-                            Email = item.tblPrivateCustomer.email,
-                            HomeAddress = item.tblPrivateCustomer.homeAddress,
-                            Name = item.tblPrivateCustomer.name,
-                            PhoneNo = item.tblPrivateCustomer.phoneNo,
-                            PostNo = new InterfaceAdaptor.PostNo()
-                            {
-                                City = item.tblPrivateCustomer.tblPostNo.city,
-                                Id = item.tblPrivateCustomer.tblPostNo.ID,
-                                PostNumber = item.tblPrivateCustomer.tblPostNo.postNo
-                            },
-                            PrivateCustomersNo = item.tblPrivateCustomer.privateCustomersNo,
-                            Surname = item.tblPrivateCustomer.surname
-                        },
-                        DateSendBill = item.dateSendBill,
-                        DaysToPaid = (int)item.daysToPaid,
-                        DescriptionTask = item.descriptionTask,
-                        HourUse = Convert.ToDouble(item.hoursUse),
-                        InvoiceNo = item.invoiceNo,
-                        Paid = (bool)item.paid,
-                        PaidHour = Convert.ToDouble(item.paidHour),
-                        PaidToAcc = item.paidToACC,
-                        TaskDate = item.taskDate,
-                    });
+                    list.Add(tblPrivetOrderToPrivetOrder(item));
                 }
             }
 
             return list;
+        }
+
+        public InterfaceAdaptor.PrivetOrder tblPrivetOrderToPrivetOrder(tblPrivetOrder item)
+        {
+            return new InterfaceAdaptor.PrivetOrder()
+            {
+                CreateBy = new InterfaceAdaptor.Worker()
+                {
+                    Active = (bool)item.tblWorker.active,
+                    Address = item.tblWorker.homeAddress,
+                    AltPhoneNo = item.tblWorker.altPhoneNo,
+                    Email = item.tblWorker.email,
+                    Name = item.tblWorker.name,
+                    PhoneNo = item.tblWorker.phoneNo,
+                    PostNo = new InterfaceAdaptor.PostNo()
+                    {
+                        City = item.tblWorker.tblPostNo.city,
+                        Id = item.tblWorker.tblPostNo.ID,
+                        PostNumber = item.tblWorker.tblPostNo.postNo
+                    },
+                    Surname = item.tblWorker.surname,
+                    WorkerStatus = new InterfaceAdaptor.WorkerStatus()
+                    {
+                        StautsNo = item.tblWorker.tblWorkerStatus.statusNo,
+                        Staus = item.tblWorker.tblWorkerStatus.status
+                    },
+                    WorkNo = item.tblWorker.workNo
+                },
+                CreateDate = (DateTime)item.createdDate,
+                Customer = new InterfaceAdaptor.PrivetCustomer()
+                {
+                    Active = (bool)item.tblPrivateCustomer.active,
+                    AltPhoneNo = item.tblPrivateCustomer.altPhoneNo,
+                    Email = item.tblPrivateCustomer.email,
+                    HomeAddress = item.tblPrivateCustomer.homeAddress,
+                    Name = item.tblPrivateCustomer.name,
+                    PhoneNo = item.tblPrivateCustomer.phoneNo,
+                    PostNo = new InterfaceAdaptor.PostNo()
+                    {
+                        City = item.tblPrivateCustomer.tblPostNo.city,
+                        Id = item.tblPrivateCustomer.tblPostNo.ID,
+                        PostNumber = item.tblPrivateCustomer.tblPostNo.postNo
+                    },
+                    PrivateCustomersNo = item.tblPrivateCustomer.privateCustomersNo,
+                    Surname = item.tblPrivateCustomer.surname
+                },
+                DateSendBill = item.dateSendBill,
+                DaysToPaid = (int)item.daysToPaid,
+                DescriptionTask = item.descriptionTask,
+                HourUse = Convert.ToDouble(item.hoursUse),
+                InvoiceNo = item.invoiceNo,
+                Paid = (bool)item.paid,
+                PaidHour = Convert.ToDouble(item.paidHour),
+                PaidToAcc = item.paidToACC,
+                TaskDate = item.taskDate,
+            };
         }
 
         public Interface.IprivetOrder Find(int id)
@@ -204,19 +240,22 @@ namespace RDGs
                 var privetOrderUpteing = dbContext.tblPrivetOrders.SingleOrDefault(
                     x => x.invoiceNo == privetOrder.InvoiceNo);
 
-                privetOrderUpteing.createBy = privetOrder.CreateBy.WorkNo;
+                if (privetOrder.CreateBy != null)
+                {
+                    privetOrderUpteing.createBy = privetOrder.CreateBy.WorkNo;
+                }
 
-                if (privetOrder.CreateDate != null)
+                if (privetOrder.CreateDate != new DateTime())
                 {
                     privetOrderUpteing.createdDate = privetOrder.CreateDate;
                 }
 
-                if (privetOrder.Customer.PrivateCustomersNo != -1)
+                if (privetOrder.Customer != null)
                 {
                     privetOrderUpteing.customers = privetOrder.Customer.PrivateCustomersNo;
                 }
 
-                if (privetOrder.DateSendBill != null)
+                if (privetOrder.DateSendBill != new DateTime())
                 {
                     privetOrderUpteing.dateSendBill = privetOrder.DateSendBill;
                 }
@@ -247,7 +286,7 @@ namespace RDGs
                 {
                     privetOrderUpteing.paidHour = Convert.ToDecimal(privetOrder.PaidHour);
                 }
-                if (privetOrder.TaskDate != null)
+                if (privetOrder.TaskDate != new DateTime())
                 {
                     privetOrderUpteing.taskDate = privetOrder.TaskDate;
                 }

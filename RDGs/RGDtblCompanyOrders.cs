@@ -18,6 +18,36 @@ namespace RDGs
             this.connectionString = connectionString;
         }
 
+        public List<Interface.IcompanyOrder> GetBaseCustomer(int id, bool? paid)
+        {
+            var list = new List<Interface.IcompanyOrder>();
+
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+            {
+                IQueryable<tblCompanyOrder> customerOrders;
+
+                if (paid == null)
+                {
+                    customerOrders = from tblCompanyOrders in dbContext.tblCompanyOrders
+                                   where tblCompanyOrders.customer == id
+                                   select tblCompanyOrders;
+                }
+                else
+                {
+                    customerOrders = from tblCompanyOrders in dbContext.tblCompanyOrders
+                                   where tblCompanyOrders.customer == id && tblCompanyOrders.paid == paid
+                                   select tblCompanyOrders;
+                }
+
+                foreach (var item in customerOrders)
+                {
+                    list.Add(TblCompanyOrderToCompanyOrder(item));
+                }
+            }
+
+            return list;
+        }
+
         public List<Interface.IcompanyOrder> Get(bool? paid)
         {
             var list = new List<Interface.IcompanyOrder>();
@@ -40,7 +70,16 @@ namespace RDGs
 
                 foreach (var item in companyOrders)
                 {
-                    list.Add(new InterfaceAdaptor.CompanyOrder()
+                    list.Add(TblCompanyOrderToCompanyOrder(item));
+                }
+            }
+
+            return list;
+        }
+
+        private Interface.IcompanyOrder TblCompanyOrderToCompanyOrder(tblCompanyOrder item)
+        {
+            return new InterfaceAdaptor.CompanyOrder()
                     {
                         CreateBy = new InterfaceAdaptor.Worker()
                         {
@@ -92,11 +131,7 @@ namespace RDGs
                         PaidHour = (int)item.paidHour,
                         PaidToAcc = (int)item.paidToACC,
                         TaskDate = (DateTime)item.taskDate
-                    });
-                }
-            }
-
-            return list;
+                    };
         }
 
         public Interface.IcompanyOrder Find(int id)
@@ -196,14 +231,18 @@ namespace RDGs
             {
                 var companyOrderUpdateing = dbContext.tblCompanyOrders.SingleOrDefault(
                     x => x.invoiceNo == companyOrder.InvoiceNo);
-                
-                companyOrderUpdateing.createBy = companyOrder.CreateBy.WorkNo;
+
+                if (companyOrder.CreateBy != null)
+                {
+                    companyOrderUpdateing.createBy = companyOrder.CreateBy.WorkNo;
+                }
+
                 if (companyOrder.CreateDate != new DateTime())
                 {
                     companyOrderUpdateing.createdDate = companyOrder.CreateDate;
                 }
 
-                if (companyOrder.Customer.CompanyCustomersNo != -1)
+                if (companyOrder.Customer != null)
                 {
                     companyOrderUpdateing.customer = companyOrder.Customer.CompanyCustomersNo;
                 }
@@ -221,7 +260,7 @@ namespace RDGs
                     companyOrderUpdateing.daysToPaid = companyOrder.DaysToPaid;
                 }
 
-                if (companyOrder.DescriptionTask != string.Empty)
+                if (companyOrder.DescriptionTask != string.Empty && companyOrder.DescriptionTask != null)
                 {
                     companyOrderUpdateing.descriptionTask = companyOrder.DescriptionTask;
                 }

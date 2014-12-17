@@ -263,6 +263,24 @@ namespace RDGs
             return inUse;
         }
 
+        public bool UpdateActive(int id, bool active)
+        {
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+            {
+                var item = dbContext.tblInvoicePrivets.SingleOrDefault(
+                    x => x.Id == id);
+
+                if (item == null)
+                    return false;
+
+                item.Active = active;
+
+                dbContext.SubmitChanges();
+            }
+
+            return true;
+        }
+
         public int NextId
         {
             get

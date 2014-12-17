@@ -50,23 +50,24 @@ namespace RDGs
                     tempInvoice.Order = new int?[20];
                     tempInvoice.Order[0] = item.OrderNr1;
                     tempInvoice.Order[1] = item.OrderNr2;
-                    tempInvoice.Order[3] = item.OrderNr3;
-                    tempInvoice.Order[4] = item.OrderNr4;
-                    tempInvoice.Order[5] = item.OrderNr5;
-                    tempInvoice.Order[6] = item.OrderNr6;
-                    tempInvoice.Order[7] = item.OrderNr7;
-                    tempInvoice.Order[8] = item.OrderNr8;
-                    tempInvoice.Order[9] = item.OrderNr9;
-                    tempInvoice.Order[10] = item.OrderNr10;
-                    tempInvoice.Order[11] = item.OrderNr11;
-                    tempInvoice.Order[12] = item.OrderNr12;
-                    tempInvoice.Order[13] = item.OrderNr13;
-                    tempInvoice.Order[14] = item.OrderNr14;
-                    tempInvoice.Order[15] = item.OrderNr15;
-                    tempInvoice.Order[16] = item.OrderNr16;
-                    tempInvoice.Order[17] = item.OrderNr17;
-                    tempInvoice.Order[18] = item.OrderNr18;
-                    tempInvoice.Order[19] = item.OrderNr19;
+                    tempInvoice.Order[2] = item.OrderNr3;
+                    tempInvoice.Order[3] = item.OrderNr4;
+                    tempInvoice.Order[4] = item.OrderNr5;
+                    tempInvoice.Order[5] = item.OrderNr6;
+                    tempInvoice.Order[6] = item.OrderNr7;
+                    tempInvoice.Order[7] = item.OrderNr8;
+                    tempInvoice.Order[8] = item.OrderNr9;
+                    tempInvoice.Order[9] = item.OrderNr10;
+                    tempInvoice.Order[10] = item.OrderNr11;
+                    tempInvoice.Order[11] = item.OrderNr12;
+                    tempInvoice.Order[12] = item.OrderNr13;
+                    tempInvoice.Order[13] = item.OrderNr14;
+                    tempInvoice.Order[14] = item.OrderNr15;
+                    tempInvoice.Order[15] = item.OrderNr16;
+                    tempInvoice.Order[16] = item.OrderNr17;
+                    tempInvoice.Order[17] = item.OrderNr18;
+                    tempInvoice.Order[18] = item.OrderNr19;
+                    tempInvoice.Order[19] = item.OrderNr20;
 
                     list.Add(tempInvoice);
                 }
@@ -250,6 +251,24 @@ namespace RDGs
 
                 return Convert.ToInt32(result) + 1;
             }
+        }
+
+        public bool UpdateActive(int id, bool active)
+        {
+            using (LMCdatabaseDataContext dbContext = new LMCdatabaseDataContext(this.connectionString))
+            {
+                var item = dbContext.tblInvoiceCompanies.SingleOrDefault(
+                    x => x.Id == id);
+
+                if (item == null)
+                    return false;
+
+                item.Active = active;
+
+                dbContext.SubmitChanges();
+            }
+
+            return true;
         }
 
         public int[] OrdersInUse(int id)
