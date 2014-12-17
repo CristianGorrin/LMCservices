@@ -28,7 +28,7 @@ namespace UnitTestProject
         {
             var list = new TestingAPIs.ListOfDoubles(10);
             if (list.Count != 10)
-                throw new AssertFailedException("Count dos's return correct number of items in list");
+                throw new AssertFailedException("Count does not return correct number of items in list");
         }
 
         [TestMethod]
@@ -109,7 +109,7 @@ namespace UnitTestProject
 
             var field = (List<double>)new PrivateObject(list).GetField("list");
             if (field.Count > 0)
-                throw new AssertFailedException("The list isn't clear");
+                throw new AssertFailedException("The list is not clear");
         }
 
         [TestMethod]
@@ -118,7 +118,7 @@ namespace UnitTestProject
             var list = new TestingAPIs.ListOfDoubles(10);
             bool ok = list.Update(489.56145D, 5);
             if (!ok)
-                throw new AssertFailedException("list hasn't been update");
+                throw new AssertFailedException("List has not been updated");
 
             var field = (List<double>)new PrivateObject(list).GetField("list");
             Assert.AreEqual(489.56145D, field[5]);
