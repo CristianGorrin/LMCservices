@@ -114,7 +114,7 @@ namespace LMC_GUI2
             }
             catch (Exception)
             {
-                MessageBox.Show("Date til at betal skal være et gyldig tal");
+                MessageBox.Show("Betalingsdato skal være et gyldigt tal");
                 return;
             }
 

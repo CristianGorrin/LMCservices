@@ -390,11 +390,11 @@ namespace LogicController
         {
             DataTable dataTable = new DataTable();
 
-            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Ordrenr", typeof(int));
             dataTable.Columns.Add("Opgave", typeof(string));
             dataTable.Columns.Add("Dato", typeof(DateTime));
             dataTable.Columns.Add("Timer brugt", typeof(double));
-            dataTable.Columns.Add("Time løn", typeof(double));
+            dataTable.Columns.Add("Timeløn", typeof(double));
 
             var rdg = new RDGs.RGDtblCompanyOrders(this.session.ConnectionString);
 
@@ -595,11 +595,11 @@ namespace LogicController
         {
             DataTable dataTable = new DataTable();
 
-            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Ordrenr", typeof(int));
             dataTable.Columns.Add("Opgave", typeof(string));
             dataTable.Columns.Add("Dato", typeof(DateTime));
             dataTable.Columns.Add("Timer brugt", typeof(double));
-            dataTable.Columns.Add("Time løn", typeof(double));
+            dataTable.Columns.Add("Timeløn", typeof(double));
             
             var rdg = new RDGs.RDGtblPrivetOrders(this.session.ConnectionString);
 
@@ -973,11 +973,11 @@ namespace LogicController
             var dataTable = this.privetOrders.AsDataTable();
             
             dataTable.Columns[0].ColumnName = "Oprettet af";
-            dataTable.Columns[1].ColumnName = "Oprettet Dato";
+            dataTable.Columns[1].ColumnName = "Oprettelsesdato";
             dataTable.Columns[2].ColumnName = "Kunde";
             dataTable.Columns[5].ColumnName = "Beskrivelse";
             dataTable.Columns[6].ColumnName = "Timer brugt";
-            dataTable.Columns[7].ColumnName = "Order nr";
+            dataTable.Columns[7].ColumnName = "Ordrenr";
             dataTable.Columns[9].ColumnName = "Timeløn";
             dataTable.Columns[11].ColumnName = "Start dato";
 
@@ -995,11 +995,11 @@ namespace LogicController
             var dataTable = this.companyOrders.AsDataTable();
 
             dataTable.Columns[0].ColumnName = "Oprettet af";
-            dataTable.Columns[1].ColumnName = "Oprettet Dato";
+            dataTable.Columns[1].ColumnName = "Oprettelsesdato";
             dataTable.Columns[2].ColumnName = "Kunde";
             dataTable.Columns[5].ColumnName = "Beskrivelse";
             dataTable.Columns[6].ColumnName = "Timer brugt";
-            dataTable.Columns[7].ColumnName = "Order nr";
+            dataTable.Columns[7].ColumnName = "Ordrenr";
             dataTable.Columns[9].ColumnName = "Timeløn";
             dataTable.Columns[11].ColumnName = "Start dato";
 
@@ -1018,7 +1018,7 @@ namespace LogicController
 
             var dataTable = new DataTable();
 
-            dataTable.Columns.Add("Order Nr", typeof(int));
+            dataTable.Columns.Add("Ordrenr", typeof(int));
             dataTable.Columns.Add("Kunde", typeof(string));
             dataTable.Columns.Add("Kunde type", typeof(string));
             dataTable.Columns.Add("Oprettet af", typeof(string));
@@ -1032,7 +1032,7 @@ namespace LogicController
                     dataTable.Rows.Add(new object[6] {
                     item.ItemArray[5],
                     item.ItemArray[2],
-                    "Private kunden",
+                    "Privat",
                     item.ItemArray[0],
                     item.ItemArray[7],
                     item.ItemArray[3],
@@ -1047,7 +1047,7 @@ namespace LogicController
                     dataTable.Rows.Add(new object[6] {
                     item.ItemArray[5],
                     item.ItemArray[2],
-                    "Firma kunden",
+                    "Firma",
                     item.ItemArray[0],
                     item.ItemArray[7],
                     item.ItemArray[3],
@@ -1064,15 +1064,15 @@ namespace LogicController
 
             var dataTable =  this.companyCustomers.AsDataTable();
 
-            dataTable.Columns[0].ColumnName = "Addresse";
-            dataTable.Columns[1].ColumnName = "Tlf nr 2";
-            dataTable.Columns[3].ColumnName = "Kunde nr";
+            dataTable.Columns[0].ColumnName = "Adresse";
+            dataTable.Columns[1].ColumnName = "Tlfnr 2";
+            dataTable.Columns[3].ColumnName = "Kundenr";
             dataTable.Columns[4].ColumnName = "Kontaktperson";
-            dataTable.Columns[5].ColumnName = "CVR nr";
+            dataTable.Columns[5].ColumnName = "CVR-nr";
             dataTable.Columns[6].ColumnName = "Email";
-            dataTable.Columns[7].ColumnName = "Frimanavn";
-            dataTable.Columns[8].ColumnName = "Tlf";
-            dataTable.Columns[9].ColumnName = "Post Nr";
+            dataTable.Columns[7].ColumnName = "Firmanavn";
+            dataTable.Columns[8].ColumnName = "Tlfnr";
+            dataTable.Columns[9].ColumnName = "Postnr";
             dataTable.Columns[10].ColumnName = "By";
 
             dataTable.Columns.Remove("Active");
@@ -1085,14 +1085,14 @@ namespace LogicController
 
             var dataTable = this.privateCustomers.AsDataTable();
 
-            dataTable.Columns[1].ColumnName = "Tlf nr 2";
+            dataTable.Columns[1].ColumnName = "Tlfnr 2";
             dataTable.Columns[2].ColumnName = "Email";
-            dataTable.Columns[3].ColumnName = "Addresse";
+            dataTable.Columns[3].ColumnName = "Adresse";
             dataTable.Columns[4].ColumnName = "Fornavn";
-            dataTable.Columns[5].ColumnName = "Tlf nr";
-            dataTable.Columns[6].ColumnName = "Post nr";
+            dataTable.Columns[5].ColumnName = "Tlfnr";
+            dataTable.Columns[6].ColumnName = "Postnr";
             dataTable.Columns[7].ColumnName = "By";
-            dataTable.Columns[8].ColumnName = "Kunde nr";
+            dataTable.Columns[8].ColumnName = "Kundenr";
             dataTable.Columns[9].ColumnName = "Efternavn";
 
             dataTable.Columns.Remove("Active");
@@ -1106,13 +1106,13 @@ namespace LogicController
 
             var dataTable = this.workers.AsDataTable();
 
-            dataTable.Columns[1].ColumnName = "Addresse";
-            dataTable.Columns[2].ColumnName = "Tlf nr 2";
+            dataTable.Columns[1].ColumnName = "Adresse";
+            dataTable.Columns[2].ColumnName = "Tlfnr 2";
             dataTable.Columns[3].ColumnName = "Email";
             dataTable.Columns[4].ColumnName = "Fornavn";
-            dataTable.Columns[5].ColumnName = "Tlf nr";
-            dataTable.Columns[6].ColumnName = "Post nr";
-            dataTable.Columns[7].ColumnName = "by";
+            dataTable.Columns[5].ColumnName = "Tlfnr";
+            dataTable.Columns[6].ColumnName = "Postnr";
+            dataTable.Columns[7].ColumnName = "By";
             dataTable.Columns[8].ColumnName = "Status";
             dataTable.Columns[9].ColumnName = "Id";
             dataTable.Columns[10].ColumnName = "Efternavn";
@@ -1129,14 +1129,14 @@ namespace LogicController
 
             var dataTable = this.departments.AsDataTable();
 
-            dataTable.Columns[1].ColumnName = "Afdeling Navn";
-            dataTable.Columns[2].ColumnName = "CVR nr";
+            dataTable.Columns[1].ColumnName = "Afdelingsnavn";
+            dataTable.Columns[2].ColumnName = "CVR-nr";
             dataTable.Columns[3].ColumnName = "Afdelingsleder";
             dataTable.Columns[4].ColumnName = "Adresse";
-            dataTable.Columns[5].ColumnName = "Post nummer";
+            dataTable.Columns[5].ColumnName = "Postnr";
             dataTable.Columns[6].ColumnName = "By";
-            dataTable.Columns[7].ColumnName = "Tlf nr";
-            dataTable.Columns[8].ColumnName = "Tlf nr2";
+            dataTable.Columns[7].ColumnName = "Tlfnr";
+            dataTable.Columns[8].ColumnName = "Tlfnr 2";
             dataTable.Columns[9].ColumnName = "Email";
 
             dataTable.Columns.Remove("Active");
@@ -1150,26 +1150,26 @@ namespace LogicController
 
             dataTable.Columns.Add("Faktura nr", typeof(string));
             dataTable.Columns.Add("Kunde", typeof(string));
-            dataTable.Columns.Add("Orders nr 1", typeof(string));
-            dataTable.Columns.Add("Orders nr 2", typeof(string));
-            dataTable.Columns.Add("Orders nr 3", typeof(string));
-            dataTable.Columns.Add("Orders nr 4", typeof(string));
-            dataTable.Columns.Add("Orders nr 5", typeof(string));
-            dataTable.Columns.Add("Orders nr 6", typeof(string));
-            dataTable.Columns.Add("Orders nr 7", typeof(string));
-            dataTable.Columns.Add("Orders nr 8", typeof(string));
-            dataTable.Columns.Add("Orders nr 9", typeof(string));
-            dataTable.Columns.Add("Orders nr 10", typeof(string));
-            dataTable.Columns.Add("Orders nr 11", typeof(string));
-            dataTable.Columns.Add("Orders nr 12", typeof(string));
-            dataTable.Columns.Add("Orders nr 13", typeof(string));
-            dataTable.Columns.Add("Orders nr 14", typeof(string));
-            dataTable.Columns.Add("Orders nr 15", typeof(string));
-            dataTable.Columns.Add("Orders nr 16", typeof(string));
-            dataTable.Columns.Add("Orders nr 17", typeof(string));
-            dataTable.Columns.Add("Orders nr 18", typeof(string));
-            dataTable.Columns.Add("Orders nr 19", typeof(string));
-            dataTable.Columns.Add("Orders nr 20", typeof(string));
+            dataTable.Columns.Add("Ordrenr 1", typeof(string));
+            dataTable.Columns.Add("Ordrenr 2", typeof(string));
+            dataTable.Columns.Add("Ordrenr 3", typeof(string));
+            dataTable.Columns.Add("Ordrenr 4", typeof(string));
+            dataTable.Columns.Add("Ordrenr 5", typeof(string));
+            dataTable.Columns.Add("Ordrenr 6", typeof(string));
+            dataTable.Columns.Add("Ordrenr 7", typeof(string));
+            dataTable.Columns.Add("Ordrenr 8", typeof(string));
+            dataTable.Columns.Add("Ordrenr 9", typeof(string));
+            dataTable.Columns.Add("Ordrenr 10", typeof(string));
+            dataTable.Columns.Add("Ordrenr 11", typeof(string));
+            dataTable.Columns.Add("Ordrenr 12", typeof(string));
+            dataTable.Columns.Add("Ordrenr 13", typeof(string));
+            dataTable.Columns.Add("Ordrenr 14", typeof(string));
+            dataTable.Columns.Add("Ordrenr 15", typeof(string));
+            dataTable.Columns.Add("Ordrenr 16", typeof(string));
+            dataTable.Columns.Add("Ordrenr 17", typeof(string));
+            dataTable.Columns.Add("Ordrenr 18", typeof(string));
+            dataTable.Columns.Add("Ordernr 19", typeof(string));
+            dataTable.Columns.Add("Ordrenr 20", typeof(string));
 
             var rdgCustomersC = new RDGs.RDGtblCompanyCustomers(this.session.ConnectionString);
             var invoiceCompany = new RDGs.RDGtblInvoiceCompany(this.session.ConnectionString).Get(true);

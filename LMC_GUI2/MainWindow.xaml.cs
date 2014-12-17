@@ -442,12 +442,12 @@ namespace LMC_GUI2
             }
             catch (Exception)
             {
-                MessageBox.Show("Order nr. er ikke gyldig");
+                MessageBox.Show("Ordrenr. er ikke gyldigt");
                 Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
 
-            var deleteOk = MessageBox.Show("Er du skikker at du vil seltte ordern nr.: " + id.ToString(),"Fjern order", MessageBoxButton.YesNo);
+            var deleteOk = MessageBox.Show("Er du sikker på at du vil slette ordre nr. " + id.ToString() + "?","Fjern order", MessageBoxButton.YesNo);
             if (deleteOk != MessageBoxResult.Yes)
             {
                 Mouse.OverrideCursor = Cursors.Arrow;
@@ -461,7 +461,7 @@ namespace LMC_GUI2
             {
                 string message = string.Empty;
 
-                message += "Kan ikke selte orderen da den er i bruge i regnin(ger): ";
+                message += "Kan ikke slette ordren da den bruges i følgende regning(er): ";
 
                 message += inUse[0].ToString();
                 for (int i = 1; i < inUse.Length - 1; i++)
@@ -485,7 +485,7 @@ namespace LMC_GUI2
 
             if (!ok)
             {
-                MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                MessageBox.Show("Kan ikke finde en ordre med ID " + id.ToString());
                 Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
@@ -577,7 +577,7 @@ namespace LMC_GUI2
             if (hourUse > 24)
             {
                 ok = false;
-                messege += "Timer brugt der er ikke mere ind 24 timer om dagen" + Environment.NewLine;
+                messege += "Timer brugt der ikke er mere end 24 timer om dagen" + Environment.NewLine;
             }
 
             try
@@ -593,25 +593,25 @@ namespace LMC_GUI2
                 else
                 {
                     ok = false;
-                    messege += "Time Løn" + Environment.NewLine;
+                    messege += "Timeløn" + Environment.NewLine;
                 }
             }
 
             if (this.txt_p_orders_description.Text == string.Empty)
             {
                 ok = false;
-                messege += "Opgave beskrivelse" + Environment.NewLine;
+                messege += "Opgavebeskrivelse" + Environment.NewLine;
             }
 
             if (this.dat_p_orders_startdate.SelectedDate == null)
             {
                 ok = false;
-                messege += "velg et start dato" + Environment.NewLine;
+                messege += "Vælg en start dato" + Environment.NewLine;
             }
 
             if (!ok)
 	        {
-                MessageBox.Show("Kan ikke tilføje/updater den nye order:" + Environment.NewLine + messege);
+                MessageBox.Show("Kan ikke tilføje/opdatere den nye ordre:" + Environment.NewLine + messege);
                 Mouse.OverrideCursor = Cursors.Arrow;
                 return;
 	        }
@@ -632,7 +632,7 @@ namespace LMC_GUI2
                 int id = -1;
                 if (!int.TryParse(this.txt_p_orders_id.Text, out id))
                 {
-                    MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    MessageBox.Show("Ordrenr. er ikke gyldigt");
                     Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
@@ -765,11 +765,11 @@ namespace LMC_GUI2
             }
             catch (Exception)
             {
-                MessageBox.Show("Order nr. er ikke gyldig");
+                MessageBox.Show("Ordrenr. er ikke gyldigt");
                 return;
             }
 
-            var deleteOk = MessageBox.Show("Er du skikker at du vil seltte ordern nr.: " + id.ToString(), "Fjern order", MessageBoxButton.YesNo);
+            var deleteOk = MessageBox.Show("Er du sikker på at du vil slette ordre nr. " + id.ToString() + "?", "Fjern order", MessageBoxButton.YesNo);
             if (deleteOk != MessageBoxResult.Yes)
             {
                 return;
@@ -784,7 +784,7 @@ namespace LMC_GUI2
             {
                 string message = string.Empty;
 
-                message += "Kan ikke selte orderen da den er i bruge i regnin(ger): ";
+                message += "Kan ikke slette ordren da den bruges i følgende regning(er): ";
 
                 message += inUse[0].ToString();
                 for (int i = 1; i < inUse.Length - 1; i++)
@@ -808,7 +808,7 @@ namespace LMC_GUI2
 
             if (!ok)
             {
-                MessageBox.Show("Kan ikke find en order med id: " + id.ToString());
+                MessageBox.Show("Kan ikke finde en ordre med ID " + id.ToString());
                 Mouse.OverrideCursor = Cursors.Arrow;
                 return;
             }
@@ -904,7 +904,7 @@ namespace LMC_GUI2
             if (hourUse > 24)
             {
                 ok = false;
-                messege += "Timer brugt, der er ikke mere ind 24 timer om dagen" + Environment.NewLine;
+                messege += "Timer brugt der ikke er mere end 24 timer om dagen" + Environment.NewLine;
             }
 
             try
@@ -920,25 +920,25 @@ namespace LMC_GUI2
                 else
                 {
                     ok = false;
-                    messege += "Time Løn" + Environment.NewLine;
+                    messege += "Timeløn" + Environment.NewLine;
                 }
             }
 
             if (this.txt_c_orders_description.Text == string.Empty)
             {
                 ok = false;
-                messege += "Opgave beskrivelse" + Environment.NewLine;
+                messege += "Opgavebeskrivelse" + Environment.NewLine;
             }
 
             if (this.dat_c_orders_startdate.SelectedDate == null)
             {
                 ok = false;
-                messege += "velg et start dato" + Environment.NewLine;
+                messege += "Vælg en start dato" + Environment.NewLine;
             }
 
             if (!ok)
             {
-                MessageBox.Show("Kan ikke tilføje/updater den nye order:" + Environment.NewLine + messege);
+                MessageBox.Show("Kan ikke tilføje/opdatere den nye ordre:" + Environment.NewLine + messege);
                 return;
             }
 
@@ -960,7 +960,7 @@ namespace LMC_GUI2
                 int id = -1;
                 if (!int.TryParse(this.txt_c_orders_id.Text, out id))
                 {
-                    MessageBox.Show("Order nr. er ikke gyldig nummer");
+                    MessageBox.Show("Ordrenr. er ikke gyldigt");
                     Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
@@ -1223,13 +1223,13 @@ namespace LMC_GUI2
 
             if (this.txt_p_customers_address.Text == string.Empty)
             {
-                message += "Kunde skal have en addresse" + Environment.NewLine;
+                message += "Kunde skal have en adresse" + Environment.NewLine;
                 ok = false;
             }
 
             if (this.txt_p_customers_postno.Text == string.Empty)
             {
-                message += @"Kunde skal have et post number/by" + Environment.NewLine;
+                message += @"Kunde skal have postnummer/by" + Environment.NewLine;
                 ok = false;
             }
 
@@ -1256,20 +1256,20 @@ namespace LMC_GUI2
             }
             catch (Exception)
             {
-                message += "Der ikke nogel byer med post nummer: " + this.txt_p_customers_postno.Text + Environment.NewLine;
+                message += "Der er ingen byer med postnr.: " + this.txt_p_customers_postno.Text + Environment.NewLine;
                 ok = false;
             }
 
 
             if (this.txt_p_customers_phoneno.Text == string.Empty)
             {
-                message += "Kunde skal have et tlf number" + Environment.NewLine;
+                message += "Kunde skal have et tlfnr" + Environment.NewLine;
                 ok = false;
             }
 
             if (!ok)
             {
-                MessageBox.Show("kundes data blive ikke gemt, da: " + message);
+                MessageBox.Show("Kundes data bliver ikke gemt, da: " + message);
                 return;
             }
 
@@ -1284,7 +1284,7 @@ namespace LMC_GUI2
                     this.txt_p_customers_address.Text, Convert.ToInt32(postNumber), this.txt_p_customers_phoneno.Text, this.txt_p_customers_altphoneno.Text,
                     this.txt_p_customers_email.Text))
                 {
-                    MessageBox.Show("Kunden bliv ikke gemt til database");
+                    MessageBox.Show("Kunden blev ikke gemt til database");
                     Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
@@ -1298,7 +1298,7 @@ namespace LMC_GUI2
                 int temp;
                 if (!int.TryParse(this.txt_p_customers_id.Text, out temp))
                 {
-                    MessageBox.Show("Kunden id er ikke gyldig: " + this.txt_p_customers_id.Text);
+                    MessageBox.Show("Kunde ID er ikke gyldigt: " + this.txt_p_customers_id.Text);
                     Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
@@ -1307,7 +1307,7 @@ namespace LMC_GUI2
                     this.txt_p_customers_address.Text, Convert.ToInt32(postNumber), this.txt_p_customers_phoneno.Text, this.txt_p_customers_altphoneno.Text,
                     this.txt_p_customers_email.Text))
                 {
-                    MessageBox.Show("Kunden bliv ikke gemt til database");
+                    MessageBox.Show("Kunden blev ikke gemt til database");
                     Mouse.OverrideCursor = Cursors.Arrow;
                     return;
                 }
@@ -1327,7 +1327,7 @@ namespace LMC_GUI2
                 return;
 
             var result = MessageBox.Show("Vil du slette kunde: #" + this.txt_p_customers_id.Text + " " + this.txt_p_customers_name.Text 
-                + " " + this.txt_p_customers_surname.Text, "Fjern", MessageBoxButton.OKCancel);
+                + " " + this.txt_p_customers_surname.Text + "?", "Fjern", MessageBoxButton.OKCancel);
 
             if (result != MessageBoxResult.OK)
                 return;
@@ -1395,19 +1395,19 @@ namespace LMC_GUI2
             int cvr = -1;
             if (!int.TryParse(this.txt_c_customers_cvr.Text, out cvr))
             {
-                messages += "CVR skal ind taste" + Environment.NewLine;
+                messages += "CVR skal indtastes" + Environment.NewLine;
                 ok = false;
             }
 
             if (this.txt_c_customers_name.Text == string.Empty)
             {
-                messages += "Frimanavn skal ind taste" + Environment.NewLine;
+                messages += "Firmanavn skal indtastes" + Environment.NewLine;
                 ok = false;
             }
 
             if (this.txt_c_customers_address.Text == string.Empty)
             {
-                messages += "Addressen skal ind taste" + Environment.NewLine;
+                messages += "Adressen skal indtastes" + Environment.NewLine;
                 ok = false;
             }
 
@@ -1430,24 +1430,24 @@ namespace LMC_GUI2
                 if (!this.controller.TestPostNo(Convert.ToInt32(postNumber)))
                 {
                     ok = false;
-                    messages += "Post nummer er ikke gyldig" + Environment.NewLine;
+                    messages += "Postnummer er ikke gyldigt" + Environment.NewLine;
                 }
             }
             catch (Exception)
             {
-                messages = "Ind tast et post nummer" + Environment.NewLine;
+                messages = "Indtast et postnummer" + Environment.NewLine;
                 ok = false;
             }
 
             if (this.txt_c_customers_phoneno.Text == string.Empty)
             {
                 ok = false;
-                messages += "Ind tast et telephone nr" + Environment.NewLine;
+                messages += "Indtast et telefonnummer" + Environment.NewLine;
             }
 
             if (!ok)
             {
-                MessageBox.Show("Data blive ikke gemt da: " + messages);
+                MessageBox.Show("Data blev ikke gemt da: " + messages);
                 return;
             }
 
@@ -1460,7 +1460,7 @@ namespace LMC_GUI2
                 if(!this.controller.CompanyCustomerAdd(cvr, this.txt_c_customers_name.Text, this.txt_c_customers_address.Text,
                         Convert.ToInt32(postNumber), this.txt_c_customers_contactperson.Text, this.txt_c_customers_phoneno.Text,
                         this.txt_c_customers_altphoneno.Text, this.txt_c_customers_email.Text))
-                    MessageBox.Show("Data blive ikke gemt til databasen");
+                    MessageBox.Show("Data blev ikke gemt til databasen");
 
                 selectNew = true;
 
@@ -1475,7 +1475,7 @@ namespace LMC_GUI2
                 if(!this.controller.CompanyCustomerUpdate(Convert.ToInt32(this.txt_c_customers_id.Text), cvr, this.txt_c_customers_name.Text, this.txt_c_customers_address.Text,
                         Convert.ToInt32(postNumber), this.txt_c_customers_contactperson.Text, this.txt_c_customers_phoneno.Text,
                         this.txt_c_customers_altphoneno.Text, this.txt_c_customers_email.Text))
-                    MessageBox.Show("Data blive ikke gemt til databasen");
+                    MessageBox.Show("Data blev ikke gemt til databasen");
 
                 selectedIndex = this.dgv_c_customers.SelectedIndex;
             }
@@ -1531,7 +1531,7 @@ namespace LMC_GUI2
 
             if (int.TryParse(this.txt_c_customers_id.Text, out id))
             {
-                var result = MessageBox.Show("Vil du slette kunde: #" + id.ToString() + " - " + this.txt_c_customers_name.Text, "Fjern",
+                var result = MessageBox.Show("Vil du slette kunde: #" + id.ToString() + " - " + this.txt_c_customers_name.Text + "?", "Fjern",
                     MessageBoxButton.YesNo);
 
                 bool ok = false;
@@ -1714,7 +1714,7 @@ namespace LMC_GUI2
                 return;
 
             var result = MessageBox.Show("Vil du slette ansat nr: #" + this.txt_workers_id.Text + " - " + this.txt_workers_name.Text
-                + " " + this.txt_workers_surname.Text, "Fjern", MessageBoxButton.YesNo);
+                + " " + this.txt_workers_surname.Text + "?", "Fjern", MessageBoxButton.YesNo);
 
             if (result != MessageBoxResult.Yes)
                 return;
@@ -1722,7 +1722,7 @@ namespace LMC_GUI2
             Mouse.OverrideCursor = Cursors.Wait;
 
             if (!this.controller.WorkersRemove(Convert.ToInt32(this.txt_workers_id.Text)))
-                MessageBox.Show("Den ansar bilve ikke fjern fra database");
+                MessageBox.Show("Den ansatte blev ikke fjernet fra database");
 
             this.dgv_workers.ItemsSource = this.controller.GetWorkers().AsDataView();
    
@@ -1739,26 +1739,26 @@ namespace LMC_GUI2
             if (this.txt_workers_name.Text == string.Empty)
             {
                 ok = false;
-                messges += "Ind tast et fornavn" + Environment.NewLine;
+                messges += "Indtast et fornavn" + Environment.NewLine;
             }
 
             if (this.txt_workers_surname.Text == string.Empty)
             {
                 ok = false;
-                messges += "Ind tast et efternavn" + Environment.NewLine;
+                messges += "Indtast et efternavn" + Environment.NewLine;
             }
 
             if (this.txt_workers_address.Text == string.Empty)
             {
                 ok = false;
-                messges += "Ind tast en address" + Environment.NewLine;
+                messges += "Indtast en adresse" + Environment.NewLine;
             }
 
             string postNo = string.Empty;
             if (this.txt_workers_postno.Text == string.Empty)
             {
                 ok = false;
-                messges += "Ind tast et post nummer";
+                messges += "Indtast et postnummer";
             }
             else
 	        {
@@ -1780,25 +1780,25 @@ namespace LMC_GUI2
                     if (!this.controller.TestPostNo(Convert.ToInt32(postNo)))
                     {
                         ok = false;
-                        messges += "Post nummer er ikke gyldig" + Environment.NewLine;
+                        messges += "Postnummer er ikke gyldigt" + Environment.NewLine;
                     }
                 }
                 catch (Exception)
                 {
                     ok = false;
-                    messges += "Post nummer er ikke gyldig" + Environment.NewLine;
+                    messges += "Postnummer er ikke gyldigt" + Environment.NewLine;
                 }
 	        }
 
             if (this.txt_workers_phoneno.Text == string.Empty)
             {
                 ok = false;
-                messges += "Ind tast et tlf nummer";
+                messges += "Indtast et telefonnummer";
             }
 
             if (!ok)
             {
-                MessageBox.Show("Den ansatte info blive ikke gemt da: " + messges);
+                MessageBox.Show("Den ansatte blev ikke gemt da: " + messges);
                 return;
             }
 
@@ -1811,7 +1811,7 @@ namespace LMC_GUI2
                 // add new
                 if(!this.controller.WorkerAdd(this.txt_workers_name.Text, this.txt_workers_surname.Text, this.txt_workers_address.Text,
                     Convert.ToInt32(postNo), this.txt_workers_phoneno.Text, this.txt_workers_altphoneno.Text, this.txt_workers_email.Text))
-                    MessageBox.Show("Den ny ansatte blive ikke gamet");
+                    MessageBox.Show("Den ansatte blev ikke gemt");
 
                 selectedNew = true;
             }
@@ -1826,7 +1826,7 @@ namespace LMC_GUI2
 
                 if (!this.controller.WorkerUpdate(Convert.ToInt32(this.txt_workers_id.Text) ,this.txt_workers_name.Text, this.txt_workers_surname.Text, this.txt_workers_address.Text,
                         Convert.ToInt32(postNo), this.txt_workers_phoneno.Text, this.txt_workers_altphoneno.Text, this.txt_workers_email.Text))
-                    MessageBox.Show("Den ny ansatte blive ikke gamet");
+                    MessageBox.Show("Den ansatte blev ikke gemt");
             }
 
             int index = this.dgv_workers.SelectedIndex;
@@ -1951,7 +1951,7 @@ namespace LMC_GUI2
             if (this.dgv_departments.SelectedIndex == -1)
                 return;
 
-            var result = MessageBox.Show("Vil du afdelingen nr.: #" + this.txt_departments_number.Text, "Fjern", MessageBoxButton.YesNo);
+            var result = MessageBox.Show("Vil du slette afdeling nr.: #" + this.txt_departments_number.Text, "Fjern", MessageBoxButton.YesNo);
 
             if (result != MessageBoxResult.Yes)
                 return;
@@ -1959,7 +1959,7 @@ namespace LMC_GUI2
             Mouse.OverrideCursor = Cursors.Wait;
 
             if (!this.controller.DepartmentsRemove(Convert.ToInt32(this.txt_departments_number.Text)))
-                MessageBox.Show("Afdelingen bliv ikke Fjernet");
+                MessageBox.Show("Afdelingen blev ikke fjernet");
 
             ClaerDepartment();
 
@@ -1976,14 +1976,14 @@ namespace LMC_GUI2
             if (this.txt_departments_name.Text == string.Empty)
             {
                 ok = false;
-                message += "Ind tast et navn" + Environment.NewLine;
+                message += "Indtast et navn" + Environment.NewLine;
             }
 
             int cvrNo = -1;
             if (this.txt_departments_cvr.Text == string.Empty)
             {
                 ok = false;
-                message += "Ind tast cvr nr." + Environment.NewLine;
+                message += "Indtast CVR-nr." + Environment.NewLine;
             }
             else
             {
@@ -1994,7 +1994,7 @@ namespace LMC_GUI2
                 catch (Exception)
                 {
                     ok = false;
-                    message += "Post nummer er ikke gyldig";
+                    message += "Postnummer er ikke gyldigt";
                 }
             }
 
@@ -2002,7 +2002,7 @@ namespace LMC_GUI2
             if (this.cmb_departments_head.Text == string.Empty)
             {
                 ok = false;
-                message += "Velg en afdelingsleder" + Environment.NewLine;
+                message += "Vælg en afdelingsleder" + Environment.NewLine;
             }   
             else
             {
@@ -2027,14 +2027,14 @@ namespace LMC_GUI2
                 catch (Exception)
                 {
                     ok = false;
-                    message += "Velg en gyldig afdelingsleder";
+                    message += "Vælg en gyldig afdelingsleder";
                 }
             }
 
             if (this.txt_departments_address.Text == string.Empty)
             {
                 ok = false;
-                message += "Ind tast en adresse" + Environment.NewLine;
+                message += "Indtast en adresse" + Environment.NewLine;
             }
 
             int postNumber = -1;
@@ -2042,7 +2042,7 @@ namespace LMC_GUI2
             if (this.txt_departments_postno.Text == string.Empty)
             {
                 ok = false;
-                message += "vleg et post nummer" + Environment.NewLine;
+                message += "Vælg et postnummer" + Environment.NewLine;
             }
             else
             {
@@ -2069,14 +2069,14 @@ namespace LMC_GUI2
                 catch (Exception)
                 {
                     ok = false;
-                    message += "Post nummer er ikke gyldig" + Environment.NewLine;
+                    message += "Postnummer er ikke gyldigt" + Environment.NewLine;
                 }
             }
 
             if (this.txt_departments_phoneno.Text == string.Empty)
             {
                 ok = false;
-                message += "Ind tast et tlf nr.";
+                message += "Indtast et tlf.nr.";
             }
 
             if (!ok)
@@ -2096,7 +2096,7 @@ namespace LMC_GUI2
                 if (!this.controller.DepartmentsAdd(this.txt_departments_address.Text, this.txt_departments_altphoneno.Text,
                     this.txt_departments_name.Text, cvrNo, departmentHead, this.txt_departments_email.Text, this.txt_departments_phoneno.Text,
                     postNumber))
-                    MessageBox.Show("Kan ikke tiløje den new afdeling");
+                    MessageBox.Show("Kan ikke tilføje den nye afdeling");
 
                 selectNew = true;
             }
@@ -2112,7 +2112,7 @@ namespace LMC_GUI2
                 if (!this.controller.DepartmentsUpdate(Convert.ToInt32(this.txt_departments_number.Text), this.txt_departments_address.Text, this.txt_departments_altphoneno.Text,
                     this.txt_departments_name.Text, cvrNo, departmentHead, this.txt_departments_email.Text, this.txt_departments_phoneno.Text,
                     postNumber))
-                    MessageBox.Show("Kunne ikke update afdeling");
+                    MessageBox.Show("Kunne ikke opdatere afdeling");
             }
 
             this.dgv_departments.ItemsSource = this.controller.GetDepartments().AsDataView();
@@ -2184,11 +2184,11 @@ namespace LMC_GUI2
         {
             DataTable dataTable = new DataTable();
 
-            dataTable.Columns.Add("Order nr", typeof(int));
+            dataTable.Columns.Add("Ordrenr", typeof(int));
             dataTable.Columns.Add("Opgave", typeof(string));
             dataTable.Columns.Add("Dato", typeof(DateTime));
             dataTable.Columns.Add("Timer brugt", typeof(double));
-            dataTable.Columns.Add("Time løn", typeof(double));
+            dataTable.Columns.Add("Timeløn", typeof(double));
 
             return dataTable;
         }
@@ -2200,7 +2200,7 @@ namespace LMC_GUI2
 
             if (dgv_p_invoices_orders.Items.Count > 20)
             {
-                MessageBox.Show("Der må kun være 20 order pr. regninge");
+                MessageBox.Show("Der må kun være 20 ordre pr. regning");
                 return;
             }
 
@@ -2276,7 +2276,7 @@ namespace LMC_GUI2
 
             if (this.dgv_p_invoices.SelectedItems.Count + this.dgv_p_invoices_orders.Items.Count > 20)
             {
-                MessageBox.Show("Der er kun plas til 20 order på en regninge");
+                MessageBox.Show("Der er kun plads til 20 ordrer på en regning");
                 return;
             }
 
@@ -2362,7 +2362,7 @@ namespace LMC_GUI2
         {
             if (this.dgv_p_invoices_orders.Items.Count < 1)
             {
-                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                MessageBox.Show("Vælg ordrer for at lave en regning");
                 return;
             }
 
@@ -2417,7 +2417,7 @@ namespace LMC_GUI2
 
             if (newInvoiceId == null || newInvoiceId == -1)
             {
-                MessageBox.Show("Der opstod en fjel, kunne ikke lave en regningen");
+                MessageBox.Show("Der opstod en fejl, kunne ikke lave regningen");
             }
             else
             {
@@ -2498,7 +2498,7 @@ namespace LMC_GUI2
 
             if (dgv_p_invoices_orders.Items.Count > 20)
             {
-                MessageBox.Show("Der må kun være 20 order pr. regninge");
+                MessageBox.Show("Der må kun være 20 ordrer pr. regning");
                 return;
             }
 
@@ -2539,7 +2539,7 @@ namespace LMC_GUI2
 
             if (this.dgv_c_invoices.SelectedItems.Count + this.dgv_c_invoices_orders.Items.Count > 20)
             {
-                MessageBox.Show("Der er kun plas til 20 order på en regninge");
+                MessageBox.Show("Der er kun plads til 20 ordrer på en regning");
                 return;
             }
 
@@ -2679,7 +2679,7 @@ namespace LMC_GUI2
         {
             if (this.dgv_c_invoices_orders.Items.Count < 1)
             {
-                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                MessageBox.Show("Vælg ordrer for at lave en regning");
                 return;
             }
 
@@ -2733,7 +2733,7 @@ namespace LMC_GUI2
 
             if (newInvoiceId == null || newInvoiceId == -1)
             {
-                MessageBox.Show("Der opstod en fjel, kunne ikke lave en regningen");
+                MessageBox.Show("Der opstod en fejl, kunne ikke lave en regning");
             }
             else
             {
@@ -2874,7 +2874,7 @@ namespace LMC_GUI2
             if (dgv_np_invoices.SelectedIndex == -1)
                 return;
 
-            var result = MessageBox.Show("Vil du slette regningen: " + txt_np_invoices_id.Text, "Slette regningen", MessageBoxButton.YesNo);
+            var result = MessageBox.Show("Vil du slette regning nr. " + txt_np_invoices_id.Text + "?", "Slet regningen", MessageBoxButton.YesNo);
 
             if (result != MessageBoxResult.Yes)
                 return;
@@ -2954,7 +2954,7 @@ namespace LMC_GUI2
             }
             else
             {
-                MessageBox.Show("Regningen blive ikke opdatert");
+                MessageBox.Show("Regningen blev ikke opdateret");
             }
 
             Mouse.OverrideCursor = Cursors.Arrow;
@@ -2964,7 +2964,7 @@ namespace LMC_GUI2
         {
             if (this.dgv_np_invoices.Items.Count < 1)
             {
-                MessageBox.Show("Velg nogel order for du kan lave en regnin");
+                MessageBox.Show("Vælg ordrer for at lave en regning");
                 return;
             }
 
