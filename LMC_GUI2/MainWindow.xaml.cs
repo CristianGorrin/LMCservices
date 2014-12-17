@@ -1647,17 +1647,14 @@ namespace LMC_GUI2
         {
             int id = -1;
 
-            if (!int.TryParse(this.txt_bank_id.Text, out id))
-                return;
-
             var items = (ItemCollection)this.dgv_bank.Items;
 
             for (int i = 0; i < items.Count; i++)
             {
                 var view = (DataRowView)items[i];
-                if (view.Row.ItemArray[8].ToString() == id.ToString())
+                if (view.Row.ItemArray[2].ToString() == txt_bank_accname.Text)
                 {
-                    this.dgv_workers.SelectedIndex = i;
+                    this.dgv_bank.SelectedIndex = i;
                     break;
                 }
             }

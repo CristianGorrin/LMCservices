@@ -1045,10 +1045,10 @@ namespace LogicController
 
             dataTable.Columns[0].ColumnName = "ID Number";
             dataTable.Columns[1].ColumnName = "Bank name";
-            dataTable.Columns[3].ColumnName = "Account name";
-            dataTable.Columns[4].ColumnName = "Reg No";
-            dataTable.Columns[5].ColumnName = "Account No";
-            dataTable.Columns[6].ColumnName = "Balance";
+            dataTable.Columns[2].ColumnName = "Account name";
+            dataTable.Columns[3].ColumnName = "Reg No";
+            dataTable.Columns[4].ColumnName = "Account No";
+            dataTable.Columns[5].ColumnName = "Balance";
 
             return dataTable;
                 
