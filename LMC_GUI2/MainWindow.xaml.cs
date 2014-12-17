@@ -183,6 +183,8 @@ namespace LMC_GUI2
 
                             this.tabIndex = 1;
                             this.subTabIndex = 0;
+
+                            this.dgv_bank.ItemsSource = this.controller.GetBankAccounts().AsDataView();
                         }
                     break;
                 case 2:
