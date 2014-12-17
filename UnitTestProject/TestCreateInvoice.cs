@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using RDGs;
-using TestingExcelAPI;
+using ExcelAPI;
 using Interface;
 
 namespace UnitTestProject

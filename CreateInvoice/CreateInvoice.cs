@@ -59,7 +59,6 @@ namespace ExcelAPI
             this.fakturaNo = "P-" + fakturaNo;
             this.dep = dep;
         }
-        //  Interface.Iworker worker, Interface.Idepartment dep, 
 
         /*
          * Company orders
@@ -79,6 +78,17 @@ namespace ExcelAPI
             this.dep = dep;
         }
 
+        ~CreateInvoice()
+        {
+            try
+            {
+                xlApp.Visible = true;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
         /*
          * Start Excel
          */
@@ -91,6 +101,8 @@ namespace ExcelAPI
             //Create Excel Workbook.
             xlWorkbook = (Excel._Workbook)(xlApp.Workbooks.Add(Missing.Value));
             xlSheet = (Excel._Worksheet)xlWorkbook.ActiveSheet;
+
+            xlSheet.Name = "Faktur nr. " + this.fakturaNo;
 
             PageLayout();
 
@@ -136,9 +148,9 @@ namespace ExcelAPI
          */
         private bool InsertPicture()
         {
-            if (File.Exists(@"./tempLogoLMC.PNG"))
+            if (File.Exists(@"./LogoLMC.PNG"))
             {            
-                xlSheet.Shapes.AddPicture(@"./tempLogoLMC.PNG",
+                xlSheet.Shapes.AddPicture(@"./LogoLMC.PNG",
                     Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 0, 0, 440, 105);
 
                 return true;
@@ -241,26 +253,14 @@ namespace ExcelAPI
             xlSheet.Cells[12, 12] = "DATO";
 
             //Customer information
-<<<<<<< HEAD
-            xlSheet.Cells[8, 3] = "KUNDE";
-            xlSheet.Cells[9, 1] = "Att.:";
-
-            if (this.companyCustomer != null)
-            xlSheet.Cells[10, 1] = "Firmanavn:";
-
-            xlSheet.Cells[11, 1] = "Adresse:";
-            xlSheet.Cells[12, 1] = "Postnr. & by:";
-            xlSheet.Cells[13, 1] = "Telefonnr.:";
-            xlSheet.Cells[14, 1] = "E-mail:";
-=======
             xlSheet.Cells[7, 3] = "KUNDE";
             xlSheet.Cells[8, 1] = "Att.:";
+            if (this.companyCustomer != null)
             xlSheet.Cells[9, 1] = "Firmanavn:";
             xlSheet.Cells[10, 1] = "Adresse:";
             xlSheet.Cells[11, 1] = "Postnr. & by:";
             xlSheet.Cells[12, 1] = "Telefonnr.:";
             xlSheet.Cells[13, 1] = "E-mail:";
->>>>>>> origin/Dam
 
             //Headers
             xlSheet.Cells[15, 2] = "BESKRIVELSE";
