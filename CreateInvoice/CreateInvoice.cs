@@ -148,11 +148,20 @@ namespace ExcelAPI
          */
         private bool InsertPicture()
         {
-            if (File.Exists(@"./LogoLMC.PNG"))
-            {            
-                xlSheet.Shapes.AddPicture(@"./LogoLMC.PNG",
-                    Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 0, 0, 440, 105);
+            string png = Environment.CurrentDirectory + @"/LogoLMC.png";
 
+            if (File.Exists(png))
+            {
+                try
+                {
+                    xlSheet.Shapes.AddPicture(png,
+                    Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 0, 0, 394, 90);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                
                 return true;
             } 
             else return false;
