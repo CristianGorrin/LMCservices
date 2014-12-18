@@ -288,7 +288,6 @@
                                 <StackPanel VerticalAlignment="Bottom" Height="100" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
                                     <Button x:Name="btn_bank_clear" Content="Ryd felter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_bank_clear_Click"/>
                                     <Button x:Name="btn_bank_search" Content="Søg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_bank_search_Click"/>
-                                    <Button x:Name="btn_bank_remove" Content="Fjern" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_bank_remove_Click"/>
                                     <Button x:Name="btn_bank_add" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="btn_bank_add_Click"/>
                                 </StackPanel>
                             </Grid>
