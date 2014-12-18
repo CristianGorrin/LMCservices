@@ -1636,6 +1636,7 @@ namespace LMC_GUI2
         #region Bank Accounts
         private void ClearBankAccounts()
         {
+            this.txt_bank_id.Text = string.Empty;
             this.txt_bank_bankname.Text = String.Empty;
             this.txt_bank_accname.Text = String.Empty;
             this.txt_bank_regno.Text = String.Empty;
@@ -1643,6 +1644,7 @@ namespace LMC_GUI2
             this.txt_bank_balance.Text = String.Empty;
             this.dgv_bank.SelectedIndex = -1;
         }
+
         private void FindBankAccount()
         {
             var items = (ItemCollection)this.dgv_bank.Items;
@@ -1650,13 +1652,32 @@ namespace LMC_GUI2
             for (int i = 0; i < items.Count; i++)
             {
                 var view = (DataRowView)items[i];
-                if (view.Row.ItemArray[2].ToString() == txt_bank_accname.Text)
+                if (view.Row.ItemArray[0].ToString() == this.txt_bank_id.Text)
                 {
                     this.dgv_bank.SelectedIndex = i;
                     break;
                 }
             }
         }
+
+        private void txt_bank_accname_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var items = (ItemCollection)this.dgv_bank.Items;
+
+                for (int i = 0; i < items.Count; i++)
+                {
+                    var view = (DataRowView)items[i];
+                    if (view.Row.ItemArray[2].ToString() == this.txt_bank_accname.Text)
+                    {
+                        this.dgv_bank.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
         private void dgv_bank_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             if (!(sender is DataGrid))
@@ -1683,18 +1704,22 @@ namespace LMC_GUI2
             this.txt_bank_accno.Text = row.ItemArray[4].ToString();
             this.txt_bank_balance.Text = row.ItemArray[5].ToString();
         }
+
         private void btn_bank_clear_Click(object sender, RoutedEventArgs e)
         {
             ClearBankAccounts();
         }
+
         private void btn_bank_search_Click(object sender, RoutedEventArgs e)
         {
             FindBankAccount();
         }
+
         private void txt_bank_Id_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             ClearBankAccounts();
         }
+
         private void txt_bank_Id_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -1702,6 +1727,7 @@ namespace LMC_GUI2
                 FindBankAccount();
             }
         }
+
         private void btn_bank_remove_Click(object sender, RoutedEventArgs e)
         {
             if (this.dgv_bank.SelectedIndex == -1)
@@ -1723,6 +1749,7 @@ namespace LMC_GUI2
 
             Mouse.OverrideCursor = Cursors.Arrow;
         }
+
         private void btn_bank_add_Click(object sender, RoutedEventArgs e)
         {
             bool ok = true;
@@ -1804,38 +1831,6 @@ namespace LMC_GUI2
 
             Mouse.OverrideCursor = Cursors.Arrow;
         }
-        private void txt_bank_id_TextChanged(object sender, RoutedEventArgs e)
-        {
-            var items = (ItemCollection)this.dgv_bank.Items;
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                var view = (DataRowView)items[i];
-                if (view.Row.ItemArray[0].ToString() == txt_bank_id.Text)
-                {
-                    this.dgv_bank.SelectedIndex = i;
-                    break;
-                }
-            }
-        }
-        private void txt_bank_regNo_Textchanged(object sender, RoutedEventArgs e)
-        {
-            var items = (ItemCollection)this.dgv_bank.Items;
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                var view = (DataRowView)items[i];
-                if (view.Row.ItemArray[3].ToString() == txt_bank_regno.Text)
-                {
-                    this.dgv_bank.SelectedIndex = i;
-                    break;
-                }
-            }
-        }
-
-
-
-
         #endregion 
 
         #region Workers
