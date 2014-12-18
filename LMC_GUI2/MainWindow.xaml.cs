@@ -3270,7 +3270,10 @@ namespace LMC_GUI2
                             throw new ArgumentOutOfRangeException("CleanUp sup tab Orders");
 	                }
                     break;
-                case 1:
+                case 1:  //BANK ACCOUNT
+                    this.controller.CleanUpBackAccounts();
+                    this.dgv_bank.ItemsSource = null;
+
                     break;
                 case 2:
                     break;

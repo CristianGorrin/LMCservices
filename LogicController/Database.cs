@@ -1385,6 +1385,11 @@ namespace LogicController
         {
             this.postNumbers.Clear();
         }
+
+        public void CleanUpBackAccounts()
+        {
+            this.bankAccounts.Clear();
+        }
         #endregion
     }
 }
