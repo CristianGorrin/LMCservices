@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="d514edcf-5300-4d7b-95cf-4158252aa2f5"
   name="Customers" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -54,22 +54,6 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <suppliersInternal>
-          <interfaceRealization
-            Id="7b7897fa-ec12-4f36-bdf6-c4e28514ea75">
-            <interfaceMoniker
-              Id="0172d322-638e-40b7-8857-02534f3faff9"
-              LastKnownName="IprivetCustomer"
-              LastKnownLocation="Package_1107.uml" />
-          </interfaceRealization>
-          <dependency
-            Id="925de695-5b1a-4f8f-92b3-eb9b81c3ab31">
-            <classMoniker
-              Id="23cda35d-8da0-4994-9004-058f3155ca41"
-              LastKnownName="PostNumbers"
-              LastKnownLocation="Package_1114.uml" />
-          </dependency>
-        </suppliersInternal>
         <targetEnds>
           <association
             Id="6cc1eb89-949c-4734-9158-60b6d772fa6b"
@@ -111,44 +95,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="f7aa6f13-70fc-4ce0-956a-c0bd737587eb"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="d65bcb60-958a-4a5b-a045-fbdc90e3d6b4"
-            isDerived="false"
-            sourceEndRoleName=""
-            targetEndRoleName=""
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="87a9cdcd-5d34-456d-8173-c29746152cc0"
-              LastKnownName="PostNo"
-              LastKnownLocation="Package_1114.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="f2007def-1c25-40b6-b847-aef53d121cde"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="e2a66b28-023d-4c73-a638-455dd29aac35"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -847,6 +793,297 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d390bd03-19a0-4862-b11e-3902c7c202fe"
+            name="PrivateCustomer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6f900e06-43cc-4dac-9108-c82da8a9cb7f"
+                  name="bool active"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="815d8e35-3f35-4d35-9589-286091b705f9"
+                  name="string altPhoneNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="990b306a-a3b0-4f44-a421-8f346c3a00a2"
+                  name="string email"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="16a0bb71-90a9-4489-8915-60b98adf2545"
+                  name="string homeAddress"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="08a9baca-8649-49df-b7b7-d73ef1a3b8e8"
+                  name="string name"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="14cfbf80-bef9-4c68-939b-e3f8253ad1d4"
+                  name="string phoneNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="be130ac0-7efa-4a01-b5c9-6821472aa20b"
+                  name="Interface.IpostNo postNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5089bfa7-73b9-49ed-ac0d-ec6bf6eb9b9e"
+                  name="int privateCustomersNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aff23f48-098d-4167-9f2f-78836941eb8d"
+                  name="string surname"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5e0e1b23-a81e-41a7-ae15-bc355f216bca"
+            name="Active"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e217154e-1e21-4c1a-9808-16ab908d5220"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="2162707b-8858-45ca-bcfc-8d3356f798c7"
+                      LastKnownName="bool"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="03057952-c720-4ab3-9ae7-a49faa014d49"
+            name="AltPhoneNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa4eb264-b1fe-494b-976a-73bd7b4e8611"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d7595bde-d9ea-447f-b71b-a3a516dd9230"
+            name="Email"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4daddda6-1e2b-493e-943a-8353cef74b3f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8752806c-6d3a-4c1d-a3bb-9b65baba0d75"
+            name="HomeAddress"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0fbdbdf0-a049-47dd-9c88-9ad5e0761dc1"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bc0127c0-b642-4b77-8b6c-4053566b1831"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7ba2e802-cfba-42c5-a922-fd8756213e13"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="660bd289-0077-451c-8807-d5c9ab858934"
+            name="PhoneNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cb1490c0-4b29-4957-85bb-e45260c4120b"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3e7c2e5c-614e-44be-83b7-d82d4f12c4d0"
+            name="PostNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ef608d4f-c0dd-4a5e-b57f-42b2665d19af"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c6424d6d-100f-4236-806b-1deed5c7f04b"
+                      LastKnownName="Interface.IpostNo"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8fd7e4df-e75c-4c03-95e7-bec6f51933f2"
+            name="PrivateCustomersNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="38839a73-1706-40ca-815c-69707a4c2e48"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dec0cc11-b208-4f92-8b35-867eac5f86b8"
+                      LastKnownName="int"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="13b6ca4b-1977-44e9-8380-8e43f20f4827"
+            name="Surname"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad8d2407-e01d-409f-b73f-cd39ffcdbd6f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -899,99 +1136,7 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <suppliersInternal>
-          <interfaceRealization
-            Id="1df09167-7da7-40cf-89d0-bb4cbcb33673">
-            <interfaceMoniker
-              Id="1fc1eb44-b8f2-48dc-8b41-df2ba47ca4e6"
-              LastKnownName="IcompanyCustomer"
-              LastKnownLocation="Package_1107.uml" />
-          </interfaceRealization>
-          <dependency
-            Id="21985204-aa4f-48b2-955a-c1a82424fad4">
-            <classMoniker
-              Id="23cda35d-8da0-4994-9004-058f3155ca41"
-              LastKnownName="PostNumbers"
-              LastKnownLocation="Package_1114.uml" />
-          </dependency>
-        </suppliersInternal>
         <targetEnds>
-          <association
-            Id="a1e690da-2c4c-44cd-9e42-f3e239243fd3"
-            isDerived="false"
-            sourceEndRoleName=""
-            targetEndRoleName=""
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="e6f9789e-61fc-432d-b62e-e3f59797b0a4"
-              LastKnownName="CompanyOrder"
-              LastKnownLocation="Package_1213.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="db2fddd8-bcd2-4418-bcb4-db65444f799c"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="38ee8b11-76b7-4727-a2e5-f58fda91770d"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="637cff7f-146a-4aa0-ae5a-1d5086aae573"
-            isDerived="false"
-            sourceEndRoleName=""
-            targetEndRoleName=""
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="f6bd1c94-d45b-42d0-98b5-d3977ac09b41"
-              LastKnownName="PrivetOrder"
-              LastKnownLocation="Package_1213.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="48305f14-c45b-4807-b799-2c5006ef9fed"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="04bd22e0-41de-413f-b7df-0ba1d41d5551"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
           <association
             Id="c3f1341c-faeb-490f-b5f4-132ce4a2ae6d"
             isDerived="false"
@@ -1032,44 +1177,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="924e84d5-7123-4927-9fab-b0839029b40d"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="744cd0ae-f6f6-484a-b6c6-a25a157390f8"
-            isDerived="false"
-            sourceEndRoleName=""
-            targetEndRoleName=""
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="87a9cdcd-5d34-456d-8173-c29746152cc0"
-              LastKnownName="PostNo"
-              LastKnownLocation="Package_1114.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="5dd8bf81-9b6c-45ca-a4d7-a9b78d82f51b"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="72574126-2c3e-4dff-8b08-0f4f29eee7b2"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1844,6 +1951,254 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7393b572-3704-47c4-9713-aae55ab873f1"
+            name="CompanyCustomer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8448fc36-7535-413c-b0b0-2dfb18803e67"
+                  name="bool active"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa8f7d3b-c744-4620-a62d-463b249469e9"
+                  name="string address"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3c885e84-7ddf-463f-8ac2-0d0847171d25"
+                  name="string altPhoneNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8bbf8638-6e3c-48c6-a34d-e045847ce8dc"
+                  name="string contactPerson"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0dc17e0f-5348-4cc6-af71-be4d6ce4c51e"
+                  name="("
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e007f0a1-86e7-4be1-acf6-67285d89c8d4"
+            name="Address"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bfcbe982-6f2b-408e-8d9a-65af93eaaa02"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="43a46d57-efa5-49bc-9bf0-5119d4aef9ca"
+            name="Active : bool"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cc6cbae6-a900-423b-9337-234b35a52baa"
+            name="CompanyCustomersNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1dc7a70f-8626-4040-87d7-1bcd91c7dcb4"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dec0cc11-b208-4f92-8b35-867eac5f86b8"
+                      LastKnownName="int"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="17415c01-ad0a-49c9-857d-c916310cc9c0"
+            name="ContactPerson"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="519fee90-183b-437b-be8b-c163e53adc13"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2a30eb42-a5f7-417f-950d-82030c349ec9"
+            name="CvrNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f6146644-22dc-4fd6-9564-bc0d3956a58d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dec0cc11-b208-4f92-8b35-867eac5f86b8"
+                      LastKnownName="int"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a04377ce-48cf-4618-9265-ea60cc3b8b03"
+            name="Email"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="489044a2-da00-4aa1-9a16-7351561e2ad3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4aa9ef35-79b8-4815-b540-6b0419d37bda"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="88dca24e-8686-41c1-9936-24cc1465c6a3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7dda5e5a-83a1-4fbc-97ae-918fe466868f"
+            name="PhoneNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f4050c56-91e3-4da1-ad28-1fc3d8b7f824"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e4adcf3a-41d5-4eb8-88a8-f5f43c1d9f44"
+                      LastKnownName="string"
+                      LastKnownLocation="Modeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4b3a82da-3d5e-4ac6-b8f3-cb0f3720e46c"
+            name="PostNo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1fbc7480-449e-4be3-bd30-fe447a27d1b2"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c6424d6d-100f-4236-806b-1deed5c7f04b"
+                      LastKnownName="Interface.IpostNo"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1906,6 +2261,16 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="1bb10757-fbf9-43d7-9865-c28613a54c5a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b63d128e-f488-4743-ba53-dede6c6161d6"
+              LastKnownName="Lists&lt;T&gt;"
+              LastKnownLocation="Package_2153.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="fba594b6-c330-4777-af4d-cf8e90952443"
@@ -1984,6 +2349,64 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="347c92e3-eece-4879-8736-ec4c1e33e28f"
+            name="AsDataTable"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2790c69d-3a51-49e9-ae54-a516717b554d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="394f2bc5-962b-4639-a935-27c567bd3bf4"
+                      LastKnownName="DataTable"
+                      LastKnownLocation="Package_1108.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e3361ccf-0099-473c-aed6-b5a2cb4842dc"
+            name="PrivateCustomers"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="36758bc3-9199-4906-83bd-cee033f14462"
+            name="RemoveAtId"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f4320338-9318-4201-a7c2-c88e7e312c58"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2041,6 +2464,16 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="4fb53887-41b4-4424-a211-f195b633955b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b63d128e-f488-4743-ba53-dede6c6161d6"
+              LastKnownName="Lists&lt;T&gt;"
+              LastKnownLocation="Package_2153.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="4c1fdec6-bd79-45e7-a9b1-5f6ae6c26dbf"
@@ -2119,12 +2552,51 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="63869d74-4eb5-4fdc-bbd3-97f34f3fc60d"
+            name="AsDateTable"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f4b530c8-0922-41c5-be97-db3fe2ae6848"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="76d805bf-9d1a-4593-ab8d-8220660f3ec8"
+                      LastKnownName="DateTable"
+                      LastKnownLocation="Package_1306.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2887101f-4e01-42f8-9896-e5ff87907820"
+            name="CompanyCustomers"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <undefinedType
         Id="272972ac-4abd-4d77-981e-a792e0836d4e"
         name="list&lt;CompanyCustomer&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="09a5f043-1bc7-4a42-b74e-63a7a823da76"
+        name="dtring" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

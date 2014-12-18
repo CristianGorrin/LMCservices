@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="24f27e03-0d96-4760-85d2-bb350be1af25"
+  name="CreateInvoice" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="6dbb4bc1-3c39-4b44-b3cb-9b29dbd25a1d"
+        name="CreateInvoice&lt;T&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="57bb52e3-a818-4190-957f-5913ee3c3d69"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="435d241d-36d8-42a9-a3e5-06f4a17d4eb9"
+              LastKnownName="Controller"
+              LastKnownLocation="Package_1306.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="86025240-a41e-4f25-bebd-db8666302475"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="46873881-01a2-4ee4-9bf9-f65a803e9dfe"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ff262750-a701-4b6a-ab31-634f032bec1e"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ae34407c-f851-41a9-8057-b8faa2f0e579"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="edf6ff8a-5c6a-496d-af77-7efede96c320"
+            name="xlApp"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="2db6acd7-47c3-4d9e-a59b-527bc6f220a7"
+                LastKnownName="Excel.Application"
+                LastKnownLocation="Package_0152.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="dce67c8e-285f-42d5-9988-0a8e06302f6a"
+            name="xlWorkbook"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e3448e71-f1a9-4d25-b5ac-010e67f4f733"
+                LastKnownName="Excel._Workbook"
+                LastKnownLocation="Package_0152.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="47fcb3ce-74f7-4177-8394-101f1cdbd8a6"
+            name="xlSheet"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b281edee-627c-4eed-a72c-e758a2ad10ab"
+                LastKnownName="Excel._Worksheet"
+                LastKnownLocation="Package_0152.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6b014613-42a9-4ecf-b874-76d62d64e8aa"
+            name="List&lt;T&gt; orders"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="28b9bf9c-ab1b-418b-ad1f-16bee5b8d157"
+            name="orders"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ff26dff2-2f36-4d96-9f5a-9a95eb9183d4"
+                LastKnownName="private List&lt;T&gt; orders"
+                LastKnownLocation="Package_0152.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="06dafde0-ffac-44c6-9719-5d59a9f5469e"
+            name="privateCustomer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ab563a1d-765c-47ba-8c7f-a652d4dba3b0"
+                LastKnownName="Interface.IprivetCustomer"
+                LastKnownLocation="Package_1306.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="77f8b724-dad7-4892-981c-67b331365421"
+            name="companyCustomer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8d223be6-a0e8-4985-acfb-edadbfe7b48e"
+                LastKnownName="Interface.IcompanyCustomer"
+                LastKnownLocation="Package_1306.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ec455129-9b91-4ead-bcf5-a60fca3da690"
+            name="bank"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="976246ae-e2e9-4139-957b-89c1782270f7"
+                LastKnownName="Interface.IbankAccounts"
+                LastKnownLocation="Package_0152.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0a2269f6-82b4-405e-bcdb-64d8c6f78dbf"
+            name="dep"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e3c70fd6-cc8a-4a23-adb9-0f0bf3505eae"
+                LastKnownName="Interface.Idepartment"
+                LastKnownLocation="Package_0152.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b374352f-0420-4dbb-9aa1-8807e2f10384"
+            name="daysToPay"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="dec0cc11-b208-4f92-8b35-867eac5f86b8"
+                LastKnownName="int"
+                LastKnownLocation="Modeling.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="72b16d97-f6bb-4344-8ee4-2c5f9a229e08"
+            name="fakturaNo string"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="685ed960-b76b-4219-96e7-2ed7076a9c92"
+            name="const int rowsOffset"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="57263046-12b3-462d-9292-f7b78ee94ecb"
+            name="const int columnsOffset"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="13d719bd-013e-4621-b4d5-12e6c7bbfe5e"
+            name="CreateInvoice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="73b56551-0f2e-49cb-8c1d-c1bd67c23d38"
+                  name="List&lt;T&gt; input"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b7b44c41-23e9-4fed-9e26-b0d367b993c9"
+                  name="Interface.IprivetCustomer customer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f98d50c2-f1bd-4862-b510-72691063939f"
+                  name="Interface.IbankAccounts bank"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6c716526-64ad-4950-9d4f-f64459e7785e"
+                  name="Interface.Idepartment dep"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3f558779-b939-45c7-83db-19b2a0d4055e"
+                  name="int daysToPay"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="63798e31-16f5-4aa2-ae13-a1892cf50a17"
+                  name="string fakturaNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="de7f4ebd-44b8-4861-94e9-7cf03891b7c2"
+            name="CreateInvoice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c6bcfd4d-2e34-417f-b1ac-619da4268550"
+                  name="List&lt;T&gt; input"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="af68fed7-2f04-4f4a-9709-2ddaf5d46fa1"
+                  name="Interface.IcompanyCustomer customer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b5b0060-1792-4d25-932c-ab6fce6f3250"
+                  name="Interface.IbankAccounts bank"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="266648ac-44fa-4654-86d3-c8fb1ceb2929"
+                  name="Interface.Idepartment dep"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="09de9b75-bc9f-4417-ae1f-0a7061936776"
+                  name="int daysToPay"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="beb1927e-c359-43db-9eea-9924f05aeef1"
+                  name="string fakturaNo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7157d63b-d7d4-4a9c-9be8-c3c99ceb6a29"
+            name="~CewateInvoice"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="eee67495-a122-438a-b51a-eeffda79c9e5"
+            name="StartExcel"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b53cd626-d400-4d83-b617-58cb43fe753a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="462f7625-45dc-4ede-b100-4316cc72b299"
+            name="PageLayout"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dd8f6a8a-2b97-472e-b785-b4cf068cddb5"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="80a9a724-a3d1-45d9-a766-063ca6d9b325"
+            name="InsertPicture"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="13af8057-eab7-4e39-a05d-76b90e813941"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0fc1f237-47d4-44c1-9be1-ea703bffa8b3"
+            name="MergeColumns"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="be674bac-11a7-4756-956b-7d7c1d13a0b4"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2c921ffa-4117-491f-b22d-248b158e6c0a"
+            name="FormatCells"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="70e1f3e2-be6e-40d0-b28e-ab9034dbb021"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="acc04263-6214-4db2-a8f9-00e8464542df"
+            name="ConstantText"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bef94b68-ca07-4904-9521-83e6b76f0942"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3b6b2412-2f62-4211-a147-2a3911e52cef"
+            name="InputCustomerData"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6dde0582-272c-4415-ad91-b00206950a77"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="18e1f7e5-ed43-425c-88da-fba82c82df3b"
+            name="InputCompanyInfo"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="755eaf19-ec7c-4717-af6e-5d65b7c5e781"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="150c50ff-2106-4fc4-89d8-07d58d300fe0"
+            name="InputInvoiceInfo"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fc91d3aa-1634-427f-ab63-eaabc0ab06e3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c5ba596e-3c4b-4298-92b9-9d9610d5885f"
+            name="InputOrders"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5e247e1c-ef1e-47f1-b6b1-56fec0d959cd"
+                  name="int rowsOffset"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4c648cc2-e877-40a7-b1f4-cf21f6822b47"
+                  name="int columnsOffset"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9cfb5bb7-b96e-4daf-a580-184090efe3ef"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="43b0682f-ad7a-42d5-9ceb-76a39ddbc2a2"
+            name="Totals"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cf8fc7a8-ff03-4bd3-862e-933bbb150954"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f9578957-26eb-4e18-a096-d46f3d106a18"
+                      LastKnownName="void"
+                      LastKnownLocation="Package_1042.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2db6acd7-47c3-4d9e-a59b-527bc6f220a7"
+        name="Excel.Application" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e3448e71-f1a9-4d25-b5ac-010e67f4f733"
+        name="Excel._Workbook" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b281edee-627c-4eed-a72c-e758a2ad10ab"
+        name="Excel._Worksheet" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ff26dff2-2f36-4d96-9f5a-9a95eb9183d4"
+        name="private List&lt;T&gt; orders" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="976246ae-e2e9-4139-957b-89c1782270f7"
+        name="Interface.IbankAccounts" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e3c70fd6-cc8a-4a23-adb9-0f0bf3505eae"
+        name="Interface.Idepartment" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

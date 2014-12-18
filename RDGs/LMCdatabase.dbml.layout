@@ -132,7 +132,7 @@
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.39745198567708); (5.91666666666667 : 8.39745198567708 : JumpStart); (6.08333333333333 : 8.39745198567708 : JumpEnd); (7.29166666666667 : 8.39745198567708 : JumpStart); (7.45833333333333 : 8.39745198567708 : JumpEnd); (8.40625 : 8.39745198567708); (8.40625 : 7.85740397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.39745198567708); (5.91666666666667 : 8.39745198567708 : JumpStart); (6.08333333333333 : 8.39745198567708 : JumpEnd); (7.29166666666667 : 8.39745198567708 : JumpStart); (7.45833333333333 : 8.39745198567708 : JumpEnd); (8.40625 : 8.39745198567708); (8.40625 : 7.85740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPostNo/tblPostNo_tblWorker" />
       <nodes>
         <classShapeMoniker Id="042661e6-c280-4de9-aa43-745e36f04fd2" />
@@ -158,280 +158,280 @@
         <elementListCompartment Id="57fdc0c8-7e5e-4e2b-98f2-9eb94955b495" absoluteBounds="11.515, 7.8350000000000009, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 14.6835034179688); (11.5 : 14.6835034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 14.6835034179688); (11.5 : 14.6835034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 13.8417517089844); (11.5 : 13.8417517089844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 13.8417517089844); (11.5 : 13.8417517089844)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany1" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 15.5252551269531); (11.5 : 15.5252551269531)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 15.5252551269531); (11.5 : 15.5252551269531)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany2" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 15.1043792724609); (11.5 : 15.1043792724609)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 15.1043792724609); (11.5 : 15.1043792724609)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany3" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 14.2626275634766); (11.5 : 14.2626275634766)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 14.2626275634766); (11.5 : 14.2626275634766)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany4" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 13.4208758544922); (11.5 : 13.4208758544922)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 13.4208758544922); (11.5 : 13.4208758544922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany5" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 15.9461309814453); (11.5 : 15.9461309814453)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 15.9461309814453); (11.5 : 15.9461309814453)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany6" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 14.4730654907227); (11.5 : 14.4730654907227)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 14.4730654907227); (11.5 : 14.4730654907227)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany7" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 14.8939413452148); (11.5 : 14.8939413452148)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 14.8939413452148); (11.5 : 14.8939413452148)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany8" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 15.314817199707); (11.5 : 15.314817199707)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 15.314817199707); (11.5 : 15.314817199707)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany9" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 14.0521896362305); (11.5 : 14.0521896362305)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 14.0521896362305); (11.5 : 14.0521896362305)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany10" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 13.6313137817383); (11.5 : 13.6313137817383)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 13.6313137817383); (11.5 : 13.6313137817383)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany11" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 15.7356930541992); (11.5 : 15.7356930541992)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 15.7356930541992); (11.5 : 15.7356930541992)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany12" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 13.2104379272461); (11.5 : 13.2104379272461)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 13.2104379272461); (11.5 : 13.2104379272461)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany13" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 16.1565689086914); (11.5 : 16.1565689086914)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 16.1565689086914); (11.5 : 16.1565689086914)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany14" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.7812525 : 16.2420068359375); (7.7812525 : 17.698310139974); (11.5 : 17.698310139974)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.7812525 : 16.2420068359375); (7.7812525 : 17.698310139974); (11.5 : 17.698310139974)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany15" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.7187475 : 16.2420068359375); (6.7187475 : 16.7680554785157); (7.16666666666667 : 16.7680554785157 : JumpStart); (7.33333333333333 : 16.7680554785157 : JumpEnd); (7.43229291666667 : 16.7680554785157 : JumpStart); (7.59895958333333 : 16.7680554785157 : JumpEnd); (7.69791916666667 : 16.7680554785157 : JumpStart); (7.86458583333333 : 16.7680554785157 : JumpEnd); (7.96354541666667 : 16.7680554785157 : JumpStart); (8.13021208333333 : 16.7680554785157 : JumpEnd); (11.5 : 16.7680554785157)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.7187475 : 16.2420068359375); (6.7187475 : 16.7680554785157); (7.16666666666667 : 16.7680554785157 : JumpStart); (7.33333333333333 : 16.7680554785157 : JumpEnd); (7.43229291666667 : 16.7680554785157 : JumpStart); (7.59895958333333 : 16.7680554785157 : JumpEnd); (7.69791916666667 : 16.7680554785157 : JumpStart); (7.86458583333333 : 16.7680554785157 : JumpEnd); (11.5 : 16.7680554785157)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany16" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.04687875 : 16.2420068359375); (8.04687875 : 17.4337021305339); (11.5 : 17.4337021305339)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.04687875 : 16.2420068359375); (8.04687875 : 17.4337021305339); (11.5 : 17.4337021305339)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany17" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.51562625 : 16.2420068359375); (7.51562625 : 17.9629181494141); (11.5 : 17.9629181494141)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.51562625 : 16.2420068359375); (7.51562625 : 17.9629181494141); (11.5 : 17.9629181494141)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany18" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.98437375 : 16.2420068359375); (6.98437375 : 16.5050311572266); (7.16666666666667 : 16.5050311572266 : JumpStart); (7.33333333333333 : 16.5050311572266 : JumpEnd); (7.43229291666667 : 16.5050311572266 : JumpStart); (7.59895958333333 : 16.5050311572266 : JumpEnd); (7.69791916666667 : 16.5050311572266 : JumpStart); (7.86458583333333 : 16.5050311572266 : JumpEnd); (7.96354541666667 : 16.5050311572266 : JumpStart); (8.13021208333333 : 16.5050311572266 : JumpEnd); (11.5 : 16.5050311572266)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.98437375 : 16.2420068359375); (6.98437375 : 16.5050311572266); (7.16666666666667 : 16.5050311572266 : JumpStart); (7.33333333333333 : 16.5050311572266 : JumpEnd); (7.43229291666667 : 16.5050311572266 : JumpStart); (7.59895958333333 : 16.5050311572266 : JumpEnd); (7.69791916666667 : 16.5050311572266 : JumpStart); (7.86458583333333 : 16.5050311572266 : JumpEnd); (11.5 : 16.5050311572266)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblCompanyOrder/tblCompanyOrder_tblInvoiceCompany19" />
       <nodes>
         <classShapeMoniker Id="dc2394d3-d3b8-4af2-924e-1a05763b0e88" />
         <classShapeMoniker Id="413188a1-d3cd-4dab-b6a0-8765f5369e48" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 10.1835034179688); (11.5 : 10.1835034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 10.1835034179688); (11.5 : 10.1835034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 9.34175170898438); (11.5 : 9.34175170898438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 9.34175170898438); (11.5 : 9.34175170898438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet1" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 11.0252551269531); (11.5 : 11.0252551269531)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 11.0252551269531); (11.5 : 11.0252551269531)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet2" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 10.6043792724609); (11.5 : 10.6043792724609)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 10.6043792724609); (11.5 : 10.6043792724609)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet3" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 9.76262756347656); (11.5 : 9.76262756347656)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 9.76262756347656); (11.5 : 9.76262756347656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet4" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.92087585449219); (11.5 : 8.92087585449219)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 8.92087585449219); (11.5 : 8.92087585449219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet5" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 11.4461309814453); (11.5 : 11.4461309814453)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 11.4461309814453); (11.5 : 11.4461309814453)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet6" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 10.3939413452148); (11.5 : 10.3939413452148)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 10.3939413452148); (11.5 : 10.3939413452148)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet7" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 9.97306549072266); (11.5 : 9.97306549072266)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 9.97306549072266); (11.5 : 9.97306549072266)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet8" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 9.55218963623047); (11.5 : 9.55218963623047)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 9.55218963623047); (11.5 : 9.55218963623047)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet9" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 10.814817199707); (11.5 : 10.814817199707)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 10.814817199707); (11.5 : 10.814817199707)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet10" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 9.13131378173828); (11.5 : 9.13131378173828)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 9.13131378173828); (11.5 : 9.13131378173828)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet11" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 11.2356930541992); (11.5 : 11.2356930541992)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 11.2356930541992); (11.5 : 11.2356930541992)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet12" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.71043792724609); (11.5 : 8.71043792724609)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 8.71043792724609); (11.5 : 8.71043792724609)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet13" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 11.6565689086914); (11.5 : 11.6565689086914)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 11.6565689086914); (11.5 : 11.6565689086914)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet14" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.25 : 11.7420068359375); (7.25 : 12.0785144973958); (7.69791916666667 : 12.0785144973958 : JumpStart); (7.86458583333333 : 12.0785144973958 : JumpEnd); (7.96354541666667 : 12.0785144973958 : JumpStart); (8.13021208333333 : 12.0785144973958 : JumpEnd); (11.5 : 12.0785144973958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 11.7420068359375); (7.25 : 12.0785144973958); (11.5 : 12.0785144973958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet15" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.7812525 : 11.7420068359375); (7.7812525 : 12.278020328125); (7.96354541666667 : 12.278020328125 : JumpStart); (8.13021208333333 : 12.278020328125 : JumpEnd); (11.5 : 12.278020328125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.7812525 : 11.7420068359375); (7.7812525 : 12.278020328125); (7.96354541666667 : 12.278020328125 : JumpStart); (8.13021208333333 : 12.278020328125 : JumpEnd); (11.5 : 12.278020328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet16" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.7187475 : 11.7420068359375); (6.7187475 : 12.1782674127604); (7.69791916666667 : 12.1782674127604 : JumpStart); (7.86458583333333 : 12.1782674127604 : JumpEnd); (7.96354541666667 : 12.1782674127604 : JumpStart); (8.13021208333333 : 12.1782674127604 : JumpEnd); (11.5 : 12.1782674127604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.7187475 : 11.7420068359375); (6.7187475 : 12.1782674127604); (11.5 : 12.1782674127604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet17" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.04687875 : 11.7420068359375); (8.04687875 : 12.3777732434896); (11.5 : 12.3777732434896)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.04687875 : 11.7420068359375); (8.04687875 : 12.3777732434896); (11.5 : 12.3777732434896)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet18" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />
         <classShapeMoniker Id="2bf8b097-da3d-460f-8890-bba57d85f959" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.51562625 : 11.7420068359375); (7.51562625 : 12.0971384550781); (7.69791916666667 : 12.0971384550781 : JumpStart); (7.86458583333333 : 12.0971384550781 : JumpEnd); (7.96354541666667 : 12.0971384550781 : JumpStart); (8.13021208333333 : 12.0971384550781 : JumpEnd); (11.5 : 12.0971384550781)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.51562625 : 11.7420068359375); (7.51562625 : 12.0971384550781); (7.96354541666667 : 12.0971384550781 : JumpStart); (8.13021208333333 : 12.0971384550781 : JumpEnd); (11.5 : 12.0971384550781)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LMCdatabaseDataContext/tblPrivetOrder/tblPrivetOrder_tblInvoicePrivet19" />
       <nodes>
         <classShapeMoniker Id="89e3c031-2416-4a71-a1b6-db29993c3a51" />

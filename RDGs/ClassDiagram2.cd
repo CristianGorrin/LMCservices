@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RDGs.InterfaceAdaptor" Collapsed="true">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InterfaceAdaptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.LMCdatabaseDataContext" Collapsed="true">
+    <Position X="11.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBEoAhAAFMhgAKAAAAgAYIEEYCAkEASAAGkABAMIhBM=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.tblBankAccount" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAiAAGBAQAAIJBARgEBAAgJjDAIIAAAAGAAAAQ0ABI=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblCompanyCustomer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAjAACpCQAgACBhTgEQJhABqDIUgwBCEMCQIEAUAEE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblCompanyOrder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wOH/KRiFAJz8g5AI5EkQYnQBiOAKZFeAAAGKAIJAAv8=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblDeleteItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SIAgAAADAACDGAQQYAEAAgABiCAAAAIAAAABAQAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblDepartment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAjAABpAQAAAiAhTgFAJxIRqGIEAgRCEMCQIEAUCEE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblPostNo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAZIABEgCAASAEEKAgJqCEACABgABAIAAYGAUA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblPrivateCustomer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQjIAEpAEAIIoAhTiEEBAABqiCEQgBCEuCQIACEAAE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblPrivetOrder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/8N/KWglAJgJk5GI5EmgYnwFyWAaRF+CALH/WO5BoYk=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblWorker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABjIAGpAEAEIKBhXgEEBIABqnCEQgjCEuCQJBSEAUE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblWorkerStatus" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQgAAARAQAAAAAAUAEAAAgBiCAICAAAAEEgAAIAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblInvoiceCompany" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AmImUSUBoYCAYJGgQQFx5D1BjCAASaGp+o+A+tb/AAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.tblInvoicePrivet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkImUAUDgIAAAIEgQQk05P//jDQASKGpIqoButL/AAQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RDGs.RDGtblBankAccounts" Collapsed="true">
+    <Position X="12.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblBankAccounts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblCompanyCustomers" Collapsed="true">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblCompanyCustomers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblDepartment" Collapsed="true">
+    <Position X="11.5" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblInvoiceCompany" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAYAACgAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblInvoiceCompany.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblInvoicePrivet" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAACgAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblInvoicePrivet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblPostNo" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblPostNo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblPrivateCustomers" Collapsed="true">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblPrivateCustomers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblPrivetOrders">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAEACAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblPrivetOrders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblWorkers" Collapsed="true">
+    <Position X="11.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblWorkers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RDGtblWorkerStatus" Collapsed="true">
+    <Position X="12" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RDGtblWorkerStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.RGDtblCompanyOrders" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAEAhAAAAAAEAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RGDtblCompanyOrders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RDGs.Properties.Settings" Collapsed="true">
+    <Position X="13.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

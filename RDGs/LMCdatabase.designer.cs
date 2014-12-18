@@ -342,7 +342,7 @@ namespace RDGs
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_balance", DbType="Decimal(8,4)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_balance", DbType="Decimal(12,4)")]
 		public System.Nullable<decimal> balance
 		{
 			get

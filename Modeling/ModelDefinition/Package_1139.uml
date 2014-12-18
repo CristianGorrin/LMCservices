@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="65c0bbf1-eb7c-484c-8bcd-1aa8177e8ab4"
   name="Domain Logic  " xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -41,7 +41,7 @@
     <packageHasNamedElement>
       <packageMoniker
         Id="e77eb48c-3c52-4858-8d76-73ee818854fb"
-        LastKnownName="Information"
+        LastKnownName="PostNo"
         LastKnownLocation="Package_1114.uml" />
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -67,6 +67,12 @@
         Id="2776fbcc-ca6f-48c2-be48-9ebb8ce003f4"
         LastKnownName="Controller"
         LastKnownLocation="Package_1306.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="24f27e03-0d96-4760-85d2-bb350be1af25"
+        LastKnownName="CreateInvoice"
+        LastKnownLocation="Package_0152.uml" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

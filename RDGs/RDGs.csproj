@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="LMCdatabase.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LMCdatabase.designer.cs</LastGenOutput>

@@ -6,118 +6,17 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="Name = ClassTemplate" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="ProjectPath = ..\ModelingLib\ModelingLib.csproj" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2014-11-08T21:46:25" Importance="Medium" Text="Modeling's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'Modeling::Domain Logic  ::Accounting::Bank::BankAccount' -  (Class), 'Modeling::Domain Logic  ::Company::Department' -  (Class), 'Modeling::Domain Logic  ::Company::Worker' -  (Class), 'Modeling::Domain Logic  ::Company::Departments' -  (Class), 'Modeling::Domain Logic  ::Company::WorkerStatus' -  (Class), 'Modeling::Domain Logic  ::Company::Workers' -  (Class), 'Modeling::Domain Logic  ::Customers::PrivetCustomer' -  (Class), 'Modeling::Domain Logic  ::Customers::CompanyCustomer' -  (Class), 'Modeling::Domain Logic  ::Customers::PrivetCustomers' -  (Class), 'Modeling::Domain Logic  ::Customers::CompanyCustomers' -  (Class), 'Modeling::Domain Logic  ::PostNo::PostNo' -  (Class), 'Modeling::Domain Logic  ::PostNo::PostNumbers' -  (Class), 'Modeling::Domain Logic  ::Orders::Orders' -  (Class), 'Modeling::Domain Logic  ::Orders::CompanyOrder' -  (Class), 'Modeling::Domain Logic  ::Orders::PrivetOrder' -  (Class) " />
-  <Message Timestamp="2014-11-08T21:46:27" Importance="Medium" Text="Project Added: C:\Users\CristianC\SkyDrive\Visual Studio\C#\LMCservices\ModelingLib\ModelingLib.csproj" />
-  <Message Timestamp="2014-11-08T21:46:27" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Accounting::Bank::BankAccount' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:27" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Department' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:27" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Worker' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:27" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Departments' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:27" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::WorkerStatus' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:28" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Workers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:28" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::PrivetCustomer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:28" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::CompanyCustomer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:28" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::PrivetCustomers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:28" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::CompanyCustomers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:29" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo::PostNo' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:29" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo::PostNumbers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:29" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::Orders' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:29" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::CompanyOrder' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::PrivetOrder' -  (Class): no file generated because the 'AppliesToElement' method of the template 'ClassTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="ProjectPath = ..\ModelingLib\ModelingLib.csproj" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Medium" Text="Modeling's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'Modeling::Domain Logic  ::Interface::Idepartment' -  (Interface), 'Modeling::Domain Logic  ::Interface::Iworker' -  (Interface), 'Modeling::Domain Logic  ::Interface::IworkerStatus' -  (Interface), 'Modeling::Domain Logic  ::Interface::IprivetCustomer' -  (Interface), 'Modeling::Domain Logic  ::Interface::IcompanyCustomer' -  (Interface), 'Modeling::Domain Logic  ::Interface::IcompanyOrder' -  (Interface), 'Modeling::Domain Logic  ::Interface::IprivetOrder' -  (Interface), 'Modeling::Domain Logic  ::Interface::IpostNo' -  (Interface) " />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::Idepartment' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::Iworker' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::IworkerStatus' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::IprivetCustomer' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:30" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::IcompanyCustomer' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::IcompanyOrder' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::IprivetOrder' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface::IpostNo' -  (Interface): no file generated because the 'AppliesToElement' method of the template 'InterfaceTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="Name = StructTemplate" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="ProjectPath = ..\ModelingLib\ModelingLib.csproj" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Medium" Text="Modeling's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'Modeling::Domain Logic  ::Accounting::Bank::BankAccount' -  (Class), 'Modeling::Domain Logic  ::Company::Department' -  (Class), 'Modeling::Domain Logic  ::Company::Worker' -  (Class), 'Modeling::Domain Logic  ::Company::Departments' -  (Class), 'Modeling::Domain Logic  ::Company::WorkerStatus' -  (Class), 'Modeling::Domain Logic  ::Company::Workers' -  (Class), 'Modeling::Domain Logic  ::Customers::PrivetCustomer' -  (Class), 'Modeling::Domain Logic  ::Customers::CompanyCustomer' -  (Class), 'Modeling::Domain Logic  ::Customers::PrivetCustomers' -  (Class), 'Modeling::Domain Logic  ::Customers::CompanyCustomers' -  (Class), 'Modeling::Domain Logic  ::PostNo::PostNo' -  (Class), 'Modeling::Domain Logic  ::PostNo::PostNumbers' -  (Class), 'Modeling::Domain Logic  ::Orders::Orders' -  (Class), 'Modeling::Domain Logic  ::Orders::CompanyOrder' -  (Class), 'Modeling::Domain Logic  ::Orders::PrivetOrder' -  (Class) " />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Accounting::Bank::BankAccount' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Department' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Worker' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Departments' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::WorkerStatus' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::Workers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::PrivetCustomer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::CompanyCustomer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::PrivetCustomers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::CompanyCustomers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:31" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo::PostNo' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo::PostNumbers' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::Orders' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::CompanyOrder' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::PrivetOrder' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="The selection included 48 elements which were not bound to a template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Presentation Layer' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Presentation Layer::wpfGUI' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::' -  (Association): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Accounting' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Accounting::Bank' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Accounting::Bookkeeping' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Company' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Customers' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Controller' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Recovery' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Orders::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::Interface' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Domain Logic  ::PostNo::' -  (InterfaceRealization): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Data Source' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::Data Source::RDGs' -  (Package): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="Diagnostic" Text="'Modeling::' -  (Dependency): no bound template." />
-  <Message Timestamp="2014-11-08T21:46:32" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="ProjectPath = ..\ModelingLib\ModelingLib.csproj" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-12-17T22:33:50" Importance="Medium" Text="Modeling's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'Modeling::Class3' -  (Class) " />
+  <Message Timestamp="2014-12-17T22:33:55" Importance="Medium" Text="Project Added: C:\Users\Cristian C. Gorrin\OneDrive\Visual Studio\C#\LMCservices\ModelingLib\ModelingLib.csproj" />
+  <Message Timestamp="2014-12-17T22:33:55" Importance="Medium" Text="'Modeling::Class3' -  (Class) : success (file created) - C:\Users\Cristian C. Gorrin\OneDrive\Visual Studio\C#\LMCservices\ModelingLib\GeneratedCode\Class3.cs" />
+  <Message Timestamp="2014-12-17T22:33:55" Importance="High" Text="Code generation process has been canceled." />
+  <Message Timestamp="2014-12-17T22:33:55" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>

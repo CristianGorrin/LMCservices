@@ -22,6 +22,13 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="Class Diagram\UMLClassDiagramV1_1.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Class Diagram\UMLClassDiagramV1_1.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Class Diagram\UMLClassDiagramV1_1.classdiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package1_1105.uml">
       <SubType>Content</SubType>
     </Content>
@@ -29,6 +36,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package1_1141.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_0152.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_1042.uml">
@@ -55,13 +65,13 @@
     <Content Include="ModelDefinition\Package_1141.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ModelDefinition\Package_1143.uml">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="ModelDefinition\Package_1213.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_1224.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1232.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_1306.uml">
@@ -72,6 +82,19 @@
     </Content>
     <Content Include="ModelDefinition\Package_2153.uml">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2251.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2318.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequence Diagram\Controller_PrivetOrdersRemove.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequence Diagram\Controller_PrivetOrdersRemove.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Sequence Diagram\Controller_PrivetOrdersRemove.sequencediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="Class Diagram\UMLClassDiagramV1.classdiagram">
