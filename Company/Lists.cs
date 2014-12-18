@@ -116,6 +116,7 @@ namespace Company
             : base()
         {
         }
+
         public override System.Data.DataTable AsDataTable()
         {
             var dataTable = new System.Data.DataTable();
