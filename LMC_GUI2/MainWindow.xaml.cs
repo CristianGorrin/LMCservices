@@ -3191,7 +3191,7 @@ namespace LMC_GUI2
 
             for (int i = 2; i < row.ItemArray.Length; i++)
             {
-                if (row.ItemArray[i] != null)
+                if (row.ItemArray[i] != string.Empty)
                 {
                     orders.Add(Convert.ToInt32(row.ItemArray[i].ToString()));
                 }
